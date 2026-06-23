@@ -484,7 +484,7 @@ button {
   color: var(--cyan);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-size: clamp(3rem, 5.4vw, 5.4rem);
   font-weight: 700;
   text-align: center;
   line-height: 1.1;
@@ -493,8 +493,8 @@ button {
 .section-title {
   margin: 0 auto;
   max-width: 16ch;
-  text-align: center;
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  text-align: left;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   line-height: 1.02;
   letter-spacing: -0.045em;
 }
