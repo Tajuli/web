@@ -10,27 +10,39 @@ const rotatingWords = [
   "Funnels that scale",
 ];
 
-const heroSlides = [
+const slides = [
   {
-    label: "SEO Growth",
-    title: "Organic traffic that compounds every month",
-    stat: "+184%",
-    sub: "Visibility & traffic growth",
-    points: ["Technical SEO", "Content strategy", "Authority growth"],
+    tag: "SEO Growth",
+    title: "Organic visibility that compounds month after month.",
+    desc:
+      "Technical SEO, content strategy and authority building aligned to bring qualified traffic and long-term search growth.",
+    metric: "+184%",
+    metricLabel: "Organic traffic growth",
+    chip1: "Technical SEO",
+    chip2: "Content Strategy",
+    chip3: "Authority Building",
   },
   {
-    label: "Paid Ads",
-    title: "Performance campaigns built for qualified leads",
-    stat: "4.8x",
-    sub: "Average ROAS across campaigns",
-    points: ["Google Ads", "Meta Ads", "Lead generation funnels"],
+    tag: "Paid Media",
+    title: "Performance campaigns built for pipeline, not vanity clicks.",
+    desc:
+      "Google Ads and Meta campaigns structured around better lead quality, stronger ROAS and lower cost per acquisition.",
+    metric: "4.8x",
+    metricLabel: "Average ROAS",
+    chip1: "Google Ads",
+    chip2: "Meta Ads",
+    chip3: "Lead Funnels",
   },
   {
-    label: "Web + CRO",
-    title: "Premium websites that turn attention into enquiries",
-    stat: "+44%",
-    sub: "Landing page conversion lift",
-    points: ["Conversion-first design", "Fast UX", "High-intent CTAs"],
+    tag: "Web + CRO",
+    title: "Premium websites that turn attention into enquiries.",
+    desc:
+      "Fast, conversion-focused websites and landing pages designed to make your brand look premium and convert visitors into leads.",
+    metric: "+44%",
+    metricLabel: "Landing page CVR lift",
+    chip1: "UI/UX",
+    chip2: "CRO",
+    chip3: "Web Design",
   },
 ];
 
@@ -53,8 +65,8 @@ export default function Hero() {
     }, 2200);
 
     const slideTimer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 3200);
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 3400);
 
     return () => {
       clearInterval(wordTimer);
@@ -64,28 +76,28 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.noise} />
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
       <div className={`${styles.glow} ${styles.glowC}`} />
 
       <div className={`site-container ${styles.heroGrid}`}>
-        {/* LEFT CONTENT */}
+        {/* LEFT */}
         <div className={`${styles.copyCol} ${mounted ? styles.reveal : ""}`}>
           <div className={styles.kickerWrap}>
             <span className={styles.kickerDot} />
-            <p className={styles.kicker}>PrimeDigitor • Growth Marketing Agency</p>
+            <p className={styles.kicker}>PrimeDigitor • Premium Growth Marketing Agency</p>
           </div>
 
           <h1 className={styles.title}>
-            We turn <span>attention</span> into
+            We build <span>brand growth</span>
             <br />
-            pipeline, leads & revenue.
+            that turns traffic into revenue.
           </h1>
 
           <div className={styles.rotatorWrap}>
             <span className={styles.rotatorLabel}>Built for brands that need</span>
+
             <div className={styles.rotatorBox}>
               {rotatingWords.map((word, index) => (
                 <span
@@ -101,10 +113,10 @@ export default function Hero() {
           </div>
 
           <p className={styles.text}>
-            PrimeDigitor helps ambitious brands grow with SEO, paid ads,
-            premium web experiences and conversion-focused funnels—so your
-            marketing stops feeling scattered and starts producing measurable,
-            repeatable growth.
+            PrimeDigitor helps ambitious brands grow through SEO, paid ads,
+            premium websites and conversion-focused funnels—so your marketing
+            stops feeling fragmented and starts producing qualified leads,
+            stronger trust and measurable revenue growth.
           </p>
 
           <div className={styles.actions}>
@@ -130,13 +142,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* RIGHT SLIDE SHOWCASE */}
+        {/* RIGHT */}
         <div className={`${styles.visualCol} ${mounted ? styles.revealRight : ""}`}>
-          <div className={styles.visualWrap}>
-            <div className={styles.visualTopBar}>
-              <span className={styles.visualTag}>Growth Stack</span>
+          <div className={styles.sliderShell}>
+            <div className={styles.sliderTop}>
+              <span className={styles.sliderEyebrow}>Growth Stack</span>
+
               <div className={styles.dots}>
-                {heroSlides.map((_, index) => (
+                {slides.map((_, index) => (
                   <button
                     key={index}
                     aria-label={`Go to slide ${index + 1}`}
@@ -149,70 +162,70 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className={styles.slideStage}>
-              {heroSlides.map((slide, index) => {
-                const offset = (index - activeSlide + heroSlides.length) % heroSlides.length;
+            <div className={styles.slideStack}>
+              {slides.map((slide, index) => {
+                const offset = (index - activeSlide + slides.length) % slides.length;
 
-                let cardClass = styles.slideCardBack;
-                if (offset === 0) cardClass = styles.slideCardActive;
-                else if (offset === 1) cardClass = styles.slideCardNext;
-                else if (offset === 2) cardClass = styles.slideCardBack;
+                let stateClass = styles.cardBack;
+                if (offset === 0) stateClass = styles.cardActive;
+                else if (offset === 1) stateClass = styles.cardNext;
+                else stateClass = styles.cardBack;
 
                 return (
                   <article
                     key={slide.title}
-                    className={`${styles.slideCard} ${cardClass}`}
+                    className={`${styles.slideCard} ${stateClass}`}
                   >
-                    <div className={styles.slideBadge}>{slide.label}</div>
+                    <div className={styles.cardHeader}>
+                      <span className={styles.cardTag}>{slide.tag}</span>
+                    </div>
 
-                    <div className={styles.slideContent}>
-                      <div className={styles.slideMain}>
+                    <div className={styles.cardBody}>
+                      <div className={styles.cardLeft}>
                         <h3>{slide.title}</h3>
-                        <p>{slide.sub}</p>
+                        <p>{slide.desc}</p>
 
-                        <ul className={styles.featureList}>
-                          {slide.points.map((point) => (
-                            <li key={point}>{point}</li>
-                          ))}
-                        </ul>
+                        <div className={styles.chips}>
+                          <span>{slide.chip1}</span>
+                          <span>{slide.chip2}</span>
+                          <span>{slide.chip3}</span>
+                        </div>
                       </div>
 
-                      <div className={styles.slideStatBox}>
+                      <div className={styles.metricCard}>
                         <span>Result Snapshot</span>
-                        <strong>{slide.stat}</strong>
-                        <small>{slide.sub}</small>
+                        <strong>{slide.metric}</strong>
+                        <small>{slide.metricLabel}</small>
                       </div>
                     </div>
 
-                    <div className={styles.mockChart}>
-                      <div className={styles.chartLine} />
-                      <div className={styles.chartBars}>
-                        <span style={{ height: "34%" }} />
-                        <span style={{ height: "48%" }} />
-                        <span style={{ height: "56%" }} />
-                        <span style={{ height: "74%" }} />
-                        <span style={{ height: "68%" }} />
-                        <span style={{ height: "88%" }} />
+                    <div className={styles.cardVisual}>
+                      <div className={styles.visualPanelLarge}>
+                        <div className={styles.visualPanelHeader}>
+                          <span>Performance Trend</span>
+                          <span>Live</span>
+                        </div>
+
+                        <div className={styles.lineChart}>
+                          <span className={styles.lineA}></span>
+                          <span className={styles.lineB}></span>
+                        </div>
+                      </div>
+
+                      <div className={styles.visualPanelRow}>
+                        <div className={styles.visualMini}>
+                          <span>Lead Quality</span>
+                          <strong>+58%</strong>
+                        </div>
+                        <div className={styles.visualMini}>
+                          <span>Cost Per Lead</span>
+                          <strong>-31%</strong>
+                        </div>
                       </div>
                     </div>
                   </article>
                 );
               })}
-            </div>
-
-            <div className={styles.bottomStrip}>
-              <div className={styles.bottomMetric}>
-                <span>Search Visibility</span>
-                <strong>+186%</strong>
-              </div>
-              <div className={styles.bottomMetric}>
-                <span>Landing Page CVR</span>
-                <strong>+44%</strong>
-              </div>
-              <div className={styles.bottomMetric}>
-                <span>Revenue Lift</span>
-                <strong>+224%</strong>
-              </div>
             </div>
           </div>
         </div>
