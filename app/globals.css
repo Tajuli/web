@@ -474,8 +474,8 @@ button {
 
 /* UPDATED SECTION HEADINGS */
 .section-head {
-  max-width: 900px;
-  margin: 0 auto 3.25rem;
+  max-width: 980px;
+  margin: 0 auto 4.25rem;
   text-align: center;
 }
 
@@ -483,22 +483,29 @@ button {
   margin: 0 0 1rem;
   color: var(--cyan);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  font-size: 0.82rem;
+  font-weight: 700;
   text-align: center;
 }
 
 .section-title {
   margin: 0 auto;
-  max-width: 16ch;
+  max-width: 13ch;
   text-align: center;
-  font-size: clamp(3rem, 5.8vw, 5.6rem);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
+  font-size: clamp(3.4rem, 6vw, 6.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+  color: #ffffff;
+  text-wrap: balance;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.15),
+    0 10px 40px rgba(83, 213, 255, 0.08);
 }
 
 .section-text {
-  margin: 1.15rem auto 0;
+  margin: 1.4rem auto 0;
   max-width: 760px;
   text-align: center;
   color: rgba(var(--muted));
