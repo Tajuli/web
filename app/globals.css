@@ -493,7 +493,7 @@ button {
   margin: 0 auto;
   max-width: 14ch;
   text-align: center;
-  font-size: clamp(9rem, 18vw, 18rem);
+  font-size: clamp(1rem, 1.6vw, 1.6rem);
   line-height: 1;
   letter-spacing: -0.05em;
   font-weight: 800;
