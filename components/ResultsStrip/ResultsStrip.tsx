@@ -1,0 +1,3 @@
+import styles from "./ResultsStrip.module.css";
+const results=[{value:"4.1x",label:"Average ROAS"},{value:"+162%",label:"Organic traffic growth"},{value:"-31%",label:"Lower CPL"},{value:"+67%",label:"CTA click uplift"}];
+export default function ResultsStrip(){return(<section className={styles.strip}><div className={`site-container ${styles.grid}`}>{results.map(item=><div key={item.label} className={styles.item}><strong>{item.value}</strong><span>{item.label}</span></div>)}</div></section>)}
