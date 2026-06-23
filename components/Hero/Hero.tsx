@@ -25,17 +25,20 @@ const floatingCards = [
 export default function Hero() {
   const [activeWord, setActiveWord] = useState(0);
   const [bars, setBars] = useState([36, 52, 66, 84, 72, 92]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const wordTimer = setInterval(() => {
       setActiveWord((prev) => (prev + 1) % rotatingWords.length);
-    }, 2200);
+    }, 2400);
 
     const chartTimer = setInterval(() => {
       setBars((prev) =>
-        prev.map(() => 35 + Math.floor(Math.random() * 60))
+        prev.map(() => 38 + Math.floor(Math.random() * 55))
       );
-    }, 1800);
+    }, 2200);
 
     return () => {
       clearInterval(wordTimer);
@@ -45,17 +48,14 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* background glows */}
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
       <div className={`${styles.glow} ${styles.glowC}`} />
-
-      {/* subtle grid */}
       <div className={styles.gridOverlay} />
 
       <div className={`site-container ${styles.heroGrid}`}>
         {/* LEFT */}
-        <div className={styles.copyCol}>
+        <div className={`${styles.copyCol} ${mounted ? styles.reveal : ""}`}>
           <div className={styles.kickerWrap}>
             <span className={styles.kickerDot} />
             <p className={styles.kicker}>PrimeDigitor • Premium Growth Marketing Agency</p>
@@ -90,7 +90,7 @@ export default function Hero() {
           </p>
 
           <div className={styles.actions}>
-            <a href="#contact" className="btn btn-primary">
+            <a href="#contact" className={`btn btn-primary ${styles.primaryBtn}`}>
               Book Free Strategy Call
             </a>
             <a href="#work" className={`btn btn-secondary ${styles.secondaryBtn}`}>
@@ -99,8 +99,12 @@ export default function Hero() {
           </div>
 
           <div className={styles.miniProof}>
-            {proofStats.map((item) => (
-              <div key={item.label} className={styles.miniProofItem}>
+            {proofStats.map((item, i) => (
+              <div
+                key={item.label}
+                className={`${styles.miniProofItem} ${mounted ? styles.reveal : ""}`}
+                style={{ transitionDelay: `${0.12 * i}s` }}
+              >
                 <strong>{item.value}</strong>
                 <span>{item.label}</span>
               </div>
@@ -109,9 +113,8 @@ export default function Hero() {
         </div>
 
         {/* RIGHT */}
-        <div className={styles.visualCol}>
+        <div className={`${styles.visualCol} ${mounted ? styles.revealRight : ""}`}>
           <div className={styles.dashboardShell}>
-            {/* floating cards */}
             <div className={`${styles.floatCard} ${styles.floatCardOne}`}>
               <span>{floatingCards[0].label}</span>
               <strong>{floatingCards[0].value}</strong>
@@ -168,7 +171,7 @@ export default function Hero() {
                       key={index}
                       style={{
                         height: `${height}%`,
-                        transition: "height .7s ease",
+                        transition: "height .8s ease",
                       }}
                     />
                   ))}
