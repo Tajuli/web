@@ -3,8 +3,8 @@
   overflow: hidden;
   padding-top: 8.8rem;
   background:
-    radial-gradient(circle at 12% 14%, rgba(83, 213, 255, 0.18), transparent 22%),
-    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.16), transparent 24%),
+    radial-gradient(circle at 12% 14%, rgba(83, 213, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.14), transparent 24%),
     linear-gradient(180deg, #06101d 0%, #0b1628 100%);
 }
 
@@ -12,12 +12,12 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
   pointer-events: none;
-  opacity: .45;
+  opacity: .42;
 }
 
 .glow {
@@ -25,6 +25,7 @@
   border-radius: 999px;
   filter: blur(95px);
   pointer-events: none;
+  animation: glowDrift 12s ease-in-out infinite alternate;
 }
 
 .glowA {
@@ -32,7 +33,7 @@
   height: 260px;
   left: -40px;
   top: 120px;
-  background: rgba(83, 213, 255, 0.18);
+  background: rgba(83, 213, 255, 0.16);
 }
 
 .glowB {
@@ -40,7 +41,8 @@
   height: 360px;
   right: -90px;
   top: 70px;
-  background: rgba(99, 102, 241, 0.18);
+  background: rgba(99, 102, 241, 0.16);
+  animation-delay: 1.2s;
 }
 
 .glowC {
@@ -48,7 +50,17 @@
   height: 300px;
   left: 42%;
   bottom: -120px;
-  background: rgba(83, 213, 255, 0.1);
+  background: rgba(83, 213, 255, 0.08);
+  animation-delay: 2s;
+}
+
+@keyframes glowDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(12px, -14px, 0) scale(1.04);
+  }
 }
 
 .heroGrid {
@@ -66,6 +78,26 @@
   }
 }
 
+/* reveal */
+.copyCol,
+.visualCol,
+.miniProofItem {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.revealRight {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .9s ease .15s, transform .9s ease .15s;
+}
+
 /* LEFT */
 .copyCol {
   position: relative;
@@ -81,6 +113,7 @@
   border: 1px solid rgba(255,255,255,.08);
   background: rgba(255,255,255,.04);
   backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .kickerDot {
@@ -88,7 +121,7 @@
   height: 10px;
   border-radius: 999px;
   background: var(--cyan);
-  box-shadow: 0 0 16px rgba(83, 213, 255, .9);
+  box-shadow: 0 0 16px rgba(83, 213, 255, .85);
 }
 
 .kicker {
@@ -101,7 +134,7 @@
 
 .title {
   margin: 1.35rem 0 0;
-  font-size: clamp(3.15rem, 7vw, 6.5rem);
+  font-size: clamp(3.15rem, 7vw, 6.4rem);
   line-height: .93;
   letter-spacing: -.06em;
   max-width: 10.8ch;
@@ -165,9 +198,28 @@
   margin-top: 2rem;
 }
 
+.primaryBtn,
+.secondaryBtn {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+}
+
+.primaryBtn:hover {
+  box-shadow: 0 18px 40px rgba(83, 213, 255, .22);
+}
+
 .secondaryBtn {
   background: rgba(255,255,255,.05);
   backdrop-filter: blur(16px);
+}
+
+.secondaryBtn:hover {
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.07);
 }
 
 .miniProof {
@@ -184,6 +236,7 @@
   border-radius: 1.2rem;
   padding: 1rem;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+  transition: opacity .8s ease, transform .8s ease;
 }
 
 .miniProofItem strong {
@@ -319,7 +372,7 @@
   flex: 1;
   border-radius: 999px 999px 0 0;
   background: linear-gradient(180deg, rgba(83,213,255,.96), rgba(83,213,255,.22));
-  box-shadow: 0 12px 28px rgba(83,213,255,.14);
+  box-shadow: 0 12px 28px rgba(83,213,255,.12);
 }
 
 .bottomStrip {
@@ -359,7 +412,7 @@
   border-radius: 1.2rem;
   padding: .95rem 1rem;
   box-shadow: 0 20px 50px rgba(0,0,0,.28);
-  animation: floatY 5.5s ease-in-out infinite;
+  animation: floatY 6.5s ease-in-out infinite;
 }
 
 .floatCard span {
@@ -394,7 +447,7 @@
 
 @keyframes floatY {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
 
@@ -404,13 +457,8 @@
     min-height: 560px;
   }
 
-  .floatCardOne {
-    left: 0;
-  }
-
-  .floatCardTwo {
-    right: 0;
-  }
+  .floatCardOne { left: 0; }
+  .floatCardTwo { right: 0; }
 }
 
 @media (max-width: 991px) {
