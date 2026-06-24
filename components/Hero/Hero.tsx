@@ -67,11 +67,7 @@ export default function Hero() {
                 </div>
 
                 <h1 className={styles.title}>
-                  Growth-focused
-                  <br />
-                  marketing that
-                  <br />
-                  <span>delivers results.</span>
+                  Growth-focused marketing Agency that <span>delivers results.</span>
                 </h1>
 
                 <p className={styles.text}>
