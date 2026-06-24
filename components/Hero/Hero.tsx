@@ -3,9 +3,12 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const bgImages = [
-  "/images/hero/hero-1.png",
-  "/images/hero/hero-2.png",
+const bgImages = ["/images/hero/hero-1.png"];
+
+const rotatingPhrases = [
+  "drives organic growth.",
+  "generates quality leads.",
+  "builds high-converting websites.",
 ];
 
 const resultCards = [
@@ -19,21 +22,29 @@ const resultCards = [
 
 export default function Hero() {
   const [activeBg, setActiveBg] = useState(0);
+  const [activePhrase, setActivePhrase] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
 
-    const timer = setInterval(() => {
+    const bgTimer = setInterval(() => {
       setActiveBg((prev) => (prev + 1) % bgImages.length);
     }, 4500);
 
-    return () => clearInterval(timer);
+    const textTimer = setInterval(() => {
+      setActivePhrase((prev) => (prev + 1) % rotatingPhrases.length);
+    }, 2600);
+
+    return () => {
+      clearInterval(bgTimer);
+      clearInterval(textTimer);
+    };
   }, []);
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Background image slider */}
+      {/* Background image */}
       <div className={styles.bgSlider}>
         {bgImages.map((img, index) => (
           <div
@@ -46,17 +57,13 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Dark overlay for readability */}
-      <div className={styles.bgOverlay} />
-
-      {/* Existing decorative overlays */}
+      {/* Decorative overlays only */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
         <div className={styles.heroMain}>
-          {/* LEFT ONLY */}
           <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
             <div className={styles.leftInner}>
               <div className={styles.leftTop}>
@@ -68,8 +75,24 @@ export default function Hero() {
                 </div>
 
                 <h1 className={styles.title}>
-                  Growth-focused marketing Agency that{" "}
-                  <span>delivers results.</span>
+                  <span className={styles.titleStatic}>
+                    Growth-focused marketing Agency that
+                  </span>
+
+                  <span className={styles.animatedLine}>
+                    {rotatingPhrases.map((phrase, index) => (
+                      <span
+                        key={phrase}
+                        className={`${styles.rotatingText} ${
+                          index === activePhrase
+                            ? styles.rotatingTextActive
+                            : styles.rotatingTextHidden
+                        }`}
+                      >
+                        {phrase}
+                      </span>
+                    ))}
+                  </span>
                 </h1>
 
                 <p className={styles.text}>
