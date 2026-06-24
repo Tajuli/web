@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const heroBgImages = [
-  "/images/hero-bg-1.jpg",
-  "/images/hero-bg-2.jpg",
-  "/images/hero-bg-3.jpg",
+const bgImages = [
+  "/images/hero/hero-1.jpg",
+  "/images/hero/hero-2.jpg",
+  "/images/hero/hero-3.jpg",
 ];
 
 const resultCards = [
@@ -19,24 +19,24 @@ const resultCards = [
 ];
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
   const [activeBg, setActiveBg] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
 
-    const bgTimer = setInterval(() => {
-      setActiveBg((prev) => (prev + 1) % heroBgImages.length);
-    }, 4000);
+    const timer = setInterval(() => {
+      setActiveBg((prev) => (prev + 1) % bgImages.length);
+    }, 4500);
 
-    return () => clearInterval(bgTimer);
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Auto changing background images */}
+      {/* Background image slider */}
       <div className={styles.bgSlider}>
-        {heroBgImages.map((img, index) => (
+        {bgImages.map((img, index) => (
           <div
             key={img}
             className={`${styles.bgSlide} ${
@@ -47,15 +47,17 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* dark overlay */}
-      <div className={styles.heroOverlay} />
+      {/* Dark overlay for readability */}
+      <div className={styles.bgOverlay} />
 
+      {/* Existing decorative overlays */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
         <div className={styles.heroMain}>
+          {/* LEFT ONLY */}
           <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
             <div className={styles.leftInner}>
               <div className={styles.leftTop}>
