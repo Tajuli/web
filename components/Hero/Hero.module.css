@@ -175,256 +175,252 @@
   justify-content: flex-end;
 }
 
-/* MOTION POSTER */
-.posterShell {
+/* NEW GLASS PANEL */
+.glassPanel {
   position: relative;
   width: 100%;
   max-width: 620px;
   min-height: 460px;
+  border-radius: 2rem;
+  padding: 1.3rem;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
   background:
-    radial-gradient(circle at 82% 16%, rgba(83,213,255,.08), transparent 20%),
-    radial-gradient(circle at 20% 78%, rgba(99,102,241,.10), transparent 28%),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    radial-gradient(circle at top right, rgba(83, 213, 255, 0.10), transparent 24%),
+    radial-gradient(circle at left bottom, rgba(99, 102, 241, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
   backdrop-filter: blur(18px);
-  border-radius: 2rem;
-  padding: 1.4rem;
   box-shadow:
     0 24px 70px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,255,255,.04);
-  overflow: hidden;
-  isolation: isolate;
+    inset 0 1px 0 rgba(255,255,255,.06);
 }
 
-.posterGrid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
-  opacity: .6;
-  pointer-events: none;
-}
-
-.posterGlowA,
-.posterGlowB {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(80px);
-  pointer-events: none;
-}
-
-.posterGlowA {
-  width: 220px;
-  height: 220px;
-  top: -30px;
-  right: -40px;
-  background: rgba(83,213,255,.16);
-  animation: floatGlow 8s ease-in-out infinite alternate;
-}
-
-.posterGlowB {
-  width: 240px;
-  height: 240px;
-  bottom: -80px;
-  left: -60px;
-  background: rgba(99,102,241,.14);
-  animation: floatGlow 9s ease-in-out infinite alternate-reverse;
-}
-
-.posterRing,
-.posterRingSmall {
-  position: absolute;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  pointer-events: none;
-}
-
-.posterRing {
-  width: 280px;
-  height: 280px;
-  right: -60px;
-  top: 70px;
-  background: radial-gradient(circle at center, rgba(255,255,255,.03), transparent 70%);
-  animation: rotateSlow 22s linear infinite;
-}
-
-.posterRingSmall {
-  width: 120px;
-  height: 120px;
-  left: 44px;
-  bottom: 54px;
-  border-color: rgba(83,213,255,.16);
-  animation: floatSmall 7s ease-in-out infinite;
-}
-
-.posterLine {
-  position: absolute;
-  left: 42px;
-  right: 42px;
-  bottom: 102px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(83,213,255,.45),
-    rgba(255,255,255,.16),
-    transparent
-  );
-  opacity: .8;
-}
-
-.posterBadge {
+.glassPanelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   position: relative;
   z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .55rem .85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.82);
-  font-size: .84rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px);
 }
 
-.posterBadgeDot {
+.glassBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .72rem 1rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  color: rgba(255,255,255,.84);
+  font-size: .92rem;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+}
+
+.glassBadgeDot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
   background: var(--cyan);
-  box-shadow: 0 0 14px rgba(83,213,255,.8);
+  box-shadow: 0 0 14px rgba(83, 213, 255, .9);
 }
 
-.posterTop {
+.glassMiniPill {
+  padding: .72rem 1rem;
+  border-radius: 999px;
+  background: rgba(83,213,255,.08);
+  border: 1px solid rgba(83,213,255,.16);
+  color: var(--cyan);
+  font-size: .88rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.glassContent {
   position: relative;
   z-index: 2;
-  margin-top: 2rem;
-  max-width: 78%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.35rem;
 }
 
-.posterEyebrow {
-  margin: 0;
-  color: rgba(255,255,255,.62);
+.glassCopy {
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(8, 16, 29, 0.70), rgba(8, 16, 29, 0.38));
+  backdrop-filter: blur(12px);
+}
+
+.glassEyebrow {
+  margin: 0 0 .85rem;
+  color: var(--cyan);
   font-size: .88rem;
-  letter-spacing: .12em;
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
-.posterWords {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  gap: .2rem;
+.glassTitle {
+  margin: 0;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  max-width: 12ch;
 }
 
-.posterWord {
-  font-size: clamp(2.3rem, 5vw, 4rem);
-  line-height: .95;
-  letter-spacing: -.06em;
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 0 8px 40px rgba(0,0,0,.28);
-}
-
-.posterWord:nth-child(2) {
-  color: rgba(255,255,255,.92);
-}
-
-.posterWord:nth-child(3) {
+.glassTitle span {
   color: var(--cyan);
 }
 
-.posterText {
-  margin-top: 1.25rem;
-  max-width: 34ch;
+.glassText {
+  margin: 1rem 0 0;
+  max-width: 48ch;
   color: rgba(255,255,255,.68);
   line-height: 1.8;
   font-size: .98rem;
 }
 
-/* floating chips */
-.posterChip {
-  position: absolute;
-  z-index: 2;
-  padding: .7rem .95rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(7, 15, 28, 0.62);
-  color: rgba(255,255,255,.86);
+.glassStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .9rem;
+}
+
+.glassStatCard {
+  border-radius: 1.2rem;
+  padding: 1rem;
+  min-height: 92px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+  backdrop-filter: blur(10px);
+}
+
+.glassStatCard strong {
+  display: block;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.glassStatCard span {
+  display: block;
+  margin-top: .55rem;
+  color: rgba(255,255,255,.65);
   font-size: .9rem;
-  font-weight: 500;
-  backdrop-filter: blur(12px);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.04);
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
-.chipOne {
-  top: 92px;
-  right: 42px;
-  animation: floatChip 6.5s ease-in-out infinite;
+.glassChartCard {
+  border-radius: 1.45rem;
+  padding: 1.1rem 1.1rem 1rem;
+  border: 1px solid rgba(255,255,255,.06);
+  background:
+    linear-gradient(180deg, rgba(9,16,29,.82), rgba(10,18,31,.56));
+  overflow: hidden;
 }
 
-.chipTwo {
-  top: 205px;
-  right: 22px;
-  animation: floatChip 7.5s ease-in-out infinite reverse;
-}
-
-.chipThree {
-  bottom: 116px;
-  right: 70px;
-  animation: floatChip 8.2s ease-in-out infinite;
-}
-
-/* footer */
-.posterFooter {
-  position: absolute;
-  z-index: 2;
-  left: 1.4rem;
-  right: 1.4rem;
-  bottom: 1.35rem;
+.chartHeader {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.posterMeta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .65rem;
+.chartLabel {
+  margin: 0;
+  color: rgba(255,255,255,.58);
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
-.posterMeta span {
-  padding: .55rem .82rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.035);
-  color: rgba(255,255,255,.72);
-  font-size: .84rem;
-  font-weight: 500;
+.chartHeader h4 {
+  margin: .45rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
 }
 
-.posterLink {
+.chartGrowth {
   display: inline-flex;
   align-items: center;
-  gap: .55rem;
-  color: #fff;
+  justify-content: center;
+  padding: .5rem .8rem;
+  border-radius: 999px;
+  background: rgba(83,213,255,.10);
+  border: 1px solid rgba(83,213,255,.16);
+  color: var(--cyan);
   font-weight: 600;
-  text-decoration: none;
-  transition: transform .25s ease, opacity .25s ease;
+  font-size: .92rem;
 }
 
-.posterLink:hover {
-  transform: translateX(4px);
-  opacity: .92;
+.chartBars {
+  margin-top: 1.2rem;
+  height: 170px;
+  display: flex;
+  align-items: flex-end;
+  gap: .75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.chartBars span {
+  flex: 1;
+  min-width: 0;
+  border-radius: 999px 999px 14px 14px;
+  background:
+    linear-gradient(180deg, rgba(83,213,255,.95), rgba(83,213,255,.28));
+  box-shadow: 0 8px 24px rgba(83,213,255,.12);
+  position: relative;
+}
+
+.chartBars span::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 24%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.15), transparent);
+}
+
+.serviceTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+
+.serviceTag {
+  padding: .68rem .95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.82);
+  font-size: .88rem;
+  line-height: 1;
+}
+
+.panelGlowOne,
+.panelGlowTwo {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.panelGlowOne {
+  width: 180px;
+  height: 180px;
+  right: -30px;
+  top: 80px;
+  background: rgba(83,213,255,.12);
+}
+
+.panelGlowTwo {
+  width: 180px;
+  height: 180px;
+  left: -40px;
+  bottom: 40px;
+  background: rgba(99,102,241,.12);
 }
 
 /* RESULT ROW */
@@ -460,49 +456,6 @@
   font-size: .9rem;
 }
 
-/* animations */
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes floatGlow {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(10px, -14px, 0) scale(1.06);
-  }
-}
-
-@keyframes floatSmall {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes floatChip {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 /* RESPONSIVE */
 @media (max-width: 1199px) {
   .heroMain {
@@ -518,12 +471,8 @@
     font-size: clamp(2.6rem, 5vw, 4.3rem);
   }
 
-  .posterTop {
-    max-width: 82%;
-  }
-
-  .posterWord {
-    font-size: clamp(2.2rem, 4vw, 3.3rem);
+  .glassStatsGrid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -560,25 +509,9 @@
     justify-content: flex-start;
   }
 
-  .posterShell {
+  .glassPanel {
     max-width: 100%;
-    min-height: 430px;
-  }
-
-  .posterTop {
-    max-width: 72%;
-  }
-
-  .chipOne {
-    right: 30px;
-  }
-
-  .chipTwo {
-    right: 18px;
-  }
-
-  .chipThree {
-    right: 42px;
+    min-height: auto;
   }
 
   .resultRow {
@@ -605,84 +538,32 @@
     width: 100%;
   }
 
-  .posterShell {
-    min-height: 420px;
+  .glassPanel {
     padding: 1rem;
     border-radius: 1.4rem;
   }
 
-  .posterBadge {
-    font-size: .78rem;
-    padding: .5rem .75rem;
-  }
-
-  .posterTop {
-    margin-top: 1.35rem;
-    max-width: 100%;
-  }
-
-  .posterEyebrow {
-    font-size: .8rem;
-  }
-
-  .posterWords {
-    gap: .12rem;
-  }
-
-  .posterWord {
-    font-size: clamp(2rem, 10vw, 3rem);
-  }
-
-  .posterText {
-    margin-top: 1rem;
-    font-size: .94rem;
-    max-width: 100%;
-    padding-right: .5rem;
-  }
-
-  .posterChip {
-    display: none;
-  }
-
-  .posterRing {
-    width: 220px;
-    height: 220px;
-    right: -70px;
-    top: 95px;
-  }
-
-  .posterRingSmall {
-    width: 92px;
-    height: 92px;
-    left: 18px;
-    bottom: 90px;
-  }
-
-  .posterLine {
-    left: 18px;
-    right: 18px;
-    bottom: 88px;
-  }
-
-  .posterFooter {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
+  .glassPanelTop {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .posterMeta {
-    gap: .5rem;
+  .glassCopy {
+    padding: 1.15rem;
+    border-radius: 1.2rem;
   }
 
-  .posterMeta span {
-    font-size: .78rem;
-    padding: .5rem .7rem;
+  .glassTitle {
+    font-size: 1.9rem;
   }
 
-  .posterLink {
-    font-size: .95rem;
+  .glassStatsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartBars {
+    height: 140px;
+    gap: .55rem;
   }
 
   .resultRow {
