@@ -125,7 +125,7 @@
 .title {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3.6rem);  
-  line-height: .95;  
+  line-height: 1.25;  
   letter-spacing: -.055em;
 }
 
