@@ -51,15 +51,14 @@
 
 .heroMain {
   display: grid;
-  grid-template-columns: 40% 40%;
-  justify-content: space-between;
+  grid-template-columns: 1fr;
+  justify-content: flex-start;
   align-items: stretch;
-  gap: 4rem;
+  gap: 0;
 }
 
 /* reveal */
-.left,
-.right {
+.left {
   opacity: 0;
   transform: translateY(24px);
 }
@@ -70,21 +69,16 @@
   transition: opacity .8s ease, transform .8s ease;
 }
 
-.revealRight {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .9s ease .12s, transform .9s ease .12s;
-}
-
 /* LEFT */
 .left {
   display: flex;
-  min-height: 460px;
+  min-height: auto;
+  max-width: 760px;
 }
 
 .leftInner {
   width: 100%;
-  min-height: 460px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -138,6 +132,7 @@
   color: rgba(255,255,255,.68);
   line-height: 1.8;
   font-size: 1.02rem;
+  max-width: 58ch;
 }
 
 .actions {
@@ -167,260 +162,6 @@
 
 .secondaryBtn:hover {
   background: rgba(255,255,255,.07);
-}
-
-/* RIGHT */
-.right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* NEW GLASS PANEL */
-.glassPanel {
-  position: relative;
-  width: 100%;
-  max-width: 620px;
-  min-height: 460px;
-  border-radius: 2rem;
-  padding: 1.3rem;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.08);
-  background:
-    radial-gradient(circle at top right, rgba(83, 213, 255, 0.10), transparent 24%),
-    radial-gradient(circle at left bottom, rgba(99, 102, 241, 0.12), transparent 26%),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
-  backdrop-filter: blur(18px);
-  box-shadow:
-    0 24px 70px rgba(0,0,0,.28),
-    inset 0 1px 0 rgba(255,255,255,.06);
-}
-
-.glassPanelTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  position: relative;
-  z-index: 2;
-}
-
-.glassBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: .65rem;
-  padding: .72rem 1rem;
-  border-radius: 999px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  color: rgba(255,255,255,.84);
-  font-size: .92rem;
-  font-weight: 500;
-  backdrop-filter: blur(12px);
-}
-
-.glassBadgeDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--cyan);
-  box-shadow: 0 0 14px rgba(83, 213, 255, .9);
-}
-
-.glassMiniPill {
-  padding: .72rem 1rem;
-  border-radius: 999px;
-  background: rgba(83,213,255,.08);
-  border: 1px solid rgba(83,213,255,.16);
-  color: var(--cyan);
-  font-size: .88rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.glassContent {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 1.35rem;
-}
-
-.glassCopy {
-  padding: 1.5rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(255,255,255,.06);
-  background: linear-gradient(180deg, rgba(8, 16, 29, 0.70), rgba(8, 16, 29, 0.38));
-  backdrop-filter: blur(12px);
-}
-
-.glassEyebrow {
-  margin: 0 0 .85rem;
-  color: var(--cyan);
-  font-size: .88rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.glassTitle {
-  margin: 0;
-  font-size: clamp(1.9rem, 3vw, 2.7rem);
-  line-height: 1.15;
-  letter-spacing: -.04em;
-  max-width: 12ch;
-}
-
-.glassTitle span {
-  color: var(--cyan);
-}
-
-.glassText {
-  margin: 1rem 0 0;
-  max-width: 48ch;
-  color: rgba(255,255,255,.68);
-  line-height: 1.8;
-  font-size: .98rem;
-}
-
-.glassStatsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: .9rem;
-}
-
-.glassStatCard {
-  border-radius: 1.2rem;
-  padding: 1rem;
-  min-height: 92px;
-  border: 1px solid rgba(255,255,255,.06);
-  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
-  backdrop-filter: blur(10px);
-}
-
-.glassStatCard strong {
-  display: block;
-  font-size: 1.4rem;
-  line-height: 1;
-}
-
-.glassStatCard span {
-  display: block;
-  margin-top: .55rem;
-  color: rgba(255,255,255,.65);
-  font-size: .9rem;
-  line-height: 1.4;
-}
-
-.glassChartCard {
-  border-radius: 1.45rem;
-  padding: 1.1rem 1.1rem 1rem;
-  border: 1px solid rgba(255,255,255,.06);
-  background:
-    linear-gradient(180deg, rgba(9,16,29,.82), rgba(10,18,31,.56));
-  overflow: hidden;
-}
-
-.chartHeader {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.chartLabel {
-  margin: 0;
-  color: rgba(255,255,255,.58);
-  font-size: .82rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-
-.chartHeader h4 {
-  margin: .45rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.35;
-}
-
-.chartGrowth {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: .5rem .8rem;
-  border-radius: 999px;
-  background: rgba(83,213,255,.10);
-  border: 1px solid rgba(83,213,255,.16);
-  color: var(--cyan);
-  font-weight: 600;
-  font-size: .92rem;
-}
-
-.chartBars {
-  margin-top: 1.2rem;
-  height: 170px;
-  display: flex;
-  align-items: flex-end;
-  gap: .75rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,.05);
-}
-
-.chartBars span {
-  flex: 1;
-  min-width: 0;
-  border-radius: 999px 999px 14px 14px;
-  background:
-    linear-gradient(180deg, rgba(83,213,255,.95), rgba(83,213,255,.28));
-  box-shadow: 0 8px 24px rgba(83,213,255,.12);
-  position: relative;
-}
-
-.chartBars span::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 24%;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,.15), transparent);
-}
-
-.serviceTags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .75rem;
-}
-
-.serviceTag {
-  padding: .68rem .95rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.08);
-  background: rgba(255,255,255,.04);
-  color: rgba(255,255,255,.82);
-  font-size: .88rem;
-  line-height: 1;
-}
-
-.panelGlowOne,
-.panelGlowTwo {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(70px);
-  pointer-events: none;
-}
-
-.panelGlowOne {
-  width: 180px;
-  height: 180px;
-  right: -30px;
-  top: 80px;
-  background: rgba(83,213,255,.12);
-}
-
-.panelGlowTwo {
-  width: 180px;
-  height: 180px;
-  left: -40px;
-  bottom: 40px;
-  background: rgba(99,102,241,.12);
 }
 
 /* RESULT ROW */
@@ -458,21 +199,12 @@
 
 /* RESPONSIVE */
 @media (max-width: 1199px) {
-  .heroMain {
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-
   .resultRow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .title {
     font-size: clamp(2.6rem, 5vw, 4.3rem);
-  }
-
-  .glassStatsGrid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -483,17 +215,13 @@
 
   .heroMain {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .left,
-  .right {
-    max-width: 100%;
+    gap: 0;
   }
 
   .left,
   .leftInner {
     min-height: auto;
+    max-width: 100%;
   }
 
   .leftInner {
@@ -503,15 +231,6 @@
 
   .leftBottom {
     margin-top: 2rem;
-  }
-
-  .right {
-    justify-content: flex-start;
-  }
-
-  .glassPanel {
-    max-width: 100%;
-    min-height: auto;
   }
 
   .resultRow {
@@ -536,34 +255,6 @@
 
   .actions :global(.btn) {
     width: 100%;
-  }
-
-  .glassPanel {
-    padding: 1rem;
-    border-radius: 1.4rem;
-  }
-
-  .glassPanelTop {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .glassCopy {
-    padding: 1.15rem;
-    border-radius: 1.2rem;
-  }
-
-  .glassTitle {
-    font-size: 1.9rem;
-  }
-
-  .glassStatsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .chartBars {
-    height: 140px;
-    gap: .55rem;
   }
 
   .resultRow {
