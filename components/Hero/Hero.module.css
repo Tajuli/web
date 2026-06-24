@@ -1,41 +1,28 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 8.8rem;
-  padding-bottom: 3rem;
   min-height: 100vh;
+  padding-top: 8.5rem;
+  padding-bottom: 3rem;
   display: flex;
   align-items: center;
-  background: #07111f;
+  background: #09111f;
 }
 
 /* =========================
-   FULL WIDTH BG IMAGE
+   SINGLE BACKGROUND IMAGE
 ========================= */
-.bgSlider {
+.bgImage {
   position: absolute;
   inset: 0;
   z-index: 0;
-}
-
-.bgSlide {
-  position: absolute;
-  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 1s ease, transform 6s ease;
-  will-change: opacity, transform;
+  transform: scale(1.02);
 }
 
-.bgSlideActive {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* subtle grid overlay */
+/* No dark overlay */
 .gridOverlay {
   position: absolute;
   inset: 0;
@@ -44,7 +31,7 @@
     linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
   background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black 46%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
   pointer-events: none;
   opacity: .16;
 }
@@ -52,7 +39,7 @@
 .glow {
   position: absolute;
   border-radius: 999px;
-  filter: blur(90px);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 1;
 }
@@ -60,64 +47,41 @@
 .glowA {
   width: 280px;
   height: 280px;
-  left: -40px;
-  top: 180px;
+  left: -60px;
+  top: 160px;
   background: rgba(59, 130, 246, 0.16);
 }
 
 .glowB {
-  width: 320px;
-  height: 320px;
-  right: -80px;
-  top: 120px;
-  background: rgba(99, 102, 241, 0.14);
+  width: 340px;
+  height: 340px;
+  right: -100px;
+  top: 100px;
+  background: rgba(6, 182, 212, 0.12);
 }
 
 .heroInner {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   width: 100%;
 }
 
 /* =========================
-   HERO MAIN
+   CENTER HERO CONTENT
 ========================= */
-.heroMain {
-  min-height: calc(100vh - 11rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
 .heroContent {
-  width: min(100%, 980px);
+  max-width: 980px;
   margin: 0 auto;
-  opacity: 0;
-  transform: translateY(24px);
+  text-align: center;
+  padding: 2rem 0 0;
 }
 
-.reveal {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-/* =========================
-   HERO CONTENT
-========================= */
 .kickerWrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: .7rem;
   margin-bottom: 1.35rem;
-  padding: .7rem 1rem;
-  border-radius: 999px;
-  background: rgba(8, 18, 34, 0.45);
-  border: 1px solid rgba(255,255,255,.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .kickerDot {
@@ -125,86 +89,76 @@
   height: 9px;
   border-radius: 999px;
   background: var(--cyan);
-  box-shadow: 0 0 16px rgba(83, 213, 255, .85);
+  box-shadow: 0 0 16px rgba(83, 213, 255, .9);
 }
 
 .kicker {
   margin: 0;
-  color: rgba(255,255,255,.9);
+  color: rgba(255,255,255,.92);
   font-size: .95rem;
   font-weight: 500;
+  letter-spacing: .02em;
 }
 
 .title {
   margin: 0 auto;
-  max-width: 13ch;
-  color: #fff;
-  text-shadow: 0 8px 30px rgba(0,0,0,.28);
-  line-height: 1.03;
-  letter-spacing: -0.06em;
-  font-size: clamp(2.8rem, 6vw, 5.7rem);
+  max-width: 12ch;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .25rem;
+  gap: .2rem;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,.22);
 }
 
 .titleStatic {
   display: block;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  font-weight: 700;
 }
 
-.titleDynamic {
+.animatedLineWrap {
+  position: relative;
   display: block;
-  min-height: 2.3em;
+  min-height: 1.25em;
+  overflow: hidden;
+  width: 100%;
+}
+
+.animatedLine {
+  display: inline-block;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  font-weight: 700;
   color: var(--cyan);
-  will-change: transform, opacity, filter;
+  will-change: transform, opacity, clip-path;
+  transition:
+    transform .45s ease,
+    opacity .45s ease,
+    clip-path .45s ease;
 }
 
-.textIn {
-  animation: revealTextIn .55s cubic-bezier(.22, 1, .36, 1) forwards;
+.revealIn {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0 0 0 0);
 }
 
-.textOut {
-  animation: revealTextOut .32s ease forwards;
-}
-
-@keyframes revealTextIn {
-  0% {
-    opacity: 0;
-    transform: translateY(24px);
-    filter: blur(10px);
-    clip-path: inset(100% 0 0 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes revealTextOut {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-    clip-path: inset(0 0 0 0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-12px);
-    filter: blur(8px);
-    clip-path: inset(0 0 100% 0);
-  }
+.revealOut {
+  opacity: 0;
+  transform: translateY(34px);
+  clip-path: inset(0 0 100% 0);
 }
 
 .text {
   margin: 1.4rem auto 0;
-  color: rgba(255,255,255,.84);
+  max-width: 64ch;
+  color: rgba(255,255,255,.86);
   line-height: 1.8;
   font-size: 1.05rem;
-  max-width: 62ch;
-  text-shadow: 0 4px 20px rgba(0,0,0,.2);
 }
 
 .actions {
@@ -214,7 +168,7 @@
 }
 
 .primaryBtn {
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .primaryBtn:hover {
@@ -227,33 +181,32 @@
 ========================= */
 .resultRow {
   position: relative;
-  z-index: 3;
-  margin-top: 2.5rem;
+  z-index: 2;
+  margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: .95rem;
-  width: 100%;
-  max-width: 100%;
+  gap: 1rem;
 }
 
 .resultCard {
   position: relative;
   overflow: hidden;
   border-radius: 1.2rem;
-  padding: 1.05rem 1rem;
-  min-height: 92px;
+  padding: 1.1rem 1rem;
+  min-height: 94px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
+  /* darker glassmorphism */
   background:
-    linear-gradient(180deg, rgba(7, 16, 30, 0.78), rgba(7, 16, 30, 0.58));
-  border: 1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+    linear-gradient(180deg, rgba(8, 16, 32, 0.68), rgba(8, 16, 32, 0.48));
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
   box-shadow:
-    0 16px 38px rgba(0, 0, 0, 0.28),
+    0 18px 40px rgba(0, 0, 0, 0.22),
     inset 0 1px 0 rgba(255,255,255,.06);
 }
 
@@ -261,10 +214,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.08), transparent 36%),
-    radial-gradient(circle at top right, rgba(83,213,255,.10), transparent 30%);
   pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08), transparent 34%),
+    radial-gradient(circle at top right, rgba(83,213,255,.12), transparent 32%);
 }
 
 .resultCard strong {
@@ -280,22 +233,21 @@
   position: relative;
   z-index: 1;
   display: block;
-  margin-top: .45rem;
+  margin-top: .48rem;
   color: rgba(255,255,255,.82);
-  font-size: .9rem;
+  font-size: .92rem;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 1199px) {
-  .title {
-    max-width: 12ch;
-    font-size: clamp(2.8rem, 6vw, 4.9rem);
-  }
-
   .resultRow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .heroContent {
+    max-width: 900px;
   }
 }
 
@@ -306,58 +258,47 @@
     padding-bottom: 2.5rem;
   }
 
-  .heroMain {
-    min-height: auto;
-  }
-
   .title {
-    max-width: 12ch;
-    font-size: clamp(2.5rem, 8vw, 4.2rem);
+    max-width: 13ch;
   }
 
   .text {
-    max-width: 50ch;
+    max-width: 52ch;
   }
 
   .resultRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 2rem;
+    margin-top: 2.3rem;
   }
 }
 
 @media (max-width: 767px) {
   .hero {
     padding-top: 6.8rem;
-    padding-bottom: 2.2rem;
+    padding-bottom: 2rem;
   }
 
-  .kickerWrap {
-    margin-bottom: 1rem;
-    padding: .6rem .9rem;
-  }
-
-  .kicker {
-    font-size: .88rem;
+  .heroContent {
+    max-width: 100%;
   }
 
   .title {
     max-width: 11ch;
-    font-size: clamp(2.2rem, 10vw, 3.5rem);
-    line-height: 1.06;
   }
 
-  .titleDynamic {
-    min-height: 2.7em;
+  .titleStatic,
+  .animatedLine {
+    font-size: clamp(2.25rem, 10vw, 3.8rem);
+    line-height: 1.08;
   }
 
   .text {
+    max-width: 32ch;
     font-size: .98rem;
-    line-height: 1.7;
-    max-width: 30ch;
   }
 
   .actions {
-    margin-top: 1.6rem;
+    width: 100%;
   }
 
   .actions :global(.btn) {
@@ -367,6 +308,7 @@
   .resultRow {
     grid-template-columns: 1fr;
     gap: .85rem;
+    margin-top: 2rem;
   }
 
   .resultCard {
