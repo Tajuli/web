@@ -1,12 +1,12 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
-  padding-top: 8.5rem;
+  padding-top: 8.8rem;
   padding-bottom: 3rem;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  background: #08111f;
+  background: #07111f;
 }
 
 /* =========================
@@ -25,8 +25,8 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 1s ease, transform 5s ease;
+  transform: scale(1.03);
+  transition: opacity 1s ease, transform 6s ease;
   will-change: opacity, transform;
 }
 
@@ -35,16 +35,7 @@
   transform: scale(1);
 }
 
-/* subtle dark tint without overlay block */
-.bgSlide::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(6, 12, 24, 0.10), rgba(4, 8, 18, 0.42));
-}
-
-/* grid */
+/* subtle grid overlay */
 .gridOverlay {
   position: absolute;
   inset: 0;
@@ -53,33 +44,33 @@
     linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
   background-size: 80px 80px;
-  mask-image: radial-gradient(circle at center, black 48%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 46%, transparent 100%);
   pointer-events: none;
-  opacity: .18;
+  opacity: .16;
 }
 
 .glow {
   position: absolute;
   border-radius: 999px;
-  filter: blur(100px);
+  filter: blur(90px);
   pointer-events: none;
   z-index: 1;
 }
 
 .glowA {
-  width: 320px;
-  height: 320px;
-  left: -60px;
-  top: 120px;
-  background: rgba(59, 130, 246, 0.18);
+  width: 280px;
+  height: 280px;
+  left: -40px;
+  top: 180px;
+  background: rgba(59, 130, 246, 0.16);
 }
 
 .glowB {
-  width: 360px;
-  height: 360px;
+  width: 320px;
+  height: 320px;
   right: -80px;
-  bottom: 100px;
-  background: rgba(0, 229, 255, 0.14);
+  top: 120px;
+  background: rgba(99, 102, 241, 0.14);
 }
 
 .heroInner {
@@ -89,10 +80,10 @@
 }
 
 /* =========================
-   HERO MAIN CENTERED
+   HERO MAIN
 ========================= */
 .heroMain {
-  min-height: calc(100vh - 12rem);
+  min-height: calc(100vh - 11rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,24 +91,33 @@
 }
 
 .heroContent {
-  width: 100%;
-  max-width: 980px;
+  width: min(100%, 980px);
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
 }
 
 .reveal {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity .9s ease, transform .9s ease;
+  transition: opacity .8s ease, transform .8s ease;
 }
 
+/* =========================
+   HERO CONTENT
+========================= */
 .kickerWrap {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: .7rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
+  padding: .7rem 1rem;
+  border-radius: 999px;
+  background: rgba(8, 18, 34, 0.45);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .kickerDot {
@@ -133,63 +133,78 @@
   color: rgba(255,255,255,.9);
   font-size: .95rem;
   font-weight: 500;
-  letter-spacing: .02em;
 }
 
-/* =========================
-   TITLE REVEAL
-========================= */
 .title {
   margin: 0 auto;
   max-width: 13ch;
+  color: #fff;
+  text-shadow: 0 8px 30px rgba(0,0,0,.28);
+  line-height: 1.03;
+  letter-spacing: -0.06em;
+  font-size: clamp(2.8rem, 6vw, 5.7rem);
   display: flex;
   flex-direction: column;
-  gap: 0.08em;
-
-  font-size: clamp(2.1rem, 4.4vw, 4rem);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
-  font-weight: 400;
-
-  color: #fff;
-  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  align-items: center;
+  gap: .25rem;
 }
 
-.titleLine,
-.titleLineAccent {
+.titleStatic {
   display: block;
-  opacity: 0;
-  transform: translateY(110%);
-  animation: titleReveal .9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 
-.titleLine {
-  font-weight: 400;
-}
-
-.titleLine:nth-child(2) {
-  animation-delay: .32s;
-}
-
-.titleLineAccent {
+.titleDynamic {
+  display: block;
+  min-height: 2.3em;
   color: var(--cyan);
-  font-weight: 500;
-  animation-delay: .5s;
+  will-change: transform, opacity, filter;
 }
 
-@keyframes titleReveal {
-  to {
+.textIn {
+  animation: revealTextIn .55s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.textOut {
+  animation: revealTextOut .32s ease forwards;
+}
+
+@keyframes revealTextIn {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(10px);
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes revealTextOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(8px);
+    clip-path: inset(0 0 100% 0);
   }
 }
 
 .text {
   margin: 1.4rem auto 0;
-  max-width: 62ch;
-  color: rgba(255,255,255,.82);
+  color: rgba(255,255,255,.84);
   line-height: 1.8;
-  font-size: 1.04rem;
+  font-size: 1.05rem;
+  max-width: 62ch;
+  text-shadow: 0 4px 20px rgba(0,0,0,.2);
 }
 
 .actions {
@@ -199,13 +214,12 @@
 }
 
 .primaryBtn {
-  min-width: 220px;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
 }
 
 .primaryBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 42px rgba(83, 213, 255, 0.24);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(83, 213, 255, .22);
 }
 
 /* =========================
@@ -214,34 +228,33 @@
 .resultRow {
   position: relative;
   z-index: 3;
-  margin-top: 2.6rem;
+  margin-top: 2.5rem;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1rem;
+  gap: .95rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .resultCard {
   position: relative;
   overflow: hidden;
   border-radius: 1.2rem;
-  padding: 1.15rem 1rem;
-  min-height: 96px;
+  padding: 1.05rem 1rem;
+  min-height: 92px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  background: linear-gradient(
-    180deg,
-    rgba(8, 18, 34, 0.74),
-    rgba(6, 14, 28, 0.58)
-  );
+  background:
+    linear-gradient(180deg, rgba(7, 16, 30, 0.78), rgba(7, 16, 30, 0.58));
   border: 1px solid rgba(255,255,255,.10);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
   box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255,255,255,.08);
+    0 16px 38px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255,255,255,.06);
 }
 
 .resultCard::before {
@@ -250,7 +263,7 @@
   inset: 0;
   background:
     linear-gradient(135deg, rgba(255,255,255,.08), transparent 36%),
-    radial-gradient(circle at top right, rgba(83,213,255,.12), transparent 30%);
+    radial-gradient(circle at top right, rgba(83,213,255,.10), transparent 30%);
   pointer-events: none;
 }
 
@@ -268,7 +281,7 @@
   z-index: 1;
   display: block;
   margin-top: .45rem;
-  color: rgba(255,255,255,.74);
+  color: rgba(255,255,255,.82);
   font-size: .9rem;
 }
 
@@ -276,6 +289,11 @@
    RESPONSIVE
 ========================= */
 @media (max-width: 1199px) {
+  .title {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 6vw, 4.9rem);
+  }
+
   .resultRow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -284,7 +302,8 @@
 @media (max-width: 991px) {
   .hero {
     min-height: auto;
-    padding-top: 7.2rem;
+    padding-top: 7.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .heroMain {
@@ -292,8 +311,12 @@
   }
 
   .title {
-    font-size: clamp(2.5rem, 8vw, 4.4rem);
-    max-width: 11ch;
+    max-width: 12ch;
+    font-size: clamp(2.5rem, 8vw, 4.2rem);
+  }
+
+  .text {
+    max-width: 50ch;
   }
 
   .resultRow {
@@ -304,23 +327,41 @@
 
 @media (max-width: 767px) {
   .hero {
-    padding-top: 6.5rem;
+    padding-top: 6.8rem;
     padding-bottom: 2.2rem;
   }
 
+  .kickerWrap {
+    margin-bottom: 1rem;
+    padding: .6rem .9rem;
+  }
+
+  .kicker {
+    font-size: .88rem;
+  }
+
   .title {
-    font-size: clamp(2.2rem, 10vw, 3.4rem);
-    max-width: 10ch;
+    max-width: 11ch;
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    line-height: 1.06;
+  }
+
+  .titleDynamic {
+    min-height: 2.7em;
   }
 
   .text {
-    max-width: 34ch;
     font-size: .98rem;
+    line-height: 1.7;
+    max-width: 30ch;
   }
 
-  .primaryBtn {
+  .actions {
+    margin-top: 1.6rem;
+  }
+
+  .actions :global(.btn) {
     width: 100%;
-    min-width: 0;
   }
 
   .resultRow {
