@@ -17,18 +17,42 @@ const resultCards = [
   { value: "98%", label: "Client Retention" },
 ];
 
+const rotatingTexts = [
+  "drives real business results.",
+  "turns traffic into qualified leads.",
+  "scales revenue with smart strategy.",
+  "builds brands that actually convert.",
+];
+
 export default function Hero() {
   const [activeBg, setActiveBg] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [activeText, setActiveText] = useState(0);
+  const [textVisible, setTextVisible] = useState(true);
 
   useEffect(() => {
     setMounted(true);
 
-    const timer = setInterval(() => {
+    const bgTimer = setInterval(() => {
       setActiveBg((prev) => (prev + 1) % bgImages.length);
-    }, 4500);
+    }, 5000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(bgTimer);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextVisible(false);
+
+      const timeout = setTimeout(() => {
+        setActiveText((prev) => (prev + 1) % rotatingTexts.length);
+        setTextVisible(true);
+      }, 320);
+
+      return () => clearTimeout(timeout);
+    }, 2600);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -46,7 +70,7 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* NO overlay */}
+      {/* Decorative layers only */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
@@ -62,14 +86,25 @@ export default function Hero() {
             </div>
 
             <h1 className={styles.title}>
-              <span className={styles.titleLine}>Growth-focused marketing</span>
-              <span className={styles.titleLine}>that drives</span>
-              <span className={styles.titleLineAccent}>real business results.</span>
+              <span className={styles.titleStatic}>
+                Growth-focused marketing
+                <br />
+                that
+              </span>
+
+              <span
+                className={`${styles.titleDynamic} ${
+                  textVisible ? styles.textIn : styles.textOut
+                }`}
+                key={activeText}
+              >
+                {rotatingTexts[activeText]}
+              </span>
             </h1>
 
             <p className={styles.text}>
-              We help ambitious brands scale with SEO, performance marketing,
-              and conversion-focused websites that turn traffic into revenue.
+              We help ambitious brands grow with SEO, paid ads, content and
+              high-converting websites that generate measurable revenue.
             </p>
 
             <div className={styles.actions}>
@@ -77,7 +112,7 @@ export default function Hero() {
                 href="#contact"
                 className={`btn btn-primary ${styles.primaryBtn}`}
               >
-                Book a Free Call
+                Book a Free Strategy Call
               </a>
             </div>
           </div>
