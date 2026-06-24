@@ -3,11 +3,9 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const changingTexts = [
-  "drives real business results.",
-  "turns traffic into qualified leads.",
-  "scales brands with measurable growth.",
-  "converts clicks into revenue.",
+const bgImages = [
+  "/images/hero/hero-1.png",
+  "/images/hero/hero-2.png",
 ];
 
 const resultCards = [
@@ -20,76 +18,87 @@ const resultCards = [
 ];
 
 export default function Hero() {
-  const [textIndex, setTextIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [activeBg, setActiveBg] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
+    setMounted(true);
 
-      setTimeout(() => {
-        setTextIndex((prev) => (prev + 1) % changingTexts.length);
-        setIsVisible(true);
-      }, 320);
-    }, 2800);
+    const timer = setInterval(() => {
+      setActiveBg((prev) => (prev + 1) % bgImages.length);
+    }, 4500);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Single background image */}
-      <div
-        className={styles.bgImage}
-        style={{ backgroundImage: "url('/images/hero/hero-1.png')" }}
-      />
+      {/* Background image slider */}
+      <div className={styles.bgSlider}>
+        {bgImages.map((img, index) => (
+          <div
+            key={img}
+            className={`${styles.bgSlide} ${
+              index === activeBg ? styles.bgSlideActive : ""
+            }`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+      </div>
 
-      {/* Decorative layers only */}
+      {/* Dark overlay for readability */}
+      <div className={styles.bgOverlay} />
+
+      {/* Existing decorative overlays */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
-        <div className={styles.heroContent}>
-          <div className={styles.kickerWrap}>
-            <span className={styles.kickerDot} />
-            <p className={styles.kicker}>
-              PrimeDigitor • Digital Marketing Agency
-            </p>
-          </div>
+        <div className={styles.heroMain}>
+          {/* LEFT ONLY */}
+          <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
+            <div className={styles.leftInner}>
+              <div className={styles.leftTop}>
+                <div className={styles.kickerWrap}>
+                  <span className={styles.kickerDot} />
+                  <p className={styles.kicker}>
+                    PrimeDigitor • Digital Marketing Agency
+                  </p>
+                </div>
 
-          <h1 className={styles.title}>
-            <span className={styles.titleStatic}>
-              Growth-focused marketing that
-            </span>
+                <h1 className={styles.title}>
+                  Growth-focused marketing Agency that{" "}
+                  <span>delivers results.</span>
+                </h1>
 
-            <span className={styles.animatedLineWrap}>
-              <span
-                key={textIndex}
-                className={`${styles.animatedLine} ${
-                  isVisible ? styles.revealIn : styles.revealOut
-                }`}
-              >
-                {changingTexts[textIndex]}
-              </span>
-            </span>
-          </h1>
+                <p className={styles.text}>
+                  We help ambitious brands grow with SEO, paid ads and
+                  high-converting websites.
+                </p>
+              </div>
 
-          <p className={styles.text}>
-            We help ambitious brands grow with SEO, paid ads, conversion-focused
-            strategy and high-performing websites.
-          </p>
-
-          <div className={styles.actions}>
-            <a
-              href="#contact"
-              className={`btn btn-primary ${styles.primaryBtn}`}
-            >
-              Book a Free Strategy Call
-            </a>
+              <div className={styles.leftBottom}>
+                <div className={styles.actions}>
+                  <a
+                    href="#contact"
+                    className={`btn btn-primary ${styles.primaryBtn}`}
+                  >
+                    Book a Free Call
+                  </a>
+                  <a
+                    href="#work"
+                    className={`btn btn-secondary ${styles.secondaryBtn}`}
+                  >
+                    See Our Work
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        {/* Bottom result cards */}
         <div className={styles.resultRow}>
           {resultCards.map((item) => (
             <div key={item.label} className={styles.resultCard}>
