@@ -183,8 +183,8 @@ button {
   margin: 0 auto;
   text-align: center;
   font-size: clamp(1rem, 2vw, 2.2rem);
-  line-height: 1.02;
-  letter-spacing: -0.1em;
+  line-height: 2;
+  letter-spacing: -0.05em;
 }
 
 .section-text {
