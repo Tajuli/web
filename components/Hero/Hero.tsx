@@ -80,19 +80,21 @@ export default function Hero() {
                 </p>
               </div>
 
-              <div className={styles.actions}>
-                <a
-                  href="#contact"
-                  className={`btn btn-primary ${styles.primaryBtn}`}
-                >
-                  Book a Free Call
-                </a>
-                <a
-                  href="#work"
-                  className={`btn btn-secondary ${styles.secondaryBtn}`}
-                >
-                  See Our Work
-                </a>
+              <div className={styles.leftBottom}>
+                <div className={styles.actions}>
+                  <a
+                    href="#contact"
+                    className={`btn btn-primary ${styles.primaryBtn}`}
+                  >
+                    Book a Free Call
+                  </a>
+                  <a
+                    href="#work"
+                    className={`btn btn-secondary ${styles.secondaryBtn}`}
+                  >
+                    See Our Work
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -118,7 +120,9 @@ export default function Hero() {
                   <article
                     key={slide.number}
                     className={`${styles.slide} ${
-                      index === activeSlide ? styles.slideActive : styles.slideHidden
+                      index === activeSlide
+                        ? styles.slideActive
+                        : styles.slideHidden
                     }`}
                   >
                     <div className={styles.slideTop}>
