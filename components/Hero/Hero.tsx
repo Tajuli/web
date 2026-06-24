@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const bgImages = [
-  "/images/hero/hero-2.png",
+const changingTexts = [
+  "drives real business results.",
+  "turns traffic into qualified leads.",
+  "scales brands with measurable growth.",
+  "converts clicks into revenue.",
 ];
 
 const resultCards = [
@@ -16,58 +19,30 @@ const resultCards = [
   { value: "98%", label: "Client Retention" },
 ];
 
-const rotatingTexts = [
-  "drives real business results.",
-  "turns traffic into qualified leads.",
-  "scales revenue with smart strategy.",
-  "builds brands that actually convert.",
-];
-
 export default function Hero() {
-  const [activeBg, setActiveBg] = useState(0);
-  const [mounted, setMounted] = useState(false);
-  const [activeText, setActiveText] = useState(0);
-  const [textVisible, setTextVisible] = useState(true);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const bgTimer = setInterval(() => {
-      setActiveBg((prev) => (prev + 1) % bgImages.length);
-    }, 5000);
-
-    return () => clearInterval(bgTimer);
-  }, []);
+  const [textIndex, setTextIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTextVisible(false);
+      setIsVisible(false);
 
-      const timeout = setTimeout(() => {
-        setActiveText((prev) => (prev + 1) % rotatingTexts.length);
-        setTextVisible(true);
+      setTimeout(() => {
+        setTextIndex((prev) => (prev + 1) % changingTexts.length);
+        setIsVisible(true);
       }, 320);
-
-      return () => clearTimeout(timeout);
-    }, 2600);
+    }, 2800);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Background image slider */}
-      <div className={styles.bgSlider}>
-        {bgImages.map((img, index) => (
-          <div
-            key={img}
-            className={`${styles.bgSlide} ${
-              index === activeBg ? styles.bgSlideActive : ""
-            }`}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
-      </div>
+      {/* Single background image */}
+      <div
+        className={styles.bgImage}
+        style={{ backgroundImage: "url('/images/hero/hero-1.png')" }}
+      />
 
       {/* Decorative layers only */}
       <div className={styles.gridOverlay} />
@@ -75,45 +50,43 @@ export default function Hero() {
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
-        <div className={styles.heroMain}>
-          <div className={`${styles.heroContent} ${mounted ? styles.reveal : ""}`}>
-            <div className={styles.kickerWrap}>
-              <span className={styles.kickerDot} />
-              <p className={styles.kicker}>
-                PrimeDigitor • Digital Marketing Agency
-              </p>
-            </div>
-
-            <h1 className={styles.title}>
-              <span className={styles.titleStatic}>
-                Growth-focused marketing
-                <br />
-                that
-              </span>
-
-              <span
-                className={`${styles.titleDynamic} ${
-                  textVisible ? styles.textIn : styles.textOut
-                }`}
-                key={activeText}
-              >
-                {rotatingTexts[activeText]}
-              </span>
-            </h1>
-
-            <p className={styles.text}>
-              We help ambitious brands grow with SEO, paid ads, content and
-              high-converting websites that generate measurable revenue.
+        <div className={styles.heroContent}>
+          <div className={styles.kickerWrap}>
+            <span className={styles.kickerDot} />
+            <p className={styles.kicker}>
+              PrimeDigitor • Digital Marketing Agency
             </p>
+          </div>
 
-            <div className={styles.actions}>
-              <a
-                href="#contact"
-                className={`btn btn-primary ${styles.primaryBtn}`}
+          <h1 className={styles.title}>
+            <span className={styles.titleStatic}>
+              Growth-focused marketing that
+            </span>
+
+            <span className={styles.animatedLineWrap}>
+              <span
+                key={textIndex}
+                className={`${styles.animatedLine} ${
+                  isVisible ? styles.revealIn : styles.revealOut
+                }`}
               >
-                Book a Free Strategy Call
-              </a>
-            </div>
+                {changingTexts[textIndex]}
+              </span>
+            </span>
+          </h1>
+
+          <p className={styles.text}>
+            We help ambitious brands grow with SEO, paid ads, conversion-focused
+            strategy and high-performing websites.
+          </p>
+
+          <div className={styles.actions}>
+            <a
+              href="#contact"
+              className={`btn btn-primary ${styles.primaryBtn}`}
+            >
+              Book a Free Strategy Call
+            </a>
           </div>
         </div>
 
