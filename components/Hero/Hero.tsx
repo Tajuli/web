@@ -3,27 +3,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const slides = [
-  {
-    number: "01",
-    tag: "SEO & Content Strategy",
-    title: "Rank Higher.\nGet Discovered.",
-    text: "Data-driven SEO that brings consistent organic growth.",
-  },
-  {
-    number: "02",
-    tag: "Paid Advertising",
-    title: "More Leads.\nBetter ROI.",
-    text: "Google & Meta campaigns built for qualified conversions.",
-  },
-  {
-    number: "03",
-    tag: "Web Design & CRO",
-    title: "Websites That\nConvert.",
-    text: "Premium websites designed to turn visitors into enquiries.",
-  },
-];
-
 const resultCards = [
   { value: "+184%", label: "Organic Growth" },
   { value: "4.8x", label: "ROAS" },
@@ -34,17 +13,10 @@ const resultCards = [
 ];
 
 export default function Hero() {
-  const [activeSlide, setActiveSlide] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-
-    const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
-    }, 3200);
-
-    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -67,7 +39,8 @@ export default function Hero() {
                 </div>
 
                 <h1 className={styles.title}>
-                  Growth-focused marketing Agency that <span>delivers results.</span>
+                  Growth-focused marketing Agency that{" "}
+                  <span>delivers results.</span>
                 </h1>
 
                 <p className={styles.text}>
@@ -95,58 +68,75 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT - MOTION POSTER CARD */}
           <div className={`${styles.right} ${mounted ? styles.revealRight : ""}`}>
-            <div className={styles.sliderShell}>
-              <div className={styles.sliderDots}>
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    aria-label={`Go to slide ${index + 1}`}
-                    className={`${styles.dot} ${
-                      activeSlide === index ? styles.dotActive : ""
-                    }`}
-                    onClick={() => setActiveSlide(index)}
-                  />
-                ))}
+            <div className={styles.posterShell}>
+              <div className={styles.posterGrid}></div>
+
+              <div className={styles.posterGlowA}></div>
+              <div className={styles.posterGlowB}></div>
+
+              <div className={styles.posterRing}></div>
+              <div className={styles.posterRingSmall}></div>
+              <div className={styles.posterLine}></div>
+
+              <div className={styles.posterBadge}>
+                <span className={styles.posterBadgeDot}></span>
+                PrimeDigitor Growth System
               </div>
 
-              <div className={styles.slideViewport}>
-                {slides.map((slide, index) => (
-                  <article
-                    key={slide.number}
-                    className={`${styles.slide} ${
-                      index === activeSlide
-                        ? styles.slideActive
-                        : styles.slideHidden
-                    }`}
+              <div className={styles.posterTop}>
+                <p className={styles.posterEyebrow}>Performance Marketing</p>
+
+                <div className={styles.posterWords}>
+                  <span className={styles.posterWord}>Strategy</span>
+                  <span className={styles.posterWord}>Traffic</span>
+                  <span className={styles.posterWord}>Conversion</span>
+                </div>
+
+                <p className={styles.posterText}>
+                  SEO, paid acquisition and conversion-focused web experiences
+                  built to help ambitious brands scale with clarity.
+                </p>
+              </div>
+
+              {/* floating chips */}
+              <div className={`${styles.posterChip} ${styles.chipOne}`}>
+                Search Visibility
+              </div>
+              <div className={`${styles.posterChip} ${styles.chipTwo}`}>
+                Paid Growth
+              </div>
+              <div className={`${styles.posterChip} ${styles.chipThree}`}>
+                Website Conversion
+              </div>
+
+              {/* bottom footer */}
+              <div className={styles.posterFooter}>
+                <div className={styles.posterMeta}>
+                  <span>SEO</span>
+                  <span>Paid Ads</span>
+                  <span>Web Design</span>
+                </div>
+
+                <a href="#work" className={styles.posterLink}>
+                  View Case Studies
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
                   >
-                    <div className={styles.slideTop}>
-                      <span className={styles.slideNumber}>{slide.number}</span>
-                      <span className={styles.slideTag}>{slide.tag}</span>
-                    </div>
-
-                    <div className={styles.slideContent}>
-                      <div className={styles.slideCopy}>
-                        <h3>
-                          {slide.title.split("\n").map((line, i) => (
-                            <span key={i}>
-                              {line}
-                              <br />
-                            </span>
-                          ))}
-                        </h3>
-                        <p>{slide.text}</p>
-                      </div>
-
-                      <div className={styles.slideVisual}>
-                        <div className={styles.lineChart}>
-                          <span className={styles.line}></span>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
+                    <path
+                      d="M7 17L17 7M17 7H8.5M17 7V15.5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
