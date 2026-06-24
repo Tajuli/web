@@ -180,7 +180,7 @@
   font-size: clamp(2rem, 4vw, 3.6rem);
   line-height: 1.22;
   letter-spacing: -.055em;
-  max-width: 11ch;
+  max-width: 22ch;
   color: #fff;
   text-shadow: 0 8px 30px rgba(0,0,0,.18);
 }
