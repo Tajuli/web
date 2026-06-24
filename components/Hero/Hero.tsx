@@ -57,38 +57,43 @@ export default function Hero() {
         <div className={styles.heroMain}>
           {/* LEFT */}
           <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
-            <div className={styles.leftTop}>
-              <div className={styles.kickerWrap}>
-                <span className={styles.kickerDot} />
-                <p className={styles.kicker}>
-                  PrimeDigitor • Digital Marketing Agency
+            <div className={styles.leftInner}>
+              <div className={styles.leftTop}>
+                <div className={styles.kickerWrap}>
+                  <span className={styles.kickerDot} />
+                  <p className={styles.kicker}>
+                    PrimeDigitor • Digital Marketing Agency
+                  </p>
+                </div>
+
+                <h1 className={styles.title}>
+                  Growth-focused
+                  <br />
+                  marketing that
+                  <br />
+                  <span>delivers results.</span>
+                </h1>
+
+                <p className={styles.text}>
+                  We help ambitious brands grow with SEO, paid ads and
+                  high-converting websites.
                 </p>
               </div>
 
-              <h1 className={styles.title}>
-                Growth-focused marketing that{" "}
-                <span>delivers results.</span>
-              </h1>
-
-              <p className={styles.text}>
-                We help ambitious brands grow with SEO, paid ads and
-                high-converting websites.
-              </p>
-            </div>
-
-            <div className={styles.actions}>
-              <a
-                href="#contact"
-                className={`btn btn-primary ${styles.primaryBtn}`}
-              >
-                Book a Free Call
-              </a>
-              <a
-                href="#work"
-                className={`btn btn-secondary ${styles.secondaryBtn}`}
-              >
-                See Our Work
-              </a>
+              <div className={styles.actions}>
+                <a
+                  href="#contact"
+                  className={`btn btn-primary ${styles.primaryBtn}`}
+                >
+                  Book a Free Call
+                </a>
+                <a
+                  href="#work"
+                  className={`btn btn-secondary ${styles.secondaryBtn}`}
+                >
+                  See Our Work
+                </a>
+              </div>
             </div>
           </div>
 
@@ -113,9 +118,7 @@ export default function Hero() {
                   <article
                     key={slide.number}
                     className={`${styles.slide} ${
-                      index === activeSlide
-                        ? styles.slideActive
-                        : styles.slideHidden
+                      index === activeSlide ? styles.slideActive : styles.slideHidden
                     }`}
                   >
                     <div className={styles.slideTop}>
