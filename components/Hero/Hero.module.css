@@ -53,7 +53,7 @@
   display: grid;
   grid-template-columns: 40% 40%;
   justify-content: space-between;
-  align-items: stretch; /* important */
+  align-items: stretch;
   gap: 4rem;
 }
 
@@ -79,7 +79,7 @@
 /* LEFT */
 .left {
   display: flex;
-  min-height: 460px; /* same as right slide shell visual height */
+  min-height: 460px;
 }
 
 .leftInner {
@@ -87,7 +87,7 @@
   min-height: 460px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* top content + bottom CTA */
+  justify-content: space-between;
   padding-block: .35rem;
 }
 
@@ -124,8 +124,8 @@
 
 .title {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.6rem);  
-  line-height: 1.25;  
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.25;
   letter-spacing: -.055em;
 }
 
@@ -135,7 +135,6 @@
 
 .text {
   margin-top: 1.35rem;
-  
   color: rgba(255,255,255,.68);
   line-height: 1.8;
   font-size: 1.02rem;
@@ -176,169 +175,256 @@
   justify-content: flex-end;
 }
 
-.sliderShell {
+/* MOTION POSTER */
+.posterShell {
   position: relative;
   width: 100%;
   max-width: 620px;
   min-height: 460px;
   border: 1px solid rgba(255,255,255,.08);
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  background:
+    radial-gradient(circle at 82% 16%, rgba(83,213,255,.08), transparent 20%),
+    radial-gradient(circle at 20% 78%, rgba(99,102,241,.10), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   backdrop-filter: blur(18px);
   border-radius: 2rem;
-  padding: 1.2rem;
+  padding: 1.4rem;
   box-shadow:
     0 24px 70px rgba(0,0,0,.28),
     inset 0 1px 0 rgba(255,255,255,.04);
-}
-
-.sliderDots {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  display: flex;
-  gap: .5rem;
-  z-index: 3;
-}
-
-.dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  border: 0;
-  background: rgba(255,255,255,.18);
-  cursor: pointer;
-  transition: all .28s ease;
-}
-
-.dotActive {
-  width: 26px;
-  background: var(--cyan);
-  box-shadow: 0 0 16px rgba(83, 213, 255, .3);
-}
-
-.slideViewport {
-  position: relative;
-  min-height: 420px;
   overflow: hidden;
-  border-radius: 1.5rem;
+  isolation: isolate;
 }
 
-.slide {
+.posterGrid {
   position: absolute;
   inset: 0;
-  padding: 1.35rem;
-  border-radius: 1.5rem;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(83,213,255,.08), transparent 18%),
-    linear-gradient(180deg, rgba(9,16,29,.92), rgba(10,18,31,.84));
-  border: 1px solid rgba(255,255,255,.06);
-  transition: opacity .6s ease, transform .6s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.slideActive {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.slideHidden {
-  opacity: 0;
-  transform: translateY(18px);
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+  opacity: .6;
   pointer-events: none;
 }
 
-.slideTop {
-  display: flex;
-  align-items: center;
-  gap: .9rem;
+.posterGlowA,
+.posterGlowB {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(80px);
+  pointer-events: none;
 }
 
-.slideNumber {
-  min-width: 48px;
-  height: 48px;
-  border-radius: 14px;
+.posterGlowA {
+  width: 220px;
+  height: 220px;
+  top: -30px;
+  right: -40px;
+  background: rgba(83,213,255,.16);
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+.posterGlowB {
+  width: 240px;
+  height: 240px;
+  bottom: -80px;
+  left: -60px;
+  background: rgba(99,102,241,.14);
+  animation: floatGlow 9s ease-in-out infinite alternate-reverse;
+}
+
+.posterRing,
+.posterRingSmall {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  pointer-events: none;
+}
+
+.posterRing {
+  width: 280px;
+  height: 280px;
+  right: -60px;
+  top: 70px;
+  background: radial-gradient(circle at center, rgba(255,255,255,.03), transparent 70%);
+  animation: rotateSlow 22s linear infinite;
+}
+
+.posterRingSmall {
+  width: 120px;
+  height: 120px;
+  left: 44px;
+  bottom: 54px;
+  border-color: rgba(83,213,255,.16);
+  animation: floatSmall 7s ease-in-out infinite;
+}
+
+.posterLine {
+  position: absolute;
+  left: 42px;
+  right: 42px;
+  bottom: 102px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(83,213,255,.45),
+    rgba(255,255,255,.16),
+    transparent
+  );
+  opacity: .8;
+}
+
+.posterBadge {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(59, 130, 246, 0.16);
-  border: 1px solid rgba(59, 130, 246, 0.24);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.1rem;
+  gap: .55rem;
+  padding: .55rem .85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+  color: rgba(255,255,255,.82);
+  font-size: .84rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
 }
 
-.slideTag {
+.posterBadgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 14px rgba(83,213,255,.8);
+}
+
+.posterTop {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  max-width: 78%;
+}
+
+.posterEyebrow {
+  margin: 0;
+  color: rgba(255,255,255,.62);
+  font-size: .88rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.posterWords {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  gap: .2rem;
+}
+
+.posterWord {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: .95;
+  letter-spacing: -.06em;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 8px 40px rgba(0,0,0,.28);
+}
+
+.posterWord:nth-child(2) {
+  color: rgba(255,255,255,.92);
+}
+
+.posterWord:nth-child(3) {
   color: var(--cyan);
+}
+
+.posterText {
+  margin-top: 1.25rem;
+  max-width: 34ch;
+  color: rgba(255,255,255,.68);
+  line-height: 1.8;
+  font-size: .98rem;
+}
+
+/* floating chips */
+.posterChip {
+  position: absolute;
+  z-index: 2;
+  padding: .7rem .95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(7, 15, 28, 0.62);
+  color: rgba(255,255,255,.86);
   font-size: .9rem;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  white-space: nowrap;
+}
+
+.chipOne {
+  top: 92px;
+  right: 42px;
+  animation: floatChip 6.5s ease-in-out infinite;
+}
+
+.chipTwo {
+  top: 205px;
+  right: 22px;
+  animation: floatChip 7.5s ease-in-out infinite reverse;
+}
+
+.chipThree {
+  bottom: 116px;
+  right: 70px;
+  animation: floatChip 8.2s ease-in-out infinite;
+}
+
+/* footer */
+.posterFooter {
+  position: absolute;
+  z-index: 2;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.posterMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+}
+
+.posterMeta span {
+  padding: .55rem .82rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  color: rgba(255,255,255,.72);
+  font-size: .84rem;
   font-weight: 500;
 }
 
-.slideContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  height: 100%;
-  margin-top: 1.4rem;
+.posterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .25s ease, opacity .25s ease;
 }
 
-.slideCopy h3 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.02;
-  letter-spacing: -.04em;
-  max-width: 10ch;
-}
-
-.slideCopy p {
-  margin-top: 1rem;
-  color: rgba(255,255,255,.68);
-  line-height: 1.8;
-  max-width: 28ch;
-  font-size: 1rem;
-}
-
-.slideVisual {
-  margin-top: auto;
-}
-
-.lineChart {
-  position: relative;
-  height: 160px;
-  border-radius: 1.25rem;
-  background:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 100% 32px, 64px 100%;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.04);
-}
-
-.line {
-  position: absolute;
-  inset: 0;
-}
-
-.line::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(83,213,255,.85), rgba(83,213,255,.45));
-  clip-path: polygon(
-    0 84%,
-    10% 78%,
-    22% 62%,
-    36% 66%,
-    48% 48%,
-    62% 54%,
-    76% 32%,
-    88% 38%,
-    100% 16%,
-    100% 100%,
-    0 100%
-  );
+.posterLink:hover {
+  transform: translateX(4px);
+  opacity: .92;
 }
 
 /* RESULT ROW */
@@ -374,6 +460,49 @@
   font-size: .9rem;
 }
 
+/* animations */
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(10px, -14px, 0) scale(1.06);
+  }
+}
+
+@keyframes floatSmall {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatChip {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 /* RESPONSIVE */
 @media (max-width: 1199px) {
   .heroMain {
@@ -387,6 +516,14 @@
 
   .title {
     font-size: clamp(2.6rem, 5vw, 4.3rem);
+  }
+
+  .posterTop {
+    max-width: 82%;
+  }
+
+  .posterWord {
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
   }
 }
 
@@ -423,9 +560,25 @@
     justify-content: flex-start;
   }
 
-  .sliderShell {
+  .posterShell {
     max-width: 100%;
-    min-height: 420px;
+    min-height: 430px;
+  }
+
+  .posterTop {
+    max-width: 72%;
+  }
+
+  .chipOne {
+    right: 30px;
+  }
+
+  .chipTwo {
+    right: 18px;
+  }
+
+  .chipThree {
+    right: 42px;
   }
 
   .resultRow {
@@ -452,27 +605,84 @@
     width: 100%;
   }
 
-  .sliderShell {
-    min-height: 380px;
+  .posterShell {
+    min-height: 420px;
     padding: 1rem;
     border-radius: 1.4rem;
   }
 
-  .slideViewport {
-    min-height: 340px;
+  .posterBadge {
+    font-size: .78rem;
+    padding: .5rem .75rem;
   }
 
-  .slide {
-    padding: 1rem;
-    border-radius: 1.2rem;
+  .posterTop {
+    margin-top: 1.35rem;
+    max-width: 100%;
   }
 
-  .slideCopy h3 {
-    font-size: 1.9rem;
+  .posterEyebrow {
+    font-size: .8rem;
   }
 
-  .lineChart {
-    height: 130px;
+  .posterWords {
+    gap: .12rem;
+  }
+
+  .posterWord {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .posterText {
+    margin-top: 1rem;
+    font-size: .94rem;
+    max-width: 100%;
+    padding-right: .5rem;
+  }
+
+  .posterChip {
+    display: none;
+  }
+
+  .posterRing {
+    width: 220px;
+    height: 220px;
+    right: -70px;
+    top: 95px;
+  }
+
+  .posterRingSmall {
+    width: 92px;
+    height: 92px;
+    left: 18px;
+    bottom: 90px;
+  }
+
+  .posterLine {
+    left: 18px;
+    right: 18px;
+    bottom: 88px;
+  }
+
+  .posterFooter {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .posterMeta {
+    gap: .5rem;
+  }
+
+  .posterMeta span {
+    font-size: .78rem;
+    padding: .5rem .7rem;
+  }
+
+  .posterLink {
+    font-size: .95rem;
   }
 
   .resultRow {
