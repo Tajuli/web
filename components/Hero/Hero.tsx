@@ -46,17 +46,13 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Dark overlay for readability */}
-      <div className={styles.bgOverlay} />
-
-      {/* Existing decorative overlays */}
+      {/* Decorative overlays only */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
         <div className={styles.heroMain}>
-          {/* LEFT ONLY */}
           <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
             <div className={styles.leftInner}>
               <div className={styles.leftTop}>
@@ -85,12 +81,6 @@ export default function Hero() {
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
                     Book a Free Call
-                  </a>
-                  <a
-                    href="#work"
-                    className={`btn btn-secondary ${styles.secondaryBtn}`}
-                  >
-                    See Our Work
                   </a>
                 </div>
               </div>
