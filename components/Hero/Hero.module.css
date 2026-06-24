@@ -33,20 +33,6 @@
   transform: scale(1);
 }
 
-/* Bright overlay: image visible থাকবে */
-.bgOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.06) 0%,
-      rgba(255, 255, 255, 0.03) 42%,
-      rgba(7, 16, 30, 0.16) 100%
-    );
-}
-
 /* subtle grid overlay */
 .gridOverlay {
   position: absolute;
@@ -58,7 +44,7 @@
   background-size: 80px 80px;
   mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
   pointer-events: none;
-  opacity: .18;
+  opacity: .16;
 }
 
 .glow {
@@ -74,7 +60,7 @@
   height: 280px;
   left: -40px;
   top: 180px;
-  background: rgba(59, 130, 246, 0.12);
+  background: rgba(59, 130, 246, 0.10);
 }
 
 .glowB {
@@ -82,7 +68,7 @@
   height: 320px;
   right: -80px;
   top: 120px;
-  background: rgba(99, 102, 241, 0.10);
+  background: rgba(99, 102, 241, 0.08);
 }
 
 .heroInner {
@@ -128,11 +114,10 @@
   justify-content: space-between;
   padding: 1.35rem 1.35rem 1.2rem;
 
-  /* soft glass card so text stays readable */
   background: linear-gradient(
     180deg,
-    rgba(10, 20, 35, 0.34),
-    rgba(10, 20, 35, 0.24)
+    rgba(8, 18, 32, 0.42),
+    rgba(8, 18, 32, 0.28)
   );
   border: 1px solid rgba(255,255,255,.14);
   border-radius: 1.6rem;
@@ -177,16 +162,49 @@
 
 .title {
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
   font-size: clamp(2rem, 4vw, 3.6rem);
-  line-height: 1.22;
+  line-height: 1.18;
   letter-spacing: -.055em;
-  max-width: 11ch;
   color: #fff;
   text-shadow: 0 8px 30px rgba(0,0,0,.18);
 }
 
-.title span {
+.titleStatic {
+  display: block;
+  max-width: 12ch;
+}
+
+.animatedLine {
+  position: relative;
+  display: block;
+  min-height: 1.25em;
+  max-width: 13ch;
   color: var(--cyan);
+}
+
+.rotatingText {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity .55s ease,
+    transform .55s ease;
+  will-change: opacity, transform;
+}
+
+.rotatingTextActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rotatingTextHidden {
+  opacity: 0;
+  transform: translateY(22px);
 }
 
 .text {
@@ -346,8 +364,17 @@
   }
 
   .title {
-    max-width: 10ch;
     font-size: clamp(2.5rem, 10vw, 4rem);
+    line-height: 1.12;
+  }
+
+  .titleStatic {
+    max-width: 10ch;
+  }
+
+  .animatedLine {
+    max-width: 12ch;
+    min-height: 2.2em;
   }
 
   .text {
