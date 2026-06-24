@@ -11,9 +11,9 @@ const bgImages = [
 const resultCards = [
   { value: "+184%", label: "Organic Growth" },
   { value: "4.8x", label: "ROAS" },
-  { value: "-31%", label: "Lower CPL" },
+  { value: "-31%", label: "CPL" },
   { value: "2,450+", label: "Leads Generated" },
-  { value: "120+", label: "Campaigns Managed" },
+  { value: "120+", label: "Campaigns" },
   { value: "98%", label: "Client Retention" },
 ];
 
@@ -33,7 +33,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Background slider */}
+      {/* Background image slider */}
       <div className={styles.bgSlider}>
         {bgImages.map((img, index) => (
           <div
@@ -45,6 +45,9 @@ export default function Hero() {
           />
         ))}
       </div>
+
+      {/* Global hero overlay */}
+      <div className={styles.bgOverlay} />
 
       {/* Decorative overlays */}
       <div className={styles.gridOverlay} />
@@ -59,19 +62,18 @@ export default function Hero() {
                 <div className={styles.kickerWrap}>
                   <span className={styles.kickerDot} />
                   <p className={styles.kicker}>
-                    PrimeDigitor • SEO, Paid Ads & Web Growth
+                    PrimeDigitor • Digital Marketing Agency
                   </p>
                 </div>
 
                 <h1 className={styles.title}>
-                  We build <span>growth systems</span> that bring more leads,
-                  better conversions and measurable revenue.
+                  Growth-focused marketing Agency that{" "}
+                  <span>delivers results.</span>
                 </h1>
 
                 <p className={styles.text}>
-                  PrimeDigitor helps ambitious brands grow with SEO, paid ads,
-                  conversion-focused websites and performance-driven marketing
-                  strategies built to scale.
+                  We help ambitious brands grow with SEO, paid ads and
+                  high-converting websites.
                 </p>
               </div>
 
@@ -81,23 +83,15 @@ export default function Hero() {
                     href="#contact"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Book a Free Strategy Call
+                    Book a Free Call
                   </a>
-                </div>
-
-                <div className={styles.trustLine}>
-                  <span className={styles.trustItem}>SEO Growth</span>
-                  <span className={styles.trustDivider} />
-                  <span className={styles.trustItem}>Paid Ads</span>
-                  <span className={styles.trustDivider} />
-                  <span className={styles.trustItem}>High-Converting Websites</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Result cards */}
+        {/* Bottom result cards */}
         <div className={styles.resultRow}>
           {resultCards.map((item) => (
             <div key={item.label} className={styles.resultCard}>
