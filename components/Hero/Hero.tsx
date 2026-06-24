@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
 const bgImages = [
+  "/images/hero/hero-1.png",
   "/images/hero/hero-2.png",
 ];
 
