@@ -12,6 +12,21 @@ const resultCards = [
   { value: "98%", label: "Client Retention" },
 ];
 
+const glassMetrics = [
+  { value: "+184%", label: "Organic Traffic" },
+  { value: "4.8x", label: "Average ROAS" },
+  { value: "-31%", label: "Cost Per Lead" },
+];
+
+const serviceTags = [
+  "SEO",
+  "Paid Ads",
+  "Web Design",
+  "Lead Gen",
+  "Analytics",
+  "Conversion",
+];
+
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
@@ -68,76 +83,73 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT - MOTION POSTER CARD */}
+          {/* RIGHT - NEW GLASS PANEL */}
           <div className={`${styles.right} ${mounted ? styles.revealRight : ""}`}>
-            <div className={styles.posterShell}>
-              <div className={styles.posterGrid}></div>
-
-              <div className={styles.posterGlowA}></div>
-              <div className={styles.posterGlowB}></div>
-
-              <div className={styles.posterRing}></div>
-              <div className={styles.posterRingSmall}></div>
-              <div className={styles.posterLine}></div>
-
-              <div className={styles.posterBadge}>
-                <span className={styles.posterBadgeDot}></span>
-                PrimeDigitor Growth System
-              </div>
-
-              <div className={styles.posterTop}>
-                <p className={styles.posterEyebrow}>Performance Marketing</p>
-
-                <div className={styles.posterWords}>
-                  <span className={styles.posterWord}>Strategy</span>
-                  <span className={styles.posterWord}>Traffic</span>
-                  <span className={styles.posterWord}>Conversion</span>
+            <div className={styles.glassPanel}>
+              <div className={styles.glassPanelTop}>
+                <div className={styles.glassBadge}>
+                  <span className={styles.glassBadgeDot} />
+                  <span>Growth Snapshot</span>
                 </div>
 
-                <p className={styles.posterText}>
-                  SEO, paid acquisition and conversion-focused web experiences
-                  built to help ambitious brands scale with clarity.
-                </p>
+                <div className={styles.glassMiniPill}>Performance Marketing</div>
               </div>
 
-              {/* floating chips */}
-              <div className={`${styles.posterChip} ${styles.chipOne}`}>
-                Search Visibility
-              </div>
-              <div className={`${styles.posterChip} ${styles.chipTwo}`}>
-                Paid Growth
-              </div>
-              <div className={`${styles.posterChip} ${styles.chipThree}`}>
-                Website Conversion
-              </div>
+              <div className={styles.glassContent}>
+                <div className={styles.glassCopy}>
+                  <p className={styles.glassEyebrow}>Strategy • SEO • Paid Ads</p>
 
-              {/* bottom footer */}
-              <div className={styles.posterFooter}>
-                <div className={styles.posterMeta}>
-                  <span>SEO</span>
-                  <span>Paid Ads</span>
-                  <span>Web Design</span>
+                  <h3 className={styles.glassTitle}>
+                    A premium digital growth partner for brands that want
+                    <span> measurable results.</span>
+                  </h3>
+
+                  <p className={styles.glassText}>
+                    We combine SEO, paid media and high-converting web design to
+                    build scalable growth systems for modern businesses.
+                  </p>
                 </div>
 
-                <a href="#work" className={styles.posterLink}>
-                  View Case Studies
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H8.5M17 7V15.5"
-                      stroke="currentColor"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
+                <div className={styles.glassStatsGrid}>
+                  {glassMetrics.map((item) => (
+                    <div key={item.label} className={styles.glassStatCard}>
+                      <strong>{item.value}</strong>
+                      <span>{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={styles.glassChartCard}>
+                  <div className={styles.chartHeader}>
+                    <div>
+                      <p className={styles.chartLabel}>Campaign Momentum</p>
+                      <h4>Steady month-on-month growth</h4>
+                    </div>
+                    <span className={styles.chartGrowth}>+32%</span>
+                  </div>
+
+                  <div className={styles.chartBars}>
+                    <span style={{ height: "36%" }} />
+                    <span style={{ height: "52%" }} />
+                    <span style={{ height: "46%" }} />
+                    <span style={{ height: "68%" }} />
+                    <span style={{ height: "58%" }} />
+                    <span style={{ height: "82%" }} />
+                    <span style={{ height: "100%" }} />
+                  </div>
+                </div>
+
+                <div className={styles.serviceTags}>
+                  {serviceTags.map((tag) => (
+                    <span key={tag} className={styles.serviceTag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              <div className={styles.panelGlowOne} />
+              <div className={styles.panelGlowTwo} />
             </div>
           </div>
         </div>
