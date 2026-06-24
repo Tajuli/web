@@ -53,9 +53,8 @@
   display: grid;
   grid-template-columns: 40% 40%;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 4rem;
-  min-height: calc(100svh - 12rem);
 }
 
 /* reveal */
@@ -80,6 +79,15 @@
 /* LEFT */
 .left {
   max-width: 520px;
+  min-height: 460px; /* same as slider height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.leftTop {
+  display: flex;
+  flex-direction: column;
 }
 
 .kickerWrap {
@@ -106,10 +114,10 @@
 
 .title {
   margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2.7rem);  
-  line-height: .96;
-  letter-spacing: -.055em;
-  
+  font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+  line-height: .98;
+  letter-spacing: -.05em;
+  max-width: 8.5ch;
 }
 
 .title span {
@@ -117,11 +125,11 @@
 }
 
 .text {
-  margin-top: 1.35rem;
-  max-width: 26ch;
+  margin-top: 1.2rem;
+  max-width: 22ch;
   color: rgba(255,255,255,.68);
-  line-height: 1.8;
-  font-size: 1.02rem;
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
 .actions {
@@ -365,6 +373,18 @@
     gap: 3rem;
   }
 
+  .left {
+    min-height: 440px;
+  }
+
+  .sliderShell {
+    min-height: 440px;
+  }
+
+  .slideViewport {
+    min-height: 400px;
+  }
+
   .resultRow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -378,12 +398,12 @@
   .heroMain {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-    min-height: auto;
   }
 
   .left,
   .right {
     max-width: 100%;
+    min-height: auto;
   }
 
   .right {
@@ -395,6 +415,10 @@
     min-height: 420px;
   }
 
+  .slideViewport {
+    min-height: 380px;
+  }
+
   .resultRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -402,12 +426,12 @@
 
 @media (max-width: 767px) {
   .title {
-    max-width: 10ch;
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    max-width: 9.5ch;
+    font-size: clamp(2.4rem, 10vw, 4rem);
   }
 
   .text {
-    max-width: 32ch;
+    max-width: 28ch;
   }
 
   .actions {
