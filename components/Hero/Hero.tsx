@@ -4,9 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
 const bgImages = [
-  "/images/hero/hero-1.jpg",
-  "/images/hero/hero-2.jpg",
-  "/images/hero/hero-3.jpg",
+  "/images/hero/hero-1.png",
 ];
 
 const resultCards = [
