@@ -55,6 +55,7 @@
   justify-content: space-between;
   align-items: stretch;
   gap: 4rem;
+  min-height: auto;
 }
 
 /* reveal */
@@ -78,8 +79,13 @@
 
 /* LEFT */
 .left {
-  max-width: 520px;
-  min-height: 460px; /* same as slider height */
+  min-height: 460px; /* same as sliderShell */
+  display: flex;
+}
+
+.leftInner {
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -114,10 +120,10 @@
 
 .title {
   margin: 0;
-  font-size: clamp(2.6rem, 4.4vw, 4.6rem);
-  line-height: .98;
-  letter-spacing: -.05em;
-  max-width: 8.5ch;
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  line-height: .96;
+  letter-spacing: -.055em;
+  max-width: 9.2ch;
 }
 
 .title span {
@@ -125,11 +131,11 @@
 }
 
 .text {
-  margin-top: 1.2rem;
-  max-width: 22ch;
+  margin-top: 1.35rem;
+  max-width: 24ch;
   color: rgba(255,255,255,.68);
-  line-height: 1.75;
-  font-size: 1rem;
+  line-height: 1.8;
+  font-size: 1.02rem;
 }
 
 .actions {
@@ -172,7 +178,7 @@
   position: relative;
   width: 100%;
   max-width: 620px;
-  min-height: 460px;
+  min-height: 460px; /* unchanged */
   border: 1px solid rgba(255,255,255,.08);
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   backdrop-filter: blur(18px);
@@ -211,6 +217,7 @@
 .slideViewport {
   position: relative;
   min-height: 420px;
+  height: 100%;
   overflow: hidden;
   border-radius: 1.5rem;
 }
@@ -373,18 +380,6 @@
     gap: 3rem;
   }
 
-  .left {
-    min-height: 440px;
-  }
-
-  .sliderShell {
-    min-height: 440px;
-  }
-
-  .slideViewport {
-    min-height: 400px;
-  }
-
   .resultRow {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -398,12 +393,16 @@
   .heroMain {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    min-height: auto;
   }
 
-  .left,
-  .right {
-    max-width: 100%;
+  .left {
     min-height: auto;
+  }
+
+  .leftInner {
+    min-height: auto;
+    gap: 2rem;
   }
 
   .right {
@@ -415,10 +414,6 @@
     min-height: 420px;
   }
 
-  .slideViewport {
-    min-height: 380px;
-  }
-
   .resultRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -426,12 +421,12 @@
 
 @media (max-width: 767px) {
   .title {
-    max-width: 9.5ch;
-    font-size: clamp(2.4rem, 10vw, 4rem);
+    max-width: 10ch;
+    font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
   .text {
-    max-width: 28ch;
+    max-width: 32ch;
   }
 
   .actions {
