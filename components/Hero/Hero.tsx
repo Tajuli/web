@@ -3,12 +3,9 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const bgImages = ["/images/hero/hero-1.png"];
-
-const rotatingPhrases = [
-  "drives organic growth.",
-  "generates quality leads.",
-  "builds high-converting websites.",
+const bgImages = [
+  "/images/hero/hero-1.png",
+  "/images/hero/hero-2.png",
 ];
 
 const resultCards = [
@@ -22,29 +19,21 @@ const resultCards = [
 
 export default function Hero() {
   const [activeBg, setActiveBg] = useState(0);
-  const [activePhrase, setActivePhrase] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
 
-    const bgTimer = setInterval(() => {
+    const timer = setInterval(() => {
       setActiveBg((prev) => (prev + 1) % bgImages.length);
     }, 4500);
 
-    const textTimer = setInterval(() => {
-      setActivePhrase((prev) => (prev + 1) % rotatingPhrases.length);
-    }, 2600);
-
-    return () => {
-      clearInterval(bgTimer);
-      clearInterval(textTimer);
-    };
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <section id="hero" className={styles.hero}>
-      {/* Background image */}
+      {/* Background image slider */}
       <div className={styles.bgSlider}>
         {bgImages.map((img, index) => (
           <div
@@ -57,71 +46,43 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Decorative overlays only */}
+      {/* NO overlay */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
 
       <div className={`site-container ${styles.heroInner}`}>
         <div className={styles.heroMain}>
-          <div className={`${styles.left} ${mounted ? styles.reveal : ""}`}>
-            <div className={styles.leftInner}>
-              <div className={styles.leftTop}>
-                <div className={styles.kickerWrap}>
-                  <span className={styles.kickerDot} />
-                  <p className={styles.kicker}>
-                    PrimeDigitor • Digital Marketing Agency
-                  </p>
-                </div>
+          <div className={`${styles.heroContent} ${mounted ? styles.reveal : ""}`}>
+            <div className={styles.kickerWrap}>
+              <span className={styles.kickerDot} />
+              <p className={styles.kicker}>
+                PrimeDigitor • Digital Marketing Agency
+              </p>
+            </div>
 
-                <h1 className={styles.title}>
-                  <span className={styles.titleStatic}>
-                    Growth-focused marketing Agency that
-                  </span>
+            <h1 className={styles.title}>
+              <span className={styles.titleLine}>Growth-focused marketing</span>
+              <span className={styles.titleLine}>that drives</span>
+              <span className={styles.titleLineAccent}>real business results.</span>
+            </h1>
 
-                  <span className={styles.animatedLine}>
-                    {rotatingPhrases.map((phrase, index) => (
-                      <span
-                        key={phrase}
-                        className={`${styles.rotatingText} ${
-                          index === activePhrase
-                            ? styles.rotatingTextActive
-                            : styles.rotatingTextHidden
-                        }`}
-                      >
-                        {phrase}
-                      </span>
-                    ))}
-                  </span>
-                </h1>
+            <p className={styles.text}>
+              We help ambitious brands scale with SEO, performance marketing,
+              and conversion-focused websites that turn traffic into revenue.
+            </p>
 
-                <p className={styles.text}>
-                  We help ambitious brands grow with SEO, paid ads and
-                  high-converting websites.
-                </p>
-              </div>
-
-              <div className={styles.leftBottom}>
-                <div className={styles.actions}>
-                  <a
-                    href="#contact"
-                    className={`btn btn-primary ${styles.primaryBtn}`}
-                  >
-                    Book a Free Call
-                  </a>
-                  <a
-                    href="#work"
-                    className={`btn btn-secondary ${styles.secondaryBtn}`}
-                  >
-                    See Our Work
-                  </a>
-                </div>
-              </div>
+            <div className={styles.actions}>
+              <a
+                href="#contact"
+                className={`btn btn-primary ${styles.primaryBtn}`}
+              >
+                Book a Free Call
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom result cards */}
         <div className={styles.resultRow}>
           {resultCards.map((item) => (
             <div key={item.label} className={styles.resultCard}>
