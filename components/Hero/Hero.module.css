@@ -124,10 +124,9 @@
 
 .title {
   margin: 0;
-  font-size: clamp(3.1rem, 6vw, 5.25rem);
-  line-height: .95;
+  font-size: clamp(1.5rem, 3vw, 2.7rem);  
+  line-height: .95;  
   letter-spacing: -.055em;
-  max-width: 8.5ch;
 }
 
 .title span {
