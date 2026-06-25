@@ -42,14 +42,7 @@
   z-index: 1;
   pointer-events: none;
   opacity: .16;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5, 10, 20, 0.68) 0%,
-      rgba(7, 14, 28, 0.62) 35%,
-      rgba(8, 16, 30, 0.72) 70%,
-      rgba(6, 12, 24, 0.82) 100%
-    );
+  background: #ff9700;
 }
 
 /* subtle grid overlay */
