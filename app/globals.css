@@ -187,6 +187,7 @@ button {
   font-size: clamp(1rem, 2vw, 2.2rem);
   line-height: 1.5;
   letter-spacing: -0.045em;
+  color: #000000;
 }
 
 .section-text {
