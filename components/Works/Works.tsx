@@ -49,15 +49,19 @@ export default function Works() {
             execution and results—not just aesthetics.
           </h2>
           <p className="section-text">
-            This section keeps your original case-study design language, but the
-            visual work cards are now shown as a horizontal sliding portfolio.
+            This section is built to feel like a flagship chapter in the page,
+            with clearer proof and stronger visual storytelling.
           </p>
         </div>
 
         <div className={styles.sliderShell}>
           <div className={styles.track}>
             {[...works, ...works].map((work, index) => (
-              <a key={`${work.title}-${index}`} href={work.href} className={styles.slide}>
+              <a
+                key={`${work.title}-${index}`}
+                href={work.href}
+                className={styles.slide}
+              >
                 <div
                   className={styles.slideBg}
                   style={{ backgroundImage: `url(${work.image})` }}
