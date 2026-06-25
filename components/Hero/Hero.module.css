@@ -158,7 +158,7 @@
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: var(--cyan);
+  background: #90f551;
   box-shadow: 0 0 16px rgba(83, 213, 255, 0.85);
 }
 
