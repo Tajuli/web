@@ -155,7 +155,7 @@ button {
   display: table;
   margin: 0 auto 1rem;
   padding-bottom: 0.85rem;
-  color: #90f551;
+  color: var(--eyebrow-color);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -174,11 +174,11 @@ button {
   border-radius: 999px;
   background: linear-gradient(
     90deg,
-    rgba(83, 213, 255, 0.08),
-    rgba(83, 213, 255, 1),
-    rgba(83, 213, 255, 0.08)
+    color-mix(in srgb, var(--eyebrow-color) 0%, transparent),
+    var(--eyebrow-color),
+    color-mix(in srgb, var(--eyebrow-color) 0%, transparent)
   );
-  box-shadow: 0 0 14px rgba(83, 213, 255, 0.24);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--eyebrow-color) 35%, transparent);
 }
 
 .section-title {
