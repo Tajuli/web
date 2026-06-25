@@ -241,27 +241,38 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Bottom result cards slider */}
-        <div
-          ref={sliderRef}
-          className={styles.resultSlider}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={stopDragging}
-          onMouseLeave={stopDragging}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
-          <div className={styles.resultTrack}>
-            {[...resultCards, ...resultCards, ...resultCards].map(
-              (item, index) => (
-                <div key={`${item.label}-${index}`} className={styles.resultCard}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              )
-            )}
+        {/* Result slider frame */}
+        <div className={styles.resultFrame}>
+          <span className={`${styles.frameCorner} ${styles.frameTopLeft}`} />
+          <span className={`${styles.frameCorner} ${styles.frameTopRight}`} />
+          <span className={`${styles.frameCorner} ${styles.frameBottomLeft}`} />
+          <span className={`${styles.frameCorner} ${styles.frameBottomRight}`} />
+
+          {/* Bottom result cards slider */}
+          <div
+            ref={sliderRef}
+            className={styles.resultSlider}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={stopDragging}
+            onMouseLeave={stopDragging}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className={styles.resultTrack}>
+              {[...resultCards, ...resultCards, ...resultCards].map(
+                (item, index) => (
+                  <div
+                    key={`${item.label}-${index}`}
+                    className={styles.resultCard}
+                  >
+                    <strong>{item.value}</strong>
+                    <span>{item.label}</span>
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
