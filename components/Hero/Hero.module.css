@@ -285,7 +285,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  margin-top: 0; /* no gap */
+  margin-top: 10; /* no gap */
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
