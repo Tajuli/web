@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
-const bgImages = [
-  "/images/hero/hero-2.png",
-];
+const bgImages = ["/images/hero/hero-2.png"];
 
 const resultCards = [
   { value: "+184%", label: "Organic Growth" },
@@ -14,6 +12,10 @@ const resultCards = [
   { value: "2,450+", label: "Leads Generated" },
   { value: "120+", label: "Campaigns" },
   { value: "98%", label: "Client Retention" },
+  { value: "+67%", label: "Conversion Rate" },
+  { value: "3.2x", label: "Revenue Growth" },
+  { value: "850K+", label: "Ad Impressions" },
+  { value: "72%", label: "Qualified Leads" },
 ];
 
 export default function Hero() {
@@ -29,6 +31,9 @@ export default function Hero() {
 
     return () => clearInterval(timer);
   }, []);
+
+  // seamless loop er jonno duplicate
+  const marqueeCards = [...resultCards, ...resultCards];
 
   return (
     <section id="hero" className={styles.hero}>
@@ -96,14 +101,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Bottom result cards */}
+        {/* Bottom result cards slider */}
         <div className={styles.resultRow}>
-          {resultCards.map((item) => (
-            <div key={item.label} className={styles.resultCard}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
+          <div className={styles.resultTrack}>
+            {marqueeCards.map((item, index) => (
+              <div key={`${item.label}-${index}`} className={styles.resultCard}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
