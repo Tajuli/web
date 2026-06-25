@@ -231,20 +231,31 @@
   position: relative;
   z-index: 3;
   margin-top: 2.4rem;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-x;
+  scroll-behavior: auto;
+}
+
+.resultSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.resultSlider.dragging {
+  cursor: grabbing;
 }
 
 .resultTrack {
   display: flex;
   gap: 0.95rem;
   width: max-content;
-  animation: resultMarquee 90s linear infinite;
-  will-change: transform;
-}
-
-.resultSlider:hover .resultTrack {
-  animation-play-state: paused;
+  padding-bottom: 2px;
 }
 
 .resultCard {
@@ -302,12 +313,26 @@
   font-size: 0.9rem;
 }
 
-@keyframes resultMarquee {
-  0% {
-    transform: translateX(0);
+@media (max-width: 991px) {
+  .resultCard {
+    width: 210px;
+    flex: 0 0 210px;
   }
-  100% {
-    transform: translateX(calc(-50% - 0.475rem));
+}
+
+@media (max-width: 767px) {
+  .resultSlider {
+    margin-top: 2rem;
+  }
+
+  .resultTrack {
+    gap: 0.85rem;
+  }
+
+  .resultCard {
+    width: 185px;
+    flex: 0 0 185px;
+    min-height: 82px;
   }
 }
 
