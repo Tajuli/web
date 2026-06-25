@@ -1,47 +1,164 @@
-.section {
-  background:
-    radial-gradient(circle at 84% 12%, rgba(83, 213, 255, 0.12), transparent 20%),
-    linear-gradient(180deg, #0d1b30 0%, #102540 100%);
-  overflow: hidden;
-}
-
-.sliderShell {
-  margin-top: 2.2rem;
+.worksSection {
+  background: #e9e9e9;
+  padding: 110px 0 120px;
   position: relative;
   overflow: hidden;
-  width: 100%;
 }
 
-.track {
+.topbar {
   display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: worksScroll 36s linear infinite;
-  will-change: transform;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 56px;
 }
 
-.sliderShell:hover .track {
-  animation-play-state: paused;
+.headingWrap {
+  display: flex;
+  flex-direction: column;
 }
 
-.slide {
-  position: relative;
-  flex: 0 0 calc((100% - 3rem) / 3);
-  min-width: 320px;
-  height: 520px;
-  overflow: hidden;
+.title {
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: #050505;
+}
+
+.subtitle {
+  margin: 12px 0 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ef2f4a;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: 62px;
+  padding: 0 28px;
+  border: 2px solid #ef2f4a;
+  color: #111;
   text-decoration: none;
-  background: #12233a;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: 0.25s ease;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.viewAllBtn:hover {
+  background: #ef2f4a;
+  color: #fff;
+}
+
+.sliderWrap {
+  position: relative;
+}
+
+.worksSlider :global(.swiper) {
+  overflow: visible;
+}
+
+.workCard {
+  position: relative;
+  height: 560px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #11213a 0%, #0c172a 100%);
+  border-radius: 0;
   isolation: isolate;
 }
 
-.slideBg {
+.cardBg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 22%),
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.08), transparent 20%),
+    linear-gradient(180deg, #1b2943 0%, #111d31 100%);
   transform: scale(1);
   transition: transform 0.7s ease;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.glowOne,
+.glowTwo {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(50px);
+  opacity: 0.55;
+}
+
+.glowOne {
+  width: 240px;
+  height: 240px;
+  background: rgba(239, 47, 74, 0.18);
+  top: -40px;
+  right: -40px;
+}
+
+.glowTwo {
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.08);
+  bottom: -40px;
+  left: -40px;
+}
+
+.mockupWrap {
+  position: absolute;
+  inset: 34px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  transform: rotate(-12deg) scale(1.05);
+  opacity: 0.42;
+}
+
+.mockupCard {
+  min-height: 140px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.mockupCard:nth-child(1) {
+  transform: translateY(8px);
+}
+.mockupCard:nth-child(2) {
+  transform: translateY(-12px);
+}
+.mockupCard:nth-child(3) {
+  transform: translateY(-6px);
+}
+.mockupCard:nth-child(4) {
+  transform: translateY(16px);
+}
+.mockupCard:nth-child(5) {
+  transform: translateY(-10px);
+}
+.mockupCard:nth-child(6) {
+  transform: translateY(10px);
 }
 
 .overlay {
@@ -51,105 +168,319 @@
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.18) 0%,
-      rgba(255, 255, 255, 0.08) 28%,
-      rgba(0, 0, 0, 0.10) 55%,
-      rgba(0, 0, 0, 0.38) 100%
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(30, 36, 48, 0.18) 32%,
+      rgba(13, 17, 24, 0.36) 58%,
+      rgba(7, 10, 16, 0.74) 100%
     );
 }
 
-.slide::after {
+.workCard::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0)
+  );
   opacity: 0;
   transition: opacity 0.35s ease;
+  z-index: 2;
 }
 
-.slide:hover .slideBg {
+.workCard:hover .cardBg {
   transform: scale(1.06);
 }
 
-.slide:hover::after {
+.workCard:hover::after {
   opacity: 1;
 }
 
-.slideContent {
+.cardContent {
   position: absolute;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
+  padding: 34px 28px 30px;
+  text-align: left;
 }
 
-.slideContent h3 {
+.tag {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.cardContent h3 {
   margin: 0;
   color: #fff;
-  font-size: clamp(1.5rem, 2.2vw, 2.35rem);
-  line-height: 1.08;
+  font-size: clamp(1.45rem, 1.7vw, 2rem);
+  line-height: 1.14;
   font-weight: 900;
   letter-spacing: -0.03em;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
 }
 
-.slideContent p {
-  margin: 10px 0 0;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 1rem;
-  line-height: 1.4;
-  font-weight: 500;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+.cardContent p {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  max-width: 95%;
 }
 
-@keyframes worksScroll {
-  from {
-    transform: translateX(0);
+.metrics {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.metrics li {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.indexBadge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 4;
+  min-width: 48px;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 12, 18, 0.38);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transition: 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.navBtn:hover {
+  background: #ef2f4a;
+}
+
+.prevBtn {
+  left: 18px;
+}
+
+.nextBtn {
+  right: 18px;
+}
+
+@media (max-width: 1199px) {
+  .worksSection {
+    padding: 92px 0 100px;
   }
-  to {
-    transform: translateX(calc(-50% - 0.75rem));
+
+  .workCard {
+    height: 530px;
+  }
+
+  .cardContent {
+    padding: 30px 24px 26px;
+  }
+
+  .mockupWrap {
+    inset: 28px;
+    gap: 14px;
   }
 }
 
-@media (max-width: 1200px) {
-  .slide {
-    flex: 0 0 calc((100% - 1.5rem) / 2);
-    min-width: 280px;
-    height: 450px;
+@media (max-width: 991px) {
+  .topbar {
+    margin-bottom: 38px;
+  }
+
+  .viewAllBtn {
+    min-width: 132px;
+    height: 56px;
+    font-size: 1rem;
+    padding: 0 22px;
+  }
+
+  .workCard {
+    height: 500px;
+  }
+
+  .cardContent p {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .metrics {
+    gap: 8px;
+  }
+
+  .metrics li {
+    font-size: 0.82rem;
+  }
+
+  .navBtn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 767px) {
-  .sliderShell {
-    margin-top: 1.6rem;
+  .worksSection {
+    padding: 72px 0 84px;
   }
 
-  .track {
-    gap: 1rem;
-    animation-duration: 28s;
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
   }
 
-  .slide {
-    flex: 0 0 82vw;
-    min-width: 82vw;
-    height: 340px;
+  .subtitle {
+    margin-top: 10px;
+    font-size: 0.95rem;
   }
 
-  .slideContent {
-    padding: 18px;
+  .viewAllBtn {
+    height: 52px;
+    min-width: 120px;
+    padding: 0 20px;
+    font-size: 0.95rem;
   }
 
-  .slideContent h3 {
-    font-size: 1.45rem;
+  .workCard {
+    height: 470px;
   }
 
-  .slideContent p {
-    font-size: 0.92rem;
-    margin-top: 8px;
+  .mockupWrap {
+    inset: 22px;
+    gap: 12px;
+    transform: rotate(-10deg) scale(1.02);
+  }
+
+  .mockupCard {
+    min-height: 110px;
+    border-radius: 18px;
+  }
+
+  .cardContent {
+    padding: 24px 20px 22px;
+  }
+
+  .cardContent h3 {
+    font-size: 1.35rem;
+  }
+
+  .cardContent p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .metrics li {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+
+  .indexBadge {
+    top: 14px;
+    right: 14px;
+    min-width: 42px;
+    height: 42px;
+    font-size: 0.82rem;
+  }
+
+  .navBtn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.55rem;
+  }
+
+  .prevBtn {
+    left: 10px;
+  }
+
+  .nextBtn {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .workCard {
+    height: 440px;
+  }
+
+  .cardContent {
+    padding: 20px 16px 18px;
+  }
+
+  .tag {
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+    padding: 7px 10px;
+  }
+
+  .cardContent h3 {
+    font-size: 1.18rem;
+  }
+
+  .cardContent p {
+    font-size: 0.84rem;
+    line-height: 1.55;
+  }
+
+  .metrics {
+    margin-top: 14px;
+    gap: 7px;
+  }
+
+  .metrics li {
+    font-size: 0.74rem;
+    padding: 7px 9px;
   }
 }
