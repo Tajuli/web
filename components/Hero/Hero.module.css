@@ -55,11 +55,7 @@
     linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
-  -webkit-mask-image: radial-gradient(
-    circle at center,
-    black 45%,
-    transparent 100%
-  );
+  -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
   pointer-events: none;
   opacity: 0.16;
 }
@@ -241,10 +237,7 @@
   -webkit-user-select: none;
   touch-action: pan-x;
   scroll-behavior: auto;
-
-  /* bracket frame spacing */
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  padding-inline: 2.2rem;
 }
 
 .resultSlider::-webkit-scrollbar {
@@ -255,40 +248,42 @@
   cursor: grabbing;
 }
 
-/* LEFT + RIGHT GREEN SQUARE BRACKET FRAME */
+/* GREEN BRACKET OVERLAY */
 .resultSlider::before,
 .resultSlider::after {
   content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 22px;
-  height: 112px;
+  width: 26px;
+  height: 108px;
   pointer-events: none;
-  z-index: 5;
-  opacity: 0.95;
+  z-index: 20;
+  opacity: 1;
 }
 
-/* LEFT BRACKET [ */
+/* LEFT [ */
 .resultSlider::before {
   left: 0;
   border-left: 3px solid #90f551;
   border-top: 3px solid #90f551;
   border-bottom: 3px solid #90f551;
-  border-right: none;
-  border-radius: 10px 0 0 10px;
-  box-shadow: 0 0 14px rgba(144, 245, 81, 0.28);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 1px rgba(144, 245, 81, 0.04),
+    0 0 14px rgba(144, 245, 81, 0.22);
 }
 
-/* RIGHT BRACKET ] */
+/* RIGHT ] */
 .resultSlider::after {
   right: 0;
   border-right: 3px solid #90f551;
   border-top: 3px solid #90f551;
   border-bottom: 3px solid #90f551;
-  border-left: none;
-  border-radius: 0 10px 10px 0;
-  box-shadow: 0 0 14px rgba(144, 245, 81, 0.28);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 1px rgba(144, 245, 81, 0.04),
+    0 0 14px rgba(144, 245, 81, 0.22);
 }
 
 .resultTrack {
@@ -363,14 +358,14 @@
 @media (max-width: 767px) {
   .resultSlider {
     margin-top: 2rem;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
+    padding-inline: 1.2rem;
   }
 
   .resultSlider::before,
   .resultSlider::after {
     width: 16px;
-    height: 92px;
+    height: 86px;
+    border-width: 2px;
   }
 
   .resultTrack {
