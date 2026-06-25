@@ -239,18 +239,18 @@
   flex-direction: column;
   justify-content: center;
 
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.22),
-    rgba(255, 255, 255, 0.10)
+    rgba(5, 10, 18, 0.55),
+    rgba(5, 10, 18, 0.30)
   );
-  border: 1px solid rgba(255,255,255,.20);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
 
   box-shadow:
-    0 14px 34px rgba(18, 31, 54, 0.16),
-    inset 0 1px 0 rgba(255,255,255,.16);
+    0 14px 34px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .resultCard::before {
