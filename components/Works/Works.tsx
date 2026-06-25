@@ -1,7 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./Works.module.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 const works = [
   {
@@ -39,87 +43,92 @@ const works = [
       "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop",
     logo: "NR",
   },
+  {
+    title: "Urban Horizon",
+    category: "Brand Campaign",
+    image:
+      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1600&auto=format&fit=crop",
+    logo: "UH",
+  },
 ];
 
 export default function Works() {
-  const [current, setCurrent] = useState(1);
-
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? works.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === works.length - 1 ? 0 : prev + 1));
-  };
-
-  const getVisibleSlides = () => {
-    const prevIndex = current === 0 ? works.length - 1 : current - 1;
-    const nextIndex = current === works.length - 1 ? 0 : current + 1;
-
-    return [
-      { ...works[prevIndex], position: "left", key: `left-${prevIndex}` },
-      { ...works[current], position: "center", key: `center-${current}` },
-      { ...works[nextIndex], position: "right", key: `right-${nextIndex}` },
-    ];
-  };
-
-  const visibleSlides = getVisibleSlides();
-
   return (
     <section id="work" className={`section ${styles.section}`}>
       <div className="site-container">
         <div className="section-head">
           <p className="eyebrow">Our Work</p>
           <h2 className="section-title">
-            Campaigns, creatives and media buying that actually move brands.
+            Campaigns, creatives and media buying that move brands forward.
           </h2>
           <p className="section-text">
-            A premium portfolio slider styled like the reference layout with
-            large visual cards, centered copy and smooth navigation.
+            A premium, image-led portfolio slider with loop, autoplay, drag and
+            touch support.
           </p>
         </div>
 
         <div className={styles.sliderWrap}>
-          <button
-            className={`${styles.navBtn} ${styles.prevBtn}`}
-            onClick={prevSlide}
-            aria-label="Previous work"
-          >
+          <button className={`${styles.navBtn} ${styles.prevBtn} works-prev`} aria-label="Previous work">
             ‹
           </button>
 
-          <div className={styles.sliderViewport}>
-            {visibleSlides.map((item) => (
-              <article
-                key={item.key}
-                className={`${styles.workCard} ${
-                  item.position === "center" ? styles.activeCard : ""
-                }`}
-              >
-                <div
-                  className={styles.cardBg}
-                  style={{ backgroundImage: `url(${item.image})` }}
-                />
-
-                <div className={styles.overlay} />
-
-                <div className={styles.cardTop}>
-                  <div className={styles.logoBadge}>{item.logo}</div>
-                </div>
-
-                <div className={styles.cardContent}>
-                  <h3>{item.title}</h3>
-                  <p>{item.category}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <button
-            className={`${styles.navBtn} ${styles.nextBtn}`}
-            onClick={nextSlide}
-            aria-label="Next work"
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            className={styles.worksSwiper}
+            loop={true}
+            speed={900}
+            grabCursor={true}
+            centeredSlides={false}
+            watchSlidesProgress={true}
+            allowTouchMove={true}
+            autoplay={{
+              delay: 2800,
+              disableOnInteraction: false,
+              reverseDirection: true, // right -> left
+              pauseOnMouseEnter: true,
+            }}
+            navigation={{
+              prevEl: ".works-prev",
+              nextEl: ".works-next",
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 14,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 18,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+              },
+            }}
           >
+            {works.map((work, index) => (
+              <SwiperSlide key={`${work.title}-${index}`}>
+                <article className={styles.workCard}>
+                  <div
+                    className={styles.cardBg}
+                    style={{ backgroundImage: `url(${work.image})` }}
+                  />
+                  <div className={styles.overlay} />
+
+                  <div className={styles.cardTop}>
+                    <div className={styles.logoBadge}>{work.logo}</div>
+                  </div>
+
+                  <div className={styles.cardContent}>
+                    <h3>{work.title}</h3>
+                    <p>{work.category}</p>
+                  </div>
+                </article>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button className={`${styles.navBtn} ${styles.nextBtn} works-next`} aria-label="Next work">
             ›
           </button>
         </div>
