@@ -153,7 +153,7 @@ button {
   display: table;
   margin: 0 auto 1rem;
   padding-bottom: 0.85rem;
-  color: var(--cyan);
+  color: #90f551;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: clamp(2rem, 4vw, 3rem);
