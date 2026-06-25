@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 
 const bgImages = ["/images/hero/hero-2.png"];
@@ -22,6 +22,12 @@ export default function Hero() {
   const [activeBg, setActiveBg] = useState(0);
   const [mounted, setMounted] = useState(false);
 
+  const sliderRef = useRef<HTMLDivElement | null>(null);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const startScrollLeft = useRef(0);
+  const autoSlideRef = useRef<number | null>(null);
+
   useEffect(() => {
     setMounted(true);
 
@@ -31,6 +37,143 @@ export default function Hero() {
 
     return () => clearInterval(timer);
   }, []);
+
+  // infinite loop + auto slide
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const oneSetWidth = slider.scrollWidth / 3;
+
+    // start from middle set for seamless both-side drag
+    slider.scrollLeft = oneSetWidth;
+
+    const handleLoop = () => {
+      if (!slider) return;
+
+      if (slider.scrollLeft <= oneSetWidth * 0.15) {
+        slider.scrollLeft += oneSetWidth;
+      } else if (slider.scrollLeft >= oneSetWidth * 1.85) {
+        slider.scrollLeft -= oneSetWidth;
+      }
+    };
+
+    const startAutoSlide = () => {
+      stopAutoSlide();
+
+      autoSlideRef.current = window.setInterval(() => {
+        if (!slider || isDown.current) return;
+        slider.scrollLeft += 1;
+        handleLoop();
+      }, 16); // ~60fps smooth
+    };
+
+    const stopAutoSlide = () => {
+      if (autoSlideRef.current) {
+        window.clearInterval(autoSlideRef.current);
+        autoSlideRef.current = null;
+      }
+    };
+
+    slider.addEventListener("scroll", handleLoop);
+    startAutoSlide();
+
+    const handleMouseEnter = () => stopAutoSlide();
+    const handleMouseLeaveAuto = () => {
+      if (!isDown.current) startAutoSlide();
+    };
+
+    slider.addEventListener("mouseenter", handleMouseEnter);
+    slider.addEventListener("mouseleave", handleMouseLeaveAuto);
+
+    return () => {
+      slider.removeEventListener("scroll", handleLoop);
+      slider.removeEventListener("mouseenter", handleMouseEnter);
+      slider.removeEventListener("mouseleave", handleMouseLeaveAuto);
+      stopAutoSlide();
+    };
+  }, []);
+
+  const pauseAuto = () => {
+    if (autoSlideRef.current) {
+      window.clearInterval(autoSlideRef.current);
+      autoSlideRef.current = null;
+    }
+  };
+
+  const resumeAuto = () => {
+    const slider = sliderRef.current;
+    if (!slider || autoSlideRef.current) return;
+
+    autoSlideRef.current = window.setInterval(() => {
+      if (!slider || isDown.current) return;
+
+      const oneSetWidth = slider.scrollWidth / 3;
+      slider.scrollLeft += 1;
+
+      if (slider.scrollLeft <= oneSetWidth * 0.15) {
+        slider.scrollLeft += oneSetWidth;
+      } else if (slider.scrollLeft >= oneSetWidth * 1.85) {
+        slider.scrollLeft -= oneSetWidth;
+      }
+    }, 16);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    isDown.current = true;
+    pauseAuto();
+    slider.classList.add(styles.dragging);
+
+    startX.current = e.pageX - slider.offsetLeft;
+    startScrollLeft.current = slider.scrollLeft;
+  };
+
+  const stopDragging = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    isDown.current = false;
+    slider.classList.remove(styles.dragging);
+    resumeAuto();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const slider = sliderRef.current;
+    if (!slider || !isDown.current) return;
+
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX.current) * 1.25;
+    slider.scrollLeft = startScrollLeft.current - walk;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    isDown.current = true;
+    pauseAuto();
+
+    startX.current = e.touches[0].pageX - slider.offsetLeft;
+    startScrollLeft.current = slider.scrollLeft;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    const slider = sliderRef.current;
+    if (!slider || !isDown.current) return;
+
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX.current) * 1.25;
+    slider.scrollLeft = startScrollLeft.current - walk;
+  };
+
+  const handleTouchEnd = () => {
+    isDown.current = false;
+    resumeAuto();
+  };
 
   return (
     <section id="hero" className={styles.hero}>
@@ -99,14 +242,26 @@ export default function Hero() {
         </div>
 
         {/* Bottom result cards slider */}
-        <div className={styles.resultSlider}>
+        <div
+          ref={sliderRef}
+          className={styles.resultSlider}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={stopDragging}
+          onMouseLeave={stopDragging}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className={styles.resultTrack}>
-            {[...resultCards, ...resultCards].map((item, index) => (
-              <div key={`${item.label}-${index}`} className={styles.resultCard}>
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-              </div>
-            ))}
+            {[...resultCards, ...resultCards, ...resultCards].map(
+              (item, index) => (
+                <div key={`${item.label}-${index}`} className={styles.resultCard}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>
