@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Works.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -9,6 +10,7 @@ import "swiper/css/navigation";
 
 const works = [
   {
+    slug: "paiker-imports",
     title: "Paiker Imports",
     category: "Media Buying",
     image:
@@ -16,6 +18,7 @@ const works = [
     logo: "BYD",
   },
   {
+    slug: "cube-holdings",
     title: "Cube Holdings Ltd",
     category: "Media Buying",
     image:
@@ -23,6 +26,7 @@ const works = [
     logo: "Cube",
   },
   {
+    slug: "maven-autos",
     title: "Maven Autos",
     category: "Media Buying",
     image:
@@ -30,6 +34,7 @@ const works = [
     logo: "MV",
   },
   {
+    slug: "prime-realty",
     title: "Prime Realty",
     category: "Lead Generation",
     image:
@@ -37,6 +42,7 @@ const works = [
     logo: "PR",
   },
   {
+    slug: "nova-residence",
     title: "Nova Residence",
     category: "Creative Campaign",
     image:
@@ -44,6 +50,7 @@ const works = [
     logo: "NR",
   },
   {
+    slug: "urban-horizon",
     title: "Urban Horizon",
     category: "Brand Campaign",
     image:
@@ -62,13 +69,16 @@ export default function Works() {
             Campaigns, creatives and media buying that move brands forward.
           </h2>
           <p className="section-text">
-            A premium, image-led portfolio slider with loop, autoplay, drag and
-            touch support.
+            Explore selected projects, campaigns and digital growth work from
+            our portfolio.
           </p>
         </div>
 
         <div className={styles.sliderWrap}>
-          <button className={`${styles.navBtn} ${styles.prevBtn} works-prev`} aria-label="Previous work">
+          <button
+            className={`${styles.navBtn} ${styles.prevBtn} works-prev`}
+            aria-label="Previous work"
+          >
             ‹
           </button>
 
@@ -78,13 +88,12 @@ export default function Works() {
             loop={true}
             speed={900}
             grabCursor={true}
-            centeredSlides={false}
             watchSlidesProgress={true}
             allowTouchMove={true}
             autoplay={{
               delay: 2800,
               disableOnInteraction: false,
-              reverseDirection: true, // right -> left
+              reverseDirection: true,
               pauseOnMouseEnter: true,
             }}
             navigation={{
@@ -106,29 +115,38 @@ export default function Works() {
               },
             }}
           >
-            {works.map((work, index) => (
-              <SwiperSlide key={`${work.title}-${index}`}>
-                <article className={styles.workCard}>
-                  <div
-                    className={styles.cardBg}
-                    style={{ backgroundImage: `url(${work.image})` }}
-                  />
-                  <div className={styles.overlay} />
+            {works.map((work) => (
+              <SwiperSlide key={work.slug}>
+                <Link
+                  href={`/work/${work.slug}`}
+                  className={styles.cardLink}
+                  aria-label={`View ${work.title} case study`}
+                >
+                  <article className={styles.workCard}>
+                    <div
+                      className={styles.cardBg}
+                      style={{ backgroundImage: `url(${work.image})` }}
+                    />
+                    <div className={styles.overlay} />
 
-                  <div className={styles.cardTop}>
-                    <div className={styles.logoBadge}>{work.logo}</div>
-                  </div>
+                    <div className={styles.cardTop}>
+                      <div className={styles.logoBadge}>{work.logo}</div>
+                    </div>
 
-                  <div className={styles.cardContent}>
-                    <h3>{work.title}</h3>
-                    <p>{work.category}</p>
-                  </div>
-                </article>
+                    <div className={styles.cardContent}>
+                      <h3>{work.title}</h3>
+                      <p>{work.category}</p>
+                    </div>
+                  </article>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          <button className={`${styles.navBtn} ${styles.nextBtn} works-next`} aria-label="Next work">
+          <button
+            className={`${styles.navBtn} ${styles.nextBtn} works-next`}
+            aria-label="Next work"
+          >
             ›
           </button>
         </div>
