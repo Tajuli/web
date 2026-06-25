@@ -1,7 +1,83 @@
 import styles from "./Works.module.css";
+
 const works = [
-  { tag: "Healthcare SEO + CRO", title: "A clinic growth system rebuilt around local visibility, trust and patient enquiry conversion.", text: "We restructured service pages, clarified the offer hierarchy and rebuilt conversion paths so search traffic could turn into enquiries more consistently.", metrics: ["+162% organic traffic", "+58% conversion rate", "3 new service funnels"] },
-  { tag: "Lead Generation Ads", title: "Paid acquisition funnel redesigned to improve lead quality and lower cost per acquisition.", text: "The campaign structure, landing page flow and CTA architecture were rebuilt around stronger intent and cleaner conversion journeys.", metrics: ["4.1x ROAS", "-31% CPL", "+93% qualified leads"] },
-  { tag: "Premium Website Redesign", title: "Brand site repositioned to feel more premium, more credible and more conversion-focused.", text: "We tightened messaging, improved visual hierarchy and introduced a cleaner user journey for decision-makers evaluating the service.", metrics: ["+44% engagement", "+67% CTA clicks", "Faster mobile UX"] }
+  {
+    id: 1,
+    title: "Kareems Dhaka",
+    category: "Media Buying",
+    image:
+      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    id: 2,
+    title: "TST White House",
+    category: "Media Buying",
+    image:
+      "https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1400&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    id: 3,
+    title: "Ai-Cha Bangladesh",
+    category: "Media Buying",
+    image:
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop",
+    href: "#",
+  },
 ];
-export default function Works(){return(<section id="work" className={`section ${styles.section}`}><div className="site-container"><div className="section-head"><p className="eyebrow">Our work</p><h2 className="section-title">Featured case-study style work designed to prove strategy, execution and results—not just aesthetics.</h2><p className="section-text">This section is built to feel like a flagship chapter in the page, with clearer proof and stronger visual storytelling.</p></div><div className={styles.stack}>{works.map((work,index)=><article key={work.title} className={`${styles.card} ${index===0?styles.featured:""}`}><div className={styles.visual}><div className={styles.browser}><div className={styles.browserTop}><span/><span/><span/></div><div className={styles.browserBody}><div className={styles.browserRow}><div className={`${styles.browserBlock} ${styles.large}`}/><div className={styles.browserBlock}/></div><div className={`${styles.browserRow} ${styles.three}`}><div className={`${styles.browserBlock} ${styles.small}`}/><div className={`${styles.browserBlock} ${styles.small}`}/><div className={`${styles.browserBlock} ${styles.small}`}/></div></div></div></div><div className={styles.copy}><span className={styles.tag}>{work.tag}</span><h3>{work.title}</h3><p>{work.text}</p><ul>{work.metrics.map(metric=><li key={metric}>{metric}</li>)}</ul></div></article>)}</div></div></section>)}
+
+export default function Works() {
+  return (
+    <section id="work" className={styles.section}>
+      <div className="site-container">
+        <div className={styles.topRow}>
+          <div className={styles.headingWrap}>
+            <h2 className={styles.title}>Works.</h2>
+            <p className={styles.kicker}>THINGS WE&apos;VE MADE</p>
+          </div>
+
+          <a href="/work" className={styles.viewAllBtn}>
+            View All
+          </a>
+        </div>
+
+        <div className={styles.grid}>
+          {works.map((work) => (
+            <a key={work.id} href={work.href} className={styles.card}>
+              <div
+                className={styles.bg}
+                style={{ backgroundImage: `url(${work.image})` }}
+              />
+
+              <div className={styles.overlay} />
+
+              <div className={styles.content}>
+                <h3>{work.title}</h3>
+                <p>{work.category}</p>
+              </div>
+
+              <div className={styles.arrow}>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 16L16 8M16 8H9.5M16 8V14.5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
