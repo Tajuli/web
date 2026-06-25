@@ -3,7 +3,7 @@
 .inner { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .compact .inner { height: 78px; }
 .brand { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
-.brand span { color: var(--cyan); }
+.brand span { color: #62ff00; }
 .desktopNav { display: none; }
 .navPill { border-radius: 999px; padding: 0.82rem 1rem; color: rgba(255, 255, 255, 0.72); transition: 0.25s; }
 .navPill:hover { color: white; background: rgba(255, 255, 255, 0.06); }
