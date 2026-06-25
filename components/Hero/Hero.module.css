@@ -41,8 +41,8 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.16;
-  background: #451b00;
+  opacity: 0.20;
+  background: #3d1800;
 }
 
 /* subtle grid overlay */
