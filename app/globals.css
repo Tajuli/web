@@ -13,6 +13,8 @@
   --cyan-glow: rgba(83, 213, 255, 0.22);
   --blue-glow: rgba(59, 130, 246, 0.18);
   --violet-glow: rgba(99, 102, 241, 0.14);
+  /* NEW */
+  --eyebrow-color: #90f551; /* এখানে যেকোনো color দাও */
 }
 
 * {
