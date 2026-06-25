@@ -240,11 +240,12 @@
 
 .frameCorner {
   position: absolute;
-  width: 54px;   /* thicker / longer on desktop */
-  height: 54px;
+  width: 54px;   /* thicker + longer */
+  height: 54px;  /* thicker + longer */
   pointer-events: none;
   opacity: 1;
   z-index: 5;
+  box-sizing: border-box;
 }
 
 .frameTopLeft {
@@ -252,6 +253,7 @@
   left: 0;
   border-top: 4px solid #90f551;
   border-left: 4px solid #90f551;
+  border-top-left-radius: 0;
 }
 
 .frameTopRight {
@@ -259,6 +261,7 @@
   right: 0;
   border-top: 4px solid #90f551;
   border-right: 4px solid #90f551;
+  border-top-right-radius: 0;
 }
 
 .frameBottomLeft {
@@ -266,6 +269,7 @@
   left: 0;
   border-bottom: 4px solid #90f551;
   border-left: 4px solid #90f551;
+  border-bottom-left-radius: 0;
 }
 
 .frameBottomRight {
@@ -273,6 +277,7 @@
   right: 0;
   border-bottom: 4px solid #90f551;
   border-right: 4px solid #90f551;
+  border-bottom-right-radius: 0;
 }
 
 .resultSlider {
@@ -280,6 +285,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
+  margin-top: 0; /* no gap */
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -287,8 +293,7 @@
   -webkit-user-select: none;
   touch-action: pan-x;
   scroll-behavior: auto;
-  padding: 0; /* no gap */
-  margin: 0;
+  padding: 0; /* no inner gap */
 }
 
 @media (max-width: 767px) {
