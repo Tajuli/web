@@ -1,11 +1,4 @@
-"use client";
-
 import styles from "./Works.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/navigation";
 
 const works = [
   {
@@ -47,83 +40,36 @@ const works = [
 
 export default function Works() {
   return (
-    <section id="work" className={styles.worksSection}>
+    <section id="work" className={`section ${styles.section}`}>
       <div className="site-container">
-        <div className={styles.topbar}>
-          <div className={styles.headingWrap}>
-            <h2 className={styles.title}>Works.</h2>
-            <p className={styles.subtitle}>THINGS WE&apos;VE MADE</p>
-          </div>
-
-          <a href="/work" className={styles.viewAllBtn}>
-            View All
-          </a>
+        <div className="section-head">
+          <p className="eyebrow">Our work</p>
+          <h2 className="section-title">
+            Featured case-study style work designed to prove strategy,
+            execution and results—not just aesthetics.
+          </h2>
+          <p className="section-text">
+            This section keeps your original case-study design language, but the
+            visual work cards are now shown as a horizontal sliding portfolio.
+          </p>
         </div>
 
-        <div className={styles.sliderWrap}>
-          <button
-            className={`${styles.navBtn} ${styles.prevBtn}`}
-            aria-label="Previous slide"
-          >
-            ‹
-          </button>
-
-          <button
-            className={`${styles.navBtn} ${styles.nextBtn}`}
-            aria-label="Next slide"
-          >
-            ›
-          </button>
-
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            navigation={{
-              prevEl: `.${styles.prevBtn}`,
-              nextEl: `.${styles.nextBtn}`,
-            }}
-            autoplay={{
-              delay: 3200,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            loop={true}
-            speed={900}
-            spaceBetween={24}
-            slidesPerView={1.08}
-            breakpoints={{
-              640: {
-                slidesPerView: 1.3,
-                spaceBetween: 18,
-              },
-              900: {
-                slidesPerView: 2.15,
-                spaceBetween: 22,
-              },
-              1200: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-              },
-            }}
-            className={styles.worksSlider}
-          >
-            {works.map((work) => (
-              <SwiperSlide key={work.title}>
-                <a href={work.href} className={styles.workCard}>
-                  <div
-                    className={styles.bg}
-                    style={{ backgroundImage: `url(${work.image})` }}
-                  />
-
-                  <div className={styles.overlay} />
-
-                  <div className={styles.cardContent}>
-                    <h3>{work.title}</h3>
-                    <p>{work.category}</p>
-                  </div>
-                </a>
-              </SwiperSlide>
+        <div className={styles.sliderShell}>
+          <div className={styles.track}>
+            {[...works, ...works].map((work, index) => (
+              <a key={`${work.title}-${index}`} href={work.href} className={styles.slide}>
+                <div
+                  className={styles.slideBg}
+                  style={{ backgroundImage: `url(${work.image})` }}
+                />
+                <div className={styles.overlay} />
+                <div className={styles.slideContent}>
+                  <h3>{work.title}</h3>
+                  <p>{work.category}</p>
+                </div>
+              </a>
             ))}
-          </Swiper>
+          </div>
         </div>
       </div>
     </section>
