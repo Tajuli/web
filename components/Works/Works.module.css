@@ -9,25 +9,17 @@
   margin-top: 2.5rem;
 }
 
-.sliderViewport {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  align-items: stretch;
+.worksSwiper {
+  overflow: hidden;
+  padding: 0;
 }
 
 .workCard {
   position: relative;
-  min-height: 490px;
-  border-radius: 0;
+  min-height: 500px;
   overflow: hidden;
   background: #d9d9d9;
   isolation: isolate;
-  transition: transform 0.35s ease, filter 0.35s ease;
-}
-
-.activeCard {
-  transform: translateY(-2px);
 }
 
 .cardBg {
@@ -36,25 +28,25 @@
   background-size: cover;
   background-position: center;
   transform: scale(1);
-  transition: transform 0.6s ease;
+  transition: transform 0.8s ease;
   z-index: 0;
 }
 
 .workCard:hover .cardBg {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.35) 0%,
-      rgba(255, 255, 255, 0.22) 35%,
-      rgba(0, 0, 0, 0.22) 100%
+      rgba(255, 255, 255, 0.38) 0%,
+      rgba(255, 255, 255, 0.22) 34%,
+      rgba(0, 0, 0, 0.2) 100%
     );
-  z-index: 1;
 }
 
 .cardTop {
@@ -128,12 +120,12 @@
   font-size: 2.3rem;
   line-height: 1;
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .navBtn:hover {
-  background: rgba(40, 40, 40, 0.9);
+  background: rgba(40, 40, 40, 0.92);
 }
 
 .prevBtn {
@@ -144,31 +136,14 @@
   right: 1.25rem;
 }
 
-/* Tablet */
-@media (max-width: 1100px) {
-  .sliderViewport {
-    grid-template-columns: 1fr;
-  }
-
-  .workCard:nth-child(1),
-  .workCard:nth-child(3) {
-    display: none;
-  }
-
+/* tablet */
+@media (max-width: 1199px) {
   .workCard {
-    min-height: 500px;
-  }
-
-  .prevBtn {
-    left: 1rem;
-  }
-
-  .nextBtn {
-    right: 1rem;
+    min-height: 460px;
   }
 }
 
-/* Mobile */
+/* mobile */
 @media (max-width: 767px) {
   .sliderWrap {
     margin-top: 2rem;
@@ -203,9 +178,9 @@
   }
 
   .navBtn {
-    width: 48px;
-    height: 48px;
-    font-size: 2rem;
+    width: 46px;
+    height: 46px;
+    font-size: 1.9rem;
   }
 
   .prevBtn {
