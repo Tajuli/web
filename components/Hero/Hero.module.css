@@ -231,29 +231,33 @@
   position: relative;
   z-index: 3;
   margin-top: 2.4rem;
-  padding: 0; /* no inner gap */
+  padding: 0;
   border-radius: 0;
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+
+  /* frame inner height = slider height */
+  display: inline-block;
+  width: 100%;
 }
 
 .frameCorner {
   position: absolute;
-  width: 34px;   /* thicker + longer */
-  height: 34px;  /* thicker + longer */
+  width: 34px;   /* keep short */
+  height: 34px;  /* keep short */
   pointer-events: none;
   opacity: 1;
   z-index: 5;
   box-sizing: border-box;
 }
 
+/* thick but not long */
 .frameTopLeft {
   top: 0;
   left: 0;
   border-top: 12px solid #90f551;
   border-left: 12px solid #90f551;
-  border-top-left-radius: 0;
 }
 
 .frameTopRight {
@@ -261,7 +265,6 @@
   right: 0;
   border-top: 12px solid #90f551;
   border-right: 12px solid #90f551;
-  border-top-right-radius: 0;
 }
 
 .frameBottomLeft {
@@ -269,7 +272,6 @@
   left: 0;
   border-bottom: 12px solid #90f551;
   border-left: 12px solid #90f551;
-  border-bottom-left-radius: 0;
 }
 
 .frameBottomRight {
@@ -277,7 +279,6 @@
   right: 0;
   border-bottom: 12px solid #90f551;
   border-right: 12px solid #90f551;
-  border-bottom-right-radius: 0;
 }
 
 .resultSlider {
@@ -285,41 +286,8 @@
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
-  margin-top: 10; /* no gap */
-  cursor: grab;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: pan-x;
-  scroll-behavior: auto;
-  padding: 0; /* no inner gap */
-}
-
-@media (max-width: 767px) {
-  .resultFrame {
-    margin-top: 2rem;
-    padding: 0;
-  }
-
-  .frameCorner {
-    width: 32px;
-    height: 32px;
-  }
-
-  .frameTopLeft,
-  .frameTopRight,
-  .frameBottomLeft,
-  .frameBottomRight {
-    border-width: 3px;
-  }
-}
-
-.resultSlider {
-  position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
+  margin: 0;
+  padding: 0;
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -339,9 +307,10 @@
 
 .resultTrack {
   display: flex;
+  align-items: stretch;
   gap: 0.95rem;
   width: max-content;
-  padding-bottom: 2px;
+  padding: 0; /* IMPORTANT: no extra height */
 }
 
 .resultCard {
@@ -349,6 +318,7 @@
   overflow: hidden;
   border-radius: 1.15rem;
   padding: 1.05rem 1rem;
+  height: 92px;        /* fixed exact height */
   min-height: 92px;
   width: 220px;
   flex: 0 0 220px;
@@ -409,12 +379,19 @@
 @media (max-width: 767px) {
   .resultFrame {
     margin-top: 2rem;
-    padding: 0.95rem 0.85rem;
+    padding: 0;
   }
 
   .frameCorner {
     width: 28px;
     height: 28px;
+  }
+
+  .frameTopLeft,
+  .frameTopRight,
+  .frameBottomLeft,
+  .frameBottomRight {
+    border-width: 10px;
   }
 
   .resultTrack {
@@ -424,6 +401,7 @@
   .resultCard {
     width: 185px;
     flex: 0 0 185px;
+    height: 82px;      /* fixed */
     min-height: 82px;
   }
 }
