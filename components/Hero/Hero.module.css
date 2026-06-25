@@ -239,7 +239,7 @@
   display: flex;
   gap: 0.95rem;
   width: max-content;
-  animation: resultMarquee 30s linear infinite;
+  animation: resultMarquee 90s linear infinite;
   will-change: transform;
 }
 
