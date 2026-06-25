@@ -241,6 +241,10 @@
   -webkit-user-select: none;
   touch-action: pan-x;
   scroll-behavior: auto;
+
+  /* bracket frame spacing */
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }
 
 .resultSlider::-webkit-scrollbar {
@@ -249,6 +253,42 @@
 
 .resultSlider.dragging {
   cursor: grabbing;
+}
+
+/* LEFT + RIGHT GREEN SQUARE BRACKET FRAME */
+.resultSlider::before,
+.resultSlider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 112px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.95;
+}
+
+/* LEFT BRACKET [ */
+.resultSlider::before {
+  left: 0;
+  border-left: 3px solid #90f551;
+  border-top: 3px solid #90f551;
+  border-bottom: 3px solid #90f551;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 14px rgba(144, 245, 81, 0.28);
+}
+
+/* RIGHT BRACKET ] */
+.resultSlider::after {
+  right: 0;
+  border-right: 3px solid #90f551;
+  border-top: 3px solid #90f551;
+  border-bottom: 3px solid #90f551;
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 14px rgba(144, 245, 81, 0.28);
 }
 
 .resultTrack {
@@ -284,7 +324,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* existing glass highlight */
 .resultCard::before {
   content: "";
   position: absolute;
@@ -295,40 +334,9 @@
   pointer-events: none;
 }
 
-/* GREEN BRACKET FRAME */
-.resultCard::after {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.95;
-  background:
-    /* top-left horizontal */
-    linear-gradient(#90f551, #90f551) top left / 22px 2px no-repeat,
-    /* top-left vertical */
-    linear-gradient(#90f551, #90f551) top left / 2px 22px no-repeat,
-
-    /* top-right horizontal */
-    linear-gradient(#90f551, #90f551) top right / 22px 2px no-repeat,
-    /* top-right vertical */
-    linear-gradient(#90f551, #90f551) top right / 2px 22px no-repeat,
-
-    /* bottom-left horizontal */
-    linear-gradient(#90f551, #90f551) bottom left / 22px 2px no-repeat,
-    /* bottom-left vertical */
-    linear-gradient(#90f551, #90f551) bottom left / 2px 22px no-repeat,
-
-    /* bottom-right horizontal */
-    linear-gradient(#90f551, #90f551) bottom right / 22px 2px no-repeat,
-    /* bottom-right vertical */
-    linear-gradient(#90f551, #90f551) bottom right / 2px 22px no-repeat;
-  filter: drop-shadow(0 0 8px rgba(144, 245, 81, 0.35));
-}
-
 .resultCard strong {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   display: block;
   font-size: 1.35rem;
   line-height: 1;
@@ -338,7 +346,7 @@
 
 .resultCard span {
   position: relative;
-  z-index: 3;
+  z-index: 1;
   display: block;
   margin-top: 0.45rem;
   color: rgba(255, 255, 255, 0.9);
@@ -355,6 +363,14 @@
 @media (max-width: 767px) {
   .resultSlider {
     margin-top: 2rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .resultSlider::before,
+  .resultSlider::after {
+    width: 16px;
+    height: 92px;
   }
 
   .resultTrack {
@@ -365,22 +381,6 @@
     width: 185px;
     flex: 0 0 185px;
     min-height: 82px;
-  }
-
-  .resultCard::after {
-    inset: 9px;
-    background:
-      linear-gradient(#90f551, #90f551) top left / 18px 2px no-repeat,
-      linear-gradient(#90f551, #90f551) top left / 2px 18px no-repeat,
-
-      linear-gradient(#90f551, #90f551) top right / 18px 2px no-repeat,
-      linear-gradient(#90f551, #90f551) top right / 2px 18px no-repeat,
-
-      linear-gradient(#90f551, #90f551) bottom left / 18px 2px no-repeat,
-      linear-gradient(#90f551, #90f551) bottom left / 2px 18px no-repeat,
-
-      linear-gradient(#90f551, #90f551) bottom right / 18px 2px no-repeat,
-      linear-gradient(#90f551, #90f551) bottom right / 2px 18px no-repeat;
   }
 }
 
