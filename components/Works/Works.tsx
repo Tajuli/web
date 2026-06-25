@@ -1,40 +1,58 @@
+"use client";
+
 import styles from "./Works.module.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 const works = [
   {
-    id: 1,
     title: "Kareems Dhaka",
     category: "Media Buying",
     image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
     href: "#",
   },
   {
-    id: 2,
     title: "TST White House",
     category: "Media Buying",
     image:
-      "https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=1600&auto=format&fit=crop",
     href: "#",
   },
   {
-    id: 3,
     title: "Ai-Cha Bangladesh",
     category: "Media Buying",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1400&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    title: "Prime Dental Care",
+    category: "Website Design",
+    image:
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1600&auto=format&fit=crop",
+    href: "#",
+  },
+  {
+    title: "Nova Properties",
+    category: "Brand Identity",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1600&auto=format&fit=crop",
     href: "#",
   },
 ];
 
 export default function Works() {
   return (
-    <section id="work" className={styles.section}>
+    <section id="work" className={styles.worksSection}>
       <div className="site-container">
-        <div className={styles.topRow}>
+        <div className={styles.topbar}>
           <div className={styles.headingWrap}>
             <h2 className={styles.title}>Works.</h2>
-            <p className={styles.kicker}>THINGS WE&apos;VE MADE</p>
+            <p className={styles.subtitle}>THINGS WE&apos;VE MADE</p>
           </div>
 
           <a href="/work" className={styles.viewAllBtn}>
@@ -42,40 +60,70 @@ export default function Works() {
           </a>
         </div>
 
-        <div className={styles.grid}>
-          {works.map((work) => (
-            <a key={work.id} href={work.href} className={styles.card}>
-              <div
-                className={styles.bg}
-                style={{ backgroundImage: `url(${work.image})` }}
-              />
+        <div className={styles.sliderWrap}>
+          <button
+            className={`${styles.navBtn} ${styles.prevBtn}`}
+            aria-label="Previous slide"
+          >
+            ‹
+          </button>
 
-              <div className={styles.overlay} />
+          <button
+            className={`${styles.navBtn} ${styles.nextBtn}`}
+            aria-label="Next slide"
+          >
+            ›
+          </button>
 
-              <div className={styles.content}>
-                <h3>{work.title}</h3>
-                <p>{work.category}</p>
-              </div>
-
-              <div className={styles.arrow}>
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 16L16 8M16 8H9.5M16 8V14.5"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              prevEl: `.${styles.prevBtn}`,
+              nextEl: `.${styles.nextBtn}`,
+            }}
+            autoplay={{
+              delay: 3200,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            loop={true}
+            speed={900}
+            spaceBetween={24}
+            slidesPerView={1.08}
+            breakpoints={{
+              640: {
+                slidesPerView: 1.3,
+                spaceBetween: 18,
+              },
+              900: {
+                slidesPerView: 2.15,
+                spaceBetween: 22,
+              },
+              1200: {
+                slidesPerView: 3,
+                spaceBetween: 24,
+              },
+            }}
+            className={styles.worksSlider}
+          >
+            {works.map((work) => (
+              <SwiperSlide key={work.title}>
+                <a href={work.href} className={styles.workCard}>
+                  <div
+                    className={styles.bg}
+                    style={{ backgroundImage: `url(${work.image})` }}
                   />
-                </svg>
-              </div>
-            </a>
-          ))}
+
+                  <div className={styles.overlay} />
+
+                  <div className={styles.cardContent}>
+                    <h3>{work.title}</h3>
+                    <p>{work.category}</p>
+                  </div>
+                </a>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </section>
