@@ -65,7 +65,7 @@ export default function Hero() {
         if (!slider || isDown.current) return;
         slider.scrollLeft += 1;
         handleLoop();
-      }, 16);
+      }, 16); // ~60fps smooth
     };
 
     const stopAutoSlide = () => {
@@ -242,8 +242,23 @@ export default function Hero() {
         </div>
 
         {/* Bottom result cards slider */}
-        <div className={styles.resultShell}>
-          <div className={styles.resultBracket} aria-hidden="true" />
+        <div className={styles.resultFrame}>
+          <span
+            className={`${styles.frameCorner} ${styles.frameTopLeft}`}
+            aria-hidden="true"
+          />
+          <span
+            className={`${styles.frameCorner} ${styles.frameTopRight}`}
+            aria-hidden="true"
+          />
+          <span
+            className={`${styles.frameCorner} ${styles.frameBottomLeft}`}
+            aria-hidden="true"
+          />
+          <span
+            className={`${styles.frameCorner} ${styles.frameBottomRight}`}
+            aria-hidden="true"
+          />
 
           <div
             ref={sliderRef}
