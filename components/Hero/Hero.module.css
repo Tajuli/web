@@ -240,8 +240,8 @@
 
 .frameCorner {
   position: absolute;
-  width: 54px;   /* thicker + longer */
-  height: 54px;  /* thicker + longer */
+  width: 34px;   /* thicker + longer */
+  height: 34px;  /* thicker + longer */
   pointer-events: none;
   opacity: 1;
   z-index: 5;
@@ -251,32 +251,32 @@
 .frameTopLeft {
   top: 0;
   left: 0;
-  border-top: 4px solid #90f551;
-  border-left: 4px solid #90f551;
+  border-top: 12px solid #90f551;
+  border-left: 12px solid #90f551;
   border-top-left-radius: 0;
 }
 
 .frameTopRight {
   top: 0;
   right: 0;
-  border-top: 4px solid #90f551;
-  border-right: 4px solid #90f551;
+  border-top: 12px solid #90f551;
+  border-right: 12px solid #90f551;
   border-top-right-radius: 0;
 }
 
 .frameBottomLeft {
   bottom: 0;
   left: 0;
-  border-bottom: 4px solid #90f551;
-  border-left: 4px solid #90f551;
+  border-bottom: 12px solid #90f551;
+  border-left: 12px solid #90f551;
   border-bottom-left-radius: 0;
 }
 
 .frameBottomRight {
   bottom: 0;
   right: 0;
-  border-bottom: 4px solid #90f551;
-  border-right: 4px solid #90f551;
+  border-bottom: 12px solid #90f551;
+  border-right: 12px solid #90f551;
   border-bottom-right-radius: 0;
 }
 
