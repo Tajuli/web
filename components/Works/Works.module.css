@@ -26,11 +26,9 @@
 
 .slide {
   position: relative;
-  flex: 0 0 calc((100vw - 160px - 3rem) / 3);
-  max-width: 430px;
-  min-width: 300px;
+  flex: 0 0 calc((100% - 3rem) / 3);
+  min-width: 320px;
   height: 520px;
-  border-radius: 0;
   overflow: hidden;
   text-decoration: none;
   background: #12233a;
@@ -118,18 +116,11 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   .slide {
-    flex: 0 0 calc((100vw - 120px - 3rem) / 3);
-    height: 480px;
-  }
-}
-
-@media (max-width: 1100px) {
-  .slide {
-    flex: 0 0 calc((100vw - 80px - 1.5rem) / 2);
+    flex: 0 0 calc((100% - 1.5rem) / 2);
     min-width: 280px;
-    height: 430px;
+    height: 450px;
   }
 }
 
@@ -146,7 +137,6 @@
   .slide {
     flex: 0 0 82vw;
     min-width: 82vw;
-    max-width: 82vw;
     height: 340px;
   }
 
