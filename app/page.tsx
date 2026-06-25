@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar/Navbar";
 import Hero from "@/components/Hero/Hero";
-import ProofBand from "@/components/ProofBand/ProofBand";
 import Services from "@/components/Services/Services";
 import Works from "@/components/Works/Works";
 import ProcessSection from "@/components/ProcessSection/ProcessSection";
@@ -16,7 +15,6 @@ export default function HomePage() {
     <main className="bg-page text-white">
       <Navbar />
       <Hero />
-      <ProofBand />
       <Services />
       <Works />
       <ProcessSection />
