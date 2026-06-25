@@ -246,8 +246,8 @@
 .resultBracket::after {
   content: "";
   position: absolute;
-  width: 68px;
-  height: 68px;
+  width: 34px;
+  height: 34px;
   border-color: #90f551;
   filter: drop-shadow(0 0 12px rgba(144, 245, 81, 0.22));
 }
