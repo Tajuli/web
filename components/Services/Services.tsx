@@ -2,44 +2,28 @@ import styles from "./Services.module.css";
 
 const services = [
   {
-    no: "01",
-    title: "SEO & Organic Growth",
-    text: "Technical SEO, service page architecture, authority building and local visibility systems designed to generate qualified traffic over time.",
-    bullets: [
-      "Technical + on-page SEO",
-      "Service page architecture",
-      "Local SEO & trust signals",
-    ],
+    title: "Programmatic Media Buying",
+    icon: "⚙️",
   },
   {
-    no: "02",
-    title: "Paid Ads & Lead Generation",
-    text: "Google and Meta campaigns structured around lower CPL, better lead quality and landing pages built to convert traffic into enquiries.",
-    bullets: [
-      "Google & Meta campaigns",
-      "Landing page alignment",
-      "Lead quality optimisation",
-    ],
+    title: "Search Engine Marketing & Shopping",
+    icon: "🔎",
   },
   {
-    no: "03",
-    title: "Premium Website Design",
-    text: "Websites and landing pages that feel premium, build trust fast and support the actual business goal instead of just looking nice.",
-    bullets: [
-      "Conversion-first UX",
-      "Premium visual systems",
-      "Faster mobile experience",
-    ],
+    title: "Social Media Buying",
+    icon: "💬",
   },
   {
-    no: "04",
-    title: "CRO & Funnel Optimisation",
-    text: "We refine your offer presentation, CTA flow, page structure and trust elements to improve conversion without wasting traffic.",
-    bullets: [
-      "CTA & flow optimisation",
-      "Offer clarity improvements",
-      "A/B thinking & iteration",
-    ],
+    title: "Direct Digital Media Buying",
+    icon: "🤝",
+  },
+  {
+    title: "Traditional Media Buying",
+    icon: "📺",
+  },
+  {
+    title: "Advanced Campaign Analytics",
+    icon: "📈",
   },
 ];
 
@@ -48,29 +32,24 @@ export default function Services() {
     <section id="services" className={`section ${styles.section}`}>
       <div className="site-container">
         <div className="section-head">
-          <p className="eyebrow">Our services</p>
-
+          <p className="eyebrow">Our Services</p>
           <h2 className="section-title">
-            The growth stack behind premium websites, qualified leads and
-            stronger conversion performance.
+            Media buying, paid growth and performance services built to scale.
           </h2>
         </div>
 
         <div className={styles.grid}>
           {services.map((service) => (
-            <article key={service.no} className={styles.card}>
-              <div className={styles.top}>
-                <span className={styles.no}>{service.no}</span>
-                <h3>{service.title}</h3>
+            <article key={service.title} className={styles.card}>
+              <div className={styles.iconWrap}>
+                <span className={styles.icon}>{service.icon}</span>
               </div>
 
-              <p>{service.text}</p>
+              <h3 className={styles.title}>{service.title}</h3>
 
-              <ul>
-                {service.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
+              <a href="#contact" className={styles.btn}>
+                LEARN MORE
+              </a>
             </article>
           ))}
         </div>
