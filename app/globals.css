@@ -126,7 +126,7 @@ button{
   display:table;
   margin:0 auto 1rem;
   padding-bottom:.85rem;
-  color:var(--eyebrow-color);
+  color: #000000;
   text-transform:uppercase;
   letter-spacing:.12em;
   font-size:clamp(2rem,4vw,3rem);
@@ -142,7 +142,7 @@ button{
   width: 80%; /* চাইলে 60px বা 100px করতে পারো */
   height: 6px;
 
-  background: var(--eyebrow-color);
+  color: #90f551;
   border-radius: 999px;
 
   transform: translateX(-50%);
