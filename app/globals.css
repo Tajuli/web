@@ -140,7 +140,7 @@ button{
   bottom: 0;
 
   width: 80%; /* চাইলে 60px বা 100px করতে পারো */
-  height: 2px;
+  height: 6px;
 
   background: var(--eyebrow-color);
   border-radius: 999px;
