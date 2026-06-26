@@ -17,8 +17,8 @@
   --eyebrow-color: #90f551;
 
   /* Alternating section colors */
-  --section-white: #ffffff;
-  --section-offwhite: #f7f9fc;
+  --section-white: #f7f9fc;
+  --section-offwhite: #ffffff;
 }
 
 * {
