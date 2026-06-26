@@ -68,10 +68,10 @@ export default function Works() {
           <h2 className="section-title">
             Campaigns, creatives and media buying that move brands forward.
           </h2>
-          <p className="section-text">
+         /* <p className="section-text">
             Explore selected projects, campaigns and digital growth work from
             our portfolio.
-          </p>
+          </p> */
         </div>
 
         <div className={styles.sliderWrap}>
