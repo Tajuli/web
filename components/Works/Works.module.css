@@ -220,19 +220,19 @@
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1.6rem;
-  background: #7cc242;
-  color: #fff;
+  border: 3px solid #7cc242;
+  background: #fff;
+  color: #111;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid #7cc242;
+  font-size: 1.25rem;
   transition: all 0.3s ease;
 }
 
 .viewAll:hover {
-  background: #6ab035;
-  border-color: #6ab035;
+  background: #7cc242;
   color: #fff;
+  border-color: #7cc242;
 }
 
 @media (max-width: 767px) {
