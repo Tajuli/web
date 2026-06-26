@@ -121,29 +121,34 @@ button{
   text-align:center;
 }
 
-.eyebrow{
-  position:relative;
-  display:table;
-  margin:0 auto 1rem;
-  padding-bottom:.85rem;
-  color: #000000;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:700;
+.eyebrow {
+  position: relative;
+  display: inline-block;
+
+  margin: 0 auto 1rem;
+  padding-bottom: 12px;
+
+  color: #90f551;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
 }
 
 .eyebrow::after {
   content: "";
+
   position: absolute;
   left: 50%;
   bottom: 0;
 
-  width: 80%; /* চাইলে 60px বা 100px করতে পারো */
-  height: 6px;
+  width: 48px;
+  height: 1px;
 
   background: #90f551;
-  border-radius: 999px;
 
   transform: translateX(-50%);
 }
