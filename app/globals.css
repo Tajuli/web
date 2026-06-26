@@ -7,6 +7,11 @@
   --muted:255 255 255 /.68;
   --line:255 255 255 /.08;
   --cyan:#111827;
+  --cyan: #53d5ff;
+  --cyan-soft: rgba(83, 213, 255, 0.14);
+  --cyan-glow: rgba(83, 213, 255, 0.22);
+  --blue-glow: rgba(59, 130, 246, 0.18);
+  --violet-glow: rgba(99, 102, 241, 0.14);
   --eyebrow-color:#111827;
   --section-white:#f8fafc;
   --section-offwhite:#ffffff;
