@@ -32,9 +32,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   margin: 0 auto 18px;
   padding-bottom: 14px;
 
-  color: #111827;
+  color: #7cc242;
 
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 600;
   line-height: 1.2;
 
@@ -60,7 +60,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 
   color: #111827;
 
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
 
   line-height: 1.25;
   letter-spacing: -.02em;
