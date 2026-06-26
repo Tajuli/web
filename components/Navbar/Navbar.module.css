@@ -7,7 +7,7 @@
 .desktopNav { display: none; }
 .navPill { border-radius: 999px; padding: 0.82rem 1rem; color: rgba(255, 255, 255, 0.72); transition: 0.25s; }
 .navPill:hover { color: white; background: rgba(255, 255, 255, 0.06); }
-.navPillActive { color: #07111f; background: var(--cyan); box-shadow: 0 12px 40px rgba(83, 213, 255, 0.22); }
+.navPillActive { color: #ffffff; background: var(--cyan); box-shadow: 0 12px 40px rgba(83, 213, 255, 0.22); }
 .mobileMenuBtn, .mobileClose { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.05); }
 @media (min-width: 992px) { .desktopNav { display: flex; gap: 0.35rem; padding: 0.35rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(16px); } .mobileMenuBtn { display: none; } }
 .mobileDrawerWrap { position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0; transition: 0.25s; }
@@ -18,4 +18,4 @@
 .mobileDrawerTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
 .mobileNavList { display: grid; gap: 0.8rem; }
 .mobileNavItem { border-radius: 1.25rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); text-align: left; color: rgba(255, 255, 255, 0.82); }
-.mobileNavItemActive { background: var(--cyan); color: #07111f; font-weight: 600; }
+.mobileNavItemActive { background: var(--cyan); color: #ffffff; font-weight: 600; }
