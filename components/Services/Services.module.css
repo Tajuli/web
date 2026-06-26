@@ -4,19 +4,19 @@
 } */
 
 /* optional: heading dark theme থেকে light section এর সাথে মানানোর জন্য */
-.section :global(.section-head) {
+/* .section :global(.section-head) {
   text-align: center;
   max-width: 860px;
   margin: 0 auto 48px;
-}
+} */
 
-.section :global(.eyebrow) {
+/* .section :global(.eyebrow) {
   color: #7cc242;
-}
+} */
 
-.section :global(.section-title) {
+/* .section :global(.section-title) {
   color: #1f2433;
-}
+} */
 
 .grid {
   display: grid;
