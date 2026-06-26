@@ -139,7 +139,7 @@ button{
   left: 50%;
   bottom: 0;
 
-  width: 80px; /* চাইলে 60px বা 100px করতে পারো */
+  width: 80%; /* চাইলে 60px বা 100px করতে পারো */
   height: 2px;
 
   background: var(--eyebrow-color);
