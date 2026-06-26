@@ -25,9 +25,48 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 25%,rgba(15,23,42,.02),transparent 30%),radial-gradient(circle at 80% 75%,rgba(15,23,42,.02),transparent 30%)}
 .section>*{position:relative;z-index:1}
 .section-head{max-width:900px;margin:0 auto 56px;text-align:center}
-.eyebrow{position:relative;display:inline-block;margin:0 auto 18px;padding-bottom:12px;color:var(--eyebrow-color);font-size:13px;font-weight:600;line-height:1;text-transform:uppercase;letter-spacing:.18em}
-.eyebrow::after{content:"";position:absolute;left:50%;bottom:0;width:42px;height:1px;background:#111827;transform:translateX(-50%)}
-.section-title{margin:0 auto;max-width:900px;color:#111827;font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.18;letter-spacing:-.03em;font-weight:600}
+.eyebrow {
+  position: relative;
+  display: inline-block;
+
+  margin: 0 auto 18px;
+  padding-bottom: 14px;
+
+  color: #111827;
+
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+.eyebrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 60px;
+  height: 2px;
+
+  background: #111827;
+
+  transform: translateX(-50%);
+}
+.section-title {
+  margin: 0 auto;
+  max-width: 900px;
+
+  color: #111827;
+
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+
+  line-height: 1.25;
+  letter-spacing: -.02em;
+
+  font-weight: 500;
+}
 .section-text{margin:22px auto 0;max-width:720px;color:#64748b;font-size:1rem;line-height:1.9;font-weight:400}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 1.5rem;border-radius:999px;font-weight:600;transition:.25s ease}
 .btn:hover{transform:translateY(-2px)}
