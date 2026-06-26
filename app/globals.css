@@ -136,14 +136,16 @@ button{
 .eyebrow::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: 0;
 
-  width: 60%;
+  width: 80px; /* চাইলে 60px বা 100px করতে পারো */
   height: 2px;
 
   background: var(--eyebrow-color);
-  border-radius: 4px;
+  border-radius: 999px;
+
+  transform: translateX(-50%);
 }
 
 .section-title{
