@@ -70,6 +70,15 @@ export default function Works() {
           </h2>
         </div>
 
+        {/* NEW HEADER */}
+        <div className={styles.sliderHeader}>
+          <h3 className={styles.sliderTitle}>Recent Works</h3>
+
+          <Link href="/work" className={styles.viewAll}>
+            View All
+          </Link>
+        </div>
+
         <div className={styles.sliderWrap}>
           <button
             className={`${styles.navBtn} ${styles.prevBtn} works-prev`}
