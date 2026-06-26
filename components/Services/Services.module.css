@@ -1,7 +1,7 @@
-.section {
+/* .section {
   background: #f3f3f3;
   padding: 110px 0;
-}
+} */
 
 /* optional: heading dark theme থেকে light section এর সাথে মানানোর জন্য */
 .section :global(.section-head) {
