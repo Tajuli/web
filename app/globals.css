@@ -32,7 +32,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   margin: 0 auto 18px;
   padding-bottom: 14px;
 
-  color: #7cc242;
+  color: #111827;
 
   font-size: clamp(1.5rem, 2.5vw, 2rem);
   font-weight: 600;
@@ -47,10 +47,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   left: 50%;
   bottom: 0;
 
-  width: 60px;
-  height: 2px;
+  width: 50px;
+  height: 4px;
 
-  background: #111827;
+  background: #7cc242;
 
   transform: translateX(-50%);
 }
