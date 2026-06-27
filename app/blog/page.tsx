@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import styles from "./Blogs.module.css";
@@ -35,6 +36,56 @@ const blogs = [
   },
   {
     category: "Web Design",
+    title: "Website Design Trends for Modern Businesses",
+    desc: "Explore the latest UI/UX trends that improve conversions and user experience.",
+    date: "Jun 2026",
+  },
+];
+
+export default function BlogsPage() {
+  return (
+    <>
+      <Navbar />
+
+      <main className={styles.blogs}>
+        <div className={styles.container}>
+          <span className={styles.eyebrow}>BLOGS</span>
+
+          <h1 className={styles.title}>
+            Insights & Marketing Guides
+          </h1>
+
+          <p className={styles.subtitle}>
+            Explore practical articles on SEO, Google Ads, branding, website
+            design and digital marketing.
+          </p>
+
+          <div className={styles.grid}>
+            {blogs.map((blog, index) => (
+              <article key={index} className={styles.card}>
+                <span className={styles.badge}>{blog.category}</span>
+
+                <h3>{blog.title}</h3>
+
+                <p>{blog.desc}</p>
+
+                <div className={styles.footer}>
+                  <span>{blog.date}</span>
+
+                  <Link href="/blog">
+                    Read More →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </>
+  );
+}    category: "Web Design",
     title: "Website Design Trends for Modern Businesses",
     desc: "Explore the latest UI/UX trends that improve conversions and user experience.",
     date: "Jun 2026",
