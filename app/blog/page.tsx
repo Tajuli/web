@@ -12,7 +12,8 @@ const featured = {
   desc: "Discover the most common SEO mistakes businesses make and how to fix them for long-term organic growth.",
   date: "June 28, 2026",
   read: "6 min read",
-  image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop",
+  image:
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600&auto=format&fit=crop",
 };
 
 const sideBlogs = [
@@ -92,8 +93,8 @@ export default function BlogsPage() {
       <Navbar />
 
       <main className={styles.blogs}>
-        <div className={styles.container}>
-          <span className={styles.eyebrow}>BLOG</span>
+        <div className={`site-container ${styles.container}`}>
+          <span className="eyebrow">BLOG</span>
 
           <h1 className={styles.pageTitle}>
             Insights & Marketing Guides
@@ -116,7 +117,7 @@ export default function BlogsPage() {
                 className={styles.image}
               />
 
-              <div className={styles.overlay}></div>
+              <div className={styles.overlay} />
 
               <div className={styles.heroContent}>
                 <span className={styles.badge}>
@@ -129,9 +130,7 @@ export default function BlogsPage() {
 
                 <div className={styles.meta}>
                   <span>{featured.date}</span>
-
                   <span>•</span>
-
                   <span>{featured.read}</span>
                 </div>
               </div>
@@ -151,7 +150,7 @@ export default function BlogsPage() {
                     className={styles.image}
                   />
 
-                  <div className={styles.overlay}></div>
+                  <div className={styles.overlay} />
 
                   <div className={styles.sideContent}>
                     <span className={styles.badge}>
@@ -162,9 +161,7 @@ export default function BlogsPage() {
 
                     <div className={styles.meta}>
                       <span>{item.date}</span>
-
                       <span>•</span>
-
                       <span>{item.read}</span>
                     </div>
                   </div>
@@ -177,7 +174,7 @@ export default function BlogsPage() {
 
           <section className={styles.content}>
             <div>
-              <h2 className={styles.sectionTitle}>
+              <h2 className="section-title">
                 Recent Posts
               </h2>
 
@@ -214,7 +211,7 @@ export default function BlogsPage() {
             </div>
 
             <aside className={styles.sidebar}>
-              <h2 className={styles.sectionTitle}>
+              <h2 className="section-title">
                 Most Read
               </h2>
 
@@ -235,7 +232,6 @@ export default function BlogsPage() {
 
                   <div>
                     <h4>{blog.title}</h4>
-
                     <span>{blog.date}</span>
                   </div>
                 </Link>
