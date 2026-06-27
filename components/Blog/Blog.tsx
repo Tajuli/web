@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Blog.module.css";
 
 const posts = [
@@ -31,15 +32,16 @@ export default function Blog() {
           <div className={styles.row}>
             <div>
               <h2>Insights & Marketing Guides</h2>
+
               <p>
                 Practical SEO, advertising, and digital marketing tips to help
                 your business grow online.
               </p>
             </div>
 
-            <a href="/blog" className={styles.viewAll}>
-  View All →
-</a>
+            <Link href="/blog" className={styles.viewAll}>
+              View All →
+            </Link>
           </div>
         </div>
 
@@ -55,7 +57,7 @@ export default function Blog() {
               <div className={styles.footer}>
                 <span>{post.date}</span>
 
-                <a href="#">Read More →</a>
+                <Link href="/blog">Read More →</Link>
               </div>
             </article>
           ))}
