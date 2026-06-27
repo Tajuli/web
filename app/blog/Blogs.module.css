@@ -1,40 +1,28 @@
-.blogs {
-  background: #06101d;
-  color: #fff;
-  padding: 140px 24px 100px;
-  min-height: 100vh;
+.blogs{
+  background:var(--page);
+  color:#fff;
+  padding:140px 0 100px;
+  min-height:100vh;
 }
 
-.container {
-  max-width: 1320px;
-  margin: 0 auto;
+.container{
+  width:100%;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: #7cc242;
-  font-size: .9rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
+.pageTitle{
+  font-size:clamp(2.6rem,5vw,4.5rem);
+  line-height:1.08;
+  font-weight:800;
+  margin:22px 0 18px;
+  max-width:900px;
 }
 
-.pageTitle {
-  font-size: clamp(2.6rem,5vw,4.5rem);
-  line-height: 1.1;
-  font-weight: 700;
-  margin-bottom: 18px;
-}
-
-.pageDesc {
-  max-width: 700px;
-  color: rgba(255,255,255,.72);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 70px;
+.pageDesc{
+  max-width:760px;
+  color:rgba(var(--muted));
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:70px;
 }
 
 /* ================= HERO ================= */
@@ -51,7 +39,6 @@
   overflow:hidden;
   border-radius:28px;
   min-height:640px;
-  text-decoration:none;
   color:#fff;
 }
 
@@ -67,7 +54,6 @@
   border-radius:24px;
   flex:1;
   min-height:308px;
-  text-decoration:none;
   color:#fff;
 }
 
@@ -79,14 +65,14 @@
 .overlay{
   position:absolute;
   inset:0;
+  z-index:1;
   background:linear-gradient(
       180deg,
       rgba(0,0,0,.05) 0%,
       rgba(0,0,0,.25) 35%,
       rgba(0,0,0,.88) 100%
   );
-  transition:.4s;
-  z-index:1;
+  transition:.35s;
 }
 
 .heroContent{
@@ -101,12 +87,12 @@
   font-size:clamp(2rem,3.2vw,3.3rem);
   line-height:1.15;
   margin:18px 0;
-  transition:.35s;
+  transition:.3s;
 }
 
 .heroContent p{
   max-width:700px;
-  color:rgba(255,255,255,.78);
+  color:rgba(var(--muted));
   line-height:1.8;
   margin-bottom:22px;
 }
@@ -123,17 +109,17 @@
   font-size:1.45rem;
   line-height:1.35;
   margin:16px 0;
-  transition:.35s;
+  transition:.3s;
 }
 
 .badge{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  background:#7cc242;
-  color:#06101d;
   padding:8px 18px;
   border-radius:999px;
+  background:var(--cyan);
+  color:var(--page);
   font-size:.78rem;
   font-weight:700;
   letter-spacing:.6px;
@@ -144,7 +130,7 @@
   display:flex;
   align-items:center;
   gap:10px;
-  color:rgba(255,255,255,.72);
+  color:rgba(var(--muted));
   font-size:.92rem;
 }
 
@@ -167,7 +153,7 @@
 
 .heroCard:hover h2,
 .sideCard:hover h3{
-  color:#7cc242;
+  color:var(--cyan);
 }
 
 /* ================= CONTENT ================= */
@@ -179,12 +165,6 @@
   align-items:start;
 }
 
-.sectionTitle{
-  font-size:2rem;
-  font-weight:700;
-  margin-bottom:32px;
-}
-
 /* ================= POSTS GRID ================= */
 
 .postsGrid{
@@ -194,11 +174,10 @@
 }
 
 .postCard{
-  background:#0b1627;
-  border:1px solid rgba(255,255,255,.06);
+  background:var(--page-3);
+  border:1px solid rgba(var(--line));
   border-radius:22px;
   overflow:hidden;
-  text-decoration:none;
   color:#fff;
   transition:.35s;
 }
@@ -214,7 +193,7 @@
 }
 
 .postCard:hover h3{
-  color:#7cc242;
+  color:var(--cyan);
 }
 
 .thumb{
@@ -236,7 +215,7 @@
 }
 
 .postDate{
-  color:rgba(255,255,255,.6);
+  color:rgba(var(--muted));
   font-size:.92rem;
 }
 
@@ -249,15 +228,14 @@
 
 .sidePost{
   display:flex;
-  gap:18px;
   align-items:center;
+  gap:18px;
   margin-bottom:22px;
   padding:16px;
   border-radius:18px;
-  text-decoration:none;
+  background:var(--page-3);
+  border:1px solid rgba(var(--line));
   color:#fff;
-  background:#0b1627;
-  border:1px solid rgba(255,255,255,.06);
   transition:.3s;
 }
 
@@ -267,7 +245,7 @@
 }
 
 .sidePost:hover h4{
-  color:#7cc242;
+  color:var(--cyan);
 }
 
 .sideThumb{
@@ -280,14 +258,14 @@
 }
 
 .sidePost h4{
+  margin:0 0 10px;
   font-size:1rem;
   line-height:1.45;
-  margin-bottom:10px;
   transition:.3s;
 }
 
 .sidePost span{
-  color:rgba(255,255,255,.6);
+  color:rgba(var(--muted));
   font-size:.85rem;
 }
 
@@ -318,10 +296,18 @@
 
 }
 
+@media (max-width:1024px){
+
+  .postsGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
 @media (max-width:768px){
 
   .blogs{
-    padding:120px 18px 80px;
+    padding:120px 0 80px;
   }
 
   .pageTitle{
@@ -395,23 +381,6 @@
   .sideThumb{
     width:90px;
     height:72px;
-  }
-
-}
-/* Tablet */
-@media (max-width:1024px){
-
-  .postsGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-
-/* Mobile */
-@media (max-width:768px){
-
-  .postsGrid{
-    grid-template-columns:1fr;
   }
 
 }
