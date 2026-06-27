@@ -41,7 +41,7 @@ button{
 
   color: #111827;
 
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   font-weight: 600;
   line-height: 1.2;
 
@@ -67,7 +67,7 @@ button{
 
   color: #111827;
 
-  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-size: clamp(1.2rem, 1.95vw, 1.555rem);
 
   line-height: 1.25;
   letter-spacing: -.02em;
