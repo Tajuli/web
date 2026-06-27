@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "./page.module.css";
 import { BlogMeta } from "./types";
+import "./blogs.css";
 
 type Props = {
   blog: BlogMeta;
@@ -8,32 +8,28 @@ type Props = {
 
 export default function BlogCard({ blog }: Props) {
   return (
-    <Link href={`/blog/${blog.slug}`} className={styles.card}>
-      <div className={styles.imageWrapper}>
-        <img
-          src={blog.cover}
-          alt={blog.title}
-          className={styles.image}
-        />
-
-        <span className={styles.category}>
-          {blog.category}
-        </span>
+    <Link href={`/blogs/${blog.slug}`} className="blog-card">
+      <div className="blog-card-image">
+        <img src={blog.cover} alt={blog.title} />
       </div>
 
-      <div className={styles.cardBody}>
-        <div className={styles.meta}>
-          <span>{blog.publishedAt}</span>
-          <span>•</span>
-          <span>{blog.readingTime}</span>
-        </div>
+      <div className="blog-card-body">
+        <span className="blog-category">
+          {blog.category}
+        </span>
 
         <h3>{blog.title}</h3>
 
         <p>{blog.excerpt}</p>
 
-        <div className={styles.readMore}>
-          Read Article →
+        <div className="blog-footer">
+          <span className="blog-date">
+            {blog.publishedAt}
+          </span>
+
+          <span className="read-more">
+            Read More →
+          </span>
         </div>
       </div>
     </Link>
