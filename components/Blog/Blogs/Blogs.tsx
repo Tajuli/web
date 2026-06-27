@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { blogs } from "./blogData";
+import { blogPosts } from "./blogData";
 import BlogCard from "./BlogCard";
 import "./blogs.css";
 
@@ -34,7 +34,7 @@ export default function Blogs() {
       <section className="blogs-section">
         <div className="container">
           <div className="blogs-grid">
-            {blogs.map((blog) => (
+            {blogPosts.map((blog) => (
               <BlogCard key={blog.slug} blog={blog} />
             ))}
           </div>
