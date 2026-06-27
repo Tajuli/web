@@ -38,8 +38,8 @@ export default function Blog() {
             </div>
 
             <a href="/blog" className={styles.viewAll}>
-              View All →
-            </a>
+  View All →
+</a>
           </div>
         </div>
 
