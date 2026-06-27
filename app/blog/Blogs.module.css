@@ -1,58 +1,400 @@
 .blogs {
-  padding: 140px 24px 100px;
   background: #06101d;
   color: #fff;
+  padding: 140px 24px 100px;
   min-height: 100vh;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: #7cc242;
-  margin-bottom: 16px;
-}
-
-.title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   margin-bottom: 18px;
 }
 
-.subtitle {
+.pageTitle {
+  font-size: clamp(2.6rem,5vw,4.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.pageDesc {
   max-width: 700px;
-  margin-bottom: 60px;
   color: rgba(255,255,255,.72);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 70px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 28px;
+/* ================= HERO ================= */
+
+.heroGrid{
+  display:grid;
+  grid-template-columns:2.3fr 1fr;
+  gap:24px;
+  margin-bottom:90px;
 }
 
-.card {
-  padding: 28px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,.08);
+.heroCard{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  min-height:640px;
+  text-decoration:none;
+  color:#fff;
 }
 
-.card h3 {
-  margin-bottom: 14px;
+.rightColumn{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
 
-.card p {
-  margin-bottom: 20px;
+.sideCard{
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  flex:1;
+  min-height:308px;
+  text-decoration:none;
+  color:#fff;
 }
 
-.badge {
-  display: inline-block;
-  margin-bottom: 16px;
+.image{
+  object-fit:cover;
+  transition:transform .6s ease;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+      180deg,
+      rgba(0,0,0,.05) 0%,
+      rgba(0,0,0,.25) 35%,
+      rgba(0,0,0,.88) 100%
+  );
+  transition:.4s;
+  z-index:1;
+}
+
+.heroContent{
+  position:absolute;
+  left:40px;
+  right:40px;
+  bottom:40px;
+  z-index:2;
+}
+
+.heroContent h2{
+  font-size:clamp(2rem,3.2vw,3.3rem);
+  line-height:1.15;
+  margin:18px 0;
+  transition:.35s;
+}
+
+.heroContent p{
+  max-width:700px;
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+.sideContent{
+  position:absolute;
+  left:26px;
+  right:26px;
+  bottom:24px;
+  z-index:2;
+}
+
+.sideContent h3{
+  font-size:1.45rem;
+  line-height:1.35;
+  margin:16px 0;
+  transition:.35s;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#7cc242;
+  color:#06101d;
+  padding:8px 18px;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+
+.meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:rgba(255,255,255,.72);
+  font-size:.92rem;
+}
+
+/* Hover */
+
+.heroCard:hover .image,
+.sideCard:hover .image{
+  transform:scale(1.08);
+}
+
+.heroCard:hover .overlay,
+.sideCard:hover .overlay{
+  background:linear-gradient(
+      180deg,
+      rgba(0,0,0,.12) 0%,
+      rgba(0,0,0,.35) 30%,
+      rgba(0,0,0,.94) 100%
+  );
+}
+
+.heroCard:hover h2,
+.sideCard:hover h3{
+  color:#7cc242;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+  display:grid;
+  grid-template-columns:2fr 360px;
+  gap:48px;
+  align-items:start;
+}
+
+.sectionTitle{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:32px;
+}
+
+/* ================= POSTS GRID ================= */
+
+.postsGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
+}
+
+.postCard{
+  background:#0b1627;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  overflow:hidden;
+  text-decoration:none;
+  color:#fff;
+  transition:.35s;
+}
+
+.postCard:hover{
+  transform:translateY(-8px);
+  border-color:rgba(124,194,66,.45);
+  box-shadow:0 20px 45px rgba(0,0,0,.28);
+}
+
+.postCard:hover .image{
+  transform:scale(1.08);
+}
+
+.postCard:hover h3{
+  color:#7cc242;
+}
+
+.thumb{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+
+.postBody{
+  padding:26px;
+}
+
+.postBody h3{
+  margin:18px 0 14px;
+  font-size:1.4rem;
+  line-height:1.45;
+  transition:.3s;
+}
+
+.postDate{
+  color:rgba(255,255,255,.6);
+  font-size:.92rem;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+  position:sticky;
+  top:120px;
+}
+
+.sidePost{
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-bottom:22px;
+  padding:16px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#fff;
+  background:#0b1627;
+  border:1px solid rgba(255,255,255,.06);
+  transition:.3s;
+}
+
+.sidePost:hover{
+  transform:translateX(6px);
+  border-color:rgba(124,194,66,.45);
+}
+
+.sidePost:hover h4{
+  color:#7cc242;
+}
+
+.sideThumb{
+  position:relative;
+  width:110px;
+  height:88px;
+  flex-shrink:0;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.sidePost h4{
+  font-size:1rem;
+  line-height:1.45;
+  margin-bottom:10px;
+  transition:.3s;
+}
+
+.sidePost span{
+  color:rgba(255,255,255,.6);
+  font-size:.85rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:1200px){
+
+  .heroGrid{
+    grid-template-columns:1fr;
+  }
+
+  .heroCard{
+    min-height:560px;
+  }
+
+  .rightColumn{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .content{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    position:static;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .blogs{
+    padding:120px 18px 80px;
+  }
+
+  .pageTitle{
+    font-size:2.5rem;
+  }
+
+  .pageDesc{
+    margin-bottom:50px;
+  }
+
+  .heroCard{
+    min-height:500px;
+  }
+
+  .heroContent{
+    left:24px;
+    right:24px;
+    bottom:24px;
+  }
+
+  .heroContent h2{
+    font-size:2rem;
+  }
+
+  .heroContent p{
+    font-size:.95rem;
+  }
+
+  .rightColumn{
+    grid-template-columns:1fr;
+  }
+
+  .sideCard{
+    min-height:240px;
+  }
+
+  .postsGrid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media (max-width:576px){
+
+  .heroCard{
+    min-height:420px;
+  }
+
+  .heroContent h2{
+    font-size:1.7rem;
+  }
+
+  .heroContent p{
+    display:none;
+  }
+
+  .sideContent{
+    left:18px;
+    right:18px;
+    bottom:18px;
+  }
+
+  .sideContent h3{
+    font-size:1.1rem;
+  }
+
+  .sidePost{
+    padding:12px;
+  }
+
+  .sideThumb{
+    width:90px;
+    height:72px;
+  }
+
 }
