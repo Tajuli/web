@@ -42,11 +42,11 @@ button{
   color: #111827;
 
   font-size: clamp(1.6rem, 2.6vw, 2.1rem);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 1.2;
 
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: .06em;
 }
 .eyebrow::after {
   content: "";
