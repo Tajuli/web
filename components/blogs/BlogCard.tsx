@@ -1,96 +1,119 @@
-import type { Metadata } from "next";
-import BlogCard from "@/components/blogs/BlogCard";
-import MostRead from "@/components/blogs/MostRead";
+"use client";
 
-import {
-  getAllBlogs,
-  getFeaturedBlogs,
-} from "@/data/blogs";
-
+import Link from "next/link";
+import Image from "next/image";
 import styles from "./BlogCard.module.css";
+import type { Blog } from "@/data/blogs";
 
-export const metadata: Metadata = {
-  title: "Blog | PrimeDigitor",
-  description:
-    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads and Business Growth from PrimeDigitor.",
+type Props = {
+  blog: Blog;
+  featured?: boolean;
+  large?: boolean;
 };
 
-export default function BlogsPage() {
-  const blogs = getAllBlogs();
-  const featured = getFeaturedBlogs();
+export default function BlogCard({
+  blog,
+  featured = false,
+  large = false,
+}: Props) {
+  if (featured) {
+    return (
+      <Link
+        href={`/blogs/${blog.slug}`}
+        className={`${styles.heroCard} ${
+          large ? styles.largeHero : styles.smallHero
+        }`}
+      >
+        <Image
+          src={blog.coverImage}
+          alt={blog.title}
+          fill
+          priority={large}
+          className={styles.heroImage}
+          sizes="100vw"
+        />
 
-  const heroMain = featured[0];
-  const heroRight = featured.slice(1, 3);
+        <div className={styles.overlay} />
+
+        <div className={styles.heroContent}>
+          <span className={styles.category}>
+            {blog.category}
+          </span>
+
+          <h2 className={styles.heroTitle}>
+            {blog.title}
+          </h2>
+
+          <div className={styles.heroMeta}>
+            <span>{blog.author}</span>
+
+            <span>•</span>
+
+            <span>{blog.publishedAt}</span>
+
+            <span>•</span>
+
+            <span>{blog.readingTime}</span>
+          </div>
+        </div>
+      </Link>
+    );
+  }
 
   return (
-    <main className={styles.page}>
-      {/* ================= Hero ================= */}
+    <article className={styles.card}>
+      <Link
+        href={`/blogs/${blog.slug}`}
+        className={styles.imageLink}
+      >
+        <div className={styles.imageWrapper}>
+          <Image
+            src={blog.coverImage}
+            alt={blog.title}
+            fill
+            className={styles.image}
+            sizes="(max-width:768px) 100vw, 33vw"
+          />
 
-      <section className={styles.heroGrid}>
-        {heroMain && (
-          <div className={styles.heroLarge}>
-            <BlogCard
-              blog={heroMain}
-              featured
-            />
-          </div>
-        )}
-
-        <div className={styles.heroSide}>
-          {heroRight.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              blog={blog}
-              compact
-            />
-          ))}
+          <span className={styles.category}>
+            {blog.category}
+          </span>
         </div>
-      </section>
+      </Link>
 
-      {/* ================= Content ================= */}
+      <div className={styles.content}>
+        <div className={styles.meta}>
+          <span>{blog.publishedAt}</span>
 
-      <section className={styles.content}>
-        {/* Left */}
+          <span className={styles.dot}>•</span>
 
-        <div className={styles.left}>
-          <div className={styles.sectionTitle}>
-            <h2>Recent Posts</h2>
-          </div>
-
-          <div className={styles.grid}>
-            {blogs.map((blog) => (
-              <BlogCard
-                key={blog.slug}
-                blog={blog}
-              />
-            ))}
-          </div>
-
-          {/* Pagination */}
-
-          <div className={styles.pagination}>
-            <button className={styles.active}>
-              1
-            </button>
-
-            <button>2</button>
-
-            <button>3</button>
-
-            <button>…</button>
-
-            <button>8</button>
-
-            <button>›</button>
-          </div>
+          <span>{blog.readingTime}</span>
         </div>
 
-        {/* Sidebar */}
+        <h3 className={styles.title}>
+          <Link href={`/blogs/${blog.slug}`}>
+            {blog.title}
+          </Link>
+        </h3>
 
-        <aside className={styles.sidebar}>
-          <MostRead blogs={blogs.slice(0, 5)} />
-        </aside>
-      </section>
-    </main>
+        <p className={styles.excerpt}>
+          {blog.excerpt}
+        </p>
+
+        <div className={styles.footer}>
+          <span className={styles.author}>
+            {blog.author}
+          </span>
+
+          <Link
+            href={`/blogs/${blog.slug}`}
+            className={styles.button}
+          >
+            Read More
+            <span className={styles.arrow}>→</span>
+          </Link>
+        </div>
+      </div>
+    </article>
   );
 }
