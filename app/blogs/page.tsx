@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import BlogCard from "@/components/blogs/BlogCard";
 import {
   getAllBlogs,
-  getFeaturedBlogs,
 } from "@/data/blogs";
 
 import styles from "./page.module.css";
@@ -22,56 +21,96 @@ export const metadata: Metadata = {
 
 export default function BlogsPage() {
   const blogs = getAllBlogs();
-  const featured = getFeaturedBlogs()[0];
+
+  const heroMain = blogs[0];
+  const heroSide = blogs.slice(1, 3);
+
+  const recentPosts = blogs.slice(3);
+
+  const mostRead = [...blogs]
+    .sort((a, b) => (b.readTime ?? 0) - (a.readTime ?? 0))
+    .slice(0, 5);
 
   return (
     <main className={styles.page}>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <span className={styles.eyebrow}>
-          PRIME DIGITOR BLOG
-        </span>
+      {/* ================= HERO ================= */}
 
-        <h1>
-          Insights That Help
-          <br />
-          Your Business Grow
-        </h1>
+      <section className={styles.heroGrid}>
+        {/* Left Large */}
+        {heroMain && (
+          <div className={styles.heroLarge}>
+            <BlogCard
+              blog={heroMain}
+              featured
+            />
+          </div>
+        )}
 
-        <p>
-          Actionable articles, practical strategies and
-          industry insights on SEO, Google Ads,
-          Web Development and Digital Marketing.
-        </p>
-      </section>
-
-      {/* Featured */}
-      {featured && (
-        <section className={styles.featured}>
-          <h2>Featured Article</h2>
-
-          <BlogCard blog={featured} />
-        </section>
-      )}
-
-      {/* Latest */}
-      <section className={styles.latest}>
-        <div className={styles.heading}>
-          <h2>Latest Articles</h2>
-
-          <span>
-            {blogs.length} Articles
-          </span>
-        </div>
-
-        <div className={styles.grid}>
-          {blogs.map((blog) => (
+        {/* Right */}
+        <div className={styles.heroRight}>
+          {heroSide.map((blog) => (
             <BlogCard
               key={blog.slug}
               blog={blog}
+              compact
             />
           ))}
         </div>
+      </section>
+
+      {/* ================= CONTENT ================= */}
+
+      <section className={styles.content}>
+        {/* LEFT */}
+
+        <div className={styles.left}>
+          <div className={styles.sectionHeader}>
+            <h2>Recent Posts</h2>
+          </div>
+
+          <div className={styles.postsGrid}>
+            {recentPosts.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                blog={blog}
+              />
+            ))}
+          </div>
+
+          <div className={styles.pagination}>
+            <button className={styles.active}>
+              1
+            </button>
+
+            <button>2</button>
+
+            <button>3</button>
+
+            <button>...</button>
+
+            <button>8</button>
+
+            <button>&gt;</button>
+          </div>
+        </div>
+
+        {/* RIGHT */}
+
+        <aside className={styles.sidebar}>
+          <h2 className={styles.sidebarTitle}>
+            Most Read
+          </h2>
+
+          <div className={styles.sidebarList}>
+            {mostRead.map((blog) => (
+              <BlogCard
+                key={blog.slug}
+                blog={blog}
+                horizontal
+              />
+            ))}
+          </div>
+        </aside>
       </section>
     </main>
   );
