@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import BlogCard from "@/components/blogs/BlogCard";
+import MostRead from "@/components/blogs/MostRead";
+
 import {
   getAllBlogs,
+  getFeaturedBlogs,
 } from "@/data/blogs";
 
 import styles from "./page.module.css";
@@ -9,50 +12,37 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Blog | PrimeDigitor",
   description:
-    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads, Branding and Business Growth from PrimeDigitor.",
-
-  openGraph: {
-    title: "PrimeDigitor Blog",
-    description:
-      "Latest articles on SEO, marketing and web development.",
-    type: "website",
-  },
+    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads and Business Growth from PrimeDigitor.",
 };
 
 export default function BlogsPage() {
   const blogs = getAllBlogs();
+  const featured = getFeaturedBlogs();
 
-  const heroMain = blogs[0];
-  const heroSide = blogs.slice(1, 3);
-
-  const recentPosts = blogs.slice(3);
-
-  const mostRead = [...blogs]
-    .sort((a, b) => (b.readTime ?? 0) - (a.readTime ?? 0))
-    .slice(0, 5);
+  const heroMain = featured[0];
+  const heroRight = featured.slice(1, 3);
 
   return (
     <main className={styles.page}>
       {/* ================= HERO ================= */}
 
       <section className={styles.heroGrid}>
-        {/* Left Large */}
         {heroMain && (
           <div className={styles.heroLarge}>
             <BlogCard
               blog={heroMain}
               featured
+              large
             />
           </div>
         )}
 
-        {/* Right */}
-        <div className={styles.heroRight}>
-          {heroSide.map((blog) => (
+        <div className={styles.heroSide}>
+          {heroRight.map((blog) => (
             <BlogCard
               key={blog.slug}
               blog={blog}
-              compact
+              featured
             />
           ))}
         </div>
@@ -64,18 +54,20 @@ export default function BlogsPage() {
         {/* LEFT */}
 
         <div className={styles.left}>
-          <div className={styles.sectionHeader}>
+          <div className={styles.sectionTitle}>
             <h2>Recent Posts</h2>
           </div>
 
-          <div className={styles.postsGrid}>
-            {recentPosts.map((blog) => (
+          <div className={styles.grid}>
+            {blogs.map((blog) => (
               <BlogCard
                 key={blog.slug}
                 blog={blog}
               />
             ))}
           </div>
+
+          {/* Pagination */}
 
           <div className={styles.pagination}>
             <button className={styles.active}>
@@ -90,26 +82,14 @@ export default function BlogsPage() {
 
             <button>8</button>
 
-            <button>&gt;</button>
+            <button>›</button>
           </div>
         </div>
 
         {/* RIGHT */}
 
         <aside className={styles.sidebar}>
-          <h2 className={styles.sidebarTitle}>
-            Most Read
-          </h2>
-
-          <div className={styles.sidebarList}>
-            {mostRead.map((blog) => (
-              <BlogCard
-                key={blog.slug}
-                blog={blog}
-                horizontal
-              />
-            ))}
-          </div>
+          <MostRead blogs={blogs.slice(0, 5)} />
         </aside>
       </section>
     </main>
