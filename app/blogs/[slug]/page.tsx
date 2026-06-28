@@ -1,117 +1,78 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-
+import BlogCard from "@/components/blogs/BlogCard";
 import {
   getAllBlogs,
-  getBlogBySlug,
+  getFeaturedBlogs,
 } from "@/data/blogs";
 
-import ShareButtons from "@/components/blogs/ShareButtons";
-import RelatedBlogs from "@/components/blogs/RelatedBlogs";
+import styles from "./page.module.css";
 
-import styles from "./BlogDetail.module.css";
+export const metadata: Metadata = {
+  title: "Blog | PrimeDigitor",
+  description:
+    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads, Branding and Business Growth from PrimeDigitor.",
 
-type Props = {
-  params: Promise<{
-    slug: string;
-  }>;
+  openGraph: {
+    title: "PrimeDigitor Blog",
+    description:
+      "Latest articles on SEO, marketing and web development.",
+    type: "website",
+  },
 };
 
-export async function generateStaticParams() {
-  return getAllBlogs().map((blog) => ({
-    slug: blog.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: Props): Promise<Metadata> {
-  const { slug } = await params;
-
-  const blog = getBlogBySlug(slug);
-
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-    };
-  }
-
-  return {
-    title: blog.seoTitle ?? blog.title,
-    description:
-      blog.seoDescription ?? blog.excerpt,
-
-    openGraph: {
-      title: blog.title,
-      description: blog.excerpt,
-      images: [blog.coverImage],
-      type: "article",
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: blog.title,
-      description: blog.excerpt,
-      images: [blog.coverImage],
-    },
-  };
-}
-
-export default async function BlogDetailPage({
-  params,
-}: Props) {
-  const { slug } = await params;
-
-  const blog = getBlogBySlug(slug);
-
-  if (!blog) {
-    notFound();
-  }
+export default function BlogsPage() {
+  const blogs = getAllBlogs();
+  const featured = getFeaturedBlogs()[0];
 
   return (
     <main className={styles.page}>
+      {/* Hero */}
       <section className={styles.hero}>
-        <span className={styles.category}>
-          {blog.category}
+        <span className={styles.eyebrow}>
+          PRIME DIGITOR BLOG
         </span>
 
-        <h1>{blog.title}</h1>
+        <h1>
+          Insights That Help
+          <br />
+          Your Business Grow
+        </h1>
 
-        <p>{blog.excerpt}</p>
-
-        <div className={styles.meta}>
-          <span>{blog.author}</span>
-
-          <span>•</span>
-
-          <span>{blog.publishedAt}</span>
-
-          <span>•</span>
-
-          <span>{blog.readingTime}</span>
-        </div>
-
-        <img
-          src={blog.coverImage}
-          alt={blog.title}
-          className={styles.cover}
-        />
+        <p>
+          Actionable articles, practical strategies and
+          industry insights on SEO, Google Ads,
+          Web Development and Digital Marketing.
+        </p>
       </section>
 
-      <article className={styles.article}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: blog.content,
-          }}
-        />
+      {/* Featured */}
+      {featured && (
+        <section className={styles.featured}>
+          <h2>Featured Article</h2>
 
-        <ShareButtons
-          title={blog.title}
-          url={`https://primedigitor.com/blogs/${blog.slug}`}
-        />
-      </article>
+          <BlogCard blog={featured} />
+        </section>
+      )}
 
-      <RelatedBlogs currentBlog={blog} />
+      {/* Latest */}
+      <section className={styles.latest}>
+        <div className={styles.heading}>
+          <h2>Latest Articles</h2>
+
+          <span>
+            {blogs.length} Articles
+          </span>
+        </div>
+
+        <div className={styles.grid}>
+          {blogs.map((blog) => (
+            <BlogCard
+              key={blog.slug}
+              blog={blog}
+            />
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
