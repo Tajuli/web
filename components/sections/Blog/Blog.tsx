@@ -39,9 +39,9 @@ export default function Blog() {
               </p>
             </div>
 
-            <Link href="/blog" className={styles.viewAll}>
-              View All →
-            </Link>
+            <Link href="/blogs" className={styles.viewAll}>
+  View All →
+</Link>
           </div>
         </div>
 
