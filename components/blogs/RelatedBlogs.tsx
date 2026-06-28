@@ -1,4 +1,4 @@
-
+import styles from "./RelatedBlogs.module.css";
 import BlogCard from "./BlogCard";
 import {
   getRelatedBlogs,
@@ -21,7 +21,7 @@ export default function RelatedBlogs({
   if (relatedBlogs.length === 0) return null;
 
   return (
-    <section className="relatedBlogs">
+    <section className={styles.relatedBlogs}>
       <div className="sectionHeader">
         <span className="eyebrow">
           KEEP READING
