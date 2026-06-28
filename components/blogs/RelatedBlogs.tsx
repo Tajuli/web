@@ -21,28 +21,27 @@ export default function RelatedBlogs({
   if (relatedBlogs.length === 0) return null;
 
   return (
-    <section className={styles.relatedBlogs}>
-      <div className="sectionHeader">
-        <span className="eyebrow">
-          KEEP READING
-        </span>
+   <section className={styles.relatedBlogs}>
+  <div className={styles.sectionHeader}>
+    <span className={styles.eyebrow}>
+      KEEP READING
+    </span>
 
-        <h2>You May Also Like</h2>
+    <h2>You May Also Like</h2>
 
-        <p>
-          Explore more insights, strategies and
-          practical guides from our latest blogs.
-        </p>
-      </div>
+    <p>
+      Explore more insights, strategies and practical guides from our latest blogs.
+    </p>
+  </div>
 
-      <div className="relatedGrid">
-        {relatedBlogs.map((blog) => (
-          <BlogCard
-            key={blog.slug}
-            blog={blog}
-          />
-        ))}
-      </div>
-    </section>
+  <div className={styles.relatedGrid}>
+    {relatedBlogs.map((blog) => (
+      <BlogCard
+        key={blog.slug}
+        blog={blog}
+      />
+    ))}
+  </div>
+</section>
   );
 }
