@@ -1,78 +1,175 @@
 import type { Metadata } from "next";
-import BlogCard from "@/components/blogs/BlogCard";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
 import {
   getAllBlogs,
-  getFeaturedBlogs,
+  getBlogBySlug,
 } from "@/data/blogs";
 
-import styles from "./page.module.css";
+import ShareButtons from "@/components/blogs/ShareButtons";
+import RelatedBlogs from "@/components/blogs/RelatedBlogs";
 
-export const metadata: Metadata = {
-  title: "Blog | PrimeDigitor",
-  description:
-    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads, Branding and Business Growth from PrimeDigitor.",
+import styles from "./BlogDetail.module.css";
 
-  openGraph: {
-    title: "PrimeDigitor Blog",
-    description:
-      "Latest articles on SEO, marketing and web development.",
-    type: "website",
-  },
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
-export default function BlogsPage() {
-  const blogs = getAllBlogs();
-  const featured = getFeaturedBlogs()[0];
+export async function generateStaticParams() {
+  return getAllBlogs().map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: Props): Promise<Metadata> {
+  const { slug } = await params;
+
+  const blog = getBlogBySlug(slug);
+
+  if (!blog) {
+    return {
+      title: "Blog Not Found | PrimeDigitor",
+    };
+  }
+
+  const site =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://primedigitor.com";
+
+  return {
+    title: blog.seoTitle ?? blog.title,
+    description:
+      blog.seoDescription ?? blog.excerpt,
+
+    alternates: {
+      canonical: `${site}/blogs/${blog.slug}`,
+    },
+
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt,
+      url: `${site}/blogs/${blog.slug}`,
+      type: "article",
+
+      images: [
+        {
+          url: `${site}${blog.coverImage}`,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.excerpt,
+
+      images: [`${site}${blog.coverImage}`],
+    },
+  };
+}
+
+export default async function BlogDetailPage({
+  params,
+}: Props) {
+  const { slug } = await params;
+
+  const blog = getBlogBySlug(slug);
+
+  if (!blog) {
+    notFound();
+  }
+
+  const site =
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://primedigitor.com";
 
   return (
     <main className={styles.page}>
-      {/* Hero */}
       <section className={styles.hero}>
-        <span className={styles.eyebrow}>
-          PRIME DIGITOR BLOG
+        <span className={styles.category}>
+          {blog.category}
         </span>
 
-        <h1>
-          Insights That Help
-          <br />
-          Your Business Grow
-        </h1>
+        <h1>{blog.title}</h1>
 
-        <p>
-          Actionable articles, practical strategies and
-          industry insights on SEO, Google Ads,
-          Web Development and Digital Marketing.
-        </p>
-      </section>
+        <p>{blog.excerpt}</p>
 
-      {/* Featured */}
-      {featured && (
-        <section className={styles.featured}>
-          <h2>Featured Article</h2>
+        <div className={styles.meta}>
+          <span>{blog.author}</span>
 
-          <BlogCard blog={featured} />
-        </section>
-      )}
+          <span>•</span>
 
-      {/* Latest */}
-      <section className={styles.latest}>
-        <div className={styles.heading}>
-          <h2>Latest Articles</h2>
+          <span>{blog.publishedAt}</span>
 
-          <span>
-            {blogs.length} Articles
-          </span>
+          <span>•</span>
+
+          <span>{blog.readingTime}</span>
         </div>
 
-        <div className={styles.grid}>
-          {blogs.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              blog={blog}
-            />
-          ))}
-        </div>
+        <Image
+          src={blog.coverImage}
+          alt={blog.title}
+          width={1200}
+          height={700}
+          priority
+          className={styles.cover}
+        />
       </section>
+
+      <article className={styles.article}>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: blog.content,
+          }}
+        />
+                <ShareButtons
+          title={blog.title}
+          url={`${site}/blogs/${blog.slug}`}
+        />
+      </article>
+
+      <RelatedBlogs currentBlog={blog} />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+
+            headline: blog.title,
+
+            description: blog.excerpt,
+
+            image: `${site}${blog.coverImage}`,
+
+            author: {
+              "@type": "Organization",
+              name: blog.author,
+            },
+
+            publisher: {
+              "@type": "Organization",
+              name: "PrimeDigitor",
+            },
+
+            datePublished: blog.publishedAt,
+
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `${site}/blogs/${blog.slug}`,
+            },
+          }),
+        }}
+      />
     </main>
   );
 }
