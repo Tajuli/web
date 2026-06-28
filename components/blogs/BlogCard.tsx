@@ -7,7 +7,7 @@ import {
   getFeaturedBlogs,
 } from "@/data/blogs";
 
-import styles from "./page.module.css";
+import styles from "./BlogCard.module.css";
 
 export const metadata: Metadata = {
   title: "Blog | PrimeDigitor",
