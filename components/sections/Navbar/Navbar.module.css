@@ -1,0 +1,21 @@
+.shell { position: fixed; inset: 0 0 auto 0; z-index: 50; border-bottom: 1px solid rgba(var(--line)); background: linear-gradient(180deg, rgba(5, 10, 18, 0.55), rgba(5, 10, 18, 0.3)); backdrop-filter: blur(20px) saturate(150%); }
+.compact { background: linear-gradient(180deg, rgba(5, 10, 18, 0.72), rgba(5, 10, 18, 0.44)); }
+.inner { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.compact .inner { height: 78px; }
+.brand { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; }
+.brand span { color: #90f551; }
+.desktopNav { display: none; }
+.navPill { border-radius: 999px; padding: 0.82rem 1rem; color: rgba(255, 255, 255, 0.72); transition: 0.25s; }
+.navPill:hover { color: white; background: rgba(255, 255, 255, 0.06); }
+.navPillActive { color: #ffffff; background: var(--cyan); box-shadow: 0 12px 40px rgba(83, 213, 255, 0.22); }
+.mobileMenuBtn, .mobileClose { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.05); }
+@media (min-width: 992px) { .desktopNav { display: flex; gap: 0.35rem; padding: 0.35rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(16px); } .mobileMenuBtn { display: none; } }
+.mobileDrawerWrap { position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0; transition: 0.25s; }
+.mobileDrawerOpen { pointer-events: auto; opacity: 1; }
+.mobileDrawerBackdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.58); backdrop-filter: blur(8px); }
+.mobileDrawer { position: absolute; right: 0; top: 0; height: 100%; width: min(88vw, 390px); background: rgba(7, 17, 31, 0.82); backdrop-filter: blur(24px); border-left: 1px solid rgba(255, 255, 255, 0.08); transform: translateX(100%); transition: transform 0.3s ease; padding: 1.25rem; }
+.mobileDrawerOpen .mobileDrawer { transform: translateX(0); }
+.mobileDrawerTop { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+.mobileNavList { display: grid; gap: 0.8rem; }
+.mobileNavItem { border-radius: 1.25rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); text-align: left; color: rgba(255, 255, 255, 0.82); }
+.mobileNavItemActive { background: var(--cyan); color: #ffffff; font-weight: 600; }
