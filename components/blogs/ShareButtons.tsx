@@ -1,96 +1,81 @@
 "use client";
 
-import { useState } from "react";
-import styles from "./ShareButtons.module.css";
+import { useMemo, useState } from "react";
+import BlogCard from "./BlogCard";
+import type { Blog } from "@/data/blogs";
+import styles from "./SearchFilter.module.css";
 
 type Props = {
-  title: string;
-  url: string;
+  blogs: Blog[];
 };
 
-export default function ShareButtons({
-  title,
-  url,
-}: Props) {
-  const [copied, setCopied] = useState(false);
+export default function SearchFilter({ blogs }: Props) {
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("All");
 
-  const encodedUrl = encodeURIComponent(url);
-  const encodedTitle = encodeURIComponent(title);
+  const categories = [
+    "All",
+    ...new Set(blogs.map((b) => b.category)),
+  ];
 
-  const shareFacebook = () => {
-    window.open(
-      `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
+  const filteredBlogs = useMemo(() => {
+    return blogs.filter((blog) => {
+      const matchesSearch =
+        blog.title.toLowerCase().includes(search.toLowerCase()) ||
+        blog.excerpt.toLowerCase().includes(search.toLowerCase()) ||
+        blog.tags.some((tag) =>
+          tag.toLowerCase().includes(search.toLowerCase())
+        );
 
-  const shareLinkedIn = () => {
-    window.open(
-      `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
+      const matchesCategory =
+        category === "All" || blog.category === category;
 
-  const shareTwitter = () => {
-    window.open(
-      `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
-
-  const nativeShare = async () => {
-    if (!navigator.share) return;
-
-    try {
-      await navigator.share({
-        title,
-        url,
-      });
-    } catch {}
-  };
-
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(url);
-
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-  };
+      return matchesSearch && matchesCategory;
+    });
+  }, [blogs, search, category]);
 
   return (
-    <div className={styles.wrapper}>
-      <span className={styles.label}>
-        Share Article
-      </span>
+    <>
+      <div className={styles.toolbar}>
+        <input
+          type="text"
+          placeholder="Search articles..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className={styles.search}
+        />
 
-      <div className={styles.buttons}>
-        <button onClick={shareFacebook}>
-          Facebook
-        </button>
-
-        <button onClick={shareLinkedIn}>
-          LinkedIn
-        </button>
-
-        <button onClick={shareTwitter}>
-          X
-        </button>
-
-        {"share" in navigator && (
-          <button onClick={nativeShare}>
-            Share
-          </button>
-        )}
-
-        <button onClick={copyLink}>
-          {copied ? "Copied!" : "Copy Link"}
-        </button>
+        <select
+          className={styles.select}
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          {categories.map((item) => (
+            <option key={item}>{item}</option>
+          ))}
+        </select>
       </div>
-    </div>
+
+      <div className={styles.result}>
+        {filteredBlogs.length} article
+        {filteredBlogs.length !== 1 && "s"} found
+      </div>
+
+      <div className={styles.grid}>
+        {filteredBlogs.map((blog) => (
+          <BlogCard
+            key={blog.slug}
+            blog={blog}
+          />
+        ))}
+      </div>
+
+      {filteredBlogs.length === 0 && (
+        <div className={styles.empty}>
+          <h3>No articles found</h3>
+          <p>Try another keyword or category.</p>
+        </div>
+      )}
+    </>
   );
 }
