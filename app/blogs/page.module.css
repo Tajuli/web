@@ -1,194 +1,175 @@
-.page {
-  width: min(1280px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 48px 0 80px;
+.page{
+    max-width:1280px;
+    margin:auto;
+    padding:120px 24px 80px;
 }
 
-/* ==========================
+/* ===========================
    HERO
-========================== */
+=========================== */
 
-.heroGrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-bottom: 70px;
+.heroGrid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:24px;
+    margin-bottom:70px;
+    align-items:stretch;
 }
 
-.heroLarge {
-  min-height: 560px;
+.heroLarge{
+    height:620px;
 }
 
-.heroRight {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.heroLarge>*{
+    height:100%;
 }
 
-.heroRight > * {
-  flex: 1;
+.heroSide{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:24px;
 }
 
-/* ==========================
+.heroSide>*{
+    min-height:298px;
+}
+
+/* ===========================
    CONTENT
-========================== */
+=========================== */
 
-.content {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) 360px;
-  gap: 48px;
-  align-items: start;
+.content{
+    display:grid;
+    grid-template-columns:2.2fr .9fr;
+    gap:40px;
+    align-items:start;
 }
 
-/* ==========================
-   LEFT
-========================== */
-
-.left {
-  min-width: 0;
+.left{
+    width:100%;
 }
 
-.sectionHeader {
-  margin-bottom: 28px;
+.sidebar{
+    position:sticky;
+    top:120px;
 }
 
-.sectionHeader h2 {
-  font-size: 34px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -.02em;
+.sectionTitle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
 }
 
-.postsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+.sectionTitle h2{
+    color:#fff;
+    font-size:34px;
+    font-weight:700;
 }
 
-/* ==========================
-   SIDEBAR
-========================== */
+/* ===========================
+   GRID
+=========================== */
 
-.sidebar {
-  position: sticky;
-  top: 110px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:26px;
 }
 
-.sidebarTitle {
-  font-size: 28px;
-  color: #fff;
-  margin-bottom: 28px;
-}
-
-.sidebarList {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* ==========================
+/* ===========================
    PAGINATION
-========================== */
+=========================== */
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 60px;
+.pagination{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:60px;
+    flex-wrap:wrap;
 }
 
-.pagination button {
-  width: 46px;
-  height: 46px;
-
-  border-radius: 10px;
-
-  background: transparent;
-
-  border: 1px solid rgba(255,255,255,.12);
-
-  color: rgba(255,255,255,.75);
-
-  transition: .25s;
-
-  cursor: pointer;
+.pagination button{
+    width:46px;
+    height:46px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+    border-radius:4px;
 }
 
-.pagination button:hover {
-  border-color: #7cc242;
-  color: white;
+.pagination button:hover{
+    border-color:#7cc242;
+    color:#7cc242;
 }
 
-.active {
-  background: #7cc242 !important;
-  border-color: #7cc242 !important;
-  color: #08111d !important;
-  font-weight: 700;
+.active{
+    background:#7cc242 !important;
+    color:#08101c !important;
+    border-color:#7cc242 !important;
+    font-weight:700;
 }
 
-/* ==========================
+/* ===========================
    RESPONSIVE
-========================== */
+=========================== */
 
-@media (max-width:1200px){
+@media(max-width:1100px){
 
-  .postsGrid{
-      grid-template-columns:repeat(2,1fr);
-  }
+.heroGrid{
+    grid-template-columns:1fr;
+}
 
-  .content{
-      grid-template-columns:1fr 320px;
-  }
+.heroLarge{
+    height:500px;
+}
+
+.heroSide{
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:none;
+}
+
+.content{
+    grid-template-columns:1fr;
+}
+
+.sidebar{
+    position:static;
+}
+
+.grid{
+    grid-template-columns:repeat(2,1fr);
+}
 
 }
 
-@media (max-width:992px){
+@media(max-width:768px){
 
-  .heroGrid{
-      grid-template-columns:1fr;
-  }
-
-  .heroLarge{
-      min-height:420px;
-  }
-
-  .heroRight{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-  }
-
-  .content{
-      grid-template-columns:1fr;
-  }
-
-  .sidebar{
-      position:static;
-      margin-top:70px;
-  }
-
+.page{
+    padding:100px 18px 60px;
 }
 
-@media (max-width:768px){
+.heroLarge{
+    height:420px;
+}
 
-  .page{
-      width:calc(100% - 32px);
-      padding:30px 0 60px;
-  }
+.heroSide{
+    grid-template-columns:1fr;
+}
 
-  .postsGrid{
-      grid-template-columns:1fr;
-  }
+.grid{
+    grid-template-columns:1fr;
+}
 
-  .heroRight{
-      grid-template-columns:1fr;
-  }
+.sectionTitle h2{
+    font-size:28px;
+}
 
-  .sectionHeader h2{
-      font-size:28px;
-  }
-
-  .sidebarTitle{
-      font-size:24px;
-  }
+.pagination button{
+    width:42px;
+    height:42px;
+}
 
 }
