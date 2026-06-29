@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "Compare Google Ads and Facebook Ads to determine which platform is right for your business.",
 
-  coverImage: "/images/blogs/google-facebook.jpg",
+  coverImage: "/images/blogs/google-facebook.webp",
 
   category: "Paid Marketing",
 
