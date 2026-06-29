@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "Everything you need to improve local rankings and generate more calls.",
 
-  coverImage: "/images/blogs/local-seo.jpg",
+  coverImage: "/images/blogs/local-seo.webp",
 
   category: "SEO",
 
