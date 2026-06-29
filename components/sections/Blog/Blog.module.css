@@ -7,7 +7,7 @@
 
 .card {
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border:2px solid rgba(124,194,66,.25);
   overflow: hidden;
   transition: 0.35s ease;
   display: flex;
@@ -17,7 +17,7 @@
 
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(124, 194, 66, 0.45);
+  border-color: #7cc242;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
