@@ -11,22 +11,11 @@ export default function Blog() {
   return (
     <section id="blog" className="section">
       <div className="site-container">
-        <div className="section-head">
-          <div>
-            <span className="eyebrow">BLOG</span>
-
-            <h2 className="section-title">
-              Insights & Marketing Guides
-            </h2>
-
-            <p className="section-subtitle">
-              Practical SEO, Google Ads, website and digital marketing insights
-              to help your business grow online.
-            </p>
-          </div>
+        <div className={styles.sectionHeader}>
+          <span className="eyebrow">Recent Posts</span>
 
           <Link href="/blogs" className="btn btn-outline">
-            View All →
+            View All
           </Link>
         </div>
 
