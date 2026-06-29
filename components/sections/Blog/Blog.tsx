@@ -1,28 +1,10 @@
 import Link from "next/link";
 import styles from "./Blog.module.css";
-
-const posts = [
-  {
-    category: "SEO",
-    title: "10 SEO Mistakes That Are Hurting Your Rankings",
-    desc: "Discover the most common SEO mistakes businesses make and how to fix them for long-term organic growth.",
-    date: "Jun 2026",
-  },
-  {
-    category: "Google Ads",
-    title: "How to Reduce CPC Without Losing Conversions",
-    desc: "Learn practical strategies to improve ad quality, lower costs, and increase ROI from Google Ads.",
-    date: "Jun 2026",
-  },
-  {
-    category: "Marketing",
-    title: "Why Every Business Needs a High-Converting Website",
-    desc: "Your website should do more than look good. Here's how to turn visitors into paying customers.",
-    date: "Jun 2026",
-  },
-];
+import { getAllBlogs } from "@/data/blogs";
 
 export default function Blog() {
+  const posts = getAllBlogs().slice(0, 3);
+
   return (
     <section id="blog" className={styles.blog}>
       <div className={styles.container}>
@@ -40,24 +22,28 @@ export default function Blog() {
             </div>
 
             <Link href="/blogs" className={styles.viewAll}>
-  View All →
-</Link>
+              View All →
+            </Link>
           </div>
         </div>
 
         <div className={styles.grid}>
-          {posts.map((post, index) => (
-            <article key={index} className={styles.card}>
-              <span className={styles.badge}>{post.category}</span>
+          {posts.map((post) => (
+            <article key={post.slug} className={styles.card}>
+              <span className={styles.badge}>
+                {post.category}
+              </span>
 
               <h3>{post.title}</h3>
 
-              <p>{post.desc}</p>
+              <p>{post.excerpt}</p>
 
               <div className={styles.footer}>
-                <span>{post.date}</span>
+                <span>{post.publishedAt}</span>
 
-                <Link href="/blog">Read More →</Link>
+                <Link href={`/blogs/${post.slug}`}>
+                  Read More →
+                </Link>
               </div>
             </article>
           ))}
