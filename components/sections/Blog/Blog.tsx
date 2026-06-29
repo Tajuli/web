@@ -1,65 +1,73 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+import { blogs } from "@/data/blogs";
+
 import styles from "./Blog.module.css";
-import { getAllBlogs } from "@/data/blogs";
 
 export default function Blog() {
-  const posts = getAllBlogs().slice(0, 3);
+  const recentBlogs = blogs.slice(0, 3);
 
   return (
-    <section className="section" id="blog">
+    <section id="blog" className="section">
       <div className="site-container">
         <div className="section-head">
-          <span className="eyebrow">Recent Blogs</span>
+          <div>
+            <span className="eyebrow">BLOG</span>
 
-          <h2 className="section-title">
-            Insights, SEO Tips & Digital Marketing Guides
-          </h2>
+            <h2 className="section-title">
+              Insights & Marketing Guides
+            </h2>
 
-          <div className={styles.headerRow}>
-            <div />
-
-            <Link href="/blogs" className={styles.viewAll}>
-              View All
-            </Link>
+            <p className="section-subtitle">
+              Practical SEO, Google Ads, website and digital marketing insights
+              to help your business grow online.
+            </p>
           </div>
+
+          <Link href="/blogs" className="btn btn-outline">
+            View All →
+          </Link>
         </div>
 
-        <div className={styles.blogGrid}>
-          {posts.map((post) => (
-            <article key={post.slug} className={`glass-card ${styles.card}`}>
-              {post.image && (
-                <div className={styles.imageWrap}>
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className={styles.image}
-                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                  />
-                </div>
-              )}
+        <div className={styles.grid}>
+          {recentBlogs.map((blog) => (
+            <article key={blog.slug} className={styles.card}>
+              <Link
+                href={`/blogs/${blog.slug}`}
+                className={styles.imageWrapper}
+              >
+                <Image
+                  src={blog.coverImage}
+                  alt={blog.title}
+                  width={800}
+                  height={500}
+                  className={styles.image}
+                />
+              </Link>
 
-              <div className={styles.body}>
-                <span className={styles.badge}>
-                  {post.category}
-                </span>
+              <div className={styles.content}>
+                <span className={styles.badge}>{blog.category}</span>
 
                 <h3 className={styles.title}>
-                  {post.title}
+                  <Link href={`/blogs/${blog.slug}`}>
+                    {blog.title}
+                  </Link>
                 </h3>
 
                 <p className={styles.excerpt}>
-                  {post.excerpt}
+                  {blog.excerpt}
                 </p>
 
                 <div className={styles.footer}>
-                  <span className={styles.date}>
-                    {post.publishedAt}
-                  </span>
+                  <div className={styles.meta}>
+                    <span>{blog.publishedAt}</span>
+                    <span>•</span>
+                    <span>{blog.readingTime}</span>
+                  </div>
 
                   <Link
-                    href={`/blogs/${post.slug}`}
+                    href={`/blogs/${blog.slug}`}
                     className={styles.readMore}
                   >
                     Read More →
