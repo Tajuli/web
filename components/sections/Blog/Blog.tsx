@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Blog.module.css";
 import { getAllBlogs } from "@/data/blogs";
 
@@ -6,44 +7,64 @@ export default function Blog() {
   const posts = getAllBlogs().slice(0, 3);
 
   return (
-    <section id="blog" className={styles.blog}>
-      <div className={styles.container}>
-        <div className={styles.heading}>
-          <span className={styles.eyebrow}>BLOG</span>
+    <section className="section" id="blog">
+      <div className="site-container">
+        <div className="section-head">
+          <span className="eyebrow">Recent Blogs</span>
 
-          <div className={styles.row}>
-            <div>
-              <h2>Insights & Marketing Guides</h2>
+          <h2 className="section-title">
+            Insights, SEO Tips & Digital Marketing Guides
+          </h2>
 
-              <p>
-                Practical SEO, advertising, and digital marketing tips to help
-                your business grow online.
-              </p>
-            </div>
+          <div className={styles.headerRow}>
+            <div />
 
             <Link href="/blogs" className={styles.viewAll}>
-              View All →
+              View All
             </Link>
           </div>
         </div>
 
-        <div className={styles.grid}>
+        <div className={styles.blogGrid}>
           {posts.map((post) => (
-            <article key={post.slug} className={styles.card}>
-              <span className={styles.badge}>
-                {post.category}
-              </span>
+            <article key={post.slug} className={`glass-card ${styles.card}`}>
+              {post.image && (
+                <div className={styles.imageWrap}>
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className={styles.image}
+                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                  />
+                </div>
+              )}
 
-              <h3>{post.title}</h3>
+              <div className={styles.body}>
+                <span className={styles.badge}>
+                  {post.category}
+                </span>
 
-              <p>{post.excerpt}</p>
+                <h3 className={styles.title}>
+                  {post.title}
+                </h3>
 
-              <div className={styles.footer}>
-                <span>{post.publishedAt}</span>
+                <p className={styles.excerpt}>
+                  {post.excerpt}
+                </p>
 
-                <Link href={`/blogs/${post.slug}`}>
-                  Read More →
-                </Link>
+                <div className={styles.footer}>
+                  <span className={styles.date}>
+                    {post.publishedAt}
+                  </span>
+
+                  <Link
+                    href={`/blogs/${post.slug}`}
+                    className={styles.readMore}
+                  >
+                    Read More →
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
