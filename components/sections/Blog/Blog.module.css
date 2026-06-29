@@ -150,18 +150,74 @@
   }
 
 }
-.sectionHeader {
+/* ==========================
+   Blog Header
+========================== */
+
+.sliderHeader {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
-  gap: 20px;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .sectionHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 30px;
+.sliderTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.03em;
+}
+
+.viewAll {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.2rem;
+  border: 2px solid #7cc242;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .35s ease;
+}
+
+.viewAll::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #7cc242;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+  z-index: -1;
+}
+
+.viewAll:hover::before {
+  transform: scaleX(1);
+}
+
+.viewAll:hover {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .sliderHeader {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .sliderTitle {
+    font-size: 1.25rem;
+  }
+
+  .viewAll {
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
   }
 }
