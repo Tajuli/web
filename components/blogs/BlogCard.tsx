@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./BlogCard.module.css";
-import type { Blog } from "@/data/blogs/types";
+import type { Blog } from "@/data/blogs";
 
 type Props = {
   blog: Blog;
