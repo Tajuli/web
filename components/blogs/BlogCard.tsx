@@ -25,13 +25,13 @@ export default function BlogCard({
         }`}
       >
         <Image
-          src={blog.coverImage}
-          alt={blog.title}
-          fill
-          priority={large}
-          className={styles.heroImage}
-          sizes="100vw"
-        />
+  src={blog.coverImage}
+  alt={blog.title}
+  fill
+  priority={large}
+  className={styles.heroImage}
+  sizes="(max-width:1100px) 100vw, 66vw"
+/>
 
         <div className={styles.overlay} />
 
@@ -68,12 +68,12 @@ export default function BlogCard({
       >
         <div className={styles.imageWrapper}>
           <Image
-            src={blog.coverImage}
-            alt={blog.title}
-            fill
-            className={styles.image}
-            sizes="(max-width:768px) 100vw, 33vw"
-          />
+  src={blog.coverImage}
+  alt={blog.title}
+  fill
+  className={styles.image}
+  sizes="(max-width:768px) 100vw, (max-width:1100px) 50vw, 33vw"
+/>
 
           <span className={styles.category}>
             {blog.category}
