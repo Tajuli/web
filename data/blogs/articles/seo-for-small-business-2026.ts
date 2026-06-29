@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "Learn how small businesses can rank higher on Google with practical SEO strategies that actually work in 2026.",
 
-  coverImage: "/images/blogs/seo-guide.jpg",
+  coverImage: "/images/blogs/seo-guide.webp",
 
   category: "SEO",
 
