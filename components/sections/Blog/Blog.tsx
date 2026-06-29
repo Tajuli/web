@@ -11,14 +11,25 @@ export default function Blog() {
   return (
     <section id="blog" className="section">
       <div className="site-container">
-        <div className={styles.sectionHeader}>
-          <span className="eyebrow">Recent Posts</span>
+        {/* Section Heading */}
+        <div className="section-head">
+          <p className="eyebrow">Blog</p>
 
-          <Link href="/blogs" className="btn btn-outline">
+          <h2 className="section-title">
+            Insights, tips and strategies to help your business grow online.
+          </h2>
+        </div>
+
+        {/* Header like Works Section */}
+        <div className={styles.sliderHeader}>
+          <h3 className={styles.sliderTitle}>Recent Posts</h3>
+
+          <Link href="/blogs" className={styles.viewAll}>
             View All
           </Link>
         </div>
 
+        {/* Blog Grid */}
         <div className={styles.grid}>
           {recentBlogs.map((blog) => (
             <article key={blog.slug} className={styles.card}>
@@ -36,7 +47,9 @@ export default function Blog() {
               </Link>
 
               <div className={styles.content}>
-                <span className={styles.badge}>{blog.category}</span>
+                <span className={styles.badge}>
+                  {blog.category}
+                </span>
 
                 <h3 className={styles.title}>
                   <Link href={`/blogs/${blog.slug}`}>
