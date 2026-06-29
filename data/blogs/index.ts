@@ -1,5 +1,5 @@
 import { Blog } from "./types";
-
+export type { Blog } from "./types";
 import seoGuide from "./articles/seo-for-small-business-2026";
 import googleAds from "./articles/google-ads-vs-facebook-ads";
 import localSeo from "./articles/local-seo-checklist";
