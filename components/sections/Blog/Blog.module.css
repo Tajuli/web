@@ -250,7 +250,7 @@
   width: 46px;
   height: 46px;
   border: none;
-  border-radius: 50%;
+  border-radius: 0;
   background: #fff;
   color: #111;
   box-shadow: 0 8px 20px rgba(0,0,0,.15);
