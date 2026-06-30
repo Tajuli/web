@@ -17,7 +17,7 @@
 
 .left {
   position: sticky;
-  top: 10px;
+  top: 90px;
 }
 
 .badge {
@@ -30,7 +30,7 @@
   color: #7cc242;
   font-size: .85rem;
   font-weight: 600;
-  margin-bottom: 22px;
+  margin-bottom: 8px;
 }
 
 .title {
