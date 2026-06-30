@@ -43,8 +43,6 @@ export default function FAQ() {
       <div className={`site-container ${styles.wrapper}`}>
         {/* Left Side */}
         <div className={styles.left}>
-          <span className={styles.badge}>FAQ</span>
-
           <h2 className={styles.title}>FAQs</h2>
 
           <p className={styles.description}>
