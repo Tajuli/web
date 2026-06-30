@@ -21,12 +21,12 @@
 }
 
 .title {
-  position: relative;
-  display: inline-block;
-  margin-top: -12px;
-  margin-bottom: 42px;
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 28px;
 }
-
 .title::after {
   content: "";
   position: absolute;
