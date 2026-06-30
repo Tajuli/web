@@ -288,3 +288,50 @@
     display: none;
   }
 }
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 58px;
+  height: 58px;
+  border: 0;
+  background: rgba(90, 90, 90, 0.78);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 20;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.navBtn:hover {
+  background: rgba(40, 40, 40, .92);
+}
+
+.prevBtn {
+  left: 1.25rem;
+}
+
+.nextBtn {
+  right: 1.25rem;
+}
+
+@media (max-width:767px) {
+  .navBtn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.9rem;
+  }
+
+  .prevBtn {
+    left: .75rem;
+  }
+
+  .nextBtn {
+    right: .75rem;
+  }
+}
