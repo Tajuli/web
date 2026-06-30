@@ -1,6 +1,96 @@
 "use client";
+
 import { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import styles from "./FAQ.module.css";
-const faqs=[{q:"What kind of businesses do you work with?",a:"PrimeDigitor is best suited for service businesses, healthcare brands, local businesses and growth-focused companies that want stronger lead generation and a more premium digital presence."},{q:"Do you only build websites, or do you also handle marketing?",a:"Both. PrimeDigitor is designed around websites plus the growth systems around them—SEO, paid acquisition, landing pages, CRO and messaging refinement."},{q:"Can you redesign an existing site instead of starting from zero?",a:"Yes. If the current website has usable foundations, it can be strategically redesigned instead of rebuilt from scratch."}];
-export default function FAQ(){const [open,setOpen]=useState<number|null>(0);return(<section id="faq" className={`section ${styles.section}`}><div className={`site-container ${styles.grid}`}><div className={styles.intro}><p className="eyebrow">FAQ</p><h2 className="section-title">Answers to the questions serious clients usually ask before they decide.</h2><p className="section-text">A cleaner FAQ layout that supports conversion instead of feeling like an afterthought.</p></div><div className={styles.list}>{faqs.map((item,index)=>{const active=open===index;return(<article key={item.q} className={`${styles.item} ${active?styles.itemOpen:""}`}><button className={styles.trigger} onClick={()=>setOpen(active?null:index)}><span>{item.q}</span><Plus className={`${styles.icon} ${active?styles.iconOpen:""}`} /></button><div className={styles.content}><p>{item.a}</p></div></article>)})}</div></div></section>)}
+
+const faqs = [
+  {
+    q: "What services does PrimeDigitor provide?",
+    a: "We specialize in Website Design & Development, SEO, Google Ads, Facebook Ads, Branding, UI/UX Design and Digital Marketing strategies that help businesses generate more leads and sales.",
+  },
+  {
+    q: "How long does it take to build a website?",
+    a: "Most business websites are completed within 2–4 weeks depending on the project scope, content availability and required features.",
+  },
+  {
+    q: "Do you redesign existing websites?",
+    a: "Yes. We can redesign your existing website with a modern UI, faster loading speed, better SEO structure and improved conversion rate.",
+  },
+  {
+    q: "Will my website be mobile responsive?",
+    a: "Absolutely. Every website we build is fully responsive and optimized for desktop, tablet and mobile devices.",
+  },
+  {
+    q: "Do you provide SEO after launching the website?",
+    a: "Yes. We offer Technical SEO, On-Page SEO, Content Optimization and Monthly SEO plans to help your website rank higher on Google.",
+  },
+  {
+    q: "Can you manage Google & Facebook Ads?",
+    a: "Yes. We create, optimize and manage Google Ads and Meta Ads campaigns focused on maximizing ROI and generating quality leads.",
+  },
+];
+
+export default function FAQ() {
+  const [open, setOpen] = useState<number | null>(0);
+
+  const toggleFAQ = (index: number) => {
+    setOpen(open === index ? null : index);
+  };
+
+  return (
+    <section id="faq" className={styles.section}>
+      <div className={`site-container ${styles.wrapper}`}>
+        {/* Left Side */}
+        <div className={styles.left}>
+          <span className={styles.badge}>FAQ</span>
+
+          <h2 className={styles.title}>FAQs</h2>
+
+          <p className={styles.description}>
+            Everything you need to know about our services.
+            <br />
+            Can't find the answer you're looking for?
+            <br />
+            Please contact our team.
+          </p>
+        </div>
+
+        {/* Right Side */}
+        <div className={styles.right}>
+          {faqs.map((faq, index) => {
+            const active = open === index;
+
+            return (
+              <div
+                key={index}
+                className={`${styles.item} ${
+                  active ? styles.active : ""
+                }`}
+              >
+                <button
+                  className={styles.question}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span>{faq.q}</span>
+
+                  <div className={styles.icon}>
+                    {active ? <Minus size={22} /> : <Plus size={22} />}
+                  </div>
+                </button>
+
+                <div
+                  className={`${styles.answerWrapper} ${
+                    active ? styles.show : ""
+                  }`}
+                >
+                  <p className={styles.answer}>{faq.a}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
