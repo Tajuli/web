@@ -23,21 +23,26 @@
 .title {
   position: relative;
   display: inline-block;
-  margin-bottom: 42px;
+
+  font-size: clamp(3rem, 7vw, 4.6rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 28px;
 }
 
 .title::after {
   content: "";
   position: absolute;
-  left: 100%;          /* FAQs লেখার ঠিক পর থেকে শুরু */
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 28px;
 
-  width: 220px;        /* প্রয়োজনমতো বাড়াও/কমাও */
-  height: 2px;
+  left: 0;
+  bottom: -12px;
+
+  width: 100%;   /* underline length */
+  height: 6px;
 
   background: #7cc242;
+  border-radius: 999px;
 }
 
 .description {
@@ -203,8 +208,8 @@
     padding:80px 0;
   }
 
-  .title::after {
-    display: none;
+  .title{
+    font-size:3rem;
   }
 
   .question{
