@@ -203,8 +203,8 @@
     padding:80px 0;
   }
 
-  .title{
-    font-size:3rem;
+  .title::after {
+    display: none;
   }
 
   .question{
