@@ -76,7 +76,19 @@ export default function Services() {
 
         <div className={styles.grid}>
           {services.map((service) => (
-            <article key={service.title} className={styles.card}>
+            <article
+  key={service.title}
+  className={styles.card}
+  onTouchStart={(e) => {
+    e.currentTarget.classList.add(styles.touchHover);
+  }}
+  onTouchEnd={(e) => {
+    e.currentTarget.classList.remove(styles.touchHover);
+  }}
+  onTouchCancel={(e) => {
+    e.currentTarget.classList.remove(styles.touchHover);
+  }}
+>
               <div className={styles.iconWrap}>
                 <span className={styles.icon}>{service.icon}</span>
               </div>
