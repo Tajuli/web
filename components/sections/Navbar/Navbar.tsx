@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import styles from "./Navbar.module.css";
 
@@ -14,11 +15,17 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [compact, setCompact] = useState(false);
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
+    // Home page ছাড়া active section track করার দরকার নেই
+    if (pathname !== "/") return;
+
     const onScroll = () => {
       setCompact(window.scrollY > 16);
 
@@ -31,6 +38,7 @@ export default function Navbar() {
       for (const section of sections) {
         const top = section.offsetTop;
         const height = section.offsetHeight;
+
         if (scrollY >= top && scrollY < top + height) {
           setActive(section.id);
           break;
@@ -39,23 +47,44 @@ export default function Navbar() {
     };
 
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   const handleClick = (href: string) => {
     setMenuOpen(false);
+
+    // অন্য page থেকে click করলে Home page-এ নিয়ে যাবে
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
+
     const el = document.querySelector(href);
+
     if (!el) return;
-    const y = (el as HTMLElement).getBoundingClientRect().top + window.scrollY - 90;
-    window.scrollTo({ top: y, behavior: "smooth" });
+
+    const y =
+      (el as HTMLElement).getBoundingClientRect().top +
+      window.scrollY -
+      90;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
   };
 
   return (
     <>
       <header className={`${styles.shell} ${compact ? styles.compact : ""}`}>
         <div className={`site-container ${styles.inner}`}>
-          <button className={styles.brand} onClick={() => handleClick("#hero")}>
+          <button
+            className={styles.brand}
+            onClick={() => handleClick("#hero")}
+          >
             Prime<span>Digitor</span>
           </button>
 
@@ -64,25 +93,46 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => handleClick(item.href)}
-                className={`${styles.navPill} ${active === item.id ? styles.navPillActive : ""}`}
+                className={`${styles.navPill} ${
+                  active === item.id ? styles.navPillActive : ""
+                }`}
               >
                 {item.label}
               </button>
             ))}
           </nav>
 
-          <button className={styles.mobileMenuBtn} onClick={() => setMenuOpen(true)} aria-label="Open menu">
+          <button
+            className={styles.mobileMenuBtn}
+            onClick={() => setMenuOpen(true)}
+            aria-label="Open menu"
+          >
             <Menu size={22} />
           </button>
         </div>
       </header>
 
-      <div className={`${styles.mobileDrawerWrap} ${menuOpen ? styles.mobileDrawerOpen : ""}`}>
-        <div className={styles.mobileDrawerBackdrop} onClick={() => setMenuOpen(false)} />
+      <div
+        className={`${styles.mobileDrawerWrap} ${
+          menuOpen ? styles.mobileDrawerOpen : ""
+        }`}
+      >
+        <div
+          className={styles.mobileDrawerBackdrop}
+          onClick={() => setMenuOpen(false)}
+        />
+
         <aside className={styles.mobileDrawer}>
           <div className={styles.mobileDrawerTop}>
-            <div className={styles.brand}>Prime<span>Digitor</span></div>
-            <button className={styles.mobileClose} onClick={() => setMenuOpen(false)} aria-label="Close menu">
+            <div className={styles.brand}>
+              Prime<span>Digitor</span>
+            </div>
+
+            <button
+              className={styles.mobileClose}
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
               <X size={22} />
             </button>
           </div>
@@ -92,7 +142,11 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => handleClick(item.href)}
-                className={`${styles.mobileNavItem} ${active === item.id ? styles.mobileNavItemActive : ""}`}
+                className={`${styles.mobileNavItem} ${
+                  active === item.id
+                    ? styles.mobileNavItemActive
+                    : ""
+                }`}
               >
                 {item.label}
               </button>
