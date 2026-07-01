@@ -41,7 +41,6 @@
 
   background: #fff;
   border: 1px solid #ececec;
-
   overflow: hidden;
 
   transition:
@@ -56,18 +55,22 @@
   left: 0;
   top: 0;
   width: 4px;
-  height: 0%;
+  height: 0;
   background: #7cc242;
   transition: height .35s ease;
 }
 
-.card:hover {
+/* Hover (Desktop) + Active (Mobile Scroll) */
+
+.card:hover,
+.active {
   transform: translateY(-10px);
   border-color: #7cc242;
   box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
 }
 
-.card:hover::before {
+.card:hover::before,
+.active::before {
   height: 100%;
 }
 
@@ -79,17 +82,18 @@
   align-items: center;
   justify-content: center;
 
-  border-radius: 6px;
-  background: #f6fbf2;
-
   margin-bottom: 24px;
 
+  background: #f6fbf2;
+  border-radius: 6px;
+
   transition:
-    transform .35s ease,
-    background .35s ease;
+    background .35s ease,
+    transform .35s ease;
 }
 
-.card:hover .iconWrap {
+.card:hover .iconWrap,
+.active .iconWrap {
   background: #7cc242;
   transform: scale(1.08);
 }
@@ -97,12 +101,14 @@
 .icon {
   font-size: 38px;
   line-height: 1;
+
   transition:
     transform .35s ease,
     filter .35s ease;
 }
 
-.card:hover .icon {
+.card:hover .icon,
+.active .icon {
   transform: scale(1.08);
   filter: brightness(1.08);
 }
@@ -120,8 +126,8 @@
   font-size: 1.65rem;
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0;
 
+  letter-spacing: 0;
   text-align: center;
 }
 
@@ -135,7 +141,6 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.75;
-  letter-spacing: 0;
 
   text-align: center;
 }
@@ -164,12 +169,14 @@
   transition: transform .3s ease;
 }
 
-.card:hover .link {
+.card:hover .link,
+.active .link {
   color: #7cc242;
   gap: 18px;
 }
 
-.card:hover .arrow {
+.card:hover .arrow,
+.active .arrow {
   transform: translateX(8px);
 }
 
@@ -227,38 +234,4 @@
     margin-top: 24px;
     font-size: .95rem;
   }
-}
-
-/* Mobile Touch Effect */
-@media (hover: none) and (pointer: coarse) {
-
-  .card:active {
-    transform: translateY(-10px);
-    border-color: #7cc242;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
-  }
-
-  .card:active::before {
-    height: 100%;
-  }
-
-  .card:active .iconWrap {
-    background: #7cc242;
-    transform: scale(1.08);
-  }
-
-  .card:active .icon {
-    transform: scale(1.08);
-    filter: brightness(1.08);
-  }
-
-  .card:active .link {
-    color: #7cc242;
-    gap: 18px;
-  }
-
-  .card:active .arrow {
-    transform: translateX(8px);
-  }
-
 }
