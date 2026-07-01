@@ -41,6 +41,7 @@
 
   background: #fff;
   border: 1px solid #ececec;
+
   overflow: hidden;
 
   transition:
@@ -55,22 +56,18 @@
   left: 0;
   top: 0;
   width: 4px;
-  height: 0;
+  height: 0%;
   background: #7cc242;
   transition: height .35s ease;
 }
 
-/* Hover (Desktop) + Active (Mobile Scroll) */
-
-.card:hover,
-.active {
+.card:hover {
   transform: translateY(-10px);
   border-color: #7cc242;
   box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
 }
 
-.card:hover::before,
-.active::before {
+.card:hover::before {
   height: 100%;
 }
 
@@ -82,18 +79,17 @@
   align-items: center;
   justify-content: center;
 
+  border-radius: 6px;
+  background: #f6fbf2;
+
   margin-bottom: 24px;
 
-  background: #f6fbf2;
-  border-radius: 6px;
-
   transition:
-    background .35s ease,
-    transform .35s ease;
+    transform .35s ease,
+    background .35s ease;
 }
 
-.card:hover .iconWrap,
-.active .iconWrap {
+.card:hover .iconWrap {
   background: #7cc242;
   transform: scale(1.08);
 }
@@ -101,14 +97,12 @@
 .icon {
   font-size: 38px;
   line-height: 1;
-
   transition:
     transform .35s ease,
     filter .35s ease;
 }
 
-.card:hover .icon,
-.active .icon {
+.card:hover .icon {
   transform: scale(1.08);
   filter: brightness(1.08);
 }
@@ -126,8 +120,8 @@
   font-size: 1.65rem;
   font-weight: 600;
   line-height: 1.35;
-
   letter-spacing: 0;
+
   text-align: center;
 }
 
@@ -141,6 +135,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.75;
+  letter-spacing: 0;
 
   text-align: center;
 }
@@ -169,14 +164,12 @@
   transition: transform .3s ease;
 }
 
-.card:hover .link,
-.active .link {
+.card:hover .link {
   color: #7cc242;
   gap: 18px;
 }
 
-.card:hover .arrow,
-.active .arrow {
+.card:hover .arrow {
   transform: translateX(8px);
 }
 
