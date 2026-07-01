@@ -20,14 +20,17 @@ export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [compact, setCompact] = useState(false);
-  const [active, setActive] = useState("hero");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    // Home page ছাড়া active section track করার দরকার নেই
-    if (pathname !== "/") return;
-
     const onScroll = () => {
       setCompact(window.scrollY > 16);
+
+      // Home page ছাড়া active section দেখাবে না
+      if (pathname !== "/") {
+        setActive("");
+        return;
+      }
 
       const sections = navItems
         .map((item) => document.getElementById(item.id))
@@ -35,28 +38,36 @@ export default function Navbar() {
 
       const scrollY = window.scrollY + 140;
 
+      let current = "";
+
       for (const section of sections) {
         const top = section.offsetTop;
         const height = section.offsetHeight;
 
         if (scrollY >= top && scrollY < top + height) {
-          setActive(section.id);
+          current = section.id;
           break;
         }
       }
+
+      setActive(current);
     };
 
     onScroll();
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, [pathname]);
 
   const handleClick = (href: string) => {
     setMenuOpen(false);
 
-    // অন্য page থেকে click করলে Home page-এ নিয়ে যাবে
+    // Home page না হলে Home page-এ নিয়ে যাবে
     if (pathname !== "/") {
       router.push(`/${href}`);
       return;
@@ -79,7 +90,9 @@ export default function Navbar() {
 
   return (
     <>
-      <header className={`${styles.shell} ${compact ? styles.compact : ""}`}>
+      <header
+        className={`${styles.shell} ${compact ? styles.compact : ""}`}
+      >
         <div className={`site-container ${styles.inner}`}>
           <button
             className={styles.brand}
@@ -94,7 +107,9 @@ export default function Navbar() {
                 key={item.id}
                 onClick={() => handleClick(item.href)}
                 className={`${styles.navPill} ${
-                  active === item.id ? styles.navPillActive : ""
+                  pathname === "/" && active === item.id
+                    ? styles.navPillActive
+                    : ""
                 }`}
               >
                 {item.label}
@@ -143,7 +158,7 @@ export default function Navbar() {
                 key={item.id}
                 onClick={() => handleClick(item.href)}
                 className={`${styles.mobileNavItem} ${
-                  active === item.id
+                  pathname === "/" && active === item.id
                     ? styles.mobileNavItemActive
                     : ""
                 }`}
