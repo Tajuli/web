@@ -63,21 +63,26 @@ function ServiceCard({ service }: { service: (typeof services)[0] }) {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true);
-        }
-      },
-      {
-        threshold: 0.25,
-      }
-    );
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      setActive(entry.isIntersecting);
+    },
+    {
+      threshold: 0.25,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
 
-    if (ref.current) observer.observe(ref.current);
+  const element = ref.current;
 
-    return () => observer.disconnect();
-  }, []);
+  if (element) {
+    observer.observe(element);
+  }
+
+  return () => {
+    if (element) observer.unobserve(element);
+  };
+}, []);
     return (
     <article
       ref={ref}
