@@ -229,3 +229,31 @@
   }
 }
 
+.touchHover {
+  transform: translateY(-10px);
+  border-color: #7cc242;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
+}
+
+.touchHover::before {
+  height: 100%;
+}
+
+.touchHover .iconWrap {
+  background: #7cc242;
+  transform: scale(1.08);
+}
+
+.touchHover .icon {
+  transform: scale(1.08);
+}
+
+.touchHover .link {
+  color: #7cc242;
+  gap: 18px;
+}
+
+.touchHover .arrow {
+  transform: translateX(8px);
+}
+
