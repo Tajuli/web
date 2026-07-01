@@ -1,59 +1,71 @@
 import styles from "./Services.module.css";
 
+import {
+  Megaphone,
+  Search,
+  Music4,
+  ChartNoAxesCombined,
+  Globe,
+  LaptopMinimal,
+  Clapperboard,
+  Smartphone,
+  PenTool,
+} from "lucide-react";
+
 const services = [
   {
     title: "Facebook Marketing",
-    icon: "🚀",
+    icon: Megaphone,
     description:
-      "Reach your target audience, build brand awareness, and drive quality leads with result-driven Facebook ad campaigns.",
+      "Reach your ideal customers through powerful Facebook advertising campaigns that increase leads, engagement and sales.",
   },
   {
     title: "Google Ads",
-    icon: "🔍",
+    icon: Search,
     description:
-      "Get your business in front of active customers searching for your products or services with high-converting Google Ads.",
+      "Appear in front of customers actively searching for your products or services with high-converting Google Ads.",
   },
   {
     title: "TikTok Marketing",
-    icon: "🎵",
+    icon: Music4,
     description:
-      "Engage a highly active audience on TikTok with creative campaigns that drive brand visibility and boost conversions.",
+      "Create engaging TikTok campaigns that increase brand awareness, audience engagement and business growth.",
   },
   {
     title: "SEO Services",
-    icon: "📈",
+    icon: ChartNoAxesCombined,
     description:
-      "Improve your search engine rankings and drive consistent organic traffic that brings long-term business growth.",
+      "Improve search rankings, increase organic traffic and generate long-term business growth through SEO.",
   },
   {
     title: "Website Design & Development",
-    icon: "🌐",
+    icon: Globe,
     description:
-      "Get modern, responsive, and user-friendly websites designed to convert visitors into loyal customers.",
+      "Beautiful, fast and responsive websites designed to provide the best user experience and maximize conversions.",
   },
   {
     title: "Software & App Development",
-    icon: "💻",
+    icon: LaptopMinimal,
     description:
-      "We build custom software and mobile applications that solve business problems and scale your company.",
+      "Custom software and mobile applications built to streamline your business and support future growth.",
   },
   {
     title: "Video Advertisement Production",
-    icon: "🎬",
+    icon: Clapperboard,
     description:
-      "High-quality promo videos that capture attention and maximize the performance of your marketing campaigns.",
+      "Professional promotional videos that capture attention and increase the effectiveness of your marketing campaigns.",
   },
   {
     title: "Social Media Management",
-    icon: "📱",
+    icon: Smartphone,
     description:
-      "We manage your social media with strategic content planning, publishing, audience engagement and growth.",
+      "Complete social media management including content planning, publishing, engagement and performance tracking.",
   },
   {
     title: "Content Creation & Branding",
-    icon: "✍️",
+    icon: PenTool,
     description:
-      "From powerful content to strong branding, we create identities that build trust and leave a lasting impact.",
+      "Creative branding and content strategies that build trust, strengthen identity and grow your business.",
   },
 ];
 
@@ -64,60 +76,72 @@ export default function Services() {
         <div className="section-head">
           <p className="eyebrow">OUR SERVICES</p>
 
-          <h2 className="section-title">Services We're Offering</h2>
+          <h2 className="section-title">
+            Services We're Offering
+          </h2>
 
           <p className={styles.subtitle}>
-            We help brands grow with data-driven strategies, creative
-            solutions, and performance-focused digital marketing.
+            We help businesses grow through strategic digital marketing,
+            creative branding, modern websites and powerful software solutions.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((service) => (
-            <article className={styles.card} key={service.title}>
-              <div className={styles.top}>
-                <div className={styles.iconBox}>
-                  <span className={styles.icon}>{service.icon}</span>
+          {services.map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <article key={service.title} className={styles.card}>
+                <div className={styles.top}>
+                  <div className={styles.iconBox}>
+                    <Icon
+                      className={styles.icon}
+                      size={40}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+
+                  <div className={styles.content}>
+                    <h3 className={styles.title}>
+                      {service.title}
+                    </h3>
+
+                    <p className={styles.description}>
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className={styles.content}>
-                  <h3 className={styles.title}>{service.title}</h3>
-
-                  <p className={styles.description}>
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href="#contact"
-                className={styles.arrow}
-                aria-label={service.title}
-              >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                <a
+                  href="#contact"
+                  className={styles.arrow}
+                  aria-label={service.title}
                 >
-                  <path
-                    d="M5 12H18"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M13 7L18 12L13 17"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </article>
-          ))}
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M5 12H18"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+
+                    <path
+                      d="M13 7L18 12L13 17"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
