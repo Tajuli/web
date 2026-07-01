@@ -1,1 +1,9 @@
-
+export { default as ServiceHero } from "./ServiceHero/ServiceHero";
+export { default as ServiceStats } from "./ServiceStats/ServiceStats";
+export { default as ServiceOverview } from "./ServiceOverview/ServiceOverview";
+export { default as ServiceFeatures } from "./ServiceFeatures/ServiceFeatures";
+export { default as ServiceProcess } from "./ServiceProcess/ServiceProcess";
+export { default as WhyPrime } from "./WhyPrime/WhyPrime";
+export { default as ServiceFAQ } from "./ServiceFAQ/ServiceFAQ";
+export { default as RelatedServices } from "./RelatedServices/RelatedServices";
+export { default as ServiceCTA } from "./ServiceCTA/ServiceCTA";
