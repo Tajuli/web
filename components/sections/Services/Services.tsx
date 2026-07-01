@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import styles from "./Services.module.css";
-import { useEffect, useRef, useState } from "react";
 import styles from "./Services.module.css";
 
 const services = [
@@ -62,83 +57,10 @@ const services = [
   },
 ];
 
-function ServiceCard({ service }: { service: (typeof services)[0] }) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      setActive(entry.isIntersecting);
-    },
-    {
-      threshold: 0.25,
-      rootMargin: "0px 0px -10% 0px",
-    }
-  );
-
-  const element = ref.current;
-
-  if (element) {
-    observer.observe(element);
-  }
-
-  return () => {
-    if (element) observer.unobserve(element);
-  };
-}, []);
-    return (
-    <article
-      ref={ref}
-      className={`${styles.card} ${active ? styles.active : ""}`}
-    >
-      <div className={styles.iconWrap}>
-        <span className={styles.icon}>{service.icon}</span>
-      </div>
-
-      <div className={styles.content}>
-        <h3 className={styles.title}>{service.title}</h3>
-
-        <p className={styles.description}>
-          {service.description}
-        </p>
-      </div>
-
-      <a href="#contact" className={styles.link}>
-        <span>Learn More</span>
-
-        <svg
-          className={styles.arrow}
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M5 12H19"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-
-          <path
-            d="M13 6L19 12L13 18"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </a>
-    </article>
-  );
-}
-
 export default function Services() {
   return (
     <section id="services" className={`section ${styles.section}`}>
       <div className="site-container">
-
         <div className="section-head">
           <p className="eyebrow">Our Services</p>
 
@@ -154,13 +76,48 @@ export default function Services() {
 
         <div className={styles.grid}>
           {services.map((service) => (
-            <ServiceCard
-              key={service.title}
-              service={service}
-            />
+            <article key={service.title} className={styles.card}>
+              <div className={styles.iconWrap}>
+                <span className={styles.icon}>{service.icon}</span>
+              </div>
+
+              <div className={styles.content}>
+                <h3 className={styles.title}>{service.title}</h3>
+
+                <p className={styles.description}>
+                  {service.description}
+                </p>
+              </div>
+
+              <a href="#contact" className={styles.link}>
+                <span>Learn More</span>
+
+                <svg
+                  className={styles.arrow}
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M5 12H19"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+
+                  <path
+                    d="M13 6L19 12L13 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </article>
           ))}
         </div>
-
       </div>
     </section>
   );
