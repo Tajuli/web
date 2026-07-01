@@ -8,15 +8,39 @@ export default async function ServicePage({
 }) {
   const { slug } = await params;
 
-  const service = services[slug];
+  const service = services[slug as keyof typeof services];
 
   if (!service) {
     notFound();
   }
 
   return (
-    <>
-      {/* Components will be added here */}
-    </>
+    <main
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "120px 20px",
+      }}
+    >
+      <h1>{service.title}</h1>
+
+      <p
+        style={{
+          fontSize: "22px",
+          marginTop: "20px",
+        }}
+      >
+        {service.subtitle}
+      </p>
+
+      <p
+        style={{
+          marginTop: "20px",
+          lineHeight: 1.8,
+        }}
+      >
+        {service.description}
+      </p>
+    </main>
   );
 }
