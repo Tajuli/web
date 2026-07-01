@@ -228,3 +228,37 @@
     font-size: .95rem;
   }
 }
+
+/* Mobile Touch Effect */
+@media (hover: none) and (pointer: coarse) {
+
+  .card:active {
+    transform: translateY(-10px);
+    border-color: #7cc242;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, .10);
+  }
+
+  .card:active::before {
+    height: 100%;
+  }
+
+  .card:active .iconWrap {
+    background: #7cc242;
+    transform: scale(1.08);
+  }
+
+  .card:active .icon {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+  }
+
+  .card:active .link {
+    color: #7cc242;
+    gap: 18px;
+  }
+
+  .card:active .arrow {
+    transform: translateX(8px);
+  }
+
+}
