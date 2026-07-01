@@ -1,107 +1,101 @@
-"use client";
-
 import styles from "./Services.module.css";
-import {
-  ArrowRight,
-  Facebook,
-  Search,
-  Globe,
-  Code2,
-  Clapperboard,
-  Megaphone,
-  PenTool,
-  TrendingUp,
-  MonitorSmartphone,
-} from "lucide-react";
 
 const services = [
   {
-    icon: <Facebook size={28} strokeWidth={2} />,
     title: "Facebook Marketing",
+    icon: "🚀",
     description:
-      "Reach your ideal audience with high-converting Meta advertising campaigns that generate quality leads and sales.",
+      "Reach your target audience, build brand awareness, and generate high-quality leads with strategic Facebook marketing campaigns.",
   },
   {
-    icon: <Search size={28} strokeWidth={2} />,
     title: "Google Ads",
+    icon: "🔍",
     description:
-      "Capture customers actively searching for your products and services with optimized Google Ads campaigns.",
+      "Get your business in front of active customers searching for your products or services with high-converting Google Ads.",
   },
   {
-    icon: <TrendingUp size={28} strokeWidth={2} />,
     title: "TikTok Marketing",
+    icon: "🎵",
     description:
-      "Grow your brand through engaging short-form content and strategic TikTok advertising campaigns.",
+      "Reach a highly engaged audience through creative TikTok campaigns that increase brand awareness and conversions.",
   },
   {
-    icon: <Search size={28} strokeWidth={2} />,
     title: "SEO Services",
+    icon: "📈",
     description:
-      "Improve search rankings, drive organic traffic and build long-term online visibility for your business.",
+      "Improve your search rankings and drive long-term organic traffic that helps your business grow consistently.",
   },
   {
-    icon: <Globe size={28} strokeWidth={2} />,
     title: "Website Design & Development",
+    icon: "🌐",
     description:
-      "Modern, responsive and high-performance websites built to convert visitors into loyal customers.",
+      "Modern, responsive and conversion-focused websites designed to turn visitors into loyal customers.",
   },
   {
-    icon: <Code2 size={28} strokeWidth={2} />,
     title: "Software & App Development",
+    icon: "💻",
     description:
-      "Custom software solutions and mobile applications tailored to streamline your business operations.",
+      "Custom software and mobile applications built to automate business processes and scale your growth.",
   },
   {
-    icon: <Clapperboard size={28} strokeWidth={2} />,
     title: "Video Advertisement Production",
+    icon: "🎬",
     description:
-      "Creative promotional videos designed to maximize engagement and improve marketing performance.",
+      "Professional promotional videos that capture attention and maximize the performance of your marketing campaigns.",
   },
   {
-    icon: <MonitorSmartphone size={28} strokeWidth={2} />,
     title: "Social Media Management",
+    icon: "📱",
     description:
-      "Complete social media management including content planning, publishing and audience engagement.",
+      "Complete social media management including planning, posting, engagement and performance optimization.",
   },
   {
-    icon: <PenTool size={28} strokeWidth={2} />,
     title: "Content Creation & Branding",
+    icon: "✍️",
     description:
-      "Professional branding, graphic design and content creation that strengthen your business identity.",
+      "Build a memorable brand through compelling content, visual identity and messaging that creates lasting trust.",
   },
 ];
 
 export default function Services() {
   return (
-    <section className={styles.services} id="services">
-      <div className="container">
-        <div className={styles.heading}>
-          <span className={styles.subTitle}>OUR SERVICES</span>
+    <section id="services" className={`section ${styles.section}`}>
+      <div className="site-container">
+        <div className="section-head">
+          <p className="eyebrow">OUR SERVICES</p>
 
-          <h2>
-            Services <span>We're Offering</span>
-          </h2>
+          <h2 className="section-title">Services We're Offering</h2>
 
-          <p>
-            We help businesses grow through powerful digital marketing,
-            creative design and innovative technology solutions tailored to
-            achieve measurable results.
+          <p className={styles.subtitle}>
+            We help brands grow with data-driven strategies, creative solutions,
+            and performance-focused digital marketing.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((service, index) => (
-            <article className={styles.card} key={index}>
-              <div className={styles.iconBox}>{service.icon}</div>
-
+          {services.map((service) => (
+            <article key={service.title} className={styles.card}>
               <div className={styles.content}>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <div className={styles.iconWrap}>
+                  <span className={styles.icon}>{service.icon}</span>
+                </div>
+
+                <div className={styles.textArea}>
+                  <h3 className={styles.title}>{service.title}</h3>
+
+                  <p className={styles.description}>
+                    {service.description}
+                  </p>
+                </div>
               </div>
 
-              <div className={styles.arrow}>
-                <ArrowRight size={18} strokeWidth={2.5} />
-              </div>
+              <a
+                href="#contact"
+                className={styles.arrow}
+                aria-label={service.title}
+              >
+                →
+              </a>
             </article>
           ))}
         </div>
