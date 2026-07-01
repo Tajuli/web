@@ -1,9 +1,21 @@
-export { default as ServiceHero } from "./ServiceHero/ServiceHero";
-export { default as ServiceStats } from "./ServiceStats/ServiceStats";
-export { default as ServiceOverview } from "./ServiceOverview/ServiceOverview";
-export { default as ServiceFeatures } from "./ServiceFeatures/ServiceFeatures";
-export { default as ServiceProcess } from "./ServiceProcess/ServiceProcess";
-export { default as WhyPrime } from "./WhyPrime/WhyPrime";
-export { default as ServiceFAQ } from "./ServiceFAQ/ServiceFAQ";
-export { default as RelatedServices } from "./RelatedServices/RelatedServices";
-export { default as ServiceCTA } from "./ServiceCTA/ServiceCTA";
+import facebookMarketing from "./service/facebook-marketing";
+import googleAds from "./service/google-ads";
+import seo from "./service/seo";
+import tiktokMarketing from "./service/tiktok-marketing";
+import websiteDevelopment from "./service/website-development";
+import softwareDevelopment from "./service/software-development";
+import videoAdvertisement from "./service/video-advertisement";
+import socialMediaManagement from "./service/social-media-management";
+import contentCreationBranding from "./service/content-creation-branding";
+
+export const services = {
+  "facebook-marketing": facebookMarketing,
+  "google-ads": googleAds,
+  seo,
+  "tiktok-marketing": tiktokMarketing,
+  "website-development": websiteDevelopment,
+  "software-development": softwareDevelopment,
+  "video-advertisement": videoAdvertisement,
+  "social-media-management": socialMediaManagement,
+  "content-creation-branding": contentCreationBranding,
+};
