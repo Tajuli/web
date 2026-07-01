@@ -2,78 +2,78 @@
 
 import styles from "./Services.module.css";
 import {
-  FaFacebookF,
-  FaGoogle,
-  FaTiktok,
-  FaSearch,
-  FaGlobe,
-  FaCode,
-  FaVideo,
-  FaBullhorn,
-  FaPenNib,
-  FaArrowRight,
-} from "react-icons/fa";
+  ArrowRight,
+  Facebook,
+  Search,
+  Globe,
+  Code2,
+  Clapperboard,
+  Megaphone,
+  PenTool,
+  TrendingUp,
+  MonitorSmartphone,
+} from "lucide-react";
 
 const services = [
   {
-    icon: <FaFacebookF />,
+    icon: <Facebook size={28} strokeWidth={2} />,
     title: "Facebook Marketing",
     description:
-      "Reach your ideal audience through high-converting Meta advertising campaigns.",
+      "Reach your ideal audience with high-converting Meta advertising campaigns that generate quality leads and sales.",
   },
   {
-    icon: <FaGoogle />,
+    icon: <Search size={28} strokeWidth={2} />,
     title: "Google Ads",
     description:
-      "Generate qualified leads and sales with performance-driven Google Ads campaigns.",
+      "Capture customers actively searching for your products and services with optimized Google Ads campaigns.",
   },
   {
-    icon: <FaTiktok />,
+    icon: <TrendingUp size={28} strokeWidth={2} />,
     title: "TikTok Marketing",
     description:
-      "Create engaging campaigns that boost visibility and connect with new audiences.",
+      "Grow your brand through engaging short-form content and strategic TikTok advertising campaigns.",
   },
   {
-    icon: <FaSearch />,
+    icon: <Search size={28} strokeWidth={2} />,
     title: "SEO Services",
     description:
-      "Increase your search rankings and drive consistent organic traffic to your business.",
+      "Improve search rankings, drive organic traffic and build long-term online visibility for your business.",
   },
   {
-    icon: <FaGlobe />,
+    icon: <Globe size={28} strokeWidth={2} />,
     title: "Website Design & Development",
     description:
-      "Modern, responsive websites built to convert visitors into loyal customers.",
+      "Modern, responsive and high-performance websites built to convert visitors into loyal customers.",
   },
   {
-    icon: <FaCode />,
+    icon: <Code2 size={28} strokeWidth={2} />,
     title: "Software & App Development",
     description:
-      "Custom software and mobile applications tailored to your business requirements.",
+      "Custom software solutions and mobile applications tailored to streamline your business operations.",
   },
   {
-    icon: <FaVideo />,
+    icon: <Clapperboard size={28} strokeWidth={2} />,
     title: "Video Advertisement Production",
     description:
-      "Professional promotional videos designed to maximize engagement and conversions.",
+      "Creative promotional videos designed to maximize engagement and improve marketing performance.",
   },
   {
-    icon: <FaBullhorn />,
+    icon: <MonitorSmartphone size={28} strokeWidth={2} />,
     title: "Social Media Management",
     description:
-      "Content planning, publishing and audience management for consistent brand growth.",
+      "Complete social media management including content planning, publishing and audience engagement.",
   },
   {
-    icon: <FaPenNib />,
+    icon: <PenTool size={28} strokeWidth={2} />,
     title: "Content Creation & Branding",
     description:
-      "Creative branding and compelling content that build trust and strengthen your identity.",
+      "Professional branding, graphic design and content creation that strengthen your business identity.",
   },
 ];
 
 export default function Services() {
   return (
-    <section className={styles.services}>
+    <section className={styles.services} id="services">
       <div className="container">
         <div className={styles.heading}>
           <span className={styles.subTitle}>OUR SERVICES</span>
@@ -83,14 +83,15 @@ export default function Services() {
           </h2>
 
           <p>
-            We provide innovative digital solutions that help businesses grow,
-            generate leads and build a strong online presence.
+            We help businesses grow through powerful digital marketing,
+            creative design and innovative technology solutions tailored to
+            achieve measurable results.
           </p>
         </div>
 
         <div className={styles.grid}>
           {services.map((service, index) => (
-            <div className={styles.card} key={index}>
+            <article className={styles.card} key={index}>
               <div className={styles.iconBox}>{service.icon}</div>
 
               <div className={styles.content}>
@@ -99,9 +100,9 @@ export default function Services() {
               </div>
 
               <div className={styles.arrow}>
-                <FaArrowRight />
+                <ArrowRight size={18} strokeWidth={2.5} />
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
