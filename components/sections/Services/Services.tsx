@@ -1,80 +1,109 @@
+"use client";
+
 import styles from "./Services.module.css";
+import {
+  FaFacebookF,
+  FaGoogle,
+  FaTiktok,
+  FaSearch,
+  FaGlobe,
+  FaCode,
+  FaVideo,
+  FaBullhorn,
+  FaPenNib,
+  FaArrowRight,
+} from "react-icons/fa";
 
 const services = [
   {
+    icon: <FaFacebookF />,
     title: "Facebook Marketing",
-    icon: "🚀",
+    description:
+      "Reach your ideal audience through high-converting Meta advertising campaigns.",
   },
   {
+    icon: <FaGoogle />,
     title: "Google Ads",
-    icon: "🔍",
+    description:
+      "Generate qualified leads and sales with performance-driven Google Ads campaigns.",
   },
   {
+    icon: <FaTiktok />,
     title: "TikTok Marketing",
-    icon: "🎵",
+    description:
+      "Create engaging campaigns that boost visibility and connect with new audiences.",
   },
   {
+    icon: <FaSearch />,
     title: "SEO Services",
-    icon: "📈",
+    description:
+      "Increase your search rankings and drive consistent organic traffic to your business.",
   },
   {
+    icon: <FaGlobe />,
     title: "Website Design & Development",
-    icon: "🌐",
+    description:
+      "Modern, responsive websites built to convert visitors into loyal customers.",
   },
   {
+    icon: <FaCode />,
     title: "Software & App Development",
-    icon: "💻",
+    description:
+      "Custom software and mobile applications tailored to your business requirements.",
   },
   {
+    icon: <FaVideo />,
     title: "Video Advertisement Production",
-    icon: "🎬",
+    description:
+      "Professional promotional videos designed to maximize engagement and conversions.",
   },
   {
+    icon: <FaBullhorn />,
     title: "Social Media Management",
-    icon: "📱",
+    description:
+      "Content planning, publishing and audience management for consistent brand growth.",
   },
   {
+    icon: <FaPenNib />,
     title: "Content Creation & Branding",
-    icon: "✍️",
+    description:
+      "Creative branding and compelling content that build trust and strengthen your identity.",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className={`section ${styles.section}`}>
-      <div className="site-container">
+    <section className={styles.services}>
+      <div className="container">
+        <div className={styles.heading}>
+          <span className={styles.subTitle}>OUR SERVICES</span>
 
-        <div className="section-head">
-          <p className="eyebrow">Our Services</p>
-
-          <h2 className="section-title">
-            Digital Marketing & Business Growth Solutions
+          <h2>
+            Services <span>We're Offering</span>
           </h2>
 
-          <p className={styles.subtitle}>
-            Everything you need to grow your business online—from advertising
-            and branding to websites, software and content.
+          <p>
+            We provide innovative digital solutions that help businesses grow,
+            generate leads and build a strong online presence.
           </p>
         </div>
 
         <div className={styles.grid}>
-          {services.map((service) => (
-            <article key={service.title} className={styles.card}>
+          {services.map((service, index) => (
+            <div className={styles.card} key={index}>
+              <div className={styles.iconBox}>{service.icon}</div>
 
-              <div className={styles.iconWrap}>
-                <span className={styles.icon}>{service.icon}</span>
+              <div className={styles.content}>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
               </div>
 
-              <h3 className={styles.title}>{service.title}</h3>
-
-              <a href="#contact" className={styles.btn}>
-                Get Started →
-              </a>
-
-            </article>
+              <div className={styles.arrow}>
+                <FaArrowRight />
+              </div>
+            </div>
           ))}
         </div>
-
       </div>
     </section>
   );
