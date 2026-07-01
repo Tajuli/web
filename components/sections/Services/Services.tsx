@@ -1,57 +1,67 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Services.module.css";
 
 const services = [
   {
+    slug: "facebook-marketing",
     title: "Facebook Marketing",
     icon: "🚀",
     description:
       "Reach the right audience with high-converting Facebook & Instagram advertising campaigns.",
   },
   {
+    slug: "google-ads",
     title: "Google Ads",
     icon: "🔍",
     description:
       "Generate quality leads through Search, Display, Shopping and YouTube advertising.",
   },
   {
+    slug: "tiktok-marketing",
     title: "TikTok Marketing",
     icon: "🎵",
     description:
       "Grow your brand with creative TikTok campaigns that capture attention and engagement.",
   },
   {
+    slug: "seo",
     title: "SEO Services",
     icon: "📈",
     description:
       "Improve your Google rankings and drive consistent organic traffic to your website.",
   },
   {
+    slug: "website-development",
     title: "Website Design & Development",
     icon: "🌐",
     description:
       "Modern, responsive websites built for performance, user experience and conversions.",
   },
   {
+    slug: "software-development",
     title: "Software & App Development",
     icon: "💻",
     description:
       "Custom software and mobile applications designed around your business goals.",
   },
   {
+    slug: "video-advertisement",
     title: "Video Advertisement Production",
     icon: "🎬",
     description:
       "Professional commercial videos that increase engagement and maximize ad performance.",
   },
   {
+    slug: "social-media-management",
     title: "Social Media Management",
     icon: "📱",
     description:
       "Complete content planning, publishing and audience management across social platforms.",
   },
   {
+    slug: "content-creation-branding",
     title: "Content Creation & Branding",
     icon: "✍️",
     description:
@@ -79,18 +89,18 @@ export default function Services() {
         <div className={styles.grid}>
           {services.map((service) => (
             <article
-  key={service.title}
-  className={styles.card}
-  onTouchStart={(e) => {
-    e.currentTarget.classList.add(styles.touchHover);
-  }}
-  onTouchEnd={(e) => {
-    e.currentTarget.classList.remove(styles.touchHover);
-  }}
-  onTouchCancel={(e) => {
-    e.currentTarget.classList.remove(styles.touchHover);
-  }}
->
+              key={service.slug}
+              className={styles.card}
+              onTouchStart={(e) => {
+                e.currentTarget.classList.add(styles.touchHover);
+              }}
+              onTouchEnd={(e) => {
+                e.currentTarget.classList.remove(styles.touchHover);
+              }}
+              onTouchCancel={(e) => {
+                e.currentTarget.classList.remove(styles.touchHover);
+              }}
+            >
               <div className={styles.iconWrap}>
                 <span className={styles.icon}>{service.icon}</span>
               </div>
@@ -103,7 +113,10 @@ export default function Services() {
                 </p>
               </div>
 
-              <a href="#contact" className={styles.link}>
+              <Link
+                href={`/services/${service.slug}`}
+                className={styles.link}
+              >
                 <span>Learn More</span>
 
                 <svg
@@ -128,7 +141,7 @@ export default function Services() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
             </article>
           ))}
         </div>
