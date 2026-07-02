@@ -112,102 +112,15 @@ export default async function ServicePage({
         {/* ================= HERO ================= */}
 
         <section className={styles.hero}>
-
-          <div className={styles.container}>
-
-            <div className={styles.heroGrid}>
-
-              {/* LEFT */}
-
-              <div className={styles.heroContent}>
-
-                <span className={styles.category}>
-                  {service.category}
-                </span>
-
-                <h1 className={styles.title}>
-                  {service.title}
-                </h1>
-
-                <p className={styles.subtitle}>
-                  {service.subtitle}
-                </p>
-
-                <div className={styles.meta}>
-
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaDot} />
-                    PrimeDigitor
-                  </div>
-
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaDot} />
-                    Professional Service
-                  </div>
-
-                  <div className={styles.metaItem}>
-                    <span className={styles.metaDot} />
-                    Updated 2026
-                  </div>
-
-                </div>
-
-                <div className={styles.heroActions}>
-
-                  <Link
-                    href="/contact"
-                    className={styles.primaryBtn}
-                  >
-                    Get Free Consultation
-                  </Link>
-
-                  <Link
-                    href="/portfolio"
-                    className={styles.secondaryBtn}
-                  >
-                    View Portfolio
-                  </Link>
-
-                </div>
-
-              </div>
-
-              {/* RIGHT */}
-
-              <div className={styles.heroImage}>
-
-                <div className={styles.imageWrap}>
-
-                  <Image
-                    src={service.heroImage}
-                    alt={service.title}
-                    width={700}
-                    height={700}
-                    priority
-                    className={styles.cover}
-                  />
-
-                </div>
-
-                <div className={styles.floating}>
-                  <strong>
-                    {service.stats?.[0]?.value ??
-                      "500+"}
-                  </strong>
-
-                  <span>
-                    {service.stats?.[0]?.label ??
-                      "Successful Projects"}
-                  </span>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
+  <Image
+    src={service.heroImage}
+    alt={service.title}
+    width={1600}
+    height={900}
+    priority
+    className={styles.heroBanner}
+  />
+</section>
 
         <div className={styles.container}>
 
