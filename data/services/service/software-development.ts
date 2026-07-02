@@ -20,7 +20,7 @@ export const softwareDevelopment: ServiceData = {
     "Professional software and application development services including ERP, CRM, POS, web apps, mobile apps, API integration, and cloud solutions.",
 
   heroImage:
-    "/images/services/software-development.jpg",
+    "/images/services/software-development.webp",
 
   stats: [
     {
