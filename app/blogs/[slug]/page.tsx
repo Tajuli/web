@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+import Navbar from "@/components/sections/Navbar/Navbar";
+import Footer from "@/components/sections/Footer/Footer";
+
 import {
   getAllBlogs,
   getBlogBySlug,
@@ -56,11 +59,8 @@ export async function generateMetadata({
 
     openGraph: {
       type: "article",
-
       url,
-
       title: blog.title,
-
       description: blog.excerpt,
 
       images: [
@@ -75,11 +75,8 @@ export async function generateMetadata({
 
     twitter: {
       card: "summary_large_image",
-
       title: blog.title,
-
       description: blog.excerpt,
-
       images: [image],
     },
   };
@@ -97,93 +94,101 @@ export default async function BlogDetailPage({
   }
 
   const articleUrl = `${SITE_URL}/blogs/${blog.slug}`;
-    return (
-    <main className={styles.page}>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <span className={styles.category}>
-          {blog.category}
-        </span>
 
-        <h1>{blog.title}</h1>
+  return (
+    <>
+      <Navbar />
 
-        <p>{blog.excerpt}</p>
+      <main className={styles.page}>
+        {/* Hero */}
+        <section className={styles.hero}>
+          <span className={styles.category}>
+            {blog.category}
+          </span>
 
-        <div className={styles.meta}>
-          <span>{blog.author}</span>
+          <h1>{blog.title}</h1>
 
-          <span>•</span>
+          <p>{blog.excerpt}</p>
 
-          <span>{blog.publishedAt}</span>
+          <div className={styles.meta}>
+            <span>{blog.author}</span>
 
-          <span>•</span>
+            <span>•</span>
 
-          <span>{blog.readingTime}</span>
-        </div>
+            <span>{blog.publishedAt}</span>
 
-        <Image
-          src={blog.coverImage}
-          alt={blog.title}
-          width={1200}
-          height={700}
-          priority
-          className={styles.cover}
-        />
-      </section>
+            <span>•</span>
 
-      {/* Article */}
-      <article className={styles.article}>
-        <div
-          className={styles.content}
+            <span>{blog.readingTime}</span>
+          </div>
+
+          <Image
+            src={blog.coverImage}
+            alt={blog.title}
+            width={1200}
+            height={700}
+            priority
+            className={styles.cover}
+          />
+        </section>
+
+        {/* Article */}
+        <article className={styles.article}>
+          <div
+            className={styles.content}
+            dangerouslySetInnerHTML={{
+              __html: blog.content,
+            }}
+          />
+
+          <ShareButtons
+            title={blog.title}
+            url={articleUrl}
+          />
+        </article>
+
+        <RelatedBlogs currentBlog={blog} />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: blog.content,
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+
+              headline: blog.title,
+
+              description: blog.excerpt,
+
+              image: `${SITE_URL}${blog.coverImage}`,
+
+              author: {
+                "@type": "Organization",
+                name: blog.author,
+              },
+
+              publisher: {
+                "@type": "Organization",
+                name: "PrimeDigitor",
+              },
+
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": articleUrl,
+              },
+
+              url: articleUrl,
+
+              datePublished: blog.publishedAt,
+
+              keywords: blog.tags.join(", "),
+            }),
           }}
         />
+      </main>
 
-        <ShareButtons
-          title={blog.title}
-          url={articleUrl}
-        />
-      </article>
-
-      <RelatedBlogs currentBlog={blog} />
-            {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-
-            headline: blog.title,
-
-            description: blog.excerpt,
-
-            image: `${SITE_URL}${blog.coverImage}`,
-
-            author: {
-              "@type": "Organization",
-              name: blog.author,
-            },
-
-            publisher: {
-              "@type": "Organization",
-              name: "PrimeDigitor",
-            },
-
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": articleUrl,
-            },
-
-            url: articleUrl,
-
-            datePublished: blog.publishedAt,
-
-            keywords: blog.tags.join(", "),
-          }),
-        }}
-      />
-    </main>
+      <Footer />
+    </>
   );
 }
