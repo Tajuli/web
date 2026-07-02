@@ -1,12 +1,12 @@
-import { facebookMarketing } from "./facebook-marketing";
-import { googleAds } from "./google-ads";
-import { tiktokMarketing } from "./tiktok-marketing";
-import { seo } from "./seo";
-import { websiteDevelopment } from "./website-development";
-import { softwareDevelopment } from "./software-development";
-import { socialMediaManagement } from "./social-media-management";
-import { videoProduction } from "./video-production";
-import { contentBranding } from "./content-branding";
+import { facebookMarketing } from "./service/facebook-marketing";
+import { googleAds } from "./service/google-ads";
+import { tiktokMarketing } from "./service/tiktok-marketing";
+import { seo } from "./service/seo";
+import { websiteDevelopment } from "./service/website-development";
+import { softwareDevelopment } from "./service/software-development";
+import { socialMediaManagement } from "./service/social-media-management";
+import { videoProduction } from "./service/video-advertisement";
+import { contentBranding } from "./service/content-creation-branding";
 
 import type { ServiceData } from "./types";
 
