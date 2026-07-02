@@ -20,7 +20,7 @@ export const socialMediaManagement: ServiceData = {
     "Grow your brand with professional Social Media Management services including content creation, page management, audience engagement, and monthly reporting.",
 
   heroImage:
-    "/images/services/social-media-management.jpg",
+    "/images/services/social-media-management.webp",
 
   stats: [
     {
