@@ -1,98 +1,141 @@
-import { ServiceData } from "../types";
+import type { ServiceData } from "./types";
 
-const facebookMarketing: ServiceData = {
+export const facebookMarketing: ServiceData = {
   slug: "facebook-marketing",
+
+  category: "Digital Marketing",
 
   title: "Facebook Marketing",
 
   subtitle:
-    "Grow your business with high-converting Facebook marketing campaigns that generate quality leads and measurable results.",
+    "Reach the right audience and generate quality leads with result-driven Facebook & Instagram advertising.",
 
   description:
-    "PrimeDigitor helps businesses reach the right audience through strategic Facebook advertising. From campaign planning and creative design to audience targeting, optimization, and reporting, we manage every step to maximize your return on investment.",
+    "Our Facebook Marketing service helps businesses increase brand awareness, generate qualified leads, and drive more sales using strategic Meta advertising campaigns. From audience research and creative design to campaign optimization and reporting, we manage every step to maximize your return on investment.",
 
-  heroImage: "/images/services/facebook-marketing.webp",
+  seoTitle:
+    "Facebook Marketing Services in Bangladesh | PrimeDigitor",
+
+  seoDescription:
+    "Grow your business with professional Facebook Marketing services. We create high-converting Meta ad campaigns for lead generation, sales, and brand awareness.",
+
+  heroImage:
+    "/images/services/facebook-marketing.jpg",
 
   stats: [
     {
-      label: "Campaigns Managed",
       value: "500+",
+      label: "Campaigns Managed",
     },
     {
-      label: "Client Satisfaction",
       value: "95%",
+      label: "Client Satisfaction",
     },
     {
-      label: "Average Rating",
-      value: "4.9★",
+      value: "3X",
+      label: "Average ROAS",
     },
     {
-      label: "Support",
       value: "24/7",
+      label: "Campaign Monitoring",
     },
   ],
 
   features: [
-    "Campaign Strategy",
-    "Audience Research",
-    "Creative Design",
-    "Facebook Pixel Setup",
-    "Conversion Tracking",
-    "Lead Generation Campaigns",
-    "Remarketing Campaigns",
-    "A/B Testing",
-    "Performance Optimization",
-    "Monthly Reporting",
-  ],
-
-  process: [
-    "Business Analysis",
-    "Market Research",
-    "Campaign Strategy",
-    "Creative Development",
-    "Campaign Launch",
-    "Optimization",
-    "Performance Reporting",
+    {
+      title: "Audience Research",
+      description:
+        "Identify and target the most relevant audience based on demographics, interests, and behaviors.",
+    },
+    {
+      title: "Campaign Strategy",
+      description:
+        "Develop a custom advertising strategy aligned with your business goals.",
+    },
+    {
+      title: "Creative Design",
+      description:
+        "Create eye-catching ad creatives and persuasive copy that improve click-through rates.",
+    },
+    {
+      title: "Pixel Setup",
+      description:
+        "Configure Meta Pixel and conversion tracking for accurate campaign optimization.",
+    },
+    {
+      title: "Remarketing",
+      description:
+        "Reconnect with previous website visitors and existing customers to increase conversions.",
+    },
+    {
+      title: "Performance Optimization",
+      description:
+        "Continuously monitor and optimize campaigns to improve results while reducing costs.",
+    },
   ],
 
   benefits: [
-    "Reach the right audience",
-    "Generate qualified leads",
-    "Increase sales and revenue",
-    "Build brand awareness",
-    "Lower cost per acquisition",
-    "Improve return on ad spend (ROAS)",
+    "Generate high-quality leads",
+    "Increase online sales",
+    "Improve brand awareness",
+    "Reach local and global audiences",
+    "Lower advertising costs through optimization",
+    "Transparent monthly reporting",
+  ],
+
+  process: [
+    {
+      title: "Business Analysis",
+      description:
+        "Understand your business, competitors, and target audience.",
+    },
+    {
+      title: "Campaign Setup",
+      description:
+        "Create optimized campaigns with proper audience targeting and conversion tracking.",
+    },
+    {
+      title: "Launch & Monitor",
+      description:
+        "Launch campaigns and monitor performance daily.",
+    },
+    {
+      title: "Optimize & Scale",
+      description:
+        "Improve campaign performance continuously and scale successful campaigns.",
+    },
   ],
 
   faqs: [
     {
-      question: "How much budget do I need for Facebook Ads?",
+      question:
+        "How much should I spend on Facebook Ads?",
       answer:
-        "The ideal budget depends on your business goals, industry, and competition. We help you determine a budget that delivers the best possible ROI.",
+        "The ideal budget depends on your business goals, competition, and target audience. We help you determine the most effective budget for maximum ROI.",
     },
     {
-      question: "How long does it take to see results?",
+      question:
+        "How long does it take to see results?",
       answer:
-        "Most campaigns begin generating useful performance data within the first few days, while consistent optimization usually delivers stronger results within a few weeks.",
+        "Many campaigns start generating data within a few days, while meaningful optimization usually takes 2–4 weeks.",
     },
     {
-      question: "Can you manage existing Facebook campaigns?",
+      question:
+        "Do you create ad creatives?",
       answer:
-        "Yes. We can audit, optimize, and scale your existing campaigns to improve overall performance.",
+        "Yes. We provide ad copy, creative recommendations, and campaign setup as part of our Facebook Marketing service.",
     },
     {
-      question: "Do you provide monthly reports?",
+      question:
+        "Can you generate leads for my business?",
       answer:
-        "Yes. You'll receive detailed performance reports with insights, recommendations, and future optimization plans.",
+        "Yes. We specialize in lead generation campaigns for healthcare, education, real estate, e-commerce, and many other industries.",
     },
   ],
 
   related: [
     "google-ads",
     "tiktok-marketing",
-    "seo",
     "social-media-management",
   ],
 };
-
-export default facebookMarketing;
