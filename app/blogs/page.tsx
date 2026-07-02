@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import Navbar from "@/components/sections/Navbar/Navbar";
+import Footer from "@/components/sections/Footer/Footer";
+
 import BlogCard from "@/components/blogs/BlogCard";
 import MostRead from "@/components/blogs/MostRead";
 
@@ -23,75 +27,74 @@ export default function BlogsPage() {
   const heroRight = featured.slice(1, 3);
 
   return (
-    <main className={styles.page}>
-      {/* ================= HERO ================= */}
+    <>
+      <Navbar />
 
-      <section className={styles.heroGrid}>
-        {heroMain && (
-          <div className={styles.heroLarge}>
-            <BlogCard
-              blog={heroMain}
-              featured
-              large
-            />
-          </div>
-        )}
+      <main className={styles.page}>
+        {/* ================= HERO ================= */}
 
-        <div className={styles.heroSide}>
-          {heroRight.map((blog) => (
-            <BlogCard
-              key={blog.slug}
-              blog={blog}
-              featured
-            />
-          ))}
-        </div>
-      </section>
+        <section className={styles.heroGrid}>
+          {heroMain && (
+            <div className={styles.heroLarge}>
+              <BlogCard
+                blog={heroMain}
+                featured
+                large
+              />
+            </div>
+          )}
 
-      {/* ================= CONTENT ================= */}
-
-      <section className={styles.content}>
-        {/* LEFT */}
-
-        <div className={styles.left}>
-          <div className={styles.sectionTitle}>
-            <h2>Recent Posts</h2>
-          </div>
-
-          <div className={styles.grid}>
-            {blogs.map((blog) => (
+          <div className={styles.heroSide}>
+            {heroRight.map((blog) => (
               <BlogCard
                 key={blog.slug}
                 blog={blog}
+                featured
               />
             ))}
           </div>
+        </section>
 
-          {/* Pagination */}
+        {/* ================= CONTENT ================= */}
 
-          <div className={styles.pagination}>
-            <button className={styles.active}>
-              1
-            </button>
+        <section className={styles.content}>
+          {/* LEFT */}
 
-            <button>2</button>
+          <div className={styles.left}>
+            <div className={styles.sectionTitle}>
+              <h2>Recent Posts</h2>
+            </div>
 
-            <button>3</button>
+            <div className={styles.grid}>
+              {blogs.map((blog) => (
+                <BlogCard
+                  key={blog.slug}
+                  blog={blog}
+                />
+              ))}
+            </div>
 
-            <button>...</button>
+            {/* Pagination */}
 
-            <button>8</button>
-
-            <button>›</button>
+            <div className={styles.pagination}>
+              <button className={styles.active}>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>...</button>
+              <button>8</button>
+              <button>›</button>
+            </div>
           </div>
-        </div>
 
-        {/* RIGHT */}
+          {/* RIGHT */}
 
-        <aside className={styles.sidebar}>
-          <MostRead blogs={blogs.slice(0, 5)} />
-        </aside>
-      </section>
-    </main>
+          <aside className={styles.sidebar}>
+            <MostRead blogs={blogs.slice(0, 5)} />
+          </aside>
+        </section>
+      </main>
+
+      <Footer />
+    </>
   );
 }
