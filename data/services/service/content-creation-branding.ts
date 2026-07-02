@@ -1,99 +1,141 @@
+import type { ServiceData } from "./types";
 
-import { ServiceData } from "../types";
+export const contentBranding: ServiceData = {
+  slug: "content-branding",
 
-const contentCreationBranding: ServiceData = {
-  slug: "content-creation-branding",
+  category: "Content Marketing",
 
   title: "Content Creation & Branding",
 
   subtitle:
-    "Build a powerful brand with creative content that attracts, engages, and converts your target audience.",
+    "Build a memorable brand with compelling content, creative storytelling, and a consistent brand identity.",
 
   description:
-    "At PrimeDigitor, we create high-quality content and branding strategies that help businesses establish a strong online presence. From social media content and ad creatives to brand identity and marketing materials, we ensure every piece of content reflects your brand and drives business growth.",
+    "Our Content Creation & Branding service helps businesses establish a strong and recognizable brand across digital platforms. We create engaging content, professional graphics, brand messaging, marketing copy, and visual assets that attract customers, build trust, and increase long-term business growth.",
 
-  heroImage: "/images/services/content-creation-branding.webp",
+  seoTitle:
+    "Content Creation & Branding Services | PrimeDigitor",
+
+  seoDescription:
+    "Professional content creation and branding services including copywriting, graphic design, brand identity, social media content, and marketing materials.",
+
+  heroImage:
+    "/images/services/content-branding.jpg",
 
   stats: [
     {
-      label: "Creative Projects",
       value: "1000+",
+      label: "Contents Created",
     },
     {
+      value: "300+",
+      label: "Brands Supported",
+    },
+    {
+      value: "98%",
       label: "Client Satisfaction",
-      value: "95%",
     },
     {
-      label: "Brand Growth",
-      value: "4.9★",
-    },
-    {
-      label: "Creative Support",
-      value: "24/7",
+      value: "10M+",
+      label: "Content Reach",
     },
   ],
 
   features: [
-    "Brand Strategy",
-    "Content Planning",
-    "Social Media Content",
-    "Graphic Design",
-    "Ad Creative Design",
-    "Video Content Creation",
-    "Copywriting",
-    "Brand Identity Design",
-    "Content Calendar",
-    "Performance Analysis",
-  ],
-
-  process: [
-    "Business Discovery",
-    "Brand Research",
-    "Content Strategy",
-    "Creative Production",
-    "Publishing",
-    "Performance Analysis",
-    "Continuous Improvement",
+    {
+      title: "Brand Identity",
+      description:
+        "Develop a consistent brand identity including messaging, tone of voice, colors, and visual guidelines.",
+    },
+    {
+      title: "Content Strategy",
+      description:
+        "Create a long-term content plan aligned with your marketing and business objectives.",
+    },
+    {
+      title: "Social Media Content",
+      description:
+        "Design engaging posts, captions, carousels, and reels to grow your online presence.",
+    },
+    {
+      title: "Marketing Copywriting",
+      description:
+        "Write persuasive website copy, ad copy, landing pages, blogs, and promotional content that converts.",
+    },
+    {
+      title: "Graphic Design",
+      description:
+        "Create professional marketing graphics, banners, brochures, presentations, and digital assets.",
+    },
+    {
+      title: "Content Optimization",
+      description:
+        "Optimize content for SEO, readability, engagement, and higher conversion rates.",
+    },
   ],
 
   benefits: [
     "Build a strong brand identity",
-    "Increase audience engagement",
-    "Create consistent brand messaging",
-    "Improve customer trust",
-    "Generate quality leads",
-    "Support long-term business growth",
+    "Increase customer trust",
+    "Improve social media engagement",
+    "Generate more qualified leads",
+    "Maintain consistent communication",
+    "Strengthen long-term brand recognition",
+  ],
+
+  process: [
+    {
+      title: "Brand Discovery",
+      description:
+        "Understand your business, target audience, competitors, and unique value proposition.",
+    },
+    {
+      title: "Strategy Development",
+      description:
+        "Create a branding and content strategy tailored to your business goals.",
+    },
+    {
+      title: "Content Production",
+      description:
+        "Produce high-quality written, visual, and marketing content across multiple channels.",
+    },
+    {
+      title: "Review & Optimization",
+      description:
+        "Analyze content performance and continuously improve messaging, engagement, and conversions.",
+    },
   ],
 
   faqs: [
     {
-      question: "Why is content important for my business?",
+      question:
+        "What types of content do you create?",
       answer:
-        "High-quality content builds trust, improves brand awareness, engages your audience, and helps convert potential customers into loyal clients.",
+        "We create blog articles, website content, ad copy, social media posts, graphics, brochures, presentations, email campaigns, and marketing materials.",
     },
     {
-      question: "Do you create social media content?",
+      question:
+        "Can you create a complete brand identity?",
       answer:
-        "Yes. We create engaging graphics, captions, promotional posts, reels concepts, and other social media content tailored to your business.",
+        "Yes. We help businesses develop their brand messaging, visual identity, tone of voice, and content strategy for consistent communication.",
     },
     {
-      question: "Can you help with complete branding?",
+      question:
+        "Is the content SEO-friendly?",
       answer:
-        "Absolutely. We can develop your brand identity, visual style, messaging, and content strategy to create a consistent brand experience.",
+        "Yes. All website and blog content is optimized using SEO best practices to improve search visibility and organic traffic.",
     },
     {
-      question: "How often should content be published?",
+      question:
+        "Do you create content for social media?",
       answer:
-        "The ideal publishing frequency depends on your business goals and audience. We create a content plan that maintains consistency while maximizing engagement.",
+        "Absolutely. We create engaging graphics, captions, reels, carousel posts, and promotional campaigns for all major social media platforms.",
     },
   ],
 
   related: [
-    "facebook-marketing",
     "social-media-management",
-    "video-advertisement",
+    "video-production",
     "seo",
   ],
 };
-
-export default contentCreationBranding;
