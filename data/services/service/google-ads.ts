@@ -1,98 +1,141 @@
-import { ServiceData } from "../types";
+import type { ServiceData } from "./types";
 
-const googleAds: ServiceData = {
+export const googleAds: ServiceData = {
   slug: "google-ads",
+
+  category: "Digital Marketing",
 
   title: "Google Ads",
 
   subtitle:
-    "Reach customers exactly when they're searching for your products or services with high-performing Google Ads campaigns.",
+    "Reach customers who are actively searching for your products or services with high-converting Google Ads campaigns.",
 
   description:
-    "PrimeDigitor creates and manages data-driven Google Ads campaigns that generate qualified leads, increase sales, and maximize your return on investment. From Search and Display campaigns to Shopping and Performance Max, we optimize every campaign for measurable business growth.",
+    "Our Google Ads service helps businesses generate qualified leads, increase website traffic, and maximize return on investment through Search, Display, YouTube, Performance Max, Shopping, and Remarketing campaigns. We handle everything from keyword research and campaign setup to optimization and performance reporting.",
 
-  heroImage: "/images/services/google-ads.webp",
+  seoTitle:
+    "Google Ads Management Services in Bangladesh | PrimeDigitor",
+
+  seoDescription:
+    "Professional Google Ads management services to increase leads, sales, and website traffic with optimized Search, Display, Shopping, and YouTube campaigns.",
+
+  heroImage:
+    "/images/services/google-ads.jpg",
 
   stats: [
     {
-      label: "Campaigns Managed",
-      value: "500+",
+      value: "1000+",
+      label: "Campaigns Optimized",
     },
     {
-      label: "Client Satisfaction",
-      value: "95%",
+      value: "4X",
+      label: "Average ROAS",
     },
     {
-      label: "Average Rating",
-      value: "4.9★",
+      value: "90%",
+      label: "Conversion Improvement",
     },
     {
-      label: "Support",
       value: "24/7",
+      label: "Campaign Monitoring",
     },
   ],
 
   features: [
-    "Google Search Ads",
-    "Google Display Ads",
-    "Performance Max Campaigns",
-    "Google Shopping Ads",
-    "YouTube Ads",
-    "Keyword Research",
-    "Conversion Tracking",
-    "Remarketing Campaigns",
-    "Landing Page Optimization",
-    "Monthly Performance Reports",
-  ],
-
-  process: [
-    "Business Analysis",
-    "Keyword Research",
-    "Campaign Strategy",
-    "Campaign Setup",
-    "Conversion Tracking",
-    "Campaign Optimization",
-    "Performance Reporting",
+    {
+      title: "Keyword Research",
+      description:
+        "Identify high-converting keywords with strong search intent and lower advertising costs.",
+    },
+    {
+      title: "Search Ads",
+      description:
+        "Appear on Google Search results when customers are looking for your services.",
+    },
+    {
+      title: "Display Advertising",
+      description:
+        "Increase brand awareness with visually engaging banner advertisements across Google's Display Network.",
+    },
+    {
+      title: "YouTube Ads",
+      description:
+        "Reach millions of potential customers using engaging YouTube video advertising campaigns.",
+    },
+    {
+      title: "Remarketing",
+      description:
+        "Reconnect with previous website visitors to increase conversions and reduce customer acquisition costs.",
+    },
+    {
+      title: "Conversion Tracking",
+      description:
+        "Set up Google Tag Manager, Google Analytics, and conversion tracking for accurate performance measurement.",
+    },
   ],
 
   benefits: [
-    "Reach customers with high purchase intent",
+    "Appear at the top of Google Search",
+    "Generate high-quality leads",
     "Increase website traffic",
-    "Generate qualified leads",
-    "Boost online sales",
-    "Improve return on ad spend (ROAS)",
-    "Reduce cost per conversion",
+    "Improve online sales",
+    "Reach customers with buying intent",
+    "Transparent performance reporting",
+  ],
+
+  process: [
+    {
+      title: "Research & Planning",
+      description:
+        "Analyze your business, competitors, keywords, and advertising opportunities.",
+    },
+    {
+      title: "Campaign Setup",
+      description:
+        "Build optimized campaigns with proper targeting, bidding strategies, and conversion tracking.",
+    },
+    {
+      title: "Launch & Optimize",
+      description:
+        "Monitor campaign performance continuously and optimize keywords, bids, and advertisements.",
+    },
+    {
+      title: "Reporting & Scaling",
+      description:
+        "Provide transparent reports and scale successful campaigns for long-term growth.",
+    },
   ],
 
   faqs: [
     {
-      question: "How much should I spend on Google Ads?",
+      question:
+        "How much budget do I need for Google Ads?",
       answer:
-        "Your advertising budget depends on your industry, competition, and business goals. We help determine the most effective budget to maximize your ROI.",
+        "The ideal budget depends on your industry, competition, keywords, and business goals. We recommend a budget based on expected return on investment.",
     },
     {
-      question: "How quickly can Google Ads generate results?",
+      question:
+        "When will I start getting leads?",
       answer:
-        "Google Ads can start driving targeted traffic immediately after launch. Continuous optimization improves performance over time.",
+        "Google Ads can generate traffic immediately after launch. However, campaign optimization generally requires 2–4 weeks for the best results.",
     },
     {
-      question: "Do you manage existing Google Ads accounts?",
+      question:
+        "Do you manage existing Google Ads accounts?",
       answer:
-        "Yes. We can audit, optimize, and scale your existing Google Ads campaigns to improve results and reduce wasted ad spend.",
+        "Yes. We can optimize existing campaigns or build new campaigns from scratch based on your business objectives.",
     },
     {
-      question: "Will I receive campaign reports?",
+      question:
+        "Which Google Ads campaign type is best?",
       answer:
-        "Yes. We provide detailed monthly reports covering campaign performance, conversions, ROI, and recommendations for continuous improvement.",
+        "It depends on your business goals. Search campaigns work well for lead generation, while Performance Max, Shopping, and YouTube campaigns are excellent for broader growth strategies.",
     },
   ],
 
   related: [
     "facebook-marketing",
     "seo",
-    "website-development",
     "tiktok-marketing",
   ],
 };
-
-export default googleAds;
