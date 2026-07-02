@@ -20,7 +20,7 @@ export const googleAds: ServiceData = {
     "Professional Google Ads management services to increase leads, sales, and website traffic with optimized Search, Display, Shopping, and YouTube campaigns.",
 
   heroImage:
-    "/images/services/google-ads.jpg",
+    "/images/services/google-ads.webp",
 
   stats: [
     {
