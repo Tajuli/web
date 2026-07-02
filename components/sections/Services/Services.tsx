@@ -47,12 +47,12 @@ const services = [
       "Custom software and mobile applications designed around your business goals.",
   },
   {
-    slug: "video-advertisement",
-    title: "Video Advertisement Production",
-    icon: "🎬",
-    description:
-      "Professional commercial videos that increase engagement and maximize ad performance.",
-  },
+  slug: "video-production",
+  title: "Video Advertisement Production",
+  icon: "🎬",
+  description:
+    "Professional commercial videos that increase engagement and maximize ad performance.",
+},
   {
     slug: "social-media-management",
     title: "Social Media Management",
@@ -61,12 +61,12 @@ const services = [
       "Complete content planning, publishing and audience management across social platforms.",
   },
   {
-    slug: "content-creation-branding",
-    title: "Content Creation & Branding",
-    icon: "✍️",
-    description:
-      "Creative content and branding solutions that build trust and strengthen your identity.",
-  },
+  slug: "content-branding",
+  title: "Content Creation & Branding",
+  icon: "✍️",
+  description:
+    "Creative content and branding solutions that build trust and strengthen your identity.",
+},
 ];
 
 export default function Services() {
