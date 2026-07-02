@@ -1,4 +1,4 @@
-import type { ServiceData } from "./types";
+import type { ServiceData } from "../types";
 
 export const facebookMarketing: ServiceData = {
   slug: "facebook-marketing",
