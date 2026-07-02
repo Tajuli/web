@@ -1,98 +1,141 @@
-import { ServiceData } from "../types";
+import type { ServiceData } from "./types";
 
-const softwareDevelopment: ServiceData = {
+export const softwareDevelopment: ServiceData = {
   slug: "software-development",
+
+  category: "Software Development",
 
   title: "Software & App Development",
 
   subtitle:
-    "Transform your ideas into powerful web, mobile, and business software solutions designed for growth.",
+    "Custom software, web applications, and mobile apps built to automate your business and accelerate growth.",
 
   description:
-    "PrimeDigitor develops custom software, web applications, and mobile apps tailored to your business needs. From planning and UI/UX design to development, testing, deployment, and ongoing support, we build secure, scalable, and high-performance digital solutions that help businesses streamline operations and accelerate growth.",
+    "We design and develop scalable software solutions tailored to your business requirements. From CRM and ERP systems to custom business applications, mobile apps, APIs, and cloud-based platforms, our team delivers secure, reliable, and high-performance solutions using modern technologies.",
 
-  heroImage: "/images/services/software-development.webp",
+  seoTitle:
+    "Custom Software & App Development Services | PrimeDigitor",
+
+  seoDescription:
+    "Professional software and application development services including ERP, CRM, POS, web apps, mobile apps, API integration, and cloud solutions.",
+
+  heroImage:
+    "/images/services/software-development.jpg",
 
   stats: [
     {
+      value: "100+",
       label: "Projects Delivered",
-      value: "150+",
     },
     {
+      value: "99%",
       label: "Client Satisfaction",
-      value: "95%",
     },
     {
-      label: "Average Rating",
-      value: "4.9★",
+      value: "50+",
+      label: "Business Solutions",
     },
     {
-      label: "Technical Support",
       value: "24/7",
+      label: "Technical Support",
     },
   ],
 
   features: [
-    "Custom Software Development",
-    "Web Application Development",
-    "Mobile App Development",
-    "Business Management Systems",
-    "API Development & Integration",
-    "Database Design",
-    "UI/UX Design",
-    "Software Testing & QA",
-    "Cloud Deployment",
-    "Maintenance & Support",
-  ],
-
-  process: [
-    "Requirement Analysis",
-    "Project Planning",
-    "UI/UX Design",
-    "Development",
-    "Testing & Quality Assurance",
-    "Deployment",
-    "Maintenance & Support",
+    {
+      title: "Custom Software Development",
+      description:
+        "Business software designed specifically for your workflow and operational requirements.",
+    },
+    {
+      title: "Web Application Development",
+      description:
+        "Fast, secure, and scalable web applications using modern development frameworks.",
+    },
+    {
+      title: "Mobile App Development",
+      description:
+        "Cross-platform Android and iOS applications with excellent user experience.",
+    },
+    {
+      title: "ERP & CRM Solutions",
+      description:
+        "Automate business processes with customized ERP and CRM software.",
+    },
+    {
+      title: "API Integration",
+      description:
+        "Connect payment gateways, third-party services, and business platforms seamlessly.",
+    },
+    {
+      title: "Maintenance & Support",
+      description:
+        "Continuous updates, bug fixes, monitoring, and technical support after deployment.",
+    },
   ],
 
   benefits: [
-    "Custom solutions for your business",
-    "Scalable and secure architecture",
-    "Improved operational efficiency",
-    "Enhanced customer experience",
-    "Reliable long-term support",
-    "Future-ready technology stack",
+    "Automate repetitive business tasks",
+    "Improve productivity and efficiency",
+    "Reduce operational costs",
+    "Secure and scalable architecture",
+    "Cloud-ready solutions",
+    "Long-term technical support",
+  ],
+
+  process: [
+    {
+      title: "Requirement Analysis",
+      description:
+        "Understand your business workflow, objectives, and technical requirements.",
+    },
+    {
+      title: "System Design",
+      description:
+        "Design the software architecture, database, and user interface before development.",
+    },
+    {
+      title: "Development & Testing",
+      description:
+        "Develop the solution using industry best practices with comprehensive testing.",
+    },
+    {
+      title: "Deployment & Support",
+      description:
+        "Deploy the application, provide training, and offer continuous maintenance and improvements.",
+    },
   ],
 
   faqs: [
     {
-      question: "What types of software do you develop?",
+      question:
+        "Do you build custom software from scratch?",
       answer:
-        "We develop custom business software, web applications, mobile apps, CRM systems, ERP solutions, inventory management systems, and other tailored digital products.",
+        "Yes. Every solution is developed according to your unique business requirements without relying on generic templates.",
     },
     {
-      question: "Do you build both Android and iOS apps?",
+      question:
+        "Can you integrate third-party APIs?",
       answer:
-        "Yes. We develop cross-platform and native mobile applications based on your project requirements and target audience.",
+        "Yes. We integrate payment gateways, SMS services, email platforms, Google APIs, Meta APIs, and many other third-party services.",
     },
     {
-      question: "Can you upgrade or maintain existing software?",
+      question:
+        "Do you develop both web and mobile apps?",
       answer:
-        "Absolutely. We can improve existing software by adding new features, fixing bugs, optimizing performance, and providing long-term maintenance.",
+        "Yes. We build responsive web applications along with Android and iOS mobile applications depending on your project requirements.",
     },
     {
-      question: "How long does software development take?",
+      question:
+        "Do you provide maintenance after launch?",
       answer:
-        "The timeline depends on the project's complexity, features, and requirements. After discussing your project, we'll provide a detailed development roadmap and estimated delivery time.",
+        "Absolutely. We provide software maintenance, security updates, performance optimization, backups, and technical support.",
     },
   ],
 
   related: [
     "website-development",
     "seo",
-    "google-ads",
-    "content-creation-branding",
+    "content-branding",
   ],
 };
-
-export default softwareDevelopment;
