@@ -20,7 +20,7 @@ export const contentBranding: ServiceData = {
     "Professional content creation and branding services including copywriting, graphic design, brand identity, social media content, and marketing materials.",
 
   heroImage:
-    "/images/services/content-branding.jpg",
+    "/images/services/content-branding.webp",
 
   stats: [
     {
