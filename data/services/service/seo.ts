@@ -20,7 +20,7 @@ export const seo: ServiceData = {
     "Boost your Google rankings with professional SEO services including technical SEO, keyword research, content optimization, local SEO, and link building.",
 
   heroImage:
-    "/images/services/seo.jpg",
+    "/images/services/seo.webp",
 
   stats: [
     {
