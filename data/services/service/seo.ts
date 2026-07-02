@@ -1,98 +1,141 @@
-import { ServiceData } from "../types";
+import type { ServiceData } from "./types";
 
-const seo: ServiceData = {
+export const seo: ServiceData = {
   slug: "seo",
+
+  category: "Search Engine Optimization",
 
   title: "SEO Services",
 
   subtitle:
-    "Improve your Google rankings, drive organic traffic, and generate more qualified leads with strategic SEO.",
+    "Increase your Google rankings, attract more organic traffic, and grow your business with long-term SEO strategies.",
 
   description:
-    "PrimeDigitor provides comprehensive Search Engine Optimization (SEO) services designed to help your business rank higher on Google and attract customers actively searching for your products or services. We focus on sustainable, white-hat SEO strategies that improve visibility, increase organic traffic, and deliver long-term business growth.",
+    "Our SEO services help businesses improve their visibility in Google Search through technical optimization, keyword research, high-quality content, on-page SEO, off-page SEO, and performance monitoring. We focus on sustainable growth that generates qualified traffic, leads, and sales.",
 
-  heroImage: "/images/services/seo.webp",
+  seoTitle:
+    "Professional SEO Services in Bangladesh | PrimeDigitor",
+
+  seoDescription:
+    "Boost your Google rankings with professional SEO services including technical SEO, keyword research, content optimization, local SEO, and link building.",
+
+  heroImage:
+    "/images/services/seo.jpg",
 
   stats: [
     {
+      value: "250+",
       label: "Websites Optimized",
-      value: "300+",
     },
     {
-      label: "Client Satisfaction",
       value: "95%",
+      label: "Client Retention",
     },
     {
-      label: "Average Rating",
-      value: "4.9★",
+      value: "5X",
+      label: "Average Organic Growth",
     },
     {
-      label: "SEO Support",
-      value: "24/7",
+      value: "100+",
+      label: "Keywords Ranked",
     },
   ],
 
   features: [
-    "SEO Audit",
-    "Keyword Research",
-    "On-Page SEO",
-    "Technical SEO",
-    "Content Optimization",
-    "Local SEO",
-    "Link Building",
-    "Competitor Analysis",
-    "Performance Monitoring",
-    "Monthly SEO Reports",
-  ],
-
-  process: [
-    "Website Audit",
-    "Keyword Research",
-    "SEO Strategy",
-    "On-Page Optimization",
-    "Technical Improvements",
-    "Content Optimization",
-    "Monthly Reporting",
+    {
+      title: "SEO Audit",
+      description:
+        "Comprehensive website analysis to identify technical and content-related SEO issues.",
+    },
+    {
+      title: "Keyword Research",
+      description:
+        "Find high-value keywords that match your customers' search intent.",
+    },
+    {
+      title: "On-Page SEO",
+      description:
+        "Optimize titles, headings, meta tags, URLs, internal links, and content for higher rankings.",
+    },
+    {
+      title: "Technical SEO",
+      description:
+        "Improve website speed, Core Web Vitals, indexing, crawling, and overall technical performance.",
+    },
+    {
+      title: "Content Optimization",
+      description:
+        "Create and optimize SEO-friendly content that attracts visitors and improves search visibility.",
+    },
+    {
+      title: "Link Building",
+      description:
+        "Build high-quality backlinks that strengthen your website's authority and rankings.",
+    },
   ],
 
   benefits: [
-    "Improve Google rankings",
     "Increase organic website traffic",
+    "Improve Google search rankings",
     "Generate high-quality leads",
-    "Boost online visibility",
-    "Build long-term authority",
-    "Increase conversions without relying only on ads",
+    "Reduce long-term advertising costs",
+    "Increase brand credibility",
+    "Achieve sustainable business growth",
+  ],
+
+  process: [
+    {
+      title: "SEO Audit",
+      description:
+        "Analyze your website to identify SEO opportunities and technical issues.",
+    },
+    {
+      title: "Optimization",
+      description:
+        "Implement technical improvements, on-page optimization, and content enhancements.",
+    },
+    {
+      title: "Content & Link Building",
+      description:
+        "Publish optimized content and build quality backlinks for long-term authority.",
+    },
+    {
+      title: "Monitoring & Reporting",
+      description:
+        "Track rankings, traffic, and conversions while continuously improving performance.",
+    },
   ],
 
   faqs: [
     {
-      question: "How long does SEO take to show results?",
+      question:
+        "How long does SEO take?",
       answer:
-        "SEO is a long-term strategy. Most websites begin seeing noticeable improvements within 3 to 6 months, depending on competition and the current condition of the website.",
+        "SEO is a long-term strategy. Most websites begin seeing measurable improvements within 3 to 6 months, depending on competition and website quality.",
     },
     {
-      question: "Do you follow Google's SEO guidelines?",
+      question:
+        "Do you guarantee #1 rankings?",
       answer:
-        "Yes. We use ethical, white-hat SEO techniques that follow Google's best practices for sustainable long-term growth.",
+        "No ethical SEO agency can guarantee the #1 position. We follow Google's best practices to maximize your ranking potential.",
     },
     {
-      question: "Can you improve my existing website's SEO?",
+      question:
+        "Is SEO better than Google Ads?",
       answer:
-        "Absolutely. We perform a complete SEO audit, identify issues, and optimize your website to improve search rankings and overall performance.",
+        "SEO and Google Ads serve different purposes. Google Ads delivers immediate traffic, while SEO provides sustainable long-term organic growth. Many businesses benefit from using both together.",
     },
     {
-      question: "Do you provide SEO reports?",
+      question:
+        "Will you provide monthly reports?",
       answer:
-        "Yes. We provide detailed monthly reports showing keyword rankings, organic traffic, technical improvements, and ongoing optimization work.",
+        "Yes. We provide detailed monthly reports covering rankings, traffic, conversions, and completed optimization work.",
     },
   ],
 
   related: [
     "google-ads",
     "website-development",
-    "content-creation-branding",
-    "facebook-marketing",
+    "content-branding",
   ],
 };
-
-export default seo;
