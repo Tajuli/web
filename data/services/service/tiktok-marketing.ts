@@ -20,7 +20,7 @@ export const tiktokMarketing: ServiceData = {
     "Professional TikTok Marketing services for brand awareness, lead generation, and sales growth with high-performing TikTok advertising campaigns.",
 
   heroImage:
-    "/images/services/tiktok-marketing.jpg",
+    "/images/services/tiktok-marketing.webp",
 
   stats: [
     {
