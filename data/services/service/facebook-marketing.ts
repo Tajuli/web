@@ -20,7 +20,7 @@ export const facebookMarketing: ServiceData = {
     "Grow your business with professional Facebook Marketing services. We create high-converting Meta ad campaigns for lead generation, sales, and brand awareness.",
 
   heroImage:
-    "/images/services/facebook-marketing.jpg",
+    "/images/services/facebook-marketing.webp",
 
   stats: [
     {
