@@ -20,7 +20,7 @@ export const videoProduction: ServiceData = {
     "Professional video production services including promotional videos, Facebook Ads videos, YouTube ads, product videos, corporate videos, and social media content.",
 
   heroImage:
-    "/images/services/video-production.jpg",
+    "/images/services/video-production.webp",
 
   stats: [
     {
