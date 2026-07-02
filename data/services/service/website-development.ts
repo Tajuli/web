@@ -20,7 +20,7 @@ export const websiteDevelopment: ServiceData = {
     "Custom website development services including business websites, eCommerce, landing pages, responsive UI, SEO optimization, and ongoing maintenance.",
 
   heroImage:
-    "/images/services/website-development.jpg",
+    "/images/services/website-development.webp",
 
   stats: [
     {
