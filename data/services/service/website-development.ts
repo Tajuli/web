@@ -1,98 +1,141 @@
-import { ServiceData } from "../types";
+import type { ServiceData } from "./types";
 
-const websiteDevelopment: ServiceData = {
+export const websiteDevelopment: ServiceData = {
   slug: "website-development",
+
+  category: "Web Development",
 
   title: "Website Development",
 
   subtitle:
-    "Build a fast, modern, and SEO-friendly website that strengthens your brand and converts visitors into customers.",
+    "Build fast, modern, responsive, and SEO-friendly websites that help your business grow online.",
 
   description:
-    "PrimeDigitor designs and develops professional websites tailored to your business goals. Whether you need a corporate website, landing page, portfolio, eCommerce store, or custom web application, we create responsive, secure, and high-performance websites that deliver an exceptional user experience across all devices.",
+    "We develop professional websites tailored to your business goals. Whether you need a corporate website, landing page, portfolio, eCommerce store, or custom web application, our team delivers secure, high-performance, mobile-friendly, and search engine optimized solutions using modern technologies.",
 
-  heroImage: "/images/services/website-development.webp",
+  seoTitle:
+    "Professional Website Development Services | PrimeDigitor",
+
+  seoDescription:
+    "Custom website development services including business websites, eCommerce, landing pages, responsive UI, SEO optimization, and ongoing maintenance.",
+
+  heroImage:
+    "/images/services/website-development.jpg",
 
   stats: [
     {
+      value: "150+",
       label: "Websites Delivered",
-      value: "200+",
     },
     {
+      value: "99%",
       label: "Client Satisfaction",
-      value: "95%",
     },
     {
-      label: "Average Rating",
-      value: "4.9★",
+      value: "<2s",
+      label: "Optimized Load Time",
     },
     {
-      label: "Technical Support",
-      value: "24/7",
+      value: "100%",
+      label: "Mobile Responsive",
     },
   ],
 
   features: [
-    "Business Website Development",
-    "Corporate Website Design",
-    "Landing Page Development",
-    "eCommerce Website",
-    "Custom Web Applications",
-    "Responsive Design",
-    "SEO-Friendly Development",
-    "CMS Integration",
-    "Website Speed Optimization",
-    "Maintenance & Support",
-  ],
-
-  process: [
-    "Requirement Analysis",
-    "Planning & Strategy",
-    "UI/UX Design",
-    "Website Development",
-    "Testing & Optimization",
-    "Deployment",
-    "Ongoing Support",
+    {
+      title: "Custom Website Design",
+      description:
+        "Modern, responsive, and user-focused website designs tailored to your brand identity.",
+    },
+    {
+      title: "Business Websites",
+      description:
+        "Professional websites for companies, agencies, clinics, educational institutions, and startups.",
+    },
+    {
+      title: "Landing Pages",
+      description:
+        "High-converting landing pages designed for lead generation and marketing campaigns.",
+    },
+    {
+      title: "eCommerce Development",
+      description:
+        "Online stores with secure payment integration, product management, and order tracking.",
+    },
+    {
+      title: "SEO-Friendly Development",
+      description:
+        "Clean code, optimized performance, structured metadata, and search engine friendly architecture.",
+    },
+    {
+      title: "Maintenance & Support",
+      description:
+        "Regular updates, bug fixes, security improvements, backups, and technical support.",
+    },
   ],
 
   benefits: [
-    "Professional online presence",
-    "Fully responsive across all devices",
+    "Modern and professional design",
+    "Fully responsive on all devices",
     "Fast loading speed",
-    "SEO-friendly structure",
-    "Improved user experience",
-    "Higher conversion rates",
+    "SEO-ready architecture",
+    "Secure and scalable codebase",
+    "Easy content management",
+  ],
+
+  process: [
+    {
+      title: "Discovery",
+      description:
+        "Understand your business goals, target audience, and project requirements.",
+    },
+    {
+      title: "Design",
+      description:
+        "Create UI/UX designs and prototypes for approval before development begins.",
+    },
+    {
+      title: "Development",
+      description:
+        "Develop your website using modern technologies with clean, scalable, and maintainable code.",
+    },
+    {
+      title: "Testing & Launch",
+      description:
+        "Test performance, responsiveness, security, and deploy your website to production.",
+    },
   ],
 
   faqs: [
     {
-      question: "What types of websites do you develop?",
+      question:
+        "How long does it take to build a website?",
       answer:
-        "We develop business websites, corporate websites, eCommerce stores, landing pages, portfolio websites, and custom web applications tailored to your business needs.",
+        "Most business websites take between 2–6 weeks depending on the project scope, required features, and content availability.",
     },
     {
-      question: "Will my website be mobile-friendly?",
+      question:
+        "Will my website work on mobile devices?",
       answer:
-        "Yes. Every website we build is fully responsive and optimized for desktops, tablets, and mobile devices.",
+        "Yes. Every website we build is fully responsive and optimized for mobile, tablet, and desktop devices.",
     },
     {
-      question: "Do you optimize websites for SEO?",
+      question:
+        "Can you redesign my existing website?",
       answer:
-        "Absolutely. We follow SEO best practices, including clean code, fast loading speed, mobile responsiveness, and proper site structure to improve search engine visibility.",
+        "Absolutely. We can modernize your current website while improving speed, SEO, and user experience.",
     },
     {
-      question: "Do you provide website maintenance after launch?",
+      question:
+        "Do you provide ongoing support?",
       answer:
-        "Yes. We offer ongoing maintenance, security updates, performance optimization, and technical support to keep your website running smoothly.",
+        "Yes. We offer maintenance, updates, security monitoring, backups, and technical support after your website is launched.",
     },
   ],
 
   related: [
-    "software-development",
     "seo",
-    "google-ads",
-    "content-creation-branding",
+    "software-development",
+    "content-branding",
   ],
 };
-
-export default websiteDevelopment;
