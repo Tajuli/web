@@ -20,6 +20,7 @@
   }
 }
 
+
 /* ==========================================================
    HERO BANNER
 ========================================================== */
@@ -77,7 +78,7 @@
   line-height:1.1;
   font-weight:800;
 
-  color:var(--heading);
+  color:#111827;
 }
 
 .overviewContent{
@@ -117,7 +118,7 @@
 
   font-weight:800;
 
-  color:var(--heading);
+  color:#111827;
 }
 
 .sectionText{
@@ -252,7 +253,7 @@
 
   line-height:1.15;
 
-  color:var(--heading);
+  color:#111827;
 }
 
 .featuresText{
@@ -368,7 +369,7 @@
 
   font-size:1.45rem;
 
-  color:var(--heading);
+  color:#111827;
 
   font-weight:700;
 }
@@ -545,7 +546,7 @@
   font-size:
   clamp(2.3rem,4vw,3.5rem);
 
-  color:var(--heading);
+  color:#111827;
 
   font-weight:800;
 }
@@ -692,7 +693,7 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color:var(--heading);
+  color:#111827;
 
   font-weight:800;
 }
@@ -791,7 +792,7 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color:var(--heading);
+  color:#111827;
 
   font-weight:800;
 }
