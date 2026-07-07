@@ -5,21 +5,13 @@
 .page{
   position:relative;
   overflow:hidden;
-  background: var(--section-white);
+  background:var(--page);
 }
 
 .container{
-  width:min(100%,1200px);
-  margin-inline:auto;
-  padding-inline:1.5rem;
+  width:min(1200px,calc(100% - 40px));
+  margin:0 auto;
 }
-
-@media (min-width:768px){
-  .container{
-    padding-inline:2rem;
-  }
-}
-
 
 /* ==========================================================
    HERO BANNER
@@ -78,7 +70,7 @@
   line-height:1.1;
   font-weight:800;
 
-  color:#111827;
+  color:var(--heading);
 }
 
 .overviewContent{
@@ -118,7 +110,7 @@
 
   font-weight:800;
 
-  color:#111827;
+  color:var(--heading);
 }
 
 .sectionText{
@@ -253,7 +245,7 @@
 
   line-height:1.15;
 
-  color:#111827;
+  color:var(--heading);
 }
 
 .featuresText{
@@ -369,7 +361,7 @@
 
   font-size:1.45rem;
 
-  color:#111827;
+  color:var(--heading);
 
   font-weight:700;
 }
@@ -546,7 +538,7 @@
   font-size:
   clamp(2.3rem,4vw,3.5rem);
 
-  color:#111827;
+  color:var(--heading);
 
   font-weight:800;
 }
@@ -693,7 +685,7 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color:#111827;
+  color:var(--heading);
 
   font-weight:800;
 }
@@ -792,7 +784,7 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color:#111827;
+  color:var(--heading);
 
   font-weight:800;
 }
