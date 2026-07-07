@@ -152,7 +152,7 @@ export default async function ServicePage({
 
   <div className={styles.overviewCard}>
 
-    <h3 className={styles.benefitsTitle}>
+    <h3 className={styles.sectionTitle}>
   What You'll Get
 </h3>
 
