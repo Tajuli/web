@@ -167,16 +167,6 @@
   rgba(var(--primary-rgb),.08);
 }
 
-.overviewCard h3{
-
-  position:relative;
-
-  margin:0 0 24px;
-
-  font-size:1.55rem;
-
-  color:var(--heading);
-}
 
 .overviewList{
 
