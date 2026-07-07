@@ -3,16 +3,6 @@
 // Enterprise SEO Service Page Structure
 // ==========================================
 
-hero: {
-    image: string;
-    alt: string;
-}
-
-seo: {
-    title: string;
-    description: string;
-    keywords: string[];
-}
 export interface ServiceStat {
   label: string;
   value: string;
