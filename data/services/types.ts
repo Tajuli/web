@@ -1,7 +1,18 @@
 // ==========================================
 // Prime Digitor Service Types
-// Enterprise SEO Service Page Structure
+// Part 1 - Base Interfaces
 // ==========================================
+
+export interface SeoData {
+  title: string;
+  description: string;
+  keywords: string[];
+}
+
+export interface HeroData {
+  image: string;
+  alt: string;
+}
 
 export interface ServiceStat {
   label: string;
@@ -14,8 +25,8 @@ export interface ServiceFeature {
 }
 
 export interface ServiceBenefit {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
 }
 
 export interface ServiceProcess {
@@ -83,75 +94,141 @@ export interface BreadcrumbItem {
   name: string;
   href: string;
 }
+// ==========================================
+// Prime Digitor Service Types
+// Part 2 - ServiceData Interface
+// ==========================================
 
 export interface ServiceData {
+  // ==========================================
   // Basic Information
+  // ==========================================
+
   slug: string;
   category: string;
+
   title: string;
   subtitle: string;
   description: string;
 
+  // ==========================================
   // SEO
-  seoTitle?: string;
-  seoDescription?: string;
-  metaKeywords?: string[];
+  // ==========================================
 
+  seo: SeoData;
+
+  // ==========================================
   // Hero
-  heroImage: string;
+  // ==========================================
 
+  hero: HeroData;
+
+  // ==========================================
   // Statistics
+  // ==========================================
+
   stats: ServiceStat[];
 
-  // Main Features
+  // ==========================================
+  // Overview
+  // ==========================================
+
+  benefits: ServiceBenefit[];
+
+  // ==========================================
+  // Features
+  // ==========================================
+
   features: ServiceFeature[];
 
-  // Benefits
-  benefits: string[];
+  // ==========================================
+  // Working Process
+  // ==========================================
 
-  // Workflow
   process: ServiceProcess[];
 
-  // Long SEO Content
-  content?: string;
-
+  // ==========================================
   // Why Choose Us
+  // ==========================================
+
   whyChoose?: WhyChooseItem[];
 
+  // ==========================================
+  // Long SEO Content
+  // ==========================================
+
+  content?: string;
+
+  // ==========================================
   // Industries
+  // ==========================================
+
   industries?: string[];
 
+  // ==========================================
   // Technologies
+  // ==========================================
+
   technologies?: Technology[];
 
+  // ==========================================
   // Tools
+  // ==========================================
+
   tools?: Tool[];
 
+  // ==========================================
   // Pricing
+  // ==========================================
+
   pricing?: PricingPlan[];
 
+  // ==========================================
   // Case Studies
+  // ==========================================
+
   caseStudies?: CaseStudy[];
 
+  // ==========================================
   // Testimonials
+  // ==========================================
+
   testimonials?: Testimonial[];
 
-  // CTA
-  cta?: CTASection;
-
+  // ==========================================
   // FAQ
+  // ==========================================
+
   faqs: ServiceFaq[];
 
+  // ==========================================
+  // CTA
+  // ==========================================
+
+  cta?: CTASection;
+
+  // ==========================================
   // Related Services
+  // ==========================================
+
   related: string[];
 
-  // Schema.org
-  schema?: SchemaData[];
-
+  // ==========================================
   // Breadcrumb
+  // ==========================================
+
   breadcrumbs?: BreadcrumbItem[];
 
+  // ==========================================
+  // Schema.org
+  // ==========================================
+
+  schema?: SchemaData[];
+
+  // ==========================================
   // Extra SEO Sections
+  // ==========================================
+
   targetAudience?: string[];
 
   serviceIncludes?: string[];
@@ -159,6 +236,10 @@ export interface ServiceData {
   deliverables?: string[];
 
   tags?: string[];
+
+  // ==========================================
+  // Metadata
+  // ==========================================
 
   lastUpdated?: string;
 }
