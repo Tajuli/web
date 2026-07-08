@@ -110,6 +110,8 @@
 .logo{
     color:#fff;
     font-size:2rem;
+    margin:0 0 20px;
+    line-height:1.1;
 }
 
 .logo span{
@@ -118,8 +120,9 @@
 
 .grid h4{
     color:#fff;
-    margin-bottom:20px;
     font-size:1.05rem;
+    margin:0 0 20px;
+    line-height:1.1;
 }
 
 .grid a,
