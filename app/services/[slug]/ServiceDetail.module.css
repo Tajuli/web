@@ -1,13 +1,17 @@
 /* ==========================================================
-   PrimeDigitor Service Detail v3
+   PrimeDigitor Service Detail v4
 ========================================================== */
 
 .page{
   position:relative;
   overflow:hidden;
-  background: #ffffff;
-  color: #111827;
+  background:#fff;
+  color:#111827;
 }
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
 
 .container{
   width:min(100%,1200px);
@@ -15,39 +19,67 @@
   padding-inline:1.5rem;
 }
 
-@media (min-width:768px){
+@media(min-width:768px){
   .container{
     padding-inline:2rem;
   }
 }
 
 /* ==========================================================
-   HERO BANNER
+   SECTION WRAPPERS
+========================================================== */
+
+.overviewSection{
+  background:#ffffff;
+  padding:110px 0;
+}
+
+.featuresSection{
+  background:#f8fafc;
+  padding:110px 0;
+}
+
+.processSection{
+  background:#ffffff;
+  padding:110px 0;
+}
+
+.statsWrapper{
+  background:#f8fafc;
+  padding:110px 0;
+}
+
+.faqWrapper{
+  background:#ffffff;
+  padding:110px 0;
+}
+
+.ctaWrapper{
+  background:#ffffff;
+  padding:110px 0;
+}
+
+.relatedWrapper{
+  background:#ffffff;
+  padding:110px 0;
+}
+
+/* ==========================================================
+   HERO
 ========================================================== */
 
 .hero{
-
   position:relative;
-
   width:100%;
-
   overflow:hidden;
-
   background:#000;
-
-  margin:0 0 100px;
 }
 
 .heroBanner{
-
   display:block;
-
   width:100%;
-
   height:auto;
-
   aspect-ratio:16/9;
-
   object-fit:cover;
 }
 
@@ -58,25 +90,14 @@
 .overview{
 
   display:grid;
+
   grid-template-columns:
-   minmax(0,1fr)
-   420px;
-  gap:30px;
+  minmax(0,1fr)
+  340px;
 
-  align-items: start;
+  gap:70px;
 
-  margin-bottom:110px;
-}
-
-.overviewTitle{
-  position:relative;
-  
-
-  font-size:clamp(2.2rem,4vw,3.3rem);
-  line-height:1.1;
-  font-weight:800;
-
-  color: #4b5563;
+  align-items:start;
 }
 
 .overviewContent{
@@ -88,11 +109,13 @@
   gap:28px;
 }
 
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
 .sectionLabel{
 
   display:inline-block;
-
-  margin-bottom:6px;
 
   color:var(--primary);
 
@@ -123,43 +146,55 @@
 
   margin:0;
 
-  color: #4b5563;
+  font-size:1.08rem;
 
   line-height:2;
 
-  font-size:1.08rem;
+  color:#4b5563;
 }
 
 /* ==========================================================
-   OVERVIEW CARD
+   BENEFITS
 ========================================================== */
 
 .benefitList{
+
   display:flex;
+
   flex-direction:column;
+
   gap:18px;
-  margin-top:10px;
+
+  margin-top:12px;
 }
 
 .benefitItem{
+
   display:flex;
+
   align-items:flex-start;
+
   gap:16px;
 }
 
 .check{
+
   flex-shrink:0;
 
-  width:32px;
-  height:32px;
+  width:34px;
+
+  height:34px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   border-radius:50%;
 
-  background:rgba(var(--primary-rgb),.12);
+  background:
+  rgba(var(--primary-rgb),.12);
 
   color:var(--primary);
 
@@ -167,101 +202,17 @@
 }
 
 .benefitItem span:last-child{
+
   color:#4b5563;
+
   line-height:1.9;
 }
-
-/* ==========================================================
-   WHAT'S INCLUDED
-========================================================== */
-
-.includesSection{
-  margin:120px 0;
-   background:#f8fafc;
-}
-
-.includesGrid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:28px;
-}
-
-.includeCard{
-
-  position:relative;
-
-  display:flex;
-  align-items:center;
-  gap:18px;
-
-  padding:28px;
-
-  border-radius:24px;
-
-  background:var(--card);
-
-  border:1px solid rgba(0,0,0,.06);
-
-  transition:
-    transform .35s,
-    box-shadow .35s,
-    border-color .35s;
-}
-
-.includeCard:hover{
-
-  transform:translateY(-8px);
-
-  border-color:
-    rgba(var(--primary-rgb),.20);
-
-  box-shadow:
-    0 20px 45px
-    rgba(0,0,0,.08);
-}
-
-.includeIcon{
-
-  flex-shrink:0;
-
-  width:54px;
-  height:54px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border-radius:16px;
-
-  background:
-    rgba(var(--primary-rgb),.12);
-
-  color:var(--primary);
-
-  font-size:1.2rem;
-  font-weight:700;
-}
-
-.includeCard h3{
-
-  margin:0;
-
-  font-size:1.1rem;
-
-  font-weight:700;
-
-  color:var(--heading);
-
-  line-height:1.5;
-}
-
-
 /* ==========================================================
    FEATURES
 ========================================================== */
 
 .features{
-  margin:120px 0;
+  margin:0;
 }
 
 .featuresHeader{
@@ -280,22 +231,22 @@
   font-size:
   clamp(2.3rem,4vw,3.5rem);
 
-  font-weight:800;
-
   line-height:1.15;
 
-  color: #111827;
+  font-weight:800;
+
+  color:var(--heading);
 }
 
 .featuresText{
 
   margin:0;
 
-  color: #4b5563;
-
   font-size:1.08rem;
 
   line-height:2;
+
+  color:#4b5563;
 }
 
 .featuresGrid{
@@ -308,7 +259,9 @@
   gap:32px;
 }
 
-/* ================= CARD ================= */
+/* ==========================================================
+   FEATURE CARD
+========================================================== */
 
 .featureCard{
 
@@ -320,11 +273,10 @@
 
   border-radius:30px;
 
-  background:var(--card);
+  background:#fff;
 
   border:
-  1px solid
-  rgba(0,0,0,.06);
+  1px solid rgba(0,0,0,.06);
 
   transition:
   transform .35s,
@@ -344,7 +296,7 @@
   linear-gradient(
   135deg,
   rgba(var(--primary-rgb),.06),
-  transparent 55%);
+  transparent 60%);
 
   opacity:0;
 
@@ -353,8 +305,7 @@
 
 .featureCard:hover{
 
-  transform:
-  translateY(-10px);
+  transform:translateY(-10px);
 
   border-color:
   rgba(var(--primary-rgb),.22);
@@ -372,6 +323,7 @@
 .featureIcon{
 
   width:72px;
+
   height:72px;
 
   display:flex;
@@ -400,16 +352,16 @@
 
   font-size:1.45rem;
 
-  color: #111827;
-
   font-weight:700;
+
+  color:var(--heading);
 }
 
 .featureDescription{
 
   margin:0;
 
-  color: #4b5563;
+  color:#4b5563;
 
   line-height:1.9;
 }
@@ -429,127 +381,10 @@
   transition:width .35s;
 }
 
-.featureCard:hover .featureLine{
+.featureCard:hover
+.featureLine{
 
   width:100%;
-}
-
-/* ==========================================================
-   BENEFITS
-========================================================== */
-
-.benefits{
-
-  margin:120px 0;
-}
-
-.benefitsGrid{
-
-  display:grid;
-
-  grid-template-columns:
-  minmax(0,1fr)
-  minmax(0,1fr);
-
-  gap:70px;
-
-  align-items:start;
-}
-
-.benefitsContent{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:24px;
-}
-
-.benefitsTitle{
-
-  margin:0;
-
-  font-size:
-  clamp(2.2rem,4vw,3.2rem);
-
-  color: #111827;
-
-  font-weight:800;
-}
-
-.benefitsText{
-
-  color: #4b5563;
-
-  line-height:2;
-
-  font-size:1.05rem;
-}
-
-.benefitsList{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:18px;
-}
-
-.benefitItem{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:18px;
-
-  padding:20px 22px;
-
-  border-radius:20px;
-
-  background:var(--card);
-
-  border:
-  1px solid
-  rgba(0,0,0,.06);
-
-  transition:.35s;
-}
-
-.benefitItem:hover{
-
-  transform:
-  translateX(8px);
-
-  border-color:
-  rgba(var(--primary-rgb),.25);
-
-  box-shadow:
-  0 18px 45px
-  rgba(0,0,0,.08);
-}
-
-.benefitIcon{
-
-  flex-shrink:0;
-
-  width:44px;
-  height:44px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border-radius:50%;
-
-  background:
-  rgba(var(--primary-rgb),.12);
-
-  color:var(--primary);
-
-  font-weight:700;
 }
 
 /* ==========================================================
@@ -558,7 +393,7 @@
 
 .processSection{
 
-  margin:130px 0;
+  margin:0;
 }
 
 .processHeader{
@@ -577,16 +412,16 @@
   font-size:
   clamp(2.3rem,4vw,3.5rem);
 
-  color: #111827;
-
   font-weight:800;
+
+  color:var(--heading);
 }
 
 .processText{
 
   margin:0;
 
-  color: #4b5563;
+  color:#4b5563;
 
   line-height:2;
 }
@@ -633,6 +468,7 @@
 .timelineNumber{
 
   width:84px;
+
   height:84px;
 
   margin:0 auto 28px;
@@ -664,11 +500,10 @@
 
   border-radius:28px;
 
-  background:var(--card);
+  background:#fff;
 
   border:
-  1px solid
-  rgba(0,0,0,.06);
+  1px solid rgba(0,0,0,.06);
 
   transition:.35s;
 }
@@ -687,25 +522,25 @@
 
   margin:0 0 16px;
 
-  color:var(--heading);
-
   font-size:1.35rem;
+
+  color:var(--heading);
 }
 
 .timelineCard p{
 
   margin:0;
 
-  color:var(--text-light);
+  color:#4b5563;
 
   line-height:1.9;
 }
 /* ==========================================================
-   STATS
+   PROVEN RESULTS
 ========================================================== */
 
 .statsSection{
-  margin:130px 0;
+  margin:0;
 }
 
 .statsHeader{
@@ -724,16 +559,16 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color: #111827;
-
   font-weight:800;
+
+  color:var(--heading);
 }
 
 .statsText{
 
   margin:0;
 
-  color:var(--text-light);
+  color:#4b5563;
 
   line-height:2;
 }
@@ -756,21 +591,23 @@
 
   border-radius:28px;
 
-  background:var(--card);
+  background:#fff;
 
   border:
-  1px solid
-  rgba(0,0,0,.06);
+  1px solid rgba(0,0,0,.06);
 
   transition:
   transform .35s,
-  box-shadow .35s;
+  box-shadow .35s,
+  border-color .35s;
 }
 
 .statCard:hover{
 
-  transform:
-  translateY(-10px);
+  transform:translateY(-10px);
+
+  border-color:
+  rgba(var(--primary-rgb),.20);
 
   box-shadow:
   0 25px 60px
@@ -793,7 +630,7 @@
 
 .statLabel{
 
-  color:var(--text-light);
+  color:#6b7280;
 
   font-size:1rem;
 }
@@ -803,8 +640,7 @@
 ========================================================== */
 
 .faqSection{
-
-  margin:130px 0;
+  margin:0;
 }
 
 .faqHeader{
@@ -823,16 +659,16 @@
   font-size:
   clamp(2.3rem,4vw,3.4rem);
 
-  color: #111827;
-
   font-weight:800;
+
+  color:var(--heading);
 }
 
 .faqText{
 
   margin:0;
 
-  color: #4b5563;
+  color:#4b5563;
 
   line-height:2;
 }
@@ -852,19 +688,24 @@
 
   border-radius:24px;
 
-  background:var(--card);
+  background:#fff;
 
   border:
-  1px solid
-  rgba(0,0,0,.06);
+  1px solid rgba(0,0,0,.06);
 
-  transition:.3s;
+  transition:
+  border-color .3s,
+  box-shadow .3s;
 }
 
 .faqItem:hover{
 
   border-color:
   rgba(var(--primary-rgb),.18);
+
+  box-shadow:
+  0 10px 30px
+  rgba(0,0,0,.05);
 }
 
 .faqItem summary{
@@ -883,7 +724,6 @@
 }
 
 .faqItem summary::-webkit-details-marker{
-
   display:none;
 }
 
@@ -894,7 +734,7 @@
   padding:
   0 32px 30px;
 
-  color: #4b5563;
+  color:#4b5563;
 
   line-height:2;
 }
@@ -909,7 +749,7 @@
 
   overflow:hidden;
 
-  margin:140px 0;
+  margin:0;
 
   padding:90px 60px;
 
@@ -917,13 +757,14 @@
 
   background:
   linear-gradient(
-  135deg,
-  var(--primary),
-  #0f5fff);
-
-  color:#fff;
+    135deg,
+    var(--primary),
+    #0f5fff
+  );
 
   text-align:center;
+
+  color:#fff;
 }
 
 .cta::before{
@@ -936,9 +777,10 @@
 
   background:
   radial-gradient(
-  circle at top right,
-  rgba(255,255,255,.18),
-  transparent 45%);
+    circle at top right,
+    rgba(255,255,255,.18),
+    transparent 45%
+  );
 }
 
 .ctaContent{
@@ -956,19 +798,20 @@
 
   margin:0 0 22px;
 
+  color:#fff;
+
   font-size:
   clamp(2.5rem,4vw,3.8rem);
-
-  color:#fff;
 }
 
 .cta p{
 
   margin:0 0 36px;
 
-  line-height:2;
+  color:
+  rgba(255,255,255,.9);
 
-  color: #4b5563;
+  line-height:2;
 }
 
 .ctaButton{
@@ -980,8 +823,7 @@
   justify-content:center;
 
   padding:
-  18px
-  42px;
+  18px 42px;
 
   border-radius:999px;
 
@@ -993,26 +835,30 @@
 
   font-weight:700;
 
-  transition:.35s;
+  transition:
+  transform .35s,
+  box-shadow .35s;
 }
 
 .ctaButton:hover{
 
-  transform:
-  translateY(-5px);
+  transform:translateY(-5px);
 
   box-shadow:
-  0 22px 50px
+  0 20px 45px
   rgba(0,0,0,.20);
 }
-
 /* ==========================================================
-   RELATED
+   RELATED SERVICES
 ========================================================== */
 
 .related{
+  margin:0;
+}
 
-  margin-bottom:140px;
+.related .sectionTitle{
+  margin-bottom:50px;
+  text-align:center;
 }
 
 /* ==========================================================
@@ -1021,50 +867,78 @@
 
 @media (max-width:1100px){
 
-   .page {
-    padding-top: 88px;
+  .page{
+    padding-top:88px;
   }
 
-  .overview,
-  .benefitsGrid{
-    grid-template-columns:1fr;
+  /* Wrappers */
+
+  .overviewSection,
+  .featuresSection,
+  .processWrapper,
+  .statsWrapper,
+  .faqWrapper,
+  .ctaWrapper,
+  .relatedWrapper{
+    padding:90px 0;
   }
+
+  /* Overview */
+
+  .overview{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  /* Features */
 
   .featuresGrid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
+
+  /* Timeline */
 
   .timeline{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
+
+  .timeline::before{
+    display:none;
+  }
+
+  /* Stats */
 
   .statsGrid{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
-
 }
+
+/* ==========================================================
+   TABLET
+========================================================== */
 
 @media (max-width:768px){
 
-   .page {
-    padding-top: 88px;
-  }
-
   .container{
-    width:min(100% - 24px,100%);
+    width:min(100%,100% - 24px);
   }
 
   .hero{
-    margin-bottom:70px;
+    margin-bottom:0;
   }
 
-  .overview,
-  .features,
-  .benefits,
-  .processSection,
-  .statsSection,
-  .faqSection{
-    margin:80px 0;
+  .overviewSection,
+  .featuresSection,
+  .processWrapper,
+  .statsWrapper,
+  .faqWrapper,
+  .ctaWrapper,
+  .relatedWrapper{
+    padding:70px 0;
+  }
+
+  .overview{
+    gap:40px;
   }
 
   .featuresGrid,
@@ -1079,35 +953,68 @@
   }
 
   .cta{
-    margin:90px 0;
     padding:60px 24px;
   }
-
 }
+
+/* ==========================================================
+   MOBILE
+========================================================== */
 
 @media (max-width:576px){
 
   .sectionTitle,
   .featuresTitle,
-  .benefitsTitle,
   .processTitle,
   .statsTitle,
   .faqTitle{
-
     font-size:2rem;
   }
 
-  .timelineNumber{
+  .sectionText,
+  .featuresText,
+  .processText,
+  .statsText,
+  .faqText{
+    font-size:1rem;
+    line-height:1.9;
+  }
 
+  .timelineNumber{
     width:68px;
     height:68px;
-
     font-size:1.2rem;
   }
 
   .statNumber{
-
     font-size:2.6rem;
   }
 
+  .featureCard,
+  .timelineCard,
+  .statCard{
+    border-radius:22px;
+  }
+
+  .faqItem summary{
+    padding:22px 24px;
+    font-size:1rem;
+  }
+
+  .faqItem p{
+    padding:0 24px 24px;
+  }
+
+  .cta{
+    border-radius:28px;
+  }
+
+  .cta h2{
+    font-size:2rem;
+  }
+
+  .ctaButton{
+    width:100%;
+    justify-content:center;
+  }
 }
