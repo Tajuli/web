@@ -75,42 +75,52 @@ export default function Footer() {
   <h4>Services</h4>
 
   <div className={styles.serviceLinks}>
+
+  <div className={styles.serviceColumn}>
+
     <a href="/services/facebook-marketing">
       Facebook Marketing
-    </a>
-
-    <a href="/services/google-ads">
-      Google Ads
     </a>
 
     <a href="/services/tiktok-marketing">
       TikTok Marketing
     </a>
 
-    <a href="/services/seo">
-      SEO Services
-    </a>
-
     <a href="/services/website-development">
       Website Development
-    </a>
-
-    <a href="/services/software-development">
-      Software & App Development
     </a>
 
     <a href="/services/video-production">
       Video Advertisement Production
     </a>
 
+    <a href="/services/content-branding">
+      Content Creation & Branding
+    </a>
+
+  </div>
+
+  <div className={styles.serviceColumn}>
+
+    <a href="/services/google-ads">
+      Google Ads
+    </a>
+
+    <a href="/services/seo">
+      SEO Services
+    </a>
+
+    <a href="/services/software-development">
+      Software & App Development
+    </a>
+
     <a href="/services/social-media-management">
       Social Media Management
     </a>
 
-    <a href="/services/content-branding">
-      Content Creation & Branding
-    </a>
   </div>
+
+</div>
 </div>
 
           {/* Contact */}
