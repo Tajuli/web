@@ -461,45 +461,74 @@ export default async function ServicePage({
 
         </section>
 
-        {/* ================= CTA ================= */}
+        {/* ================= PREMIUM CTA ================= */}
 
-        <section className={styles.ctaWrapper}>
+<section className={styles.ctaWrapper}>
+  <div className={styles.container}>
+    <section className={styles.cta}>
 
-          <div className={styles.container}>
+      <div className={styles.ctaGlow}></div>
+      <div className={styles.ctaGlow2}></div>
 
-            <article>
+      <div className={styles.ctaBadge}>
+        🚀 Limited Free Strategy Session
+      </div>
 
-              <section className={styles.cta}>
+      <div className={styles.ctaContent}>
 
-                <div className={styles.ctaContent}>
+        <h2>
+          Ready to Scale Your Business Faster?
+        </h2>
 
-                  <h2>
-                    Ready to Grow Your Business?
-                  </h2>
+        <p>
+          Stop wasting budget on marketing that doesn't convert.
+          Get a custom growth strategy from our experts and
+          discover how to generate more leads, more sales, and
+          sustainable long-term growth.
+        </p>
 
-                  <p>
-                    Let's discuss your business goals
-                    and build a strategy that delivers
-                    measurable growth, quality leads,
-                    and long-term success.
-                  </p>
+        <div className={styles.ctaStats}>
 
-                  <Link
-                    href="/contact"
-                    className={styles.ctaButton}
-                  >
-                    Get Free Consultation
-                  </Link>
-
-                </div>
-
-              </section>
-
-            </article>
-
+          <div className={styles.stat}>
+            <strong>24h</strong>
+            <span>Response Time</span>
           </div>
 
-        </section>
+          <div className={styles.stat}>
+            <strong>100%</strong>
+            <span>Custom Strategy</span>
+          </div>
+
+          <div className={styles.stat}>
+            <strong>Free</strong>
+            <span>Consultation</span>
+          </div>
+
+        </div>
+
+        <div className={styles.ctaActions}>
+
+          <Link
+            href="/contact"
+            className={styles.ctaButton}
+          >
+            Get Free Consultation →
+          </Link>
+
+          <Link
+            href="/works"
+            className={styles.secondaryButton}
+          >
+            View Our Portfolio
+          </Link>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+</section>
 
         {/* ================= RELATED SERVICES ================= */}
 
