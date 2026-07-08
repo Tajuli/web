@@ -1,2 +1,106 @@
 import styles from "./Contact.module.css";
-export default function Contact(){return(<section id="contact" className={`section ${styles.section}`}><div className="site-container"><div className={styles.panel}><div className={styles.copy}><p className="eyebrow">Contact</p><h2 className="section-title">Ready for a website and marketing system that actually feels premium and performs properly?</h2><p className="section-text">Let’s talk about your brand, your offer, where your current funnel is leaking, and how PrimeDigitor can help you build a cleaner growth system.</p></div><div className={styles.side}><div className={styles.card}><h3>Book a strategy call</h3><p>Tell us about your business, current marketing setup and what kind of growth you want next.</p><div className={styles.actions}><a href="mailto:hello@primedigitor.com" className="btn btn-primary">Email PrimeDigitor</a><a href="#services" className="btn btn-secondary">See Services</a></div></div></div></div></div></section>)}
+import { MessageCircle, Mail, Globe, Clock } from "lucide-react";
+
+export default function Contact() {
+  return (
+    <section id="contact" className={`section ${styles.section}`}>
+      <div className="site-container">
+        <div className={styles.panel}>
+
+          {/* Left */}
+          <div className={styles.copy}>
+            <p className="eyebrow">Contact</p>
+
+            <h2 className="section-title">
+              Let's Build Your
+              <br />
+              Next Growth Story.
+            </h2>
+
+            <p className="section-text">
+              Whether you need a high-converting website, SEO, paid advertising,
+              or a complete digital growth strategy, our team is ready to help
+              your business grow faster.
+            </p>
+
+            <div className={styles.features}>
+              <div>✓ Free Strategy Consultation</div>
+              <div>✓ Reply Within 24 Hours</div>
+              <div>✓ Available Worldwide</div>
+              <div>✓ No Long-Term Contracts</div>
+            </div>
+
+            <div className={styles.actions}>
+              <a
+                href="https://wa.me/8801XXXXXXXXX?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                <MessageCircle size={18} />
+                Chat on WhatsApp
+              </a>
+
+              <a
+                href="mailto:hello@primedigitor.com?subject=Project Inquiry"
+                className="btn btn-secondary"
+              >
+                <Mail size={18} />
+                Email Us
+              </a>
+            </div>
+          </div>
+
+          {/* Right */}
+          <div className={styles.side}>
+            <div className={styles.card}>
+
+              <h3>Get In Touch</h3>
+
+              <div className={styles.info}>
+
+                <div className={styles.infoItem}>
+                  <Mail size={18} />
+                  <div>
+                    <span>Email</span>
+                    <strong>hello@primedigitor.com</strong>
+                  </div>
+                </div>
+
+                <div className={styles.infoItem}>
+                  <Globe size={18} />
+                  <div>
+                    <span>Availability</span>
+                    <strong>Worldwide</strong>
+                  </div>
+                </div>
+
+                <div className={styles.infoItem}>
+                  <Clock size={18} />
+                  <div>
+                    <span>Response Time</span>
+                    <strong>Within 24 Hours</strong>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className={styles.tags}>
+                <span>SEO</span>
+                <span>Google Ads</span>
+                <span>Facebook Ads</span>
+                <span>Website</span>
+                <span>Software</span>
+                <span>Branding</span>
+                <span>Content</span>
+                <span>Social Media</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
