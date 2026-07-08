@@ -59,8 +59,9 @@
 
   display:grid;
   grid-template-columns:
-minmax(0,1fr)
-420px;
+   minmax(0,1fr)
+   420px;
+  gap:70px;
 
   align-items: start;
 
