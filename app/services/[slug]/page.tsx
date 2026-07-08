@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 
 import Navbar from "@/components/sections/Navbar/Navbar";
 import Footer from "@/components/sections/Footer/Footer";
-
 import RelatedServices from "@/components/services/RelatedServices";
 
 import { services } from "@/data/services";
@@ -112,393 +111,516 @@ export default async function ServicePage({
         {/* ================= HERO ================= */}
 
         <section className={styles.hero}>
-  <Image
-    src={service.heroImage}
-    alt={service.title}
-    width={1600}
-    height={900}
-    priority
-    className={styles.heroBanner}
-  />
-</section>
+          <Image
+            src={service.heroImage}
+            alt={service.title}
+            width={1600}
+            height={900}
+            priority
+            className={styles.heroBanner}
+          />
+        </section>
 
-        <div className={styles.container}>
+        {/* ================= OVERVIEW ================= */}
 
-          <article>
-            
-            {/* ================= OVERVIEW ================= */}
+        <section className={styles.overviewSection}>
+          <div className={styles.container}>
 
-<section className={styles.overview}>
+            <article>
 
-  {/* LEFT */}
-  <div className={styles.overviewContent}>
-    <h2 className={styles.sectionTitle}>
-      Why Choose {service.title}?
-    </h2>
+              <section className={styles.overview}>
 
-    <p className={styles.sectionText}>
-      {service.description}
-    </p>
+                {/* LEFT */}
 
-    <p className={styles.sectionText}>
-      Every business has unique goals. That's why we create customized
-      strategies focused on measurable growth, better customer acquisition,
-      and long-term success.
-    </p>
-  </div>
+                <div className={styles.overviewContent}>
 
-  {/* RIGHT */}
-  <div className={styles.overviewContent}>
-    <h2 className={styles.sectionTitle}>
-      Why Businesses Choose PrimeDigitor
-    </h2>
+                  <h2 className={styles.sectionTitle}>
+                    Why Choose {service.title}?
+                  </h2>
 
-    <p className={styles.sectionText}>
-      We combine creativity, experience, and data-driven marketing to help
-      businesses achieve sustainable growth and higher ROI.
-    </p>
+                  <p className={styles.sectionText}>
+                    {service.description}
+                  </p>
 
-    <div className={styles.benefitList}>
-      {service.benefits.map((benefit, index) => (
-        <div key={index} className={styles.benefitItem}>
-          <span className={styles.check}>✓</span>
-          <span>{benefit}</span>
-        </div>
-      ))}
-    </div>
-  </div>
+                  <p className={styles.sectionText}>
+                    Every business has unique goals.
+                    That's why we create customized,
+                    data-driven strategies focused on
+                    measurable growth, stronger brand
+                    visibility, higher-quality leads,
+                    and long-term business success.
+                  </p>
 
-</section>
+                </div>
 
-{/* ================= FEATURES ================= */}
+                {/* RIGHT */}
 
-{service.features.length > 0 && (
+                <div className={styles.overviewContent}>
 
-<section className={styles.features}>
+                  <h2 className={styles.sectionTitle}>
+                    Why Businesses Choose PrimeDigitor
+                  </h2>
 
-  <div className={styles.featuresHeader}>
+                  <p className={styles.sectionText}>
+                    We combine creativity, marketing
+                    expertise, and performance-focused
+                    strategies to maximize every
+                    advertising investment and deliver
+                    sustainable business growth.
+                  </p>
 
-    <h2 className={styles.featuresTitle}>
-      What's Included
-    </h2>
+                  <div className={styles.benefitList}>
 
-    <p className={styles.featuresText}>
-      Everything you need to achieve better results
-      and sustainable business growth.
-    </p>
+                    {service.benefits.map(
+                      (benefit, index) => (
 
-  </div>
+                        <div
+                          key={index}
+                          className={styles.benefitItem}
+                        >
 
-  <div className={styles.featuresGrid}>
+                          <span className={styles.check}>
+                            ✓
+                          </span>
 
-    {service.features.map((feature, index) => (
+                          <span>
+                            {benefit}
+                          </span>
 
-      <div
-        key={index}
-        className={styles.featureCard}
-      >
+                        </div>
 
-        <div className={styles.featureIcon}>
-          {String(index + 1).padStart(2, "0")}
-        </div>
+                      )
+                    )}
 
-        <h3 className={styles.featureTitle}>
-          {feature.title}
-        </h3>
+                  </div>
 
-        <p className={styles.featureDescription}>
-          {feature.description}
-        </p>
+                </div>
 
-        <div className={styles.featureLine} />
+              </section>
 
-      </div>
+            </article>
 
-    ))}
+          </div>
+        </section>
 
-  </div>
+        {/* ================= WHAT'S INCLUDED ================= */}
 
-</section>
+        <section className={styles.featuresSection}>
 
-)}
+          <div className={styles.container}>
 
+            <article>
 
-{/* ================= PROCESS ================= */}
+              {service.features.length > 0 && (
 
-{service.process.length > 0 && (
+                <section className={styles.features}>
 
-<section className={styles.processSection}>
+                  <div className={styles.featuresHeader}>
 
-  <div className={styles.processHeader}>
+                    <h2 className={styles.featuresTitle}>
+                      What's Included
+                    </h2>
 
-    <h2 className={styles.processTitle}>
-      Our Working Process
-    </h2>
+                    <p className={styles.featuresText}>
+                      Everything you need to achieve
+                      better results and sustainable
+                      business growth.
+                    </p>
 
-    <p className={styles.processText}>
-      A transparent workflow designed to deliver
-      measurable results from planning to execution.
-    </p>
+                  </div>
 
-  </div>
+                  <div className={styles.featuresGrid}>
+                                        {service.features.map(
+                      (feature, index) => (
 
-  <div className={styles.timeline}>
+                        <div
+                          key={index}
+                          className={styles.featureCard}
+                        >
 
-    {service.process.map((step, index) => (
+                          <div className={styles.featureIcon}>
+                            {String(index + 1).padStart(2, "0")}
+                          </div>
 
-      <div
-        key={index}
-        className={styles.timelineItem}
-      >
+                          <h3 className={styles.featureTitle}>
+                            {feature.title}
+                          </h3>
 
-        <div className={styles.timelineNumber}>
-          {index + 1}
-        </div>
+                          <p className={styles.featureDescription}>
+                            {feature.description}
+                          </p>
 
-        <div className={styles.timelineCard}>
+                          <div className={styles.featureLine} />
 
-          <h3>
-            {step.title}
-          </h3>
+                        </div>
 
-          <p>
-            {step.description}
-          </p>
+                      )
+                    )}
 
-        </div>
+                  </div>
 
-      </div>
+                </section>
 
-    ))}
+              )}
 
-  </div>
+            </article>
 
-</section>
+          </div>
 
-)}
-            {/* ================= STATS ================= */}
+        </section>
 
-{service.stats.length > 0 && (
+        {/* ================= PROCESS ================= */}
 
-<section className={styles.statsSection}>
+        <section className={styles.processSection}>
 
-  <div className={styles.statsHeader}>
+          <div className={styles.container}>
 
-    <h2 className={styles.statsTitle}>
-      Proven Results
-    </h2>
+            <article>
 
-    <p className={styles.statsText}>
-      Numbers that reflect our commitment to quality,
-      performance, and long-term client success.
-    </p>
+              {service.process.length > 0 && (
 
-  </div>
+                <section className={styles.process}>
 
-  <div className={styles.statsGrid}>
+                  <div className={styles.processHeader}>
 
-    {service.stats.map((item, index) => (
+                    <h2 className={styles.processTitle}>
+                      Our Working Process
+                    </h2>
 
-      <div
-        key={index}
-        className={styles.statCard}
-      >
+                    <p className={styles.processText}>
+                      A transparent workflow designed
+                      to deliver measurable results
+                      from planning to execution.
+                    </p>
 
-        <span className={styles.statNumber}>
-          {item.value}
-        </span>
+                  </div>
 
-        <span className={styles.statLabel}>
-          {item.label}
-        </span>
+                  <div className={styles.timeline}>
 
-      </div>
+                    {service.process.map(
+                      (step, index) => (
 
-    ))}
+                        <div
+                          key={index}
+                          className={styles.timelineItem}
+                        >
 
-  </div>
+                          <div className={styles.timelineNumber}>
+                            {index + 1}
+                          </div>
 
-</section>
+                          <div className={styles.timelineCard}>
 
-)}
+                            <h3>
+                              {step.title}
+                            </h3>
 
-{/* ================= FAQ ================= */}
+                            <p>
+                              {step.description}
+                            </p>
 
-{service.faqs.length > 0 && (
+                          </div>
 
-<section className={styles.faqSection}>
+                        </div>
 
-  <div className={styles.faqHeader}>
+                      )
+                    )}
 
-    <h2 className={styles.faqTitle}>
-      Frequently Asked Questions
-    </h2>
+                  </div>
 
-    <p className={styles.faqText}>
-      Everything you need to know before getting
-      started with our service.
-    </p>
+                </section>
 
-  </div>
+              )}
 
-  <div className={styles.faq}>
+            </article>
 
-    {service.faqs.map((faq, index) => (
+          </div>
 
-      <details
-        key={index}
-        className={styles.faqItem}
-      >
+        </section>
 
-        <summary>
-          {faq.question}
-        </summary>
+        {/* ================= PROVEN RESULTS ================= */}
 
-        <p>
-          {faq.answer}
-        </p>
+        <section className={styles.statsWrapper}>
 
-      </details>
+          <div className={styles.container}>
 
-    ))}
+            <article>
 
-  </div>
+              {service.stats.length > 0 && (
 
-</section>
+                <section className={styles.statsSection}>
 
-)}
+                  <div className={styles.statsHeader}>
 
-{/* ================= CTA ================= */}
+                    <h2 className={styles.statsTitle}>
+                      Proven Results
+                    </h2>
 
-<section className={styles.cta}>
+                    <p className={styles.statsText}>
+                      Numbers that reflect our
+                      commitment to quality,
+                      performance, and long-term
+                      client success.
+                    </p>
 
-  <div className={styles.ctaContent}>
+                  </div>
 
-    <h2>
-      Ready to Grow Your Business?
-    </h2>
+                  <div className={styles.statsGrid}>
 
-    <p>
-      Let's discuss your business goals and build
-      a strategy that delivers measurable growth,
-      quality leads, and long-term success.
-    </p>
+                    {service.stats.map(
+                      (item, index) => (
 
-    <Link
-      href="/contact"
-      className={styles.ctaButton}
-    >
-      Get Free Consultation
-    </Link>
+                        <div
+                          key={index}
+                          className={styles.statCard}
+                        >
 
-  </div>
+                          <span className={styles.statNumber}>
+                            {item.value}
+                          </span>
 
-</section>
+                          <span className={styles.statLabel}>
+                            {item.label}
+                          </span>
 
-{/* ================= RELATED SERVICES ================= */}
+                        </div>
 
-{service.related.length > 0 && (
+                      )
+                    )}
 
-<section className={styles.related}>
+                  </div>
 
-  <h2 className={styles.sectionTitle}>
-    Related Services
-  </h2>
+                </section>
 
-  <RelatedServices
-    currentSlug={slug}
-    related={service.related}
-  />
+              )}
 
-</section>
+            </article>
 
-)}
+          </div>
 
-</article>
+        </section>
 
-</div>
+                {/* ================= FAQ ================= */}
 
-{/* ================= SERVICE SCHEMA ================= */}
+        <section className={styles.faqWrapper}>
 
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
+          <div className={styles.container}>
 
-      "@type": "Service",
+            <article>
 
-      name: service.title,
+              {service.faqs.length > 0 && (
 
-      description: service.description,
+                <section className={styles.faqSection}>
 
-      image: `${SITE_URL}${service.heroImage}`,
+                  <div className={styles.faqHeader}>
 
-      serviceType: service.category,
+                    <h2 className={styles.faqTitle}>
+                      Frequently Asked Questions
+                    </h2>
 
-      url: pageUrl,
+                    <p className={styles.faqText}>
+                      Everything you need to know
+                      before getting started with our
+                      service.
+                    </p>
 
-      provider: {
-        "@type": "Organization",
-        name: "PrimeDigitor",
-        url: SITE_URL,
-      },
+                  </div>
 
-      areaServed: {
-        "@type": "Country",
-        name: "Bangladesh",
-      },
-    }),
-  }}
-/>
+                  <div className={styles.faq}>
 
-{/* ================= FAQ SCHEMA ================= */}
+                    {service.faqs.map(
+                      (faq, index) => (
 
-{service.faqs.length > 0 && (
+                        <details
+                          key={index}
+                          className={styles.faqItem}
+                        >
 
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
+                          <summary>
+                            {faq.question}
+                          </summary>
 
-      "@context":
-        "https://schema.org",
+                          <p>
+                            {faq.answer}
+                          </p>
 
-      "@type":
-        "FAQPage",
+                        </details>
 
-      mainEntity:
+                      )
+                    )}
 
-        service.faqs.map((faq) => ({
+                  </div>
 
-          "@type":
-            "Question",
+                </section>
 
-          name:
-            faq.question,
+              )}
 
-          acceptedAnswer: {
+            </article>
 
-            "@type":
-              "Answer",
+          </div>
 
-            text:
-              faq.answer,
+        </section>
 
-          },
+        {/* ================= CTA ================= */}
 
-        })),
+        <section className={styles.ctaWrapper}>
 
-    }),
-  }}
-/>
+          <div className={styles.container}>
 
-)}
+            <article>
 
-</main>
+              <section className={styles.cta}>
 
-<Footer />
+                <div className={styles.ctaContent}>
 
-</>
-);
+                  <h2>
+                    Ready to Grow Your Business?
+                  </h2>
+
+                  <p>
+                    Let's discuss your business goals
+                    and build a strategy that delivers
+                    measurable growth, quality leads,
+                    and long-term success.
+                  </p>
+
+                  <Link
+                    href="/contact"
+                    className={styles.ctaButton}
+                  >
+                    Get Free Consultation
+                  </Link>
+
+                </div>
+
+              </section>
+
+            </article>
+
+          </div>
+
+        </section>
+
+        {/* ================= RELATED SERVICES ================= */}
+
+        <section className={styles.relatedWrapper}>
+
+          <div className={styles.container}>
+
+            <article>
+
+              {service.related.length > 0 && (
+
+                <section className={styles.related}>
+
+                  <h2 className={styles.sectionTitle}>
+                    Related Services
+                  </h2>
+
+                  <RelatedServices
+                    currentSlug={slug}
+                    related={service.related}
+                  />
+
+                </section>
+
+              )}
+
+            </article>
+
+          </div>
+
+        </section>
+
+        {/* ================= SERVICE SCHEMA ================= */}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+
+              "@type": "Service",
+
+              name: service.title,
+
+              description:
+                service.description,
+
+              image:
+                `${SITE_URL}${service.heroImage}`,
+
+              serviceType:
+                service.category,
+
+              url: pageUrl,
+
+              provider: {
+                "@type": "Organization",
+
+                name: "PrimeDigitor",
+
+                url: SITE_URL,
+              },
+
+              areaServed: {
+                "@type": "Country",
+
+                name: "Bangladesh",
+              },
+            }),
+          }}
+        />
+
+        {/* ================= FAQ SCHEMA ================= */}
+
+        {service.faqs.length > 0 && (
+
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+
+                "@context":
+                  "https://schema.org",
+
+                "@type":
+                  "FAQPage",
+
+                mainEntity:
+
+                  service.faqs.map(
+                    (faq) => ({
+
+                      "@type":
+                        "Question",
+
+                      name:
+                        faq.question,
+
+                      acceptedAnswer: {
+
+                        "@type":
+                          "Answer",
+
+                        text:
+                          faq.answer,
+
+                      },
+
+                    })
+                  ),
+
+              }),
+            }}
+          />
+
+        )}
+
+      </main>
+
+      <Footer />
+
+    </>
+  );
 }
