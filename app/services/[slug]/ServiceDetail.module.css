@@ -78,7 +78,7 @@
   line-height:1.1;
   font-weight:800;
 
-  color: #111827;
+  color: #4b5563;
 }
 
 .overviewContent{
@@ -125,7 +125,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:2;
 
@@ -221,7 +221,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:1.8;
 }
@@ -260,7 +260,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   font-size:1.08rem;
 
@@ -378,7 +378,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:1.9;
 }
@@ -448,7 +448,7 @@
 
 .benefitsText{
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:2;
 
@@ -555,7 +555,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:2;
 }
@@ -801,7 +801,7 @@
 
   margin:0;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:2;
 }
@@ -863,7 +863,7 @@
   padding:
   0 32px 30px;
 
-  color:var(--text-light);
+  color: #4b5563;
 
   line-height:2;
 }
@@ -937,8 +937,7 @@
 
   line-height:2;
 
-  color:
-  rgba(255,255,255,.92);
+  color: #4b5563;
 }
 
 .ctaButton{
