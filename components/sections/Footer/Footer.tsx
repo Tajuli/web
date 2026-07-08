@@ -82,16 +82,32 @@ export default function Footer() {
               Google Ads
             </a>
 
-            <a href="/services/seo-services">
+            <a href="/services/tiktok-marketing">
+              TikTok Marketing
+            </a>
+
+            <a href="/services/seo">
               SEO Services
             </a>
 
-            <a href="/services/web-development">
-              Website Development
+            <a href="/services/website-development">
+              Website Design & Development
             </a>
 
             <a href="/services/software-development">
-              Software Development
+              Software & App Development
+            </a>
+
+            <a href="/services/video-production">
+              Video Advertisement Production
+            </a>
+
+            <a href="/services/social-media-management">
+              Social Media Management
+            </a>
+
+            <a href="/services/content-branding">
+              Content Creation & Branding
             </a>
           </div>
 
