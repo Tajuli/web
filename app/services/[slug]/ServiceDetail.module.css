@@ -61,7 +61,7 @@
   grid-template-columns:
    minmax(0,1fr)
    420px;
-  gap:70px;
+  gap:30px;
 
   align-items: start;
 
