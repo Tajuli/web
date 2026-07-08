@@ -130,9 +130,7 @@ export default async function ServicePage({
 <section className={styles.overview}>
 
   {/* LEFT */}
-
   <div className={styles.overviewContent}>
-
     <h2 className={styles.sectionTitle}>
       Why Choose {service.title}?
     </h2>
@@ -142,49 +140,31 @@ export default async function ServicePage({
     </p>
 
     <p className={styles.sectionText}>
-      Every business has unique goals. That's why we
-      create customized strategies focused on
-      measurable growth, better customer acquisition,
-      and long-term success. Our experienced team
-      combines creativity, technology, and data-driven
-      decisions to deliver outstanding results.
+      Every business has unique goals. That's why we create customized
+      strategies focused on measurable growth, better customer acquisition,
+      and long-term success.
     </p>
-
   </div>
 
   {/* RIGHT */}
-
-  <div className={styles.overviewCard}>
-
-    <h3 className={styles.overviewTitle}>
+  <div className={styles.overviewContent}>
+    <h2 className={styles.sectionTitle}>
       Why Businesses Choose PrimeDigitor
-    </h3>
+    </h2>
 
     <p className={styles.sectionText}>
-      We combine experience, creativity, and
-      performance-focused strategies to help
-      businesses grow faster while maximizing every
-      marketing investment.
+      We combine creativity, experience, and data-driven marketing to help
+      businesses achieve sustainable growth and higher ROI.
     </p>
 
-    <div className={styles.overviewList}>
-
+    <div className={styles.benefitList}>
       {service.benefits.map((benefit, index) => (
-
-        <div
-          key={index}
-          className={styles.overviewItem}
-        >
+        <div key={index} className={styles.benefitItem}>
           <span className={styles.check}>✓</span>
-
-          <p>{benefit}</p>
-
+          <span>{benefit}</span>
         </div>
-
       ))}
-
     </div>
-
   </div>
 
 </section>
