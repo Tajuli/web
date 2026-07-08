@@ -225,6 +225,91 @@
 
   line-height:1.8;
 }
+
+/* ==========================================================
+   WHAT'S INCLUDED
+========================================================== */
+
+.includesSection{
+  margin:120px 0;
+}
+
+.includesGrid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px;
+}
+
+.includeCard{
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  padding:28px;
+
+  border-radius:24px;
+
+  background:var(--card);
+
+  border:1px solid rgba(0,0,0,.06);
+
+  transition:
+    transform .35s,
+    box-shadow .35s,
+    border-color .35s;
+}
+
+.includeCard:hover{
+
+  transform:translateY(-8px);
+
+  border-color:
+    rgba(var(--primary-rgb),.20);
+
+  box-shadow:
+    0 20px 45px
+    rgba(0,0,0,.08);
+}
+
+.includeIcon{
+
+  flex-shrink:0;
+
+  width:54px;
+  height:54px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:16px;
+
+  background:
+    rgba(var(--primary-rgb),.12);
+
+  color:var(--primary);
+
+  font-size:1.2rem;
+  font-weight:700;
+}
+
+.includeCard h3{
+
+  margin:0;
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  color:var(--heading);
+
+  line-height:1.5;
+}
+
+
 /* ==========================================================
    FEATURES
 ========================================================== */
