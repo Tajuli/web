@@ -91,7 +91,7 @@ export default function Footer() {
             </a>
 
             <a href="/services/website-development">
-              Website Design & Development
+              Website Development
             </a>
 
             <a href="/services/software-development">
@@ -108,29 +108,6 @@ export default function Footer() {
 
             <a href="/services/content-branding">
               Content Creation & Branding
-            </a>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4>Company</h4>
-
-            <a href="/">Home</a>
-
-            <a href="/about">
-              About
-            </a>
-
-            <a href="/services">
-              Services
-            </a>
-
-            <a href="/blog">
-              Blog
-            </a>
-
-            <a href="/contact">
-              Contact
             </a>
           </div>
 
