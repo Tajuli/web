@@ -1,2 +1,159 @@
 import styles from "./Footer.module.css";
-export default function Footer(){return(<footer className={styles.footer}><div className={`site-container ${styles.grid}`}><div><div className={styles.brand}>Prime<span>Digitor</span></div><p className={styles.copy}>Growth-driven digital marketing, premium websites, lead generation and conversion systems for ambitious brands.</p></div><div className={styles.col}><h4>Services</h4><a href="#services">SEO</a><a href="#services">Paid Ads</a><a href="#services">Website Design</a></div><div className={styles.col}><h4>Explore</h4><a href="#work">Our Work</a><a href="#stories">Stories</a><a href="#faq">FAQ</a></div><div className={styles.col}><h4>Contact</h4><a href="#contact">Book a Call</a><a href="mailto:hello@primedigitor.com">hello@primedigitor.com</a></div></div></footer>)}
+import {
+  Facebook,
+  Linkedin,
+  Instagram,
+  Youtube,
+  ArrowRight,
+} from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <div className="site-container">
+
+        {/* CTA */}
+        <div className={styles.cta}>
+          <div>
+            <span className={styles.badge}>
+              🚀 Ready to Grow?
+            </span>
+
+            <h2>
+              Let's Build Your
+              <span> Next Growth Story</span>
+            </h2>
+
+            <p>
+              Whether you need SEO, Paid Ads, Website Development or Branding,
+              our team is ready to help your business grow faster.
+            </p>
+          </div>
+
+          <a href="#contact" className={styles.ctaButton}>
+            Book Free Consultation
+            <ArrowRight size={18} />
+          </a>
+        </div>
+
+        {/* Main Grid */}
+        <div className={styles.grid}>
+
+          {/* Brand */}
+          <div className={styles.brandCol}>
+            <h3 className={styles.logo}>
+              Prime<span>Digitor</span>
+            </h3>
+
+            <p>
+              Premium Digital Marketing Agency helping businesses generate more
+              leads, sales and long-term growth through modern marketing
+              strategies.
+            </p>
+
+            <div className={styles.socials}>
+              <a href="#">
+                <Facebook size={18} />
+              </a>
+
+              <a href="#">
+                <Instagram size={18} />
+              </a>
+
+              <a href="#">
+                <Linkedin size={18} />
+              </a>
+
+              <a href="#">
+                <Youtube size={18} />
+              </a>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4>Services</h4>
+
+            <a href="/services/facebook-marketing">
+              Facebook Marketing
+            </a>
+
+            <a href="/services/google-ads">
+              Google Ads
+            </a>
+
+            <a href="/services/seo-services">
+              SEO Services
+            </a>
+
+            <a href="/services/web-development">
+              Website Development
+            </a>
+
+            <a href="/services/software-development">
+              Software Development
+            </a>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4>Company</h4>
+
+            <a href="/">Home</a>
+
+            <a href="/about">
+              About
+            </a>
+
+            <a href="/services">
+              Services
+            </a>
+
+            <a href="/blog">
+              Blog
+            </a>
+
+            <a href="/contact">
+              Contact
+            </a>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4>Get In Touch</h4>
+
+            <p>hello@primedigitor.com</p>
+
+            <p>Available Worldwide</p>
+
+            <a href="#contact" className={styles.contactBtn}>
+              Start Your Project
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className={styles.bottom}>
+          <p>
+            © {new Date().getFullYear()} PrimeDigitor. All Rights Reserved.
+          </p>
+
+          <div className={styles.legal}>
+            <a href="/privacy-policy">
+              Privacy Policy
+            </a>
+
+            <a href="/terms">
+              Terms
+            </a>
+
+            <a href="/cookies">
+              Cookies
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
+}
