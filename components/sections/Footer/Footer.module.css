@@ -100,31 +100,6 @@
     gap:60px;
 }
 
-.serviceLinks{
-    display:flex;
-    gap:50px;
-}
-
-.serviceColumn{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    flex:1;
-}
-
-.serviceColumn a{
-    display:block;
-    color:rgba(255,255,255,.72);
-    text-decoration:none;
-    line-height:1.55;
-    transition:.3s;
-}
-
-.serviceColumn a:hover{
-    color:var(--cyan);
-    transform:translateX(6px);
-}
-
 .brandCol p{
     color:rgba(255,255,255,.72);
     line-height:1.9;
@@ -244,10 +219,6 @@ padding:40px 30px;
 .grid{
 grid-template-columns:1fr 1fr;
 gap:40px;
-}
-
-.serviceLinks{
-    grid-template-columns:1fr;
 }
 
 .bottom{
