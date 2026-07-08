@@ -32,7 +32,7 @@ export default function Contact() {
 
             <div className={styles.actions}>
               <a
-  href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20digital%20marketing%20services.%20I'd%20like%20to%20discuss%20my%20project."
+  href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project%20and%20get%20a%20free%20consultation."
   target="_blank"
   rel="noopener noreferrer"
   className="btn btn-primary"
@@ -43,7 +43,7 @@ export default function Contact() {
                 <MessageCircle size={18} />
                 Chat on WhatsApp
               <a
-  href="mailto:hello@primedigitor.com?subject=Project Inquiry"
+  href="mailto:hello@primedigitor.com?subject=Project Inquiry&body=Hello PrimeDigitor,%0A%0AI'm interested in your services."
   className="btn btn-secondary"
 >
   <Mail size={18} />
