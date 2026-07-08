@@ -58,10 +58,8 @@
 .overview{
 
   display:grid;
-
-   grid-template-columns:1.3fr 1fr;
-
-  gap:70px;
+   grid-template-columns:70% 30%;
+    gap:70px;
 
   align-items: start;
 
