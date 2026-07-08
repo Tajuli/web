@@ -129,6 +129,8 @@ export default async function ServicePage({
 
 <section className={styles.overview}>
 
+  {/* LEFT */}
+
   <div className={styles.overviewContent}>
 
     <h2 className={styles.sectionTitle}>
@@ -150,43 +152,36 @@ export default async function ServicePage({
 
   </div>
 
+  {/* RIGHT */}
+
   <div className={styles.overviewCard}>
 
     <h3 className={styles.overviewTitle}>
-  What You'll Get
-</h3>
+      Why Businesses Choose PrimeDigitor
+    </h3>
+
+    <p className={styles.sectionText}>
+      We combine experience, creativity, and
+      performance-focused strategies to help
+      businesses grow faster while maximizing every
+      marketing investment.
+    </p>
 
     <div className={styles.overviewList}>
 
-      <div className={styles.overviewItem}>
-        <span className={styles.check}>✓</span>
+      {service.benefits.map((benefit, index) => (
 
-        <p>Dedicated Project Manager</p>
-      </div>
+        <div
+          key={index}
+          className={styles.overviewItem}
+        >
+          <span className={styles.check}>✓</span>
 
-      <div className={styles.overviewItem}>
-        <span className={styles.check}>✓</span>
+          <p>{benefit}</p>
 
-        <p>Custom Strategy & Planning</p>
-      </div>
+        </div>
 
-      <div className={styles.overviewItem}>
-        <span className={styles.check}>✓</span>
-
-        <p>Monthly Performance Reports</p>
-      </div>
-
-      <div className={styles.overviewItem}>
-        <span className={styles.check}>✓</span>
-
-        <p>Continuous Optimization</p>
-      </div>
-
-      <div className={styles.overviewItem}>
-        <span className={styles.check}>✓</span>
-
-        <p>ROI Focused Execution</p>
-      </div>
+      ))}
 
     </div>
 
@@ -246,58 +241,6 @@ export default async function ServicePage({
 
 )}
 
-{/* ================= BENEFITS ================= */}
-
-{service.benefits.length > 0 && (
-
-<section className={styles.benefits}>
-
-  <div className={styles.benefitsGrid}>
-
-    <div className={styles.benefitsContent}>
-
-      <h2 className={styles.benefitsTitle}>
-        Why Businesses Choose PrimeDigitor
-      </h2>
-
-      <p className={styles.benefitsText}>
-        We combine experience, creativity, and
-        performance-focused strategies to help
-        businesses grow faster while maximizing
-        every marketing investment.
-      </p>
-
-    </div>
-
-    <div className={styles.benefitsList}>
-
-      {service.benefits.map(
-        (benefit, index) => (
-
-        <div
-          key={index}
-          className={styles.benefitItem}
-        >
-
-          <div className={styles.benefitIcon}>
-            ✓
-          </div>
-
-          <span>
-            {benefit}
-          </span>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </div>
-
-</section>
-
-)}
 
 {/* ================= PROCESS ================= */}
 
