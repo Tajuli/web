@@ -5,7 +5,6 @@
     radial-gradient(circle at top left,#1f8fff20,transparent 45%),
     radial-gradient(circle at bottom right,#00d4ff18,transparent 40%),
     linear-gradient(180deg,#08111d,#050b15);
-
     padding:90px 0 30px;
     margin-top:120px;
 }
