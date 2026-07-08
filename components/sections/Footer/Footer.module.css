@@ -1,1 +1,245 @@
-.footer{padding:2rem 0 2.8rem;border-top:1px solid rgba(255,255,255,.06);background:#08111d}.grid{display:grid;gap:1.5rem}@media(min-width:992px){.grid{grid-template-columns:1.2fr .8fr .8fr .8fr;align-items:start}} .brand{font-size:1.5rem;font-weight:700;letter-spacing:-.03em}.brand span{color:var(--cyan)}.copy{margin:.7rem 0 0;color:rgba(var(--muted));max-width:30rem;line-height:1.85}.col{display:grid;gap:.6rem}.col h4{margin:0 0 .2rem;font-size:1rem}.col a{color:rgba(255,255,255,.8)}
+.footer{
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at top left,#1f8fff20,transparent 45%),
+    radial-gradient(circle at bottom right,#00d4ff18,transparent 40%),
+    linear-gradient(180deg,#08111d,#050b15);
+
+    padding:90px 0 30px;
+    margin-top:120px;
+}
+
+.footer::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(90deg,transparent,rgba(255,255,255,.03),transparent);
+    pointer-events:none;
+}
+
+.cta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+
+    margin-bottom:70px;
+
+    padding:50px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+}
+
+.badge{
+    display:inline-flex;
+    padding:8px 18px;
+    border-radius:999px;
+    background:rgba(0,212,255,.12);
+    color:#7ee8ff;
+    font-size:.85rem;
+    margin-bottom:18px;
+}
+
+.cta h2{
+    font-size:2.6rem;
+    line-height:1.1;
+    color:#fff;
+    margin-bottom:16px;
+}
+
+.cta h2 span{
+    color:var(--cyan);
+}
+
+.cta p{
+    max-width:620px;
+    color:rgba(255,255,255,.72);
+    line-height:1.9;
+}
+
+.ctaButton{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:18px 30px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#00d4ff,#2d7dff);
+
+    transition:.35s;
+}
+
+.ctaButton:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(0,212,255,.35);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:60px;
+}
+
+.brandCol p{
+    color:rgba(255,255,255,.72);
+    line-height:1.9;
+    margin-top:20px;
+}
+
+.logo{
+    color:#fff;
+    font-size:2rem;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.grid h4{
+    color:#fff;
+    margin-bottom:20px;
+    font-size:1.05rem;
+}
+
+.grid a,
+.grid p{
+    display:block;
+    color:rgba(255,255,255,.72);
+    margin-bottom:14px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.grid a:hover{
+    color:var(--cyan);
+    transform:translateX(6px);
+}
+
+.socials{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+}
+
+.socials a{
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+}
+
+.socials a:hover{
+    transform:translateY(-6px);
+    background:var(--cyan);
+    color:#07111c;
+}
+
+.contactBtn{
+    display:inline-flex!important;
+    margin-top:12px;
+    padding:14px 22px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.bottom{
+    margin-top:70px;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.bottom p{
+    color:rgba(255,255,255,.55);
+}
+
+.legal{
+    display:flex;
+    gap:30px;
+}
+
+.legal a{
+    color:rgba(255,255,255,.55);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.legal a:hover{
+    color:var(--cyan);
+}
+
+@media(max-width:991px){
+
+.cta{
+flex-direction:column;
+text-align:center;
+padding:40px 30px;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.bottom{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+@media(max-width:640px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.cta h2{
+font-size:2rem;
+}
+
+.footer{
+padding-top:70px;
+}
+
+}
