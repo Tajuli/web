@@ -2,15 +2,15 @@
 
 import styles from "./Contact.module.css";
 import {
-  FiMessageCircle,
-  FiMail,
-  FiCalendar,
-  FiCheckCircle,
-  FiArrowRight,
-  FiTrendingUp,
-  FiClock,
-  FiGlobe,
-} from "react-icons/fi";
+  MessageCircle,
+  Mail,
+  Calendar,
+  CheckCircle,
+  ArrowRight,
+  TrendingUp,
+  Clock3,
+  Globe,
+} from "lucide-react";
 
 export default function Contact() {
   return (
