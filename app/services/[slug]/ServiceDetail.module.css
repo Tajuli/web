@@ -58,8 +58,9 @@
 .overview{
 
   display:grid;
-   grid-template-columns:70% 30%;
-    gap:70px;
+  grid-template-columns:
+minmax(0,1fr)
+420px;
 
   align-items: start;
 
