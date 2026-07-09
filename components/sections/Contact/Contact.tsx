@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import styles from "./Contact.module.css";
 import {
   MessageCircle,
@@ -13,16 +14,91 @@ import {
 } from "lucide-react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Something went wrong."
+        );
+      }
+
+      setSuccess(
+        "🎉 Thank you! Your inquiry has been sent successfully."
+      );
+
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      });
+    } catch (err: any) {
+      setError(
+        err.message ||
+          "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section id="contact" className={`section ${styles.section}`}>
+    <section
+      id="contact"
+      className={`section ${styles.section}`}
+    >
       <div className="site-container">
         {/* Background */}
+
         <div className={styles.bgGlow}></div>
         <div className={styles.bgGlow2}></div>
 
         {/* Header */}
+
         <div className={styles.header}>
-          <span className={styles.badge}>LET'S WORK TOGETHER</span>
+          <span className={styles.badge}>
+            LET'S WORK TOGETHER
+          </span>
 
           <h2 className="section-title">
             Ready to Grow Your Business
@@ -31,10 +107,12 @@ export default function Contact() {
           </h2>
 
           <p className="section-text">
-            Whether you need a high-converting website, SEO,
-            Facebook Ads, Google Ads, branding or complete
-            digital growth strategy — PrimeDigitor is ready
-            to help you scale with confidence.
+            Whether you need a high-converting
+            website, SEO, Facebook Ads,
+            Google Ads, branding or complete
+            digital growth strategy —
+            PrimeDigitor is ready to help
+            you scale with confidence.
           </p>
         </div>
 
@@ -54,8 +132,9 @@ export default function Contact() {
             <h3>Chat on WhatsApp</h3>
 
             <p>
-              Fastest way to discuss your project.
-              Average response within minutes.
+              Fastest way to discuss your
+              project. Average response
+              within minutes.
             </p>
 
             <span>
@@ -75,8 +154,9 @@ export default function Contact() {
             <h3>Email Us</h3>
 
             <p>
-              Send your requirements anytime and
-              we'll reply within 24 hours.
+              Send your requirements anytime
+              and we'll reply within
+              24 hours.
             </p>
 
             <span>
@@ -103,9 +183,9 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Main Card */}
+        {/* ===== PART 1 END ===== */}
 
-        <div className={styles.wrapper}>
+                <div className={styles.wrapper}>
           {/* Left */}
 
           <div className={styles.left}>
@@ -152,37 +232,23 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Stats */}
-
             <div className={styles.stats}>
               <div className={styles.statCard}>
                 <TrendingUp size={34} />
-
                 <strong>Growth</strong>
-
-                <span>
-                  Performance Driven
-                </span>
+                <span>Performance Driven</span>
               </div>
 
               <div className={styles.statCard}>
                 <Clock3 size={34} />
-
                 <strong>24 Hours</strong>
-
-                <span>
-                  Average Response
-                </span>
+                <span>Average Response</span>
               </div>
 
               <div className={styles.statCard}>
                 <Globe size={34} />
-
                 <strong>Worldwide</strong>
-
-                <span>
-                  Remote Services
-                </span>
+                <span>Remote Services</span>
               </div>
             </div>
           </div>
@@ -204,33 +270,67 @@ export default function Contact() {
                 and recommend the best solution.
               </p>
 
-              <form>
+              <form onSubmit={handleSubmit}>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
 
                 <input
                   type="text"
+                  name="company"
                   placeholder="Company (Optional)"
+                  value={formData.company}
+                  onChange={handleChange}
                 />
 
                 <textarea
                   rows={6}
+                  name="message"
                   placeholder="Describe your project..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
                 />
+
+                {success && (
+                  <div className={styles.success}>
+                    {success}
+                  </div>
+                )}
+
+                {error && (
+                  <div className={styles.error}>
+                    {error}
+                  </div>
+                )}
 
                 <button
                   type="submit"
                   className={styles.submitBtn}
+                  disabled={loading}
                 >
-                  Send Inquiry
-                  <ArrowRight size={18} />
+                  {loading ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      Send Inquiry
+                      <ArrowRight size={18} />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
