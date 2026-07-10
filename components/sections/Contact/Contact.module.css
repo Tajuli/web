@@ -972,3 +972,27 @@
   }
 
 }
+
+/* ==========================================
+   Mobile Touch Hover (Services Like)
+========================================== */
+
+.touchHover{
+  transform: translateY(-8px);
+  border-color: #7cc242;
+  box-shadow: 0 24px 60px rgba(15,23,42,.10);
+}
+
+.touchHover::after{
+  transform: scaleX(1);
+}
+
+.touchHover .icon{
+  background:#7cc242;
+  color:#fff;
+  transform:rotate(-6deg) scale(1.05);
+}
+
+.touchHover span svg{
+  transform:translateX(6px);
+}
