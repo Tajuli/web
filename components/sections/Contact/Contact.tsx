@@ -103,9 +103,6 @@ export default function Contact() {
     >
       <div className="site-container">
 
-        <div className={styles.bgGlow}></div>
-        <div className={styles.bgGlow2}></div>
-
         <div className={styles.header}>
           <span className={styles.badge}>
             LET'S WORK TOGETHER
