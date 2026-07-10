@@ -99,29 +99,6 @@
 }
 
 .optionCard{
-
-  position:relative;
-
-  display:flex;
-
-  flex-direction:column;
-
-  padding:2rem;
-
-  background:#fff;
-
-  border:1px solid #e5e7eb;
-
-  box-shadow:0 12px 32px rgba(15,23,42,.05);
-
-  transition:
-      transform .3s ease,
-      box-shadow .3s ease,
-      border-color .3s ease;
-
-}
-
-.optionCard{
   position: relative;
   overflow: hidden;
 
@@ -142,10 +119,19 @@
     border-color .3s ease;
 }
 
-.optionCard::after{
+.optionCard:hover{
+  transform:translateY(-10px);
+  border-color:#7cc242;
+  box-shadow:0 30px 70px rgba(0,0,0,.10);
+}
+
+.optionCard:hover::before{
+  height:100%;
+}
+
+.optionCard::before{
   content:"";
   position:absolute;
-
   left:0;
   top:0;
 
@@ -155,11 +141,6 @@
   background:#7cc242;
 
   transition:height .35s ease;
-}
-
-.optionCard:hover::after,
-.touchHover::after{
-  height:100%;
 }
 
 /* =========================================================
@@ -978,16 +959,23 @@
 ========================================== */
 
 .touchHover{
-  transform: translateY(-8px);
-  border-color: #7cc242;
-  box-shadow: 0 24px 60px rgba(15,23,42,.10);
+  transform:translateY(-10px);
+  border-color:#7cc242;
+  box-shadow:0 30px 70px rgba(0,0,0,.10);
 }
 
+.touchHover::before{
+  height:100%;
+}
 
 .touchHover .icon{
   background:#7cc242;
   color:#fff;
   transform:rotate(-6deg) scale(1.05);
+}
+
+.touchHover span{
+  color:#7cc242;
 }
 
 .touchHover span svg{
