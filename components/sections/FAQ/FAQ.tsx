@@ -39,7 +39,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className={styles.section}>
+    <section id="faq" className={`section ${styles.section}`}>
       <div className={`site-container ${styles.wrapper}`}>
         {/* Left Side */}
         <div className={styles.left}>
