@@ -76,7 +76,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 26px 30px;
+  padding: 22px 30px 14px;
 
   text-align: left;
 }
@@ -136,7 +136,7 @@
   line-height: 1.9;
   font-size: 1rem;
 
-  padding: 0 30px 28px;
+  padding: 0 30px 20px;
 }
 
 /* ===========================
