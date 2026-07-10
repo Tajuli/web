@@ -37,7 +37,7 @@
   left: 0;
   bottom: -14px;
 
-  width: 90px;          /* চাইলে 80px বা 100px করতে পারেন */
+  width: 100%;          /* চাইলে 80px বা 100px করতে পারেন */
   height: 6px;          /* globals.css-এর underline height */
 
   border-radius: 999px;
