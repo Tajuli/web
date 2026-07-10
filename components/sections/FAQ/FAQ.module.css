@@ -120,23 +120,29 @@
 =========================== */
 
 .answerWrapper {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .35s ease;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height .35s ease,
+    opacity .25s ease,
+    padding .35s ease;
+  opacity: 0;
 }
 
 .show {
-  grid-template-rows: 1fr;
+  max-height: 300px; /* প্রয়োজনে বাড়াতে পারেন */
+  opacity: 1;
 }
 
 .answer {
-  overflow: hidden;
-
+  padding: 0 30px 22px;
   color: #64748b;
-  line-height: 1.9;
+  line-height: 1.8;
   font-size: 1rem;
+}
 
-  padding: 0 30px 18px;
+.answer p {
+  margin: 0;
 }
 
 /* ===========================
