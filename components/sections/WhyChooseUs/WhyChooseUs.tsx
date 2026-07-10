@@ -49,7 +49,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="section">
+    <section id="whychooseus" className="section">
       <div className="site-container">
         <div className="section-head">
           <span className="eyebrow">Why Choose Us</span>
