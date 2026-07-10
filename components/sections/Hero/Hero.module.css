@@ -247,29 +247,29 @@
 .frameTopLeft {
   top: 0;
   left: 0;
-  border-top: 6px solid #7cc242;
-  border-left: 6px solid #7cc242;
+  border-top: 6px solid #111827;
+  border-left: 6px solid #111827;
 }
 
 .frameTopRight {
   top: 0;
   right: 0;
-  border-top: 6px solid #7cc242;
-  border-right: 6px solid #7cc242;
+  border-top: 6px solid #111827;
+  border-right: 6px solid #111827;
 }
 
 .frameBottomLeft {
   bottom: 0;
   left: 0;
-  border-bottom: 6px solid #7cc242;
-  border-left: 6px solid #7cc242;
+  border-bottom: 6px solid #111827;
+  border-left: 6px solid #111827;
 }
 
 .frameBottomRight {
   bottom: 0;
   right: 0;
-  border-bottom: 6px solid #7cc242;
-  border-right: 6px solid #7cc242;
+  border-bottom: 6px solid #111827;
+  border-right: 6px solid #111827;
 }
 
 /* =========================
