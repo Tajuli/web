@@ -82,18 +82,29 @@ export default function Contact() {
     }
   };
 
+  /* ===== Mobile Touch Hover ===== */
+
+  const handleTouch = (
+    e: React.TouchEvent<HTMLElement>
+  ) => {
+    e.currentTarget.classList.add(styles.touchHover);
+  };
+
+  const handleTouchEnd = (
+    e: React.TouchEvent<HTMLElement>
+  ) => {
+    e.currentTarget.classList.remove(styles.touchHover);
+  };
+
   return (
     <section
       id="contact"
       className={`section ${styles.section}`}
     >
       <div className="site-container">
-        {/* Background */}
 
         <div className={styles.bgGlow}></div>
         <div className={styles.bgGlow2}></div>
-
-        {/* Header */}
 
         <div className={styles.header}>
           <span className={styles.badge}>
@@ -119,11 +130,15 @@ export default function Contact() {
         {/* Contact Options */}
 
         <div className={styles.optionGrid}>
+
           <a
             href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
             target="_blank"
             rel="noopener noreferrer"
             className={styles.optionCard}
+            onTouchStart={handleTouch}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
           >
             <div className={styles.icon}>
               <MessageCircle size={30} />
@@ -146,6 +161,9 @@ export default function Contact() {
           <a
             href="mailto:hello@primedigitor.com"
             className={styles.optionCard}
+            onTouchStart={handleTouch}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
           >
             <div className={styles.icon}>
               <Mail size={30} />
@@ -165,7 +183,12 @@ export default function Contact() {
             </span>
           </a>
 
-          <div className={styles.optionCard}>
+          <div
+            className={styles.optionCard}
+            onTouchStart={handleTouch}
+            onTouchEnd={handleTouchEnd}
+            onTouchCancel={handleTouchEnd}
+          >
             <div className={styles.icon}>
               <Calendar size={30} />
             </div>
@@ -183,11 +206,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* ===== PART 1 END ===== */}
-
-                <div className={styles.wrapper}>
-          {/* Left */}
-
+        <div className={styles.wrapper}>
           <div className={styles.left}>
             <h3>
               Why Businesses Choose PrimeDigitor
@@ -201,7 +220,7 @@ export default function Contact() {
             </p>
 
             <div className={styles.featureList}>
-              <div className={styles.feature}>
+                            <div className={styles.feature}>
                 <CheckCircle size={20} />
                 <span>100% Custom Strategy</span>
               </div>
