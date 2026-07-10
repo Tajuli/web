@@ -32,10 +32,10 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpen(open === index ? null : index);
+    setOpen((prev) => (prev === index ? null : index));
   };
 
   return (
