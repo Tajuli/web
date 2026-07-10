@@ -15,7 +15,7 @@
 
 .left {
   position: sticky;
-  top: 90px; /* Navbar height + ছোট gap */
+   /* Navbar height + ছোট gap */
   align-self: start;
 }
 
