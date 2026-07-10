@@ -76,7 +76,7 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 30px 10px;
+  padding: 10px 30px;
 
   text-align: left;
 }
@@ -135,7 +135,7 @@
 }
 
 .answer {
-  padding: 0 30px 22px;
+  padding: 22px 30px;
   color: #64748b;
   line-height: 1.8;
   font-size: 1rem;
