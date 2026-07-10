@@ -20,11 +20,28 @@
 }
 
 .title {
+  position: relative;
+  display: inline-block;
+
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.1;
   color: #0f172a;
-  margin: 0 0 20px;
+
+  margin: 0 0 36px;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+
+  width: 90px;          /* চাইলে 80px বা 100px করতে পারেন */
+  height: 6px;          /* globals.css-এর underline height */
+
+  border-radius: 999px;
+  background: var(--cyan);
 }
 
 .description {
