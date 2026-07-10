@@ -224,10 +224,10 @@ export default function Hero() {
               <div className={styles.leftBottom}>
                 <div className={styles.actions}>
                   <a
-                    href="#contact"
+                    href="#services"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Book a Free Call
+                    Our Sevices
                   </a>
                   
                     <a
@@ -236,7 +236,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className={`btn btn-primary ${styles.primaryBtn}`}
           >
-                    See Our Work
+                    Book a Free Call
                   </a>
                 </div>
               </div>
