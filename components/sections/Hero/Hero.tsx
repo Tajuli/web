@@ -229,10 +229,13 @@ export default function Hero() {
                   >
                     Book a Free Call
                   </a>
-                  <a
-                    href="#work"
-                    className={`btn btn-secondary ${styles.secondaryBtn}`}
-                  >
+                  
+                    <a
+            href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.primaryBtn}
+          >
                     See Our Work
                   </a>
                 </div>
