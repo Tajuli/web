@@ -104,9 +104,9 @@ export default function RootLayout({
 {`
   var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 
-  Tawk_API.onLoad = function () {
-    Tawk_API.hideWidget(); // Tawk launcher hide
-  };
+Tawk_API = {
+  startHidden: true
+};
 
   (function(){
     var s1=document.createElement("script"),
