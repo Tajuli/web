@@ -11,11 +11,10 @@ declare global {
 
 export default function FloatingChat() {
   const openChat = () => {
-  if (window.Tawk_API) {
-    window.Tawk_API.showWidget();
-    window.Tawk_API.maximize();
-  }
-};
+    if (window.Tawk_API) {
+      window.Tawk_API.maximize();
+    }
+  };
 
   return (
     <button
