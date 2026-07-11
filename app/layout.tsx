@@ -98,7 +98,7 @@ export default function RootLayout({
       <body>
         {children}
 
-        <FloatingChat />
+        
 
         <Script id="tawk-to" strategy="afterInteractive">
   {`
