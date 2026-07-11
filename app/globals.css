@@ -83,12 +83,3 @@ button{
 .btn-secondary:hover{background:#f8fafc}
 .glass-card{background:#fff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 12px 32px rgba(15,23,42,.05)}
 
-.tawk-min-container,
-.tawk-button,
-.tawk-button-circle,
-.tawk-min-chat-icon {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
