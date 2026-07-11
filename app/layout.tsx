@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
-import FloatingChat from "@/components/FloatingChat/FloatingChat";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.primedigitor.com"),
