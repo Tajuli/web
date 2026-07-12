@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import FloatingChat from "@/components/FloatingChat/FloatingChat";
 import CrispChat from "@/components/CrispChat/CrispChat";
 
 export const metadata: Metadata = {
@@ -98,7 +97,6 @@ export default function RootLayout({
       <body>
         {children}
 
-        <FloatingChat />
         <CrispChat />
       </body>
     </html>
