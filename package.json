@@ -14,7 +14,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "resend": "^4.8.0",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "crisp-sdk-web": "^1.x.x"
   },
   "devDependencies": {
     "@types/node": "^24.3.0",
