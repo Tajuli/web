@@ -175,6 +175,126 @@ If you're searching for a trusted Video Production Company in Bangladesh that co
     "Support long-term brand growth",
     "Deliver professional visual storytelling",
   ],
+    process: [
+    {
+      title: "Business Discovery & Creative Strategy",
+      description:
+        "Every successful video project begins with understanding your business. We analyze your brand, products, services, competitors, target audience, campaign objectives, and marketing goals to develop a customized video production strategy.",
+    },
+    {
+      title: "Concept Development & Script Writing",
+      description:
+        "Our creative team develops engaging concepts, compelling scripts, storyboards, and visual storytelling strategies that communicate your message clearly while encouraging viewers to take action.",
+    },
+    {
+      title: "Professional Video Production",
+      description:
+        "Using professional cameras, lighting, audio equipment, drones (when required), and modern production techniques, we capture high-quality footage that reflects your brand professionally.",
+    },
+    {
+      title: "Post-Production & Editing",
+      description:
+        "Our editors enhance every video with cinematic editing, motion graphics, subtitles, color grading, sound design, branding, transitions, animations, and visual effects for maximum impact.",
+    },
+    {
+      title: "Platform Optimization",
+      description:
+        "Each video is optimized for Facebook, Instagram, TikTok, YouTube, LinkedIn, Google Ads, websites, and other digital platforms to maximize engagement and advertising performance.",
+    },
+    {
+      title: "Quality Assurance & Client Review",
+      description:
+        "Before delivery, every video undergoes detailed quality checks covering visuals, audio, branding, subtitles, export quality, and platform compatibility. Client feedback is incorporated to ensure complete satisfaction.",
+    },
+    {
+      title: "Final Delivery & Publishing Support",
+      description:
+        "We deliver videos in platform-specific formats with optimized resolutions, aspect ratios, thumbnails, captions, and publishing recommendations for the best marketing results.",
+    },
+    {
+      title: "Performance Analysis & Future Strategy",
+      description:
+        "For marketing campaigns, we review video performance, audience engagement, watch time, click-through rates, and conversion data to improve future creative strategies and maximize ROI.",
+    },
+  ],
+
+  faqs: [
+    {
+      question: "What types of videos do you produce?",
+      answer:
+        "We produce commercial videos, promotional videos, Facebook Ads, Instagram Reels, TikTok videos, YouTube advertisements, product videos, corporate videos, brand story videos, explainer videos, testimonial videos, event highlight videos, and social media content.",
+    },
+    {
+      question: "Do you provide script writing?",
+      answer:
+        "Yes. Every project can include professional script writing, creative concept development, storyboarding, and marketing-focused messaging to ensure your video communicates effectively.",
+    },
+    {
+      question: "Do you create videos for Facebook Ads and Google Ads?",
+      answer:
+        "Absolutely. We create conversion-focused video advertisements optimized specifically for Facebook Ads, Instagram Ads, Google Ads, YouTube Ads, and TikTok Ads.",
+    },
+    {
+      question: "Can you produce short-form videos?",
+      answer:
+        "Yes. We specialize in short-form vertical videos including Instagram Reels, TikTok videos, YouTube Shorts, and Facebook Reels designed for maximum engagement.",
+    },
+    {
+      question: "How long does video production take?",
+      answer:
+        "Production time depends on project complexity. Simple promotional videos may take a few days, while larger commercial productions involving multiple locations, actors, or animations may require several weeks.",
+    },
+    {
+      question: "Do you provide professional video editing?",
+      answer:
+        "Yes. Our post-production services include editing, color grading, motion graphics, subtitles, sound design, transitions, logo animation, and visual enhancements.",
+    },
+    {
+      question: "Can you create product demonstration videos?",
+      answer:
+        "Yes. Product demonstration videos are one of our specialties. We create engaging videos that showcase product features, benefits, and real-world usage to improve customer confidence and sales.",
+    },
+    {
+      question: "Which video formats do you deliver?",
+      answer:
+        "We deliver optimized videos for websites, YouTube, Facebook, Instagram, TikTok, LinkedIn, Google Ads, digital displays, presentations, and other marketing channels in high-quality formats.",
+    },
+    {
+      question: "Do you provide subtitles and captions?",
+      answer:
+        "Yes. We can add professional subtitles, captions, multilingual text, branded graphics, and animated typography to improve accessibility and viewer engagement.",
+    },
+    {
+      question: "Can you create animated explainer videos?",
+      answer:
+        "Yes. We produce motion graphics, whiteboard animations, explainer videos, animated infographics, and software demonstration videos for businesses across multiple industries.",
+    },
+    {
+      question: "Will my video be optimized for social media?",
+      answer:
+        "Absolutely. Every video is optimized for platform-specific aspect ratios, resolutions, durations, thumbnails, captions, and publishing best practices.",
+    },
+    {
+      question: "Do you help with video marketing strategy?",
+      answer:
+        "Yes. Beyond production, we provide strategic guidance on content planning, campaign objectives, audience targeting, publishing schedules, and video advertising performance.",
+    },
+    {
+      question: "Why choose PrimeDigitor for video production?",
+      answer:
+        "PrimeDigitor combines creative storytelling, professional production, marketing expertise, modern editing techniques, and platform optimization to create videos that generate measurable business results.",
+    },
+    {
+      question: "Can videos improve my marketing performance?",
+      answer:
+        "Yes. Professionally produced videos typically improve engagement, click-through rates, conversion rates, customer trust, brand awareness, and overall advertising performance across digital platforms.",
+    },
+    {
+      question: "How do I get started?",
+      answer:
+        "Contact PrimeDigitor for a free consultation. We'll discuss your goals, target audience, campaign objectives, and recommend a customized video production strategy that aligns with your business needs.",
+    },
+  ],
     related: [
     "content-creation-branding",
     "social-media-management",
