@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 
@@ -29,23 +30,25 @@ export default function Hero() {
     setMounted(true);
   }, []);
 
-  // infinite loop + auto slide
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
     const oneSetWidth = slider.scrollWidth / 3;
-
-    // start from middle set for seamless both-side drag
     slider.scrollLeft = oneSetWidth;
 
     const handleLoop = () => {
-      if (!slider) return;
-
       if (slider.scrollLeft <= oneSetWidth * 0.15) {
         slider.scrollLeft += oneSetWidth;
       } else if (slider.scrollLeft >= oneSetWidth * 1.85) {
         slider.scrollLeft -= oneSetWidth;
+      }
+    };
+
+    const stopAutoSlide = () => {
+      if (autoSlideRef.current) {
+        clearInterval(autoSlideRef.current);
+        autoSlideRef.current = null;
       }
     };
 
@@ -54,40 +57,29 @@ export default function Hero() {
 
       autoSlideRef.current = window.setInterval(() => {
         if (!slider || isDown.current) return;
+
         slider.scrollLeft += 1;
         handleLoop();
-      }, 16); // ~60fps smooth
-    };
-
-    const stopAutoSlide = () => {
-      if (autoSlideRef.current) {
-        window.clearInterval(autoSlideRef.current);
-        autoSlideRef.current = null;
-      }
+      }, 16);
     };
 
     slider.addEventListener("scroll", handleLoop);
+    slider.addEventListener("mouseenter", stopAutoSlide);
+    slider.addEventListener("mouseleave", startAutoSlide);
+
     startAutoSlide();
-
-    const handleMouseEnter = () => stopAutoSlide();
-    const handleMouseLeaveAuto = () => {
-      if (!isDown.current) startAutoSlide();
-    };
-
-    slider.addEventListener("mouseenter", handleMouseEnter);
-    slider.addEventListener("mouseleave", handleMouseLeaveAuto);
 
     return () => {
       slider.removeEventListener("scroll", handleLoop);
-      slider.removeEventListener("mouseenter", handleMouseEnter);
-      slider.removeEventListener("mouseleave", handleMouseLeaveAuto);
+      slider.removeEventListener("mouseenter", stopAutoSlide);
+      slider.removeEventListener("mouseleave", startAutoSlide);
       stopAutoSlide();
     };
   }, []);
 
   const pauseAuto = () => {
     if (autoSlideRef.current) {
-      window.clearInterval(autoSlideRef.current);
+      clearInterval(autoSlideRef.current);
       autoSlideRef.current = null;
     }
   };
@@ -100,6 +92,7 @@ export default function Hero() {
       if (!slider || isDown.current) return;
 
       const oneSetWidth = slider.scrollWidth / 3;
+
       slider.scrollLeft += 1;
 
       if (slider.scrollLeft <= oneSetWidth * 0.15) {
@@ -116,6 +109,7 @@ export default function Hero() {
 
     isDown.current = true;
     pauseAuto();
+
     slider.classList.add(styles.dragging);
 
     startX.current = e.pageX - slider.offsetLeft;
@@ -128,6 +122,7 @@ export default function Hero() {
 
     isDown.current = false;
     slider.classList.remove(styles.dragging);
+
     resumeAuto();
   };
 
@@ -136,8 +131,10 @@ export default function Hero() {
     if (!slider || !isDown.current) return;
 
     e.preventDefault();
+
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX.current) * 1.25;
+
     slider.scrollLeft = startScrollLeft.current - walk;
   };
 
@@ -158,6 +155,7 @@ export default function Hero() {
 
     const x = e.touches[0].pageX - slider.offsetLeft;
     const walk = (x - startX.current) * 1.25;
+
     slider.scrollLeft = startScrollLeft.current - walk;
   };
 
@@ -165,19 +163,24 @@ export default function Hero() {
     isDown.current = false;
     resumeAuto();
   };
-
-  return (
+    return (
     <section id="hero" className={styles.hero}>
-      {/* Full background slider */}
-      <div
-  className={styles.heroImage}
-  style={{ backgroundImage: "url('/images/hero/hero2.webp')" }}
-/>
+      {/* Hero Background Image */}
+      <div className={styles.heroImage}>
+        <Image
+          src="/images/hero/hero2.webp"
+          alt="PrimeDigitor Digital Marketing Agency"
+          fill
+          priority
+          quality={100}
+          className={styles.heroImg}
+        />
+      </div>
 
-      {/* FULL HERO DARK OVERLAY */}
+      {/* Dark Overlay */}
       <div className={styles.bgOverlay} />
 
-      {/* decorative overlays */}
+      {/* Decorative Elements */}
       <div className={styles.gridOverlay} />
       <div className={`${styles.glow} ${styles.glowA}`} />
       <div className={`${styles.glow} ${styles.glowB}`} />
@@ -200,7 +203,7 @@ export default function Hero() {
                 </h1>
 
                 <p className={styles.text}>
-                  We help ambitious brands grow with SEO, paid ads and
+                  We help ambitious brands grow with SEO, Paid Ads and
                   high-converting websites.
                 </p>
               </div>
@@ -213,13 +216,13 @@ export default function Hero() {
                   >
                     Our Services
                   </a>
-                  
-                    <a
-            href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`btn btn-primary ${styles.primaryBtn}`}
-          >
+
+                  <a
+                    href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`btn btn-primary ${styles.primaryBtn}`}
+                  >
                     Book a Free Call
                   </a>
                 </div>
@@ -228,7 +231,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Bottom result cards slider */}
+        {/* Result Cards */}
         <div className={styles.resultFrame}>
           <span
             className={`${styles.frameCorner} ${styles.frameTopLeft}`}
