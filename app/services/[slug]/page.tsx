@@ -506,21 +506,17 @@ export default async function ServicePage({
 
         </div>
 
-        <div className={styles.ctaButton}>
-          <a
-            href="https://wa.me/8801832729052?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.optionCard}
-            onTouchStart={handleTouch}
-            onTouchEnd={handleTouchEnd}
-            onTouchCancel={handleTouchEnd}
-          >
-            Get Free Consultation →
-          </a>
+        <div className={styles.ctaActions}>
 
           <Link
-            href="/works"
+            href="/#contact"
+            className={styles.ctaButton}
+          >
+            Get Free Consultation →
+          </Link>
+
+          <Link
+            href="/#services"
             className={styles.secondaryButton}
           >
             View Our Portfolio
