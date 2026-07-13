@@ -20,8 +20,8 @@
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 88% center;
   opacity: 0;
   transform: scale(1.03);
   transition: opacity 1s ease, transform 10s ease;
@@ -410,6 +410,9 @@
   .heroMain {
     grid-template-columns: 1fr;
   }
+  .bgSlide{
+    background-position: 75% center;
+}
 
   .left,
   .leftInner {
@@ -436,6 +439,10 @@
     padding-top: 6.8rem;
     padding-bottom: 2.2rem;
   }
+
+  .bgSlide{
+    background-position: 68% center;
+}
 
   .title {
     max-width: 10ch;
