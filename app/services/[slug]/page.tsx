@@ -512,14 +512,14 @@ export default async function ServicePage({
             href="/#contact"
             className={styles.ctaButton}
           >
-            Get Free Consultation →
+            Contact With Us →
           </Link>
 
           <Link
             href="/#services"
             className={styles.secondaryButton}
           >
-            View Our Portfolio
+            View Our Services
           </Link>
 
         </div>
