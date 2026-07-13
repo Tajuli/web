@@ -354,3 +354,94 @@
   color: rgba(255,255,255,.9);
   font-size: .9rem;
 }
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1199px) {
+  .heroMain {
+    grid-template-columns: minmax(0, 700px);
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 5vw, 4.3rem);
+  }
+}
+
+@media (max-width: 991px) {
+  .hero {
+    min-height: auto;
+    padding-top: 7.4rem;
+  }
+
+  .heroMain {
+    grid-template-columns: 1fr;
+  }
+
+  .left,
+  .leftInner {
+    min-height: auto;
+  }
+
+  .leftInner {
+    justify-content: flex-start;
+  }
+
+  .leftBottom {
+    margin-top: 2rem;
+  }
+
+  .resultCard {
+    width: 210px;
+    flex: 0 0 210px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 6.8rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .heroImg {
+    object-position: 25% center;
+  }
+
+  .title {
+    max-width: 10ch;
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .text {
+    max-width: 32ch;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions :global(.btn) {
+    width: 100%;
+  }
+
+  .resultFrame {
+    margin-top: 2rem;
+    padding: 6px 0;
+  }
+
+  .frameCorner {
+    width: 28px;
+    height: 28px;
+  }
+
+  .resultTrack {
+    gap: 0.85rem;
+  }
+
+  .resultCard {
+    width: 185px;
+    flex: 0 0 185px;
+    min-height: 82px;
+  }
+}
