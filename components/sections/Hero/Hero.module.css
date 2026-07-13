@@ -16,23 +16,6 @@
   z-index: 0;
 }
 
-.bgSlide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transform: scale(1.03);
-  transition: opacity 1s ease, transform 10s ease;
-  will-change: opacity, transform;
-}
-
-.bgSlideActive {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* =========================
    FULL HERO DARK OVERLAY
 ========================= */
