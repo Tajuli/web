@@ -40,11 +40,11 @@ If you're looking for a trusted TikTok Marketing Agency in Bangladesh that combi
 
   stats: [
     {
-      value: "500+",
+      value: "50+",
       label: "TikTok Campaigns Managed",
     },
     {
-      value: "100M+",
+      value: "10M+",
       label: "Video Views Generated",
     },
     {
@@ -165,13 +165,6 @@ If you're looking for a trusted TikTok Marketing Agency in Bangladesh that combi
     "Drive more profile visits",
     "Increase video views organically",
     "Boost conversions through remarketing",
-    "Scale successful campaigns efficiently",
-    "Access detailed campaign analytics",
-    "Stay ahead of competitors",
-    "Receive expert TikTok Ads management",
-    "Support long-term business growth",
-    "Maximize return on advertising investment",
-    "Turn viewers into loyal customers",
   ],
     process: [
     {
