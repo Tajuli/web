@@ -42,11 +42,11 @@ If you're searching for a trusted SEO agency in Bangladesh that prioritizes tran
 
   stats: [
     {
-      value: "500+",
+      value: "50+",
       label: "SEO Projects Completed",
     },
     {
-      value: "10K+",
+      value: "1K+",
       label: "Keywords Optimized",
     },
     {
