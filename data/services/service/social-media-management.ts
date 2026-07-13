@@ -170,10 +170,6 @@ If you're looking for a trusted Social Media Management Agency in Bangladesh tha
     "Receive consistent high-quality content",
     "Stay ahead of competitors",
     "Access detailed monthly performance reports",
-    "Improve overall digital marketing performance",
-    "Support long-term business growth",
-    "Create a recognizable and trusted brand",
-    "Turn followers into loyal customers",
   ],
     process: [
     {
