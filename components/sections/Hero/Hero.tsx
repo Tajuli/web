@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 
-const bgImages = ["/images/hero/hero2.webp"];
-
 const resultCards = [
   { value: "+184%", label: "Organic Growth" },
   { value: "4.8x", label: "ROAS" },
