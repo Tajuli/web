@@ -162,16 +162,6 @@ If you're looking for a trusted Google Ads agency in Bangladesh that delivers tr
     "Build long-term brand awareness",
     "Reach local, national, and international customers",
     "Target specific cities, regions, or countries",
-    "Advertise on Google Search, YouTube, Gmail, Discover, Maps, and Display Network",
-    "Improve Google Ads Quality Score",
-    "Track every conversion accurately",
-    "Scale successful campaigns faster",
-    "Outperform your competitors",
-    "Increase phone calls and appointment bookings",
-    "Generate more eCommerce sales",
-    "Improve marketing ROI through continuous optimization",
-    "Access transparent monthly reporting",
-    "Receive expert campaign management from Google Ads specialists",
   ],
     process: [
     {
