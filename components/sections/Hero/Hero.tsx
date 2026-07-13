@@ -19,7 +19,6 @@ const resultCards = [
 ];
 
 export default function Hero() {
-  const [activeBg, setActiveBg] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -30,12 +29,6 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
-
-    const timer = setInterval(() => {
-      setActiveBg((prev) => (prev + 1) % bgImages.length);
-    }, 4500);
-
-    return () => clearInterval(timer);
   }, []);
 
   // infinite loop + auto slide
@@ -178,17 +171,10 @@ export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       {/* Full background slider */}
-      <div className={styles.bgSlider}>
-        {bgImages.map((img, index) => (
-          <div
-            key={img}
-            className={`${styles.bgSlide} ${
-              index === activeBg ? styles.bgSlideActive : ""
-            }`}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
-      </div>
+      <div
+  className={`${styles.bgSlider} ${styles.bgSlideActive}`}
+  style={{ backgroundImage: "url('/images/hero/hero2.webp')" }}
+/>
 
       {/* FULL HERO DARK OVERLAY */}
       <div className={styles.bgOverlay} />
@@ -227,7 +213,7 @@ export default function Hero() {
                     href="#services"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Our Sevices
+                    Our Services
                   </a>
                   
                     <a
