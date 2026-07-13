@@ -10,7 +10,7 @@ const navItems = [
   { label: "Services", href: "#services", id: "services" },
   { label: "Works", href: "#work", id: "work" },
   { label: "About", href: "#about", id: "about" },
-  { label: "Why-Choose-Us", href: "#whychooseus", id: "whychooseus" },
+  { label: "Why Us", href: "#whychooseus", id: "whychooseus" },
   { label: "Blog", href: "#blog", id: "blog" },
   { label: "FAQ", href: "#faq", id: "faq" },
   { label: "Contact", href: "#contact", id: "contact" },
