@@ -10,6 +10,10 @@
   flex-direction: column;
 }
 
+/* =========================
+   Highlights
+========================= */
+
 .highlights {
   margin-top: 35px;
   display: grid;
@@ -31,7 +35,47 @@
   flex-shrink: 0;
 }
 
-/* Founder Card */
+/* =========================
+   Mission & Vision
+========================= */
+
+.missionVision {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.infoCard {
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(124, 194, 66, 0.12);
+  backdrop-filter: blur(10px);
+  transition: all 0.35s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+.infoCard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.infoCard p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.8;
+}
+
+/* =========================
+   Founder Card
+========================= */
 
 .card {
   padding: 42px;
@@ -84,7 +128,9 @@
   width: 100%;
 }
 
-/* Tablet */
+/* =========================
+   Tablet
+========================= */
 
 @media (max-width: 991px) {
   .wrapper {
@@ -100,9 +146,15 @@
   .highlights {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .missionVision {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Mobile */
+/* =========================
+   Mobile
+========================= */
 
 @media (max-width: 768px) {
   .wrapper {
@@ -125,6 +177,15 @@
   .highlights {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .missionVision {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .infoCard {
+    padding: 24px;
   }
 
   .item {
