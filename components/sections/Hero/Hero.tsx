@@ -170,7 +170,7 @@ export default function Hero() {
     <section id="hero" className={styles.hero}>
       {/* Full background slider */}
       <div
-  className={`${styles.bgSlider} ${styles.bgSlideActive}`}
+  className=${styles.heroImage}
   style={{ backgroundImage: "url('/images/hero/hero2.webp')" }}
 />
 
