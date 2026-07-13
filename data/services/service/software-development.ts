@@ -42,7 +42,7 @@ If you're searching for a trusted Software Development Company in Bangladesh tha
 
   stats: [
     {
-      value: "300+",
+      value: "30+",
       label: "Software Projects Delivered",
     },
     {
@@ -50,7 +50,7 @@ If you're searching for a trusted Software Development Company in Bangladesh tha
       label: "Client Satisfaction",
     },
     {
-      value: "50+",
+      value: "15+",
       label: "Business Solutions Developed",
     },
     {
@@ -170,10 +170,6 @@ If you're searching for a trusted Software Development Company in Bangladesh tha
     "Integrate multiple business platforms",
     "Receive long-term technical support",
     "Improve operational transparency",
-    "Increase return on technology investment",
-    "Future-proof your business with scalable software",
-    "Gain a competitive business advantage",
-    "Accelerate digital transformation",
   ],
     process: [
     {
