@@ -24,22 +24,22 @@ const resultCards = [
   {
     value: "04",
     label: "SEO Services",
-    href: "/services/seo-services",
+    href: "/services/seo",
   },
   {
     value: "05",
     label: "Website Design & Development",
-    href: "/services/website-design-development",
+    href: "/services/website-development",
   },
   {
     value: "06",
     label: "Software & App Development",
-    href: "/services/software-app-development",
+    href: "/services/software-development",
   },
   {
     value: "07",
     label: "Video Advertisement Production",
-    href: "/services/video-advertisement-production",
+    href: "/services/video-advertisement",
   },
   {
     value: "08",
