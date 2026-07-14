@@ -304,6 +304,15 @@ export default function Hero() {
   key={`${item.label}-${index}`}
   href={item.href}
   className={styles.resultCard}
+  onTouchStart={(e) => {
+    e.currentTarget.classList.add(styles.touchHover);
+  }}
+  onTouchEnd={(e) => {
+    e.currentTarget.classList.remove(styles.touchHover);
+  }}
+  onTouchCancel={(e) => {
+    e.currentTarget.classList.remove(styles.touchHover);
+  }}
 >
   <strong>{item.value}</strong>
   <span>{item.label}</span>
