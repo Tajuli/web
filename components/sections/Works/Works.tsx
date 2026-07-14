@@ -66,7 +66,7 @@ export default function Works() {
         <div className="section-head">
           <p className="eyebrow">OUR CASE STUDIES</p>
           <h2 className="section-title">
-            Campaigns, creatives and media buying that move brands forward.
+            Explore how we've helped businesses grow through strategy, development, and digital marketing.
           </h2>
         </div>
 
