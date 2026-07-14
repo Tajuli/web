@@ -324,8 +324,6 @@
     background .25s ease;
 }
 .resultCard:hover {
-  transform: translateY(-5px);
-
   border-color: rgba(144,245,81,.45);
 
   box-shadow:
