@@ -159,9 +159,6 @@ export const contentBranding: ServiceData = {
     "Drive more sales using compelling product and service descriptions.",
     "Build long-term relationships through valuable content marketing.",
     "Improve email marketing performance with persuasive messaging.",
-    "Increase brand credibility with professional visual assets.",
-    "Support business growth through strategic content planning.",
-    "Create scalable content assets that deliver long-term ROI.",
   ],
 
   process: [
