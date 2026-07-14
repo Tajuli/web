@@ -64,7 +64,7 @@ export default function Works() {
     <section id="work" className={`section ${styles.section}`}>
       <div className="site-container">
         <div className="section-head">
-          <p className="eyebrow">Our Work</p>
+          <p className="eyebrow">OUR CASE STUDIES</p>
           <h2 className="section-title">
             Campaigns, creatives and media buying that move brands forward.
           </h2>
@@ -72,7 +72,7 @@ export default function Works() {
 
         {/* NEW HEADER */}
         <div className={styles.sliderHeader}>
-          <h3 className={styles.sliderTitle}>Recent Works</h3>
+          <h3 className={styles.sliderTitle}>Recent Case Studies</h3>
 
           <Link href="/work" className={styles.viewAll}>
             View All
