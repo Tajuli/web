@@ -298,6 +298,10 @@
   padding: 1.05rem 1rem;
   border-radius: 1.15rem;
 
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
   border: 1px solid rgba(255,255,255,.12);
 
   background: linear-gradient(
@@ -312,6 +316,31 @@
   box-shadow:
     0 14px 34px rgba(0,0,0,.24),
     inset 0 1px 0 rgba(255,255,255,.05);
+
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+.resultCard:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(144,245,81,.45);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.32),
+    0 0 24px rgba(144,245,81,.15),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.resultCard:active {
+  transform: translateY(-2px);
+}
+
+.resultCard:focus-visible {
+  outline: 2px solid #90f551;
+  outline-offset: 3px;
 }
 
 .resultCard::before {
