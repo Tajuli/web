@@ -39,7 +39,7 @@ const resultCards = [
   {
     value: "07",
     label: "Video Advertisement Production",
-    href: "/services/video-advertisement",
+    href: "/services/video-production",
   },
   {
     value: "08",
@@ -49,7 +49,7 @@ const resultCards = [
   {
     value: "09",
     label: "Content Creation & Branding",
-    href: "/services/content-creation-branding",
+    href: "/services/content-branding",
   },
 ];
 
