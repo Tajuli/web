@@ -6,28 +6,52 @@ import styles from "./FAQ.module.css";
 
 const faqs = [
   {
-    q: "What services does PrimeDigitor provide?",
-    a: "We specialize in Website Design & Development, SEO, Google Ads, Facebook Ads, Branding, UI/UX Design and Digital Marketing strategies that help businesses generate more leads and sales.",
+    q: "What digital marketing services does PrimeDigitor offer?",
+    a: "PrimeDigitor provides complete digital marketing solutions including Facebook Marketing, Google Ads, TikTok Marketing, SEO Services, Website Design & Development, Software & App Development, Video Advertisement Production, Social Media Management, and Content Creation & Branding.",
   },
   {
-    q: "How long does it take to build a website?",
-    a: "Most business websites are completed within 2–4 weeks depending on the project scope, content availability and required features.",
+    q: "Why should I choose PrimeDigitor for digital marketing?",
+    a: "We focus on data-driven strategies, creative marketing, and measurable business growth. Our goal is to increase your brand visibility, generate qualified leads, improve conversions, and maximize your return on investment (ROI).",
   },
   {
-    q: "Do you redesign existing websites?",
-    a: "Yes. We can redesign your existing website with a modern UI, faster loading speed, better SEO structure and improved conversion rate.",
+    q: "How long does it take to see results from SEO?",
+    a: "SEO is a long-term strategy. Most businesses begin to see noticeable improvements within 3–6 months, depending on competition, website quality, and the current state of SEO.",
   },
   {
-    q: "Will my website be mobile responsive?",
-    a: "Absolutely. Every website we build is fully responsive and optimized for desktop, tablet and mobile devices.",
+    q: "How quickly can Google Ads and Facebook Ads generate results?",
+    a: "Paid advertising campaigns can start generating traffic and leads within a few days after launch. We continuously optimize campaigns to improve performance and maximize ROI.",
   },
   {
-    q: "Do you provide SEO after launching the website?",
-    a: "Yes. We offer Technical SEO, On-Page SEO, Content Optimization and Monthly SEO plans to help your website rank higher on Google.",
+    q: "Do you build SEO-friendly websites?",
+    a: "Yes. Every website we develop is fast, mobile-responsive, SEO-friendly, secure, and optimized for performance, user experience, and higher search engine rankings.",
   },
   {
-    q: "Can you manage Google & Facebook Ads?",
-    a: "Yes. We create, optimize and manage Google Ads and Meta Ads campaigns focused on maximizing ROI and generating quality leads.",
+    q: "Can you redesign my existing website?",
+    a: "Absolutely. We redesign existing websites with modern UI/UX, improved performance, better SEO structure, faster loading speed, and higher conversion optimization.",
+  },
+  {
+    q: "Do you work with businesses outside Bangladesh?",
+    a: "Yes. PrimeDigitor serves businesses worldwide through remote collaboration, online meetings, and digital project management.",
+  },
+  {
+    q: "Which advertising platform is best for my business?",
+    a: "It depends on your industry, target audience, and business goals. We recommend the most effective combination of Google Ads, Facebook Ads, TikTok Marketing, SEO, or other digital channels after analyzing your business.",
+  },
+  {
+    q: "Do you provide Social Media Management services?",
+    a: "Yes. We create content calendars, design engaging posts, manage publishing schedules, interact with audiences, and help grow your brand across social media platforms.",
+  },
+  {
+    q: "Do you provide custom software and mobile app development?",
+    a: "Yes. We develop custom business software, web applications, and mobile apps tailored to your business requirements, helping automate processes and improve productivity.",
+  },
+  {
+    q: "How much do your digital marketing services cost?",
+    a: "Our pricing depends on your project requirements, business goals, and the services you need. We offer customized solutions and transparent pricing based on your objectives.",
+  },
+  {
+    q: "Do you offer a free consultation?",
+    a: "Yes. We offer a free consultation to understand your business goals, analyze your current digital presence, and recommend the best marketing strategy for long-term growth.",
   },
 ];
 
