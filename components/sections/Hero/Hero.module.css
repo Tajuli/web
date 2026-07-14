@@ -366,7 +366,8 @@
   position: relative;
   z-index: 1;
 
-  color: #fff;
+  color: #90f551;
+  transition: color .25s ease;
   font-size: 1.35rem;
   line-height: 1;
 
