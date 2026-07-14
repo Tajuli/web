@@ -32,8 +32,8 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: #1f170c;
-  opacity: 0.3;
+  background: #522801;
+  opacity: 0.2;
 }
 
 .gridOverlay {
