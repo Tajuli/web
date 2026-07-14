@@ -1,20 +1,56 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./Hero.module.css";
 
 const resultCards = [
-  { value: "+184%", label: "Organic Growth" },
-  { value: "4.8x", label: "ROAS" },
-  { value: "-31%", label: "CPL" },
-  { value: "2,450+", label: "Leads Generated" },
-  { value: "120+", label: "Campaigns" },
-  { value: "98%", label: "Client Retention" },
-  { value: "+72%", label: "Conversion Rate" },
-  { value: "3.9x", label: "Revenue Growth" },
-  { value: "850K+", label: "Ad Impressions" },
-  { value: "41%", label: "Cost Savings" },
+  {
+    value: "01",
+    label: "Facebook Marketing",
+    href: "/services/facebook-marketing",
+  },
+  {
+    value: "02",
+    label: "Google Ads",
+    href: "/services/google-ads",
+  },
+  {
+    value: "03",
+    label: "TikTok Marketing",
+    href: "/services/tiktok-marketing",
+  },
+  {
+    value: "04",
+    label: "SEO Services",
+    href: "/services/seo-services",
+  },
+  {
+    value: "05",
+    label: "Website Design & Development",
+    href: "/services/website-design-development",
+  },
+  {
+    value: "06",
+    label: "Software & App Development",
+    href: "/services/software-app-development",
+  },
+  {
+    value: "07",
+    label: "Video Advertisement Production",
+    href: "/services/video-advertisement-production",
+  },
+  {
+    value: "08",
+    label: "Social Media Management",
+    href: "/services/social-media-management",
+  },
+  {
+    value: "09",
+    label: "Content Creation & Branding",
+    href: "/services/content-creation-branding",
+  },
 ];
 
 export default function Hero() {
@@ -264,13 +300,14 @@ export default function Hero() {
             <div className={styles.resultTrack}>
               {[...resultCards, ...resultCards, ...resultCards].map(
                 (item, index) => (
-                  <div
-                    key={`${item.label}-${index}`}
-                    className={styles.resultCard}
-                  >
-                    <strong>{item.value}</strong>
-                    <span>{item.label}</span>
-                  </div>
+                  <Link
+  key={`${item.label}-${index}`}
+  href={item.href}
+  className={styles.resultCard}
+>
+  <strong>{item.value}</strong>
+  <span>{item.label}</span>
+</Link>
                 )
               )}
             </div>
