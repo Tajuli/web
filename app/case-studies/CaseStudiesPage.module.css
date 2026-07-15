@@ -495,7 +495,7 @@ margin-bottom:50px;
     margin-bottom:20px;
 
     display:-webkit-box;
-    -webkit-line-clamp:3;   /* সর্বোচ্চ ৪ লাইন */
+    -webkit-line-clamp:4;   /* সর্বোচ্চ ৪ লাইন */
     -webkit-box-orient:vertical;
     overflow:hidden;
 }
