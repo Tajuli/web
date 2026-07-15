@@ -46,7 +46,6 @@ export default function CaseStudiesPage({
       {/* Hero */}
       <section className={styles.hero}>
         <div className="site-container">
-          <p className="eyebrow">CASE STUDIES</p>
 
           <h1 className={styles.title}>
             Real Results.
