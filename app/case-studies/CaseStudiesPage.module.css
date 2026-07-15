@@ -435,13 +435,15 @@ margin-bottom:50px;
 
 .featuredContent{
 
-  display:flex;
+    display:flex;
 
-  flex-direction:column;
+    flex-direction:column;
 
-  justify-content:center;
+    justify-content:center;
 
-  padding:70px 60px;
+    padding:56px;
+
+    gap:20px;
 }
 
 .category{
@@ -640,26 +642,23 @@ margin-bottom:50px;
 .featuredCard{
 
 grid-template-columns:1fr;
+
 }
 
 .featuredImage{
 
-min-height:420px;
+aspect-ratio:16/9;
+
+padding:24px;
+
+border-right:none;
+
+border-bottom:1px solid var(--case-border);
 }
 
 .featuredContent{
 
-padding:46px;
-}
-
-.prevButton{
-
-left:16px;
-}
-
-.nextButton{
-
-right:16px;
+padding:36px;
 }
 
 }
