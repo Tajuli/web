@@ -14,13 +14,35 @@ export const metadata: Metadata = {
 
 const ITEMS_PER_PAGE = 6;
 
-export default function CaseStudiesPage({
-  searchParams,
-}: {
+type PageProps = {
   searchParams?: {
     page?: string;
   };
-}) {
+};
+
+export default function CaseStudiesPage({
+  searchParams,
+}: PageProps) {
+  // Show only NON-featured studies in the grid
+  const allStudies = caseStudies.filter(
+    (study) => !study.featured
+  );
+
+  const currentPage = Math.max(
+    1,
+    Number(searchParams?.page ?? "1")
+  );
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(allStudies.length / ITEMS_PER_PAGE)
+  );
+
+  const paginatedStudies = allStudies.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   return (
     <main className={styles.page}>
       {/* Hero */}
@@ -37,8 +59,10 @@ export default function CaseStudiesPage({
           </h1>
 
           <p className={styles.description}>
-            Discover how PrimeDigitor helps businesses increase traffic,
-            generate leads and grow online.
+            Discover how PrimeDigitor helps businesses
+            increase traffic, generate leads and grow
+            online through strategic digital marketing
+            and development.
           </p>
         </div>
       </section>
@@ -50,32 +74,13 @@ export default function CaseStudiesPage({
             <h2>Every business has a different growth story.</h2>
 
             <p>
-              Explore our featured projects and discover how strategic
-              digital marketing and development create measurable
-              business growth.
+              Explore our featured projects and discover
+              how strategy, creativity and technology
+              helped businesses achieve measurable growth.
             </p>
           </div>
         </div>
       </section>
-
-      const featuredStudies = caseStudies.filter(
-  (study) => study.featured
-);
-
-const allStudies = caseStudies.filter(
-  (study) => !study.featured
-);
-
-const currentPage = Number(searchParams?.page ?? 1);
-
-const totalPages = Math.ceil(
-  allStudies.length / ITEMS_PER_PAGE
-);
-
-const paginatedStudies = allStudies.slice(
-  (currentPage - 1) * ITEMS_PER_PAGE,
-  currentPage * ITEMS_PER_PAGE
-);
 
       {/* Featured Slider */}
       <FeaturedSlider />
@@ -89,7 +94,9 @@ const paginatedStudies = allStudies.slice(
             <h2>Browse Every Project</h2>
 
             <p>
-              Explore every project we've worked on.
+              Explore our complete portfolio of websites,
+              SEO, branding, digital marketing and software
+              development projects.
             </p>
           </div>
 
@@ -111,64 +118,12 @@ const paginatedStudies = allStudies.slice(
                   <span className={styles.category}>
                     {study.category}
                   </span>
-
-                  {study.featured && (
+                                    {study.featured && (
                     <span className={styles.featured}>
                       Featured
                     </span>
                   )}
                 </div>
-
-                <div className={styles.pagination}>
-
-  <Link
-    href={
-      currentPage > 1
-        ? `/case-studies?page=${currentPage - 1}`
-        : "#"
-    }
-    className={`${styles.pageButton} ${
-      currentPage === 1 ? styles.disabled : ""
-    }`}
-  >
-    ← Previous
-  </Link>
-
-  <div className={styles.pageNumbers}>
-    {Array.from(
-      { length: totalPages },
-      (_, index) => index + 1
-    ).map((page) => (
-      <Link
-        key={page}
-        href={`/case-studies?page=${page}`}
-        className={`${styles.pageNumber} ${
-          page === currentPage
-            ? styles.activePage
-            : ""
-        }`}
-      >
-        {page}
-      </Link>
-    ))}
-  </div>
-
-  <Link
-    href={
-      currentPage < totalPages
-        ? `/case-studies?page=${currentPage + 1}`
-        : "#"
-    }
-    className={`${styles.pageButton} ${
-      currentPage === totalPages
-        ? styles.disabled
-        : ""
-    }`}
-  >
-    Next →
-  </Link>
-
-</div>
 
                 <div className={styles.content}>
                   <h2>{study.title}</h2>
@@ -186,43 +141,98 @@ const paginatedStudies = allStudies.slice(
               </Link>
             ))}
           </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className={styles.pagination}>
+              <Link
+                href={
+                  currentPage > 1
+                    ? `/case-studies?page=${currentPage - 1}`
+                    : "#"
+                }
+                className={`${styles.pageButton} ${
+                  currentPage === 1 ? styles.disabled : ""
+                }`}
+              >
+                ← Previous
+              </Link>
+
+              <div className={styles.pageNumbers}>
+                {Array.from(
+                  { length: totalPages },
+                  (_, index) => index + 1
+                ).map((page) => (
+                  <Link
+                    key={page}
+                    href={`/case-studies?page=${page}`}
+                    className={`${styles.pageNumber} ${
+                      currentPage === page
+                        ? styles.activePage
+                        : ""
+                    }`}
+                  >
+                    {page}
+                  </Link>
+                ))}
+              </div>
+
+              <Link
+                href={
+                  currentPage < totalPages
+                    ? `/case-studies?page=${currentPage + 1}`
+                    : "#"
+                }
+                className={`${styles.pageButton} ${
+                  currentPage === totalPages
+                    ? styles.disabled
+                    : ""
+                }`}
+              >
+                Next →
+              </Link>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* CTA */}
       <section className={styles.ctaSection}>
-  <div className="site-container">
-    <div className={styles.ctaBox}>
-      <span className={styles.ctaBadge}>
-        🚀 Let's Grow Together
-      </span>
+        <div className="site-container">
+          <div className={styles.ctaBox}>
+            <span className={styles.ctaBadge}>
+              🚀 Let's Grow Together
+            </span>
 
-      <h2>
-        Ready to Become Our Next Success Story?
-      </h2>
+            <h2>
+              Ready to Become Our Next Success Story?
+            </h2>
 
-      <p>
-        Whether you need a high-converting website, SEO,
-        Google Ads, Meta Ads, or a complete digital strategy,
-        we're ready to help your business grow.
-      </p>
+            <p>
+              Whether you need a high-converting website,
+              SEO, Google Ads, Meta Ads, branding or a
+              complete digital strategy, PrimeDigitor is
+              ready to help your business grow.
+            </p>
 
-      <div className={styles.ctaButtons}>
-        <Link
-          href="/#contact"
-          className="btn btn-primary"
-        >
-          Get Free Website Audit
-        </Link>
+            <div className={styles.ctaButtons}>
+              <Link
+                href="/#contact"
+                className="btn btn-primary"
+              >
+                Get Free Website Audit
+              </Link>
 
-        <Link
-          href="/#services"
-          className="btn btn-secondary"
-        >
-          Explore Our Services
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+              <Link
+                href="/#services"
+                className="btn btn-secondary"
+              >
+                Explore Our Services
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
