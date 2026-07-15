@@ -408,6 +408,15 @@ margin-bottom:50px;
     overflow: hidden;
     background: #f6f8fb;
 }
+.featuredImage img,
+.featuredImage :global(img){
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    background:#fff;
+}
+
 
 .featuredImage::before{
 
