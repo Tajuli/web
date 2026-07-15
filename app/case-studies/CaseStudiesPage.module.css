@@ -146,6 +146,95 @@
 }
 
 /* ===========================
+   PAGINATION
+=========================== */
+
+.pagination{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:60px;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.pageNumbers{
+
+    display:flex;
+
+    gap:12px;
+}
+
+.pageNumber,
+.pageButton{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:46px;
+
+    height:46px;
+
+    padding:0 18px;
+
+    border-radius:12px;
+
+    border:1px solid #e5e7eb;
+
+    background:#fff;
+
+    color:#0f172a;
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.pageNumber:hover,
+.pageButton:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border-color:#2563eb;
+}
+
+.activePage{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border-color:#2563eb;
+}
+
+.disabled{
+
+    pointer-events:none;
+
+    opacity:.4;
+}
+
+@media(max-width:768px){
+
+.pagination{
+
+justify-content:center;
+}
+
+}
+
+/* ===========================
    NORMAL SECTION
 =========================== */
 
