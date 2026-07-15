@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./CaseStudy.module.css";
-import { CaseStudy } from "@/data/caseStudies";
+import type { CaseStudy as CaseStudyType } from "@/data/caseStudies";
 
 interface Props {
-  caseStudy: CaseStudy;
+  caseStudy: CaseStudyType;
 }
 
 export default function CaseStudy({ caseStudy }: Props) {
