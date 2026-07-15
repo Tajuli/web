@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { caseStudies } from "@/data/caseStudies";
-import CaseStudy from "./CaseStudy";
+import CaseStudyDetails from "./CaseStudy";
 
 interface PageProps {
   params: Promise<{
@@ -51,5 +51,5 @@ export default async function CaseStudyPage({
     notFound();
   }
 
-  return <CaseStudy caseStudy={study} />;
+  return <CaseStudyDetails caseStudy={study} />;
 }
