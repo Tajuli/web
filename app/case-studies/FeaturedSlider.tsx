@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLayoutEffect, useRef, useState } from "react";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -10,6 +11,52 @@ import Autoplay from "embla-carousel-autoplay";
 import styles from "./CaseStudiesPage.module.css";
 import { caseStudies } from "@/data/caseStudies";
 
+
+function AutoResizeTitle({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const [fontSize, setFontSize] = useState(46);
+
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let size = 46;
+    el.style.fontSize = `${size}px`;
+
+    while (size > 30) {
+      const lineHeight = parseFloat(
+        getComputedStyle(el).lineHeight
+      );
+
+      const lines = Math.round(
+        el.scrollHeight / lineHeight
+      );
+
+      if (lines <= 2) break;
+
+      size -= 2;
+      el.style.fontSize = `${size}px`;
+    }
+
+    setFontSize(size);
+  }, [children]);
+
+  return (
+    <h3
+      ref={ref}
+      style={{
+        fontSize,
+        lineHeight: 1.15,
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
 export default function FeaturedSlider() {
   const featuredStudies = caseStudies.filter(
     (study) => study.featured
@@ -142,7 +189,9 @@ export default function FeaturedSlider() {
                         {study.category}
                       </span>
 
-                      <h3>{study.title}</h3>
+                      <AutoResizeTitle>
+    {study.title}
+</AutoResizeTitle>
 
                       <p>
                         {study.shortDescription}
