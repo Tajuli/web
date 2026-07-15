@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import CrispChat from "@/components/CrispChat/CrispChat";
+import Navbar from "@/components/sections/Navbar/Navbar";
+import Footer from "@/components/sections/Footer/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.primedigitor.com"),
@@ -95,7 +97,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Navbar />
         {children}
+        <Footer />
 
         <CrispChat />
       </body>
