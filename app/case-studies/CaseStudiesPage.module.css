@@ -500,27 +500,32 @@ margin-bottom:50px;
 }
 
 .featuredMeta{
+    display:flex;
+    align-items:center;
+    gap:16px;
 
-  display:flex;
+    margin-top:auto;
+    padding-top:16px;
 
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:20px;
-
-  margin-top:auto;
-
-  padding-top:16px;
-
-  border-top:1px solid var(--case-border);
+    border-top:1px solid var(--case-border);
 }
 
 .featuredMeta span:first-child{
+    color:var(--case-text);
+    font-weight:600;
 
-  color:var(--case-text);
+    flex-shrink:0;
+}
 
-  font-weight:600;
+.readMore{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+
+    white-space:nowrap;
+
+    font-weight:700;
 }
 
 /* ==========================================================
