@@ -12,7 +12,15 @@ export const metadata: Metadata = {
     "Explore real client success stories and discover how PrimeDigitor helps businesses grow.",
 };
 
-export default function CaseStudiesPage() {
+const ITEMS_PER_PAGE = 6;
+
+export default function CaseStudiesPage({
+  searchParams,
+}: {
+  searchParams?: {
+    page?: string;
+  };
+}) {
   return (
     <main className={styles.page}>
       {/* Hero */}
@@ -50,6 +58,25 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
+      const featuredStudies = caseStudies.filter(
+  (study) => study.featured
+);
+
+const allStudies = caseStudies.filter(
+  (study) => !study.featured
+);
+
+const currentPage = Number(searchParams?.page ?? 1);
+
+const totalPages = Math.ceil(
+  allStudies.length / ITEMS_PER_PAGE
+);
+
+const paginatedStudies = allStudies.slice(
+  (currentPage - 1) * ITEMS_PER_PAGE,
+  currentPage * ITEMS_PER_PAGE
+);
+
       {/* Featured Slider */}
       <FeaturedSlider />
 
@@ -67,7 +94,7 @@ export default function CaseStudiesPage() {
           </div>
 
           <div className={styles.grid}>
-            {caseStudies.map((study) => (
+            {paginatedStudies.map((study) => (
               <Link
                 key={study.slug}
                 href={`/case-studies/${study.slug}`}
@@ -91,6 +118,57 @@ export default function CaseStudiesPage() {
                     </span>
                   )}
                 </div>
+
+                <div className={styles.pagination}>
+
+  <Link
+    href={
+      currentPage > 1
+        ? `/case-studies?page=${currentPage - 1}`
+        : "#"
+    }
+    className={`${styles.pageButton} ${
+      currentPage === 1 ? styles.disabled : ""
+    }`}
+  >
+    ← Previous
+  </Link>
+
+  <div className={styles.pageNumbers}>
+    {Array.from(
+      { length: totalPages },
+      (_, index) => index + 1
+    ).map((page) => (
+      <Link
+        key={page}
+        href={`/case-studies?page=${page}`}
+        className={`${styles.pageNumber} ${
+          page === currentPage
+            ? styles.activePage
+            : ""
+        }`}
+      >
+        {page}
+      </Link>
+    ))}
+  </div>
+
+  <Link
+    href={
+      currentPage < totalPages
+        ? `/case-studies?page=${currentPage + 1}`
+        : "#"
+    }
+    className={`${styles.pageButton} ${
+      currentPage === totalPages
+        ? styles.disabled
+        : ""
+    }`}
+  >
+    Next →
+  </Link>
+
+</div>
 
                 <div className={styles.content}>
                   <h2>{study.title}</h2>
