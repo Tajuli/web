@@ -23,7 +23,7 @@ export const primeDigitor: CaseStudy = {
   industry: "Digital Agency",
 
   // Images
-  coverImage: "/images/case-studies/primedigitor/cover.webp",
+  coverImage: "/images/case-studies/primedigitor.webp",
 
   gallery: [
     "/images/case-studies/primedigitor/1.webp",
