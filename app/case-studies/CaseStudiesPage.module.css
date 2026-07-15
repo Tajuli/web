@@ -478,9 +478,10 @@ margin-bottom:50px;
 }
 
 .featuredContent h3{
-    margin:12px 0;
-    font-size:38px;
-    line-height:1.15;
+    font-size:clamp(2rem,2.5vw,3rem); /* সর্বোচ্চ 48px, সাধারণত 38-40px */
+    line-height:1.12;
+    margin:14px 0 12px;
+    letter-spacing:-0.02em;
 }
 
 .featuredCard:hover h3{
@@ -490,8 +491,13 @@ margin-bottom:50px;
 
 .featuredContent p{
     font-size:16px;
-    margin-bottom:18px;
     line-height:1.65;
+    margin-bottom:20px;
+
+    display:-webkit-box;
+    -webkit-line-clamp:3;   /* সর্বোচ্চ ৪ লাইন */
+    -webkit-box-orient:vertical;
+    overflow:hidden;
 }
 
 .featuredMeta{
