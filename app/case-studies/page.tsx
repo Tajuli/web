@@ -24,9 +24,7 @@ export default function CaseStudiesPage({
   searchParams,
 }: PageProps) {
   // Show only NON-featured studies in the grid
-  const allStudies = caseStudies.filter(
-    (study) => !study.featured
-  );
+  const allStudies = caseStudies;
 
   const currentPage = Math.max(
     1,
