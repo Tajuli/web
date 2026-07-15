@@ -74,9 +74,9 @@ export default function Works() {
         <div className={styles.sliderHeader}>
           <h3 className={styles.sliderTitle}>Recent Case Studies</h3>
 
-          <Link href="/work" className={styles.viewAll}>
-            View All
-          </Link>
+          <Link href="/case-studies" className={styles.viewAll}>
+  View All
+</Link>
         </div>
 
         <div className={styles.sliderWrap}>
