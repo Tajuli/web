@@ -110,6 +110,41 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+      <section className={styles.ctaSection}>
+  <div className="site-container">
+    <div className={styles.ctaBox}>
+      <span className={styles.ctaBadge}>
+        🚀 Let's Grow Together
+      </span>
+
+      <h2>
+        Ready to Become Our Next Success Story?
+      </h2>
+
+      <p>
+        Whether you need a high-converting website, SEO,
+        Google Ads, Meta Ads, or a complete digital strategy,
+        we're ready to help your business grow.
+      </p>
+
+      <div className={styles.ctaButtons}>
+        <Link
+          href="/contact"
+          className="btn btn-primary"
+        >
+          Get Free Website Audit
+        </Link>
+
+        <Link
+          href="/services"
+          className="btn btn-secondary"
+        >
+          Explore Our Services
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
