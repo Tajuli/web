@@ -375,7 +375,7 @@ margin-bottom:50px;
 .featuredCard{
 
   display:grid;
-  grid-template-columns:58% 42%;
+  grid-template-columns:68% 32%;
 
   overflow:hidden;
 
@@ -408,14 +408,10 @@ margin-bottom:50px;
 ========================================================== */
 
 .featuredImage{
-
-  position:relative;
-
-  min-height:560px;
-
-  overflow:hidden;
-
-  background:#f6f8fb;
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    background: #f6f8fb;
 }
 
 .featuredImage::before{
@@ -444,14 +440,10 @@ margin-bottom:50px;
 ========================================================== */
 
 .featuredContent{
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:center;
-
-  padding:70px 60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:42px 42px;
 }
 
 .category{
@@ -481,11 +473,9 @@ margin-bottom:50px;
 
 .featuredContent h3{
 
-  margin:24px 0 20px;
-
-  font-size:clamp(2rem,4vw,2.8rem);
-
-  line-height:1.15;
+  margin:18px 0 14px;
+  font-size:clamp(1.7rem,2.5vw,2.3rem);
+  line-height:1.2;
 
   font-weight:800;
 
@@ -501,13 +491,11 @@ margin-bottom:50px;
 
 .featuredContent p{
 
-  margin-bottom:42px;
-
   color:var(--case-text);
 
-  font-size:1.04rem;
-
-  line-height:2;
+  margin-bottom:28px;
+  font-size:1rem;
+  line-height:1.75;
 }
 
 .featuredMeta{
@@ -522,7 +510,7 @@ margin-bottom:50px;
 
   margin-top:auto;
 
-  padding-top:26px;
+  padding-top:20px;
 
   border-top:1px solid var(--case-border);
 }
@@ -648,19 +636,16 @@ margin-bottom:50px;
 @media(max-width:1100px){
 
 .featuredCard{
+      grid-template-columns:1fr;
+  }
 
-grid-template-columns:1fr;
-}
+  .featuredImage{
+      min-height:360px;
+  }
 
-.featuredImage{
-
-min-height:420px;
-}
-
-.featuredContent{
-
-padding:46px;
-}
+  .featuredContent{
+      padding:36px;
+  }
 
 .prevButton{
 
@@ -677,14 +662,12 @@ right:16px;
 @media(max-width:768px){
 
 .featuredImage{
+      min-height:240px;
+  }
 
-min-height:300px;
-}
-
-.featuredContent{
-
-padding:32px 24px;
-}
+  .featuredContent{
+      padding:26px 22px;
+  }
 
 .featuredContent h3{
 
