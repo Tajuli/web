@@ -129,14 +129,14 @@ export default function CaseStudiesPage() {
 
       <div className={styles.ctaButtons}>
         <Link
-          href="/contact"
+          href="/#contact"
           className="btn btn-primary"
         >
           Get Free Website Audit
         </Link>
 
         <Link
-          href="/services"
+          href="/#services"
           className="btn btn-secondary"
         >
           Explore Our Services
