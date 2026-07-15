@@ -1,14 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
-import styles from "./FeaturedSlider.module.css";
 import { caseStudies } from "@/data/caseStudies";
+import styles from "./FeaturedSlider.module.css";
 
 export default function FeaturedSlider() {
   const featuredStudies = useMemo(
@@ -31,8 +31,9 @@ export default function FeaturedSlider() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      align: "start",
-      duration: 30,
+      align: "center",
+      skipSnaps: false,
+      duration: 32,
     },
     [autoplay]
   );
@@ -56,9 +57,7 @@ export default function FeaturedSlider() {
     if (!emblaApi) return;
 
     const onSelect = () => {
-      setSelectedIndex(
-        emblaApi.selectedScrollSnap()
-      );
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
     onSelect();
@@ -87,30 +86,30 @@ export default function FeaturedSlider() {
           </h2>
 
           <p>
-            Explore our featured work and see how
-            PrimeDigitor helps brands achieve real
-            business growth through strategic digital
-            marketing and development.
+            Discover how PrimeDigitor delivers
+            measurable business growth through
+            strategic digital marketing, branding
+            and modern web development.
           </p>
 
         </div>
 
-        <div className={styles.slider}>
+        <div className={styles.sliderWrapper}>
 
           <button
+            className={`${styles.navButton} ${styles.prev}`}
             type="button"
-            className={`${styles.arrow} ${styles.prev}`}
             onClick={scrollPrev}
-            aria-label="Previous"
+            aria-label="Previous Slide"
           >
             ←
           </button>
 
           <button
+            className={`${styles.navButton} ${styles.next}`}
             type="button"
-            className={`${styles.arrow} ${styles.next}`}
             onClick={scrollNext}
-            aria-label="Next"
+            aria-label="Next Slide"
           >
             →
           </button>
@@ -121,98 +120,114 @@ export default function FeaturedSlider() {
           >
 
             <div className={styles.container}>
-                          {featuredStudies.map((study) => (
-              <div
-                key={study.slug}
-                className={styles.slide}
-              >
-                <Link
-                  href={`/case-studies/${study.slug}`}
-                  className={styles.card}
+                            {featuredStudies.map((study) => (
+                <div
+                  key={study.slug}
+                  className={styles.slide}
                 >
-                  {/* =========================
-                      LEFT IMAGE
-                  ========================= */}
+                  <article className={styles.showcase}>
 
-                  <div className={styles.imageSide}>
+                    {/* =========================
+                        LEFT SIDE
+                    ========================= */}
 
-                    <div className={styles.imageFrame}>
+                    <div className={styles.showcaseMedia}>
 
-                      <Image
-                        src={study.coverImage}
-                        alt={study.title}
-                        width={1600}
-                        height={900}
-                        priority={selectedIndex === 0}
-                        quality={95}
-                        className={styles.image}
-                      />
+                      <div className={styles.browserFrame}>
+
+                        <div className={styles.browserBar}>
+
+                          <div className={styles.browserDots}>
+                            <span />
+                            <span />
+                            <span />
+                          </div>
+
+                        </div>
+
+                        <div className={styles.browserBody}>
+
+                          <Image
+                            src={study.coverImage}
+                            alt={study.title}
+                            width={1600}
+                            height={900}
+                            priority={selectedIndex === 0}
+                            quality={100}
+                            className={styles.coverImage}
+                          />
+
+                        </div>
+
+                      </div>
 
                     </div>
 
-                  </div>
+                    {/* =========================
+                        RIGHT SIDE
+                    ========================= */}
 
-                  {/* =========================
-                      RIGHT CONTENT
-                  ========================= */}
+                    <div className={styles.showcaseContent}>
 
-                  <div className={styles.contentSide}>
-
-                    <span className={styles.category}>
-                      {study.category}
-                    </span>
-
-                    <h3 className={styles.title}>
-                      {study.title}
-                    </h3>
-
-                    <p className={styles.description}>
-                      {study.shortDescription}
-                    </p>
-
-                    <div className={styles.meta}>
-
-                      <span className={styles.client}>
-                        {study.client}
+                      <span className={styles.category}>
+                        {study.category}
                       </span>
 
-                      <span className={styles.readMore}>
-                        Read Full Case Study
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 24 24"
-                          fill="none"
+                      <h3 className={styles.title}>
+                        {study.title}
+                      </h3>
+
+                      <p className={styles.description}>
+                        {study.shortDescription}
+                      </p>
+
+                      <div className={styles.meta}>
+
+                        <span className={styles.client}>
+                          {study.client}
+                        </span>
+
+                        <Link
+                          href={`/case-studies/${study.slug}`}
+                          className={styles.cta}
                         >
-                          <path
-                            d="M7 17L17 7"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                          <path
-                            d="M9 7H17V15"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                          />
-                        </svg>
-                      </span>
+                          Read Full Case Study
+
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                          >
+                            <path
+                              d="M7 17L17 7"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                            />
+
+                            <path
+                              d="M9 7H17V15"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+
+                        </Link>
+
+                      </div>
 
                     </div>
 
-                  </div>
-
-                </Link>
-
-              </div>
-            ))}
-
+                  </article>
+                </div>
+              ))}
+                          </div>
           </div>
 
-        </div>
-                    {/* =========================
-              PAGINATION DOTS
+          {/* =========================
+              PAGINATION
           ========================= */}
 
           <div className={styles.pagination}>
@@ -240,6 +255,5 @@ export default function FeaturedSlider() {
       </div>
 
     </section>
-
   );
 }
