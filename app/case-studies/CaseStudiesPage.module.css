@@ -269,11 +269,17 @@
 
 .image{
 
-  object-fit:cover;
+    width:100%;
 
-  transition:
-      transform .7s ease,
-      filter .4s ease;
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    transition:.4s;
 }
 
 .readMore{
