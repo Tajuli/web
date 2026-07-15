@@ -1,32 +1,32 @@
 /* ==========================================================
    FEATURED SLIDER
    PART 1
-   Section • Heading • Layout
+   Variables • Section • Heading • Embla Layout
 ========================================================== */
 
 :root{
 
-  --slider-bg:#ffffff;
-  --slider-soft:#f8fafc;
+  --fs-bg:#ffffff;
+  --fs-soft:#f8fafc;
 
-  --slider-border:#e6edf3;
+  --fs-border:#e8eef5;
 
-  --slider-heading:#0f172a;
-  --slider-text:#64748b;
+  --fs-heading:#0f172a;
+  --fs-text:#64748b;
 
-  --slider-primary:#7cc242;
+  --fs-primary:#7cc242;
+  --fs-primary-soft:#eff8e6;
 
-  --slider-primary-soft:#f2faea;
+  --fs-radius:30px;
 
-  --slider-radius:32px;
+  --fs-transition:.35s cubic-bezier(.22,.61,.36,1);
 
-  --slider-transition:.35s ease;
+  --fs-shadow:
+      0 20px 60px rgba(15,23,42,.08);
 
-  --slider-shadow:
-      0 18px 55px rgba(15,23,42,.08);
+  --fs-shadow-hover:
+      0 30px 90px rgba(15,23,42,.12);
 
-  --slider-shadow-hover:
-      0 35px 90px rgba(15,23,42,.12);
 }
 
 /* ==========================================================
@@ -35,15 +35,42 @@
 
 .section{
 
-    padding:120px 0;
-
-    background:var(--slider-soft);
-
-    border-top:1px solid var(--slider-border);
-
-    border-bottom:1px solid var(--slider-border);
+    position:relative;
 
     overflow:hidden;
+
+    padding:120px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fafc 0%,
+            #ffffff 100%);
+}
+
+/* soft glow */
+
+.section::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+      radial-gradient(
+        circle at top left,
+        rgba(124,194,66,.08),
+        transparent 28%),
+
+      radial-gradient(
+        circle at top right,
+        rgba(56,189,248,.05),
+        transparent 30%);
 }
 
 /* ==========================================================
@@ -52,9 +79,13 @@
 
 .heading{
 
+    position:relative;
+
+    z-index:2;
+
     max-width:760px;
 
-    margin:0 auto 70px;
+    margin:0 auto 72px;
 
     text-align:center;
 }
@@ -67,13 +98,15 @@
 
     justify-content:center;
 
-    padding:9px 18px;
+    gap:10px;
+
+    padding:10px 18px;
 
     border-radius:999px;
 
-    background:var(--slider-primary-soft);
+    background:var(--fs-primary-soft);
 
-    color:var(--slider-primary);
+    color:var(--fs-primary);
 
     font-size:.82rem;
 
@@ -84,28 +117,41 @@
     text-transform:uppercase;
 }
 
+.badge::before{
+
+    content:"";
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:currentColor;
+}
+
 .heading h2{
 
     margin:22px 0 18px;
 
-    font-size:clamp(2.5rem,5vw,3.7rem);
+    color:var(--fs-heading);
 
-    line-height:1.1;
+    font-size:clamp(2.8rem,5vw,4rem);
 
     font-weight:800;
 
-    color:var(--slider-heading);
+    line-height:1.08;
 
-    letter-spacing:-.03em;
+    letter-spacing:-.04em;
 }
 
 .heading p{
 
-    max-width:700px;
+    max-width:720px;
 
     margin:0 auto;
 
-    color:var(--slider-text);
+    color:var(--fs-text);
 
     font-size:1.08rem;
 
@@ -113,26 +159,32 @@
 }
 
 /* ==========================================================
-   SLIDER
+   SLIDER WRAPPER
 ========================================================== */
 
-.slider{
+.sliderWrapper{
 
     position:relative;
 
     width:100%;
 }
 
+/* ==========================================================
+   EMBLA
+========================================================== */
+
 .viewport{
 
     overflow:hidden;
 
-    border-radius:var(--slider-radius);
+    border-radius:34px;
 }
 
 .container{
 
     display:flex;
+
+    align-items:stretch;
 }
 
 .slide{
@@ -141,27 +193,31 @@
 
     min-width:0;
 
-    padding:6px;
+    padding:8px;
 }
 
 /* ==========================================================
    COMMON
 ========================================================== */
 
-.image{
+.coverImage{
 
     display:block;
 
     width:100%;
 
     height:auto;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
 }
 
 /* ==========================================================
    RESPONSIVE
 ========================================================== */
 
-@media(max-width:992px){
+@media (max-width:992px){
 
 .section{
 
@@ -170,12 +226,12 @@ padding:100px 0;
 
 .heading{
 
-margin-bottom:50px;
+margin-bottom:56px;
 }
 
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .section{
 
@@ -184,7 +240,7 @@ padding:80px 0;
 
 .heading h2{
 
-font-size:2.2rem;
+font-size:2.3rem;
 }
 
 .heading p{
@@ -197,48 +253,44 @@ line-height:1.8;
 }
 /* ==========================================================
    PART 2
-   PREMIUM CARD
+   SHOWCASE CARD
 ========================================================== */
 
-.card{
+.showcase{
 
     display:grid;
 
-    grid-template-columns:minmax(0,1.55fr) minmax(380px,.85fr);
+    grid-template-columns:68% 32%;
 
     align-items:stretch;
 
+    background:#fff;
+
+    border:1px solid var(--fs-border);
+
+    border-radius:34px;
+
     overflow:hidden;
 
-    width:100%;
+    box-shadow:var(--fs-shadow);
 
-    border:1px solid var(--slider-border);
+    transition:var(--fs-transition);
 
-    border-radius:32px;
-
-    background:#ffffff;
-
-    text-decoration:none;
-
-    box-shadow:var(--slider-shadow);
-
-    transition:all .35s ease;
+    min-height:620px;
 }
 
-.card:hover{
+.showcase:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 
-    box-shadow:var(--slider-shadow-hover);
-
-    border-color:#d8e6cf;
+    box-shadow:var(--fs-shadow-hover);
 }
 
 /* ==========================================================
-   LEFT IMAGE
+   LEFT SIDE
 ========================================================== */
 
-.imageSide{
+.showcaseMedia{
 
     display:flex;
 
@@ -246,68 +298,175 @@ line-height:1.8;
 
     justify-content:center;
 
-    padding:42px;
+    padding:40px;
 
-    background:#f8fafc;
+    background:
+        linear-gradient(
+            180deg,
+            #fbfcfd 0%,
+            #f5f8fb 100%);
 
-    border-right:1px solid var(--slider-border);
+    border-right:1px solid var(--fs-border);
+
+    position:relative;
 }
 
 /* ==========================================================
-   IMAGE FRAME
+   BROWSER FRAME
 ========================================================== */
 
-.imageFrame{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
+.browserFrame{
 
     width:100%;
 
-    aspect-ratio:16 / 9;
+    background:#fff;
 
-    overflow:hidden;
-
-    border-radius:22px;
-
-    background:#ffffff;
+    border-radius:24px;
 
     border:1px solid #edf2f7;
 
+    overflow:hidden;
+
     box-shadow:
-        0 16px 45px rgba(15,23,42,.06);
+        0 25px 60px rgba(15,23,42,.08);
+}
+
+/* ==========================================================
+   BROWSER BAR
+========================================================== */
+
+.browserBar{
+
+    height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 22px;
+
+    background:#fafafa;
+
+    border-bottom:1px solid #eef2f6;
+}
+
+/* ==========================================================
+   BROWSER DOTS
+========================================================== */
+
+.browserDots{
+
+    display:flex;
+
+    gap:8px;
+}
+
+.browserDots span{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+}
+
+.browserDots span:nth-child(1){
+
+    background:#ff5f57;
+}
+
+.browserDots span:nth-child(2){
+
+    background:#febc2e;
+}
+
+.browserDots span:nth-child(3){
+
+    background:#28c840;
+}
+
+/* ==========================================================
+   IMAGE AREA
+========================================================== */
+
+.browserBody{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:34px;
+
+    aspect-ratio:16 / 9;
+
+    background:#fff;
 }
 
 /* ==========================================================
    IMAGE
 ========================================================== */
 
-.image{
+.coverImage{
 
     width:100%;
 
-    height:100%;
+    height:auto;
+
+    display:block;
 
     object-fit:contain;
 
     object-position:center;
 
-    transition:transform .45s ease;
+    transition:
+        transform .45s ease;
 }
 
-.card:hover .image{
+.showcase:hover .coverImage{
 
-    transform:scale(1.02);
+    transform:scale(1.015);
 }
 
 /* ==========================================================
-   CONTENT
+   FLOATING SHADOW
 ========================================================== */
 
-.contentSide{
+.browserFrame::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-28px;
+
+    width:74%;
+
+    height:34px;
+
+    transform:translateX(-50%);
+
+    background:rgba(15,23,42,.10);
+
+    filter:blur(30px);
+
+    border-radius:50%;
+
+    z-index:-1;
+}
+/* ==========================================================
+   PART 3
+   CONTENT • CTA • NAVIGATION
+========================================================== */
+
+/* ==========================================================
+   RIGHT CONTENT
+========================================================== */
+
+.showcaseContent{
 
     display:flex;
 
@@ -315,8 +474,14 @@ line-height:1.8;
 
     justify-content:center;
 
-    padding:58px;
+    padding:56px;
+
+    background:#ffffff;
 }
+
+/* ==========================================================
+   CATEGORY
+========================================================== */
 
 .category{
 
@@ -330,57 +495,65 @@ line-height:1.8;
 
     border-radius:999px;
 
-    background:var(--slider-primary-soft);
+    background:var(--fs-primary-soft);
 
-    color:var(--slider-primary);
+    color:var(--fs-primary);
 
-    font-size:.8rem;
+    font-size:.78rem;
 
     font-weight:700;
 
+    text-transform:uppercase;
+
     letter-spacing:.08em;
 
-    text-transform:uppercase;
+    margin-bottom:26px;
 }
+
+/* ==========================================================
+   TITLE
+========================================================== */
 
 .title{
 
-    margin:24px 0 18px;
+    margin:0;
 
-    font-size:clamp(2rem,3vw,2.8rem);
+    color:var(--fs-heading);
 
-    line-height:1.15;
+    font-size:clamp(2.2rem,3vw,3rem);
+
+    line-height:1.1;
 
     font-weight:800;
 
-    color:var(--slider-heading);
+    letter-spacing:-.03em;
 
     transition:.3s;
 }
 
-.card:hover .title{
+.showcase:hover .title{
 
-    color:var(--slider-primary);
+    color:var(--fs-primary);
 }
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
 
 .description{
 
-    color:var(--slider-text);
+    margin:26px 0 42px;
+
+    color:var(--fs-text);
 
     font-size:1.05rem;
 
     line-height:2;
-
-    margin-bottom:42px;
 }
-/* ==========================================================
-   PART 3
-   META • BUTTON • ARROWS • PAGINATION
-========================================================== */
 
-/* ==========================
+/* ==========================================================
    META
-========================== */
+========================================================== */
 
 .meta{
 
@@ -390,13 +563,13 @@ line-height:1.8;
 
     align-items:center;
 
-    gap:24px;
+    gap:20px;
 
     margin-top:auto;
 
-    padding-top:28px;
+    padding-top:26px;
 
-    border-top:1px solid var(--slider-border);
+    border-top:1px solid var(--fs-border);
 }
 
 .client{
@@ -408,11 +581,11 @@ line-height:1.8;
     font-weight:600;
 }
 
-/* ==========================
-   READ MORE
-========================== */
+/* ==========================================================
+   CTA
+========================================================== */
 
-.readMore{
+.cta{
 
     display:inline-flex;
 
@@ -420,33 +593,35 @@ line-height:1.8;
 
     gap:12px;
 
-    color:var(--slider-primary);
+    color:var(--fs-primary);
+
+    text-decoration:none;
 
     font-weight:700;
 
     transition:.3s;
 }
 
-.readMore svg{
+.cta svg{
 
     transition:.3s;
 }
 
-.card:hover .readMore{
+.showcase:hover .cta{
 
     gap:18px;
 }
 
-.card:hover .readMore svg{
+.showcase:hover .cta svg{
 
-    transform:translateX(4px);
+    transform:translateX(5px);
 }
 
-/* ==========================
-   ARROWS
-========================== */
+/* ==========================================================
+   NAV BUTTONS
+========================================================== */
 
-.arrow{
+.navButton{
 
     position:absolute;
 
@@ -454,9 +629,9 @@ line-height:1.8;
 
     transform:translateY(-50%);
 
-    width:58px;
+    width:62px;
 
-    height:58px;
+    height:62px;
 
     display:flex;
 
@@ -468,29 +643,29 @@ line-height:1.8;
 
     border-radius:999px;
 
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.94);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(18px);
 
-    color:#111827;
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.12);
 
-    font-size:20px;
+    color:#0f172a;
+
+    font-size:22px;
 
     cursor:pointer;
 
-    z-index:20;
-
-    box-shadow:
-        0 16px 40px rgba(15,23,42,.14);
+    z-index:30;
 
     transition:.3s;
 }
 
-.arrow:hover{
+.navButton:hover{
 
-    background:var(--slider-primary);
+    background:var(--fs-primary);
 
     color:#fff;
 
@@ -501,13 +676,17 @@ line-height:1.8;
 
 .prev{
 
-    left:24px;
+    left:-30px;
 }
 
 .next{
 
-    right:24px;
+    right:-30px;
 }
+/* ==========================================================
+   PART 4
+   PAGINATION • RESPONSIVE • FINAL
+========================================================== */
 
 /* ==========================
    PAGINATION
@@ -518,6 +697,8 @@ line-height:1.8;
     display:flex;
 
     justify-content:center;
+
+    align-items:center;
 
     gap:12px;
 
@@ -534,99 +715,56 @@ line-height:1.8;
 
     border-radius:999px;
 
-    background:#d7dee7;
+    background:#d6dde6;
 
     cursor:pointer;
 
-    transition:.35s;
+    transition:all .3s ease;
 }
 
 .dot:hover{
 
-    background:#a9c98c;
+    background:#a4c77d;
 }
 
 .dotActive{
 
     width:34px;
 
-    background:var(--slider-primary);
+    background:var(--fs-primary);
 }
 
 /* ==========================
-   HOVER EFFECT
+   LARGE LAPTOP
 ========================== */
 
-.card::before{
+@media (max-width:1400px){
 
-    content:"";
+.showcase{
 
-    position:absolute;
-
-    inset:0;
-
-    border-radius:inherit;
-
-    pointer-events:none;
-
-    opacity:0;
-
-    transition:.35s;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(124,194,66,.18);
+grid-template-columns:64% 36%;
 }
 
-.card:hover::before{
+.showcaseContent{
 
-    opacity:1;
-}
-/* ==========================================================
-   PART 4
-   RESPONSIVE + FINAL POLISH
-========================================================== */
-
-@media (max-width:1200px){
-
-.card{
-
-grid-template-columns:1fr;
+padding:48px;
 }
 
-.imageSide{
+.navButton{
 
-padding:30px;
+width:56px;
 
-border-right:none;
-
-border-bottom:1px solid var(--slider-border);
-}
-
-.contentSide{
-
-padding:42px;
-}
-
-.title{
-
-font-size:2.2rem;
-}
-
-.arrow{
-
-width:54px;
-
-height:54px;
+height:56px;
 }
 
 .prev{
 
-left:18px;
+left:-20px;
 }
 
 .next{
 
-right:18px;
+right:-20px;
 }
 
 }
@@ -635,31 +773,32 @@ right:18px;
    TABLET
 ========================== */
 
-@media (max-width:992px){
+@media (max-width:1100px){
 
-.section{
+.showcase{
 
-padding:90px 0;
+grid-template-columns:1fr;
+
+min-height:auto;
 }
 
-.heading{
+.showcaseMedia{
 
-margin-bottom:50px;
+padding:28px;
+
+border-right:none;
+
+border-bottom:1px solid var(--fs-border);
 }
 
-.imageSide{
+.browserBody{
 
-padding:24px;
+padding:22px;
 }
 
-.imageFrame{
+.showcaseContent{
 
-border-radius:18px;
-}
-
-.contentSide{
-
-padding:34px;
+padding:36px;
 }
 
 .meta{
@@ -671,13 +810,14 @@ align-items:flex-start;
 gap:18px;
 }
 
-.arrow{
+.prev{
 
-width:48px;
+left:12px;
+}
 
-height:48px;
+.next{
 
-font-size:18px;
+right:12px;
 }
 
 }
@@ -690,12 +830,17 @@ font-size:18px;
 
 .section{
 
-padding:70px 0;
+padding:80px 0;
+}
+
+.heading{
+
+margin-bottom:44px;
 }
 
 .heading h2{
 
-font-size:2rem;
+font-size:2.15rem;
 
 line-height:1.15;
 }
@@ -707,95 +852,95 @@ font-size:1rem;
 line-height:1.8;
 }
 
-.card{
+.showcase{
 
 border-radius:22px;
 }
 
-.imageSide{
+.showcaseMedia{
 
 padding:18px;
 }
 
-.imageFrame{
+.browserFrame{
 
-border-radius:14px;
+border-radius:16px;
 }
 
-.contentSide{
+.browserBar{
 
-padding:24px;
+height:42px;
+
+padding:0 16px;
 }
 
-.title{
+.browserDots span{
 
-margin:18px 0 14px;
+width:10px;
 
-font-size:1.65rem;
+height:10px;
 }
 
-.description{
+.browserBody{
 
-font-size:.98rem;
+padding:16px;
+}
 
-line-height:1.8;
+.showcaseContent{
 
-margin-bottom:28px;
+padding:26px;
 }
 
 .category{
 
-font-size:.75rem;
+font-size:.72rem;
 
 padding:7px 14px;
+
+margin-bottom:18px;
+}
+
+.title{
+
+font-size:1.8rem;
+}
+
+.description{
+
+margin:20px 0 28px;
+
+font-size:.98rem;
+
+line-height:1.8;
 }
 
 .meta{
 
-padding-top:20px;
+padding-top:18px;
 }
 
-.readMore{
+.client{
+
+font-size:.9rem;
+}
+
+.cta{
 
 font-size:.95rem;
 }
 
-.arrow{
+.navButton{
 
-width:42px;
+width:46px;
 
-height:42px;
+height:46px;
 
-font-size:16px;
-}
-
-.prev{
-
-left:10px;
-}
-
-.next{
-
-right:10px;
+font-size:18px;
 }
 
 .pagination{
 
-margin-top:24px;
-
-gap:10px;
-}
-
-.dot{
-
-width:9px;
-
-height:9px;
-}
-
-.dotActive{
-
-width:28px;
+margin-top:26px;
 }
 
 }
@@ -804,34 +949,44 @@ width:28px;
    SMALL MOBILE
 ========================== */
 
-@media (max-width:480px){
+@media (max-width:520px){
 
 .section{
 
 padding:60px 0;
 }
 
-.imageSide{
+.heading h2{
+
+font-size:1.9rem;
+}
+
+.showcaseMedia{
 
 padding:14px;
 }
 
-.contentSide{
+.showcaseContent{
 
 padding:20px;
 }
 
 .title{
 
-font-size:1.45rem;
+font-size:1.55rem;
 }
 
 .description{
 
-font-size:.95rem;
+font-size:.94rem;
 }
 
-.arrow{
+.meta{
+
+gap:14px;
+}
+
+.navButton{
 
 display:none;
 }
@@ -847,7 +1002,7 @@ margin-top:20px;
    ACCESSIBILITY
 ========================== */
 
-.arrow:focus-visible,
+.navButton:focus-visible,
 .dot:focus-visible{
 
 outline:3px solid rgba(124,194,66,.35);
@@ -855,23 +1010,23 @@ outline:3px solid rgba(124,194,66,.35);
 outline-offset:4px;
 }
 
-.card:focus-visible{
+.cta:focus-visible{
 
 outline:3px solid rgba(124,194,66,.35);
 
-outline-offset:6px;
+outline-offset:4px;
+
+border-radius:8px;
 }
 
 /* ==========================
-   SMOOTH ANIMATION
+   PERFORMANCE
 ========================== */
 
-.card,
-.image,
-.arrow,
-.dot,
-.readMore,
-.title{
+.showcase,
+.coverImage,
+.navButton,
+.dot{
 
 will-change:transform;
 }
