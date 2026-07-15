@@ -236,22 +236,53 @@
    EMBLA SLIDER + FEATURED CARD
 ========================================================== */
 
-.sliderWrapper {
-  position: relative;
+.prevButton,
+.nextButton{
+  position:absolute;
+
+  top:50%;
+  transform:translateY(-50%);
+
+  z-index:30;
+
+  width:56px;
+  height:56px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:none;
+  border-radius:50%;
+
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+
+  color:#0f172a;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 10px 25px rgba(15,23,42,.12);
+
+  transition:.3s;
 }
 
-.embla {
-  overflow: hidden;
-  border-radius: 28px;
+.prevButton{
+  left:24px;
 }
 
-.emblaContainer {
-  display: flex;
+.nextButton{
+  right:24px;
 }
 
-.emblaSlide {
-  flex: 0 0 100%;
-  min-width: 0;
+.prevButton:hover,
+.nextButton:hover{
+
+  background:#2563eb;
+  color:#fff;
+
+  transform:translateY(-50%) scale(1.08);
 }
 
 /* ==========================================================
@@ -822,21 +853,23 @@ grid-template-columns:repeat(2,1fr);
 
 @media (max-width:768px){
 
-.grid{
+  .prevButton,
+  .nextButton{
 
-grid-template-columns:1fr;
+    width:46px;
+    height:46px;
 
-gap:26px;
-}
+    font-size:18px;
 
-.imageWrapper{
+    left:14px;
+    right:auto;
+  }
 
-height:220px;
-}
+  .nextButton{
+    left:auto;
+    right:14px;
+  }
 
-.content{
-
-padding:24px;
 }
 
 .footer{
