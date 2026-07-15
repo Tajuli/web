@@ -33,7 +33,7 @@ export default function FeaturedSlider() {
       loop: true,
       align: "center",
       skipSnaps: false,
-      duration: 32,
+      duration: 35,
     },
     [autoplay]
   );
@@ -75,6 +75,10 @@ export default function FeaturedSlider() {
     <section className={styles.section}>
       <div className="site-container">
 
+        {/* ===========================
+            HEADER
+        ============================ */}
+
         <div className={styles.heading}>
 
           <span className={styles.badge}>
@@ -82,92 +86,112 @@ export default function FeaturedSlider() {
           </span>
 
           <h2>
-            Our Best Success Stories
+            Real Projects.
+            <br />
+            Real Business Growth.
           </h2>
 
           <p>
-            Discover how PrimeDigitor delivers
-            measurable business growth through
-            strategic digital marketing, branding
-            and modern web development.
+            Explore some of our featured projects covering
+            web development, branding, SEO,
+            paid advertising and mobile application
+            development.
           </p>
 
         </div>
 
-        <div className={styles.sliderWrapper}>
+        {/* ===========================
+            SLIDER
+        ============================ */}
+
+        <div className={styles.sliderArea}>
 
           <button
-            className={`${styles.navButton} ${styles.prev}`}
             type="button"
+            aria-label="Previous"
+            className={`${styles.navButton} ${styles.prev}`}
             onClick={scrollPrev}
-            aria-label="Previous Slide"
           >
-            ←
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
 
           <button
-            className={`${styles.navButton} ${styles.next}`}
             type="button"
+            aria-label="Next"
+            className={`${styles.navButton} ${styles.next}`}
             onClick={scrollNext}
-            aria-label="Next Slide"
           >
-            →
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
 
           <div
             className={styles.viewport}
             ref={emblaRef}
           >
-
             <div className={styles.container}>
-                            {featuredStudies.map((study) => (
+
+              {featuredStudies.map((study) => (
+
                 <div
-                  key={study.slug}
                   className={styles.slide}
+                  key={study.slug}
                 >
-                  <article className={styles.showcase}>
 
-                    {/* =========================
-                        LEFT SIDE
-                    ========================= */}
+                  <article className={styles.card}>
 
-                    <div className={styles.showcaseMedia}>
+                    {/* ===========================
+                        IMAGE SIDE
+                    ============================ */}
 
-                      <div className={styles.browserFrame}>
+                    <div className={styles.imageSide}>
 
-                        <div className={styles.browserBar}>
+                      <div className={styles.imageWrapper}>
 
-                          <div className={styles.browserDots}>
-                            <span />
-                            <span />
-                            <span />
-                          </div>
-
-                        </div>
-
-                        <div className={styles.browserBody}>
-
-                          <Image
-                            src={study.coverImage}
-                            alt={study.title}
-                            width={1600}
-                            height={900}
-                            priority={selectedIndex === 0}
-                            quality={100}
-                            className={styles.coverImage}
-                          />
-
-                        </div>
+                        <Image
+                          src={study.coverImage}
+                          alt={study.title}
+                          width={1600}
+                          height={900}
+                          quality={100}
+                          priority={selectedIndex === 0}
+                          className={styles.image}
+                        />
 
                       </div>
 
                     </div>
 
-                    {/* =========================
-                        RIGHT SIDE
-                    ========================= */}
+                    {/* ===========================
+                        CONTENT SIDE
+                    ============================ */}
 
-                    <div className={styles.showcaseContent}>
+                    <div className={styles.contentSide}>
 
                       <span className={styles.category}>
                         {study.category}
@@ -181,17 +205,24 @@ export default function FeaturedSlider() {
                         {study.shortDescription}
                       </p>
 
-                      <div className={styles.meta}>
+                      <div className={styles.infoArea}>
 
-                        <span className={styles.client}>
-                          {study.client}
-                        </span>
+                        <div className={styles.clientBlock}>
 
-                        <Link
+                          <span className={styles.clientLabel}>
+                            Client
+                          </span>
+
+                          <span className={styles.clientName}>
+                            {study.client}
+                          </span>
+
+                        </div>
+                                                <Link
                           href={`/case-studies/${study.slug}`}
                           className={styles.cta}
                         >
-                          Read Full Case Study
+                          <span>Read Full Case Study</span>
 
                           <svg
                             width="18"
@@ -213,7 +244,6 @@ export default function FeaturedSlider() {
                               strokeLinecap="round"
                             />
                           </svg>
-
                         </Link>
 
                       </div>
@@ -221,14 +251,17 @@ export default function FeaturedSlider() {
                     </div>
 
                   </article>
+
                 </div>
+
               ))}
-                          </div>
+
+            </div>
           </div>
 
-          {/* =========================
+          {/* ===========================
               PAGINATION
-          ========================= */}
+          ============================ */}
 
           <div className={styles.pagination}>
 
@@ -253,7 +286,6 @@ export default function FeaturedSlider() {
         </div>
 
       </div>
-
     </section>
   );
 }
