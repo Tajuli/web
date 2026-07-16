@@ -6,7 +6,7 @@
 ========================================================== */
 
 :root{
-  --case-radius:2px;
+  --case-radius:24px;
   --case-radius-lg:32px;
 
   --case-border:#e7edf3;
