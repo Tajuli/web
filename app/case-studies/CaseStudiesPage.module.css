@@ -517,13 +517,12 @@ margin-bottom:50px;
     font-size:18px;
     font-weight:700;
 
-    color:var(--case-primary);
-
     transition:.3s;
 }
 
 .featuredCard:hover .readMore{
     gap:16px;
+   color:var(--case-primary);
 }
 
 /* ==========================================================
