@@ -45,18 +45,20 @@
 ========================================================== */
 
 .hero{
-    position:relative;
-    overflow:hidden;
+    position: relative;
+    overflow: hidden;
 
-    min-height:700px;
+    min-height: 760px;
 
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
 
-    background-image:url("/images/hero/case-study-hero.webp");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    padding: 180px 0 120px;
+
+    background-image: url("/images/hero/case-study-hero.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero::before{
