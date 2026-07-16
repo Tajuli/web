@@ -145,6 +145,7 @@
 
 .primaryBtn,
 .secondaryBtn{
+  width:260px;
   background:#fff;
   color:var(--case-heading);
   border:2px solid var(--case-heading);
