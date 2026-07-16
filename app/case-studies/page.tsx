@@ -64,21 +64,6 @@ export default function CaseStudiesPage({
         </div>
       </section>
 
-      {/* Intro */}
-      <section className={styles.introSection}>
-        <div className="site-container">
-          <div className={styles.intro}>
-            <h2>Every business has a different growth story.</h2>
-
-            <p>
-              Explore our featured projects and discover
-              how strategy, creativity and technology
-              helped businesses achieve measurable growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Slider */}
       <FeaturedSlider />
 
