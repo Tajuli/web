@@ -670,52 +670,45 @@ right:16px;
 
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-.featuredCard{
-    display:flex;
-    flex-direction:column;
+    .featuredCard{
+        display:flex;
+        flex-direction:column;
+        height:620px;
+    }
 
-    height:620px;      /* Fixed */
-}
+    .featuredImage{
+        width:100%;
+        height:220px;
+        flex-shrink:0;
+    }
 
-.featuredImage{
-    width:100%;
-    height:220px;
-    flex-shrink:0;
-}
+    .featuredContent{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        padding:24px;
+    }
 
-.featuredContent{
-    flex:1;
+    .featuredMeta{
+        margin-top:auto;
+    }
 
-    display:flex;
-    flex-direction:column;
+    .prevButton,
+    .nextButton{
+        width:46px;
+        height:46px;
+        font-size:18px;
+    }
 
-    height:auto;
+    .prevButton{
+        left:12px;
+    }
 
-    padding:24px;
-}
-}
-
-.prevButton,
-.nextButton{
-
-width:46px;
-height:46px;
-
-font-size:18px;
-}
-
-.prevButton{
-
-left:12px;
-}
-
-.nextButton{
-
-right:12px;
-}
-
+    .nextButton{
+        right:12px;
+    }
 }
 /* ==========================================================
    PART 3
