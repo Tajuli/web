@@ -1016,6 +1016,33 @@ right:12px;
 }
 
 /* ==========================================================
+   mobile touch
+========================================================== */
+
+.touchHover{
+    transform:translateY(-8px);
+    border-color:#7cc242;
+    box-shadow:var(--case-shadow-hover);
+}
+
+.touchHover .image{
+    transform:scale(1.05);
+}
+
+.touchHover h3{
+    color:var(--case-primary);
+}
+
+.touchHover .readMore{
+    gap:16px;
+}
+
+.touchHover .featuredImage::before{
+    opacity:.15;
+}
+
+
+/* ==========================================================
    RESPONSIVE
 ========================================================== */
 
