@@ -205,10 +205,6 @@ export default function FeaturedSlider() {
                       <div
                         className={styles.featuredMeta}
                       >
-                        <span>
-                          {study.client}
-                        </span>
-
                         <span
                           className={styles.readMore}
                         >
