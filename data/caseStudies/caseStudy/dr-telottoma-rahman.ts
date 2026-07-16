@@ -20,7 +20,7 @@ export const drTelottomaRahman: CaseStudy = {
   industry: "Healthcare",
 
   // Images
-  coverImage: "/images/case-studies/dr-telottoma-rahman/cover.webp",
+  coverImage: "/images/case-studies/dr-telottoma-rahman.webp",
 
   gallery: [
     "/images/case-studies/dr-telottoma-rahman/1.webp",
