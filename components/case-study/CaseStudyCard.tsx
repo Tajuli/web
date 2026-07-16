@@ -1,63 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import styles from "./CaseStudyCard.module.css";
+import Image from "next/image";
 
-type CaseStudyCardProps = {
-  slug: string;
-  title: string;
-  category: string;
-  image: string;
-  logo?: string;
-  description?: string;
-  featured?: boolean;
+import styles from "./CaseStudyCard.module.css";
+import type { CaseStudy } from "@/data/caseStudies";
+
+type Props = {
+  study: CaseStudy;
 };
 
-export default function CaseStudyCard({
-  slug,
-  title,
-  category,
-  image,
-  logo,
-  description,
-  featured = true,
-}: CaseStudyCardProps) {
+export default function CaseStudyCard({ study }: Props) {
   return (
     <Link
-      href={`/case-studies/${slug}`}
+      href={`/case-studies/${study.slug}`}
       className={styles.card}
-      aria-label={`View ${title} case study`}
+      aria-label={`View ${study.title} case study`}
     >
       <article className={styles.inner}>
-        <div
-          className={styles.thumbnail}
-          style={{ backgroundImage: `url(${image})` }}
-        >
+        <div className={styles.thumbnail}>
+          <Image
+            src={study.coverImage}
+            alt={study.title}
+            fill
+            className={styles.image}
+            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+          />
+
           <div className={styles.overlay} />
 
-          {featured && (
+          <span className={styles.category}>
+            {study.category}
+          </span>
+
+          {study.featured && (
             <span className={styles.badge}>
               Featured
             </span>
           )}
-
-          {logo && (
-            <div className={styles.logo}>
-              {logo}
-            </div>
-          )}
         </div>
 
         <div className={styles.content}>
-          <span className={styles.category}>
-            {category}
-          </span>
+          <h3>{study.title}</h3>
 
-          <h3>{title}</h3>
-
-          {description && (
-            <p>{description}</p>
-          )}
+          <p>{study.shortDescription}</p>
 
           <div className={styles.footer}>
             <span className={styles.link}>
