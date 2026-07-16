@@ -51,10 +51,6 @@
     padding: 150px 0 120px;
 
     background:
-        linear-gradient(
-            rgba(255,255,255,.78),
-            rgba(255,255,255,.78)
-        ),
         url("/images/hero/case-study-hero.webp");
 
     background-size: cover;
