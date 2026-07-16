@@ -501,12 +501,10 @@ margin-bottom:50px;
 
 .featuredMeta{
     display:flex;
+    justify-content:flex-start;
     align-items:center;
-    gap:16px;
 
-    margin-top:auto;
-    padding-top:16px;
-
+    padding-top:20px;
     border-top:1px solid var(--case-border);
 }
 
@@ -518,14 +516,20 @@ margin-bottom:50px;
 }
 
 .readMore{
-    margin-left:auto;
-
-    display:flex;
+    display:inline-flex;
     align-items:center;
+    gap:10px;
 
-    white-space:nowrap;
-
+    font-size:18px;
     font-weight:700;
+
+    color:var(--case-primary);
+
+    transition:.3s;
+}
+
+.featuredCard:hover .readMore{
+    gap:16px;
 }
 
 /* ==========================================================
