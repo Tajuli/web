@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,6 +17,9 @@ import Autoplay from "embla-carousel-autoplay";
 import styles from "./CaseStudiesPage.module.css";
 import { caseStudies } from "@/data/caseStudies";
 
+/* ==========================================================
+   AUTO RESIZE TITLE
+========================================================== */
 
 function AutoResizeTitle({
   children,
@@ -23,6 +27,7 @@ function AutoResizeTitle({
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLHeadingElement>(null);
+
   const [fontSize, setFontSize] = useState(46);
 
   useLayoutEffect(() => {
@@ -30,24 +35,38 @@ function AutoResizeTitle({
     if (!el) return;
 
     let size = 46;
-    el.style.fontSize = `${size}px`;
 
-    while (size > 30) {
-      const lineHeight = parseFloat(
-        getComputedStyle(el).lineHeight
-      );
-
-      const lines = Math.round(
-        el.scrollHeight / lineHeight
-      );
-
-      if (lines <= 2) break;
-
-      size -= 2;
+    const resize = () => {
       el.style.fontSize = `${size}px`;
-    }
 
-    setFontSize(size);
+      while (size > 30) {
+        const lineHeight = parseFloat(
+          getComputedStyle(el).lineHeight
+        );
+
+        const lines = Math.round(
+          el.scrollHeight / lineHeight
+        );
+
+        if (lines <= 2) break;
+
+        size -= 2;
+        el.style.fontSize = `${size}px`;
+      }
+
+      setFontSize(size);
+    };
+
+    resize();
+
+    const observer = new ResizeObserver(() => {
+      size = 46;
+      resize();
+    });
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
   }, [children]);
 
   return (
@@ -62,6 +81,11 @@ function AutoResizeTitle({
     </h3>
   );
 }
+
+/* ==========================================================
+   FEATURED SLIDER
+========================================================== */
+
 export default function FeaturedSlider() {
   const featuredStudies = caseStudies.filter(
     (study) => study.featured
@@ -69,6 +93,10 @@ export default function FeaturedSlider() {
 
   const [selectedIndex, setSelectedIndex] =
     useState(0);
+
+  /* Mobile touch active */
+  const [activeSlide, setActiveSlide] =
+    useState<number | null>(null);
 
   const autoplay = Autoplay({
     delay: 5000,
@@ -121,22 +149,18 @@ export default function FeaturedSlider() {
       emblaApi.off("reInit", onSelect);
     };
   }, [emblaApi]);
-
-  return (
+    return (
     <section className={styles.featuredSection}>
       <div className="site-container">
 
         <div className={styles.sectionHeading}>
           <span>Featured Case Studies</span>
 
-          <h2>
-            Our Best Success Stories
-          </h2>
+          <h2>Our Best Success Stories</h2>
 
           <p>
-            Explore our featured projects and
-            discover how strategic digital
-            solutions delivered measurable
+            Explore our featured projects and discover how
+            strategic digital solutions delivered measurable
             business growth.
           </p>
         </div>
@@ -166,75 +190,103 @@ export default function FeaturedSlider() {
             ref={emblaRef}
           >
             <div className={styles.emblaContainer}>
-                            {featuredStudies.map((study) => (
+
+              {featuredStudies.map((study, index) => (
+
                 <div
                   key={study.slug}
                   className={styles.emblaSlide}
                 >
+
                   <Link
                     href={`/case-studies/${study.slug}`}
-                    className={styles.featuredCard}
+                    className={`${styles.featuredCard} ${
+                      activeSlide === index
+                        ? styles.touchHover
+                        : ""
+                    }`}
+                    onTouchStart={() =>
+                      setActiveSlide(index)
+                    }
+                    onTouchEnd={() =>
+                      setTimeout(
+                        () => setActiveSlide(null),
+                        180
+                      )
+                    }
                   >
-                    {/* Image */}
+
+                    {/* IMAGE */}
+
                     <div className={styles.featuredImage}>
+
                       <Image
                         src={study.coverImage}
                         alt={study.title}
                         width={1600}
                         height={900}
-                        priority
+                        priority={index === 0}
                         quality={95}
                         className={styles.image}
                       />
+
                     </div>
 
-                    {/* Content */}
+                    {/* CONTENT */}
+
                     <div className={styles.featuredContent}>
+
                       <span className={styles.category}>
                         {study.category}
                       </span>
 
                       <AutoResizeTitle>
-    {study.title}
-</AutoResizeTitle>
+                        {study.title}
+                      </AutoResizeTitle>
 
                       <p>
                         {study.shortDescription}
                       </p>
 
-                      <div
-                        className={styles.featuredMeta}
-                      >
-                        <span
-                          className={styles.readMore}
-                        >
+                      <div className={styles.featuredMeta}>
+
+                        <span className={styles.readMore}>
                           Read Full Case Study →
                         </span>
+
                       </div>
+
                     </div>
+
                   </Link>
+
                 </div>
+
               ))}
+
             </div>
           </div>
 
-          {/* Dots */}
+          {/* DOTS */}
+
           <div className={styles.dots}>
+
             {featuredStudies.map((_, index) => (
+
               <button
                 key={index}
                 type="button"
+                aria-label={`Go to slide ${index + 1}`}
                 onClick={() => scrollTo(index)}
-                aria-label={`Go to slide ${
-                  index + 1
-                }`}
                 className={`${styles.dot} ${
                   selectedIndex === index
                     ? styles.dotActive
                     : ""
                 }`}
               />
+
             ))}
+
           </div>
 
         </div>
