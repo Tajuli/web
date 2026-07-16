@@ -128,7 +128,6 @@ export default function CaseStudiesPage({
                   <p>{study.shortDescription}</p>
 
                   <div className={styles.footer}>
-                    <span>{study.client}</span>
 
                     <span className={styles.readMore}>
                       Read Case Study →
