@@ -72,7 +72,7 @@ export default function Works() {
 
         {/* NEW HEADER */}
         <div className={styles.sliderHeader}>
-          <h3 className={styles.sliderTitle}>Recent Case Studies</h3>
+          <h3 className={styles.sliderTitle}>Featured Case Studies</h3>
 
           <Link href="/case-studies" className={styles.viewAll}>
   View All
