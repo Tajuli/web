@@ -508,12 +508,6 @@ margin-bottom:50px;
     border-top:1px solid var(--case-border);
 }
 
-.featuredMeta span:first-child{
-    color:var(--case-text);
-    font-weight:600;
-
-    flex-shrink:0;
-}
 
 .readMore{
     display:inline-flex;
