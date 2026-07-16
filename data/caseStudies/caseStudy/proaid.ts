@@ -21,7 +21,7 @@ export const proAid: CaseStudy = {
   industry: "Health & Fitness",
 
   // Images
-  coverImage: "/images/case-studies/proaid/cover.webp",
+  coverImage: "/images/case-studies/proaid.webp",
 
   gallery: [
     "/images/case-studies/proaid/1.webp",
