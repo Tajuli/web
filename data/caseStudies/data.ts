@@ -9,4 +9,5 @@ export const caseStudies: CaseStudy[] = [
   proAid,
   drTelottomaRahman,
   primeDigitor,
+  xRealEstate
 ];
