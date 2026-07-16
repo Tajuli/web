@@ -111,6 +111,69 @@
 }
 
 /* ==========================================================
+   HERO CTA
+========================================================== */
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn {
+  background: var(--primary);
+  color: #fff;
+  border: 2px solid var(--primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.secondaryBtn:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
+/* ==========================================================
    FEATURED
 ========================================================== */
 
