@@ -236,7 +236,7 @@
 @media(max-width:992px){
 
 .hero{
-
+min-height:520px;
 padding:130px 0 90px;
 }
 
@@ -251,7 +251,7 @@ padding:90px 0;
 @media(max-width:768px){
 
 .hero{
-
+min-height:520px;
 padding:110px 0 70px;
 }
 
