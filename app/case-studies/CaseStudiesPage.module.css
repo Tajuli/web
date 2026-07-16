@@ -7,7 +7,7 @@
 
 :root{
   --case-radius:24px;
-  --case-radius-lg:2px;
+  --case-radius-lg:0px;
 
   --case-border:#e7edf3;
 
