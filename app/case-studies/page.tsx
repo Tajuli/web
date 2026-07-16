@@ -45,38 +45,40 @@ export default function CaseStudiesPage({
     <main className={styles.page}>
       {/* Hero */}
       <section className={styles.hero}>
-        <div className="site-container">
+  <div className="site-container">
 
-          <h1 className={styles.title}>
-            Real Results.
-            <br />
-            Real Growth.
-            <br />
-            Real Businesses.
-          </h1>
+    <h1 className={styles.title}>
+      Real Results.
+      <br />
+      Real Growth.
+      <br />
+      Real Businesses.
+    </h1>
 
-          <p className={styles.description}>
-            Discover how PrimeDigitor helps businesses
-            increase traffic, generate leads and grow
-            online through strategic digital marketing
-            and development.
-          </p>
-        </div>
-      </section>
-      <div className={styles.heroActions}>
-  <Link href="/website-audit" className={styles.primaryBtn}>
-    Get Free Website Audit
-  </Link>
+    <p className={styles.description}>
+      Discover how PrimeDigitor helps businesses
+      increase traffic, generate leads and grow
+      online through strategic digital marketing
+      and development.
+    </p>
 
-  <a
-    href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
-    target="_blank"
-    rel="noopener noreferrer"
-    className={styles.secondaryBtn}
-  >
-    Chat on WhatsApp
-  </a>
-</div>
+    <div className={styles.heroActions}>
+      <Link href="/website-audit" className={styles.primaryBtn}>
+        Get Free Website Audit
+      </Link>
+
+      <a
+        href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.secondaryBtn}
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
 
       {/* Featured Slider */}
       <FeaturedSlider />
