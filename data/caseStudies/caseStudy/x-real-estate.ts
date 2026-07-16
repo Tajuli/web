@@ -21,7 +21,7 @@ export const xRealEstate: CaseStudy = {
   industry: "Real Estate",
 
   // Images
-  coverImage: "/images/case-studies/x-real-estate.webp",
+  coverImage: "/images/case-studies/xRealEstate.webp",
 
   gallery: [
     "/images/case-studies/x-real-estate/1.webp",
