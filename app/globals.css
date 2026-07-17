@@ -10,6 +10,9 @@
   --eyebrow-color:#111827;
   --section-white:#f8fafc;
   --section-offwhite:#ffffff;
+  --primary-color:#7cc242;
+  --heading-color:#111827;
+  --text-color:#64748b;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
