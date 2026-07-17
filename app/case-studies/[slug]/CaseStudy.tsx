@@ -70,7 +70,7 @@ export default function CaseStudy({ caseStudy }: Props) {
 
               <div className={styles.heroButtons}>
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   className={styles.primaryBtn}
                 >
                   Get Free Consultation
