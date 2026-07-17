@@ -9,7 +9,7 @@ import CaseStudiesGrid from "./CaseStudiesGrid";
 
 export const metadata: Metadata = createMetadata({
   title: "Digital Marketing Case Studies",
-  description: "Explore PrimeDigitor client success stories across websites, SEO, branding, paid advertising, and digital growth campaigns.",
+  description: "Explore PrimeDigitor case studies across websites, SEO, branding, paid advertising, and digital growth campaigns to see how projects are planned and delivered.",
   path: "/case-studies",
 });
 export default function CaseStudiesPage() {
@@ -21,23 +21,20 @@ export default function CaseStudiesPage() {
   <div className="site-container">
 
     <h1 className={styles.title}>
-      Real Results.
+      Real Projects.
       <br />
-      Real Growth.
+      Clear Strategy.
       <br />
-      Real Businesses.
+      Practical Growth.
     </h1>
 
     <p className={styles.description}>
-      Discover how PrimeDigitor helps businesses
-      increase traffic, generate leads and grow
-      online through strategic digital marketing
-      and development.
+      See how PrimeDigitor approaches websites, SEO, paid campaigns, branding, and software projects with strategy, execution, and conversion-focused next steps.
     </p>
 
     <div className={styles.heroActions}>
       <Link href="/#contact" className={styles.primaryBtn}>
-        Get Free Website Audit
+        Request Free Growth Audit
       </Link>
 
       <a
@@ -62,12 +59,10 @@ export default function CaseStudiesPage() {
     <div className={styles.sectionHeading}>
       <span>All Case Studies</span>
 
-      <h2>Browse Every Project</h2>
+      <h2>Browse Project Examples</h2>
 
       <p>
-        Explore our complete portfolio of websites,
-        SEO, branding, digital marketing and software
-        development projects.
+        Explore website, SEO, branding, digital marketing, and software projects to find the service path closest to your business goal.
       </p>
     </div>
 
@@ -84,7 +79,7 @@ export default function CaseStudiesPage() {
             </span>
 
             <h2>
-              Ready to Become Our Next Success Story?
+              Ready to Plan Your Next Growth Project?
             </h2>
 
             <p>
@@ -99,7 +94,7 @@ export default function CaseStudiesPage() {
                 href="/#contact"
                 className="btn btn-primary"
               >
-                Get Free Website Audit
+                Request Free Growth Audit
               </Link>
 
               <Link

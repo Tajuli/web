@@ -9,7 +9,7 @@ import { JsonLd, organizationSchema, professionalServiceSchema, websiteSchema } 
 
 export const metadata: Metadata = createMetadata({
   title: "Digital Marketing Agency in Bangladesh",
-  description: "PrimeDigitor helps businesses generate qualified leads with SEO, local SEO, Google Ads, Facebook Ads, website development, content marketing, branding, and software solutions.",
+  description: "PrimeDigitor helps businesses in Bangladesh and worldwide turn SEO, local SEO, Google Ads, Facebook Ads, websites, content, branding, and software solutions into qualified leads and measurable inquiries.",
   path: "/",
 });
 

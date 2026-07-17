@@ -109,11 +109,11 @@ export default function Contact() {
           </span>
 
           <h2 className="section-title">
-            Ready to Turn More Visitors Into Qualified Inquiries?
+            Ready to Find the Fastest Path to More Qualified Inquiries?
           </h2>
 
           <p className="section-text">
-            Share your goals and we will recommend the fastest path to more leads—whether that is SEO, Google Ads, Meta Ads, a conversion-focused website, or a complete digital growth plan.
+            Share your website, target market, and growth goal. We will review the clearest next step—SEO, Google Ads, Meta Ads, local SEO, a conversion-focused website, or a complete digital growth plan.
           </p>
         </div>
 
@@ -293,7 +293,7 @@ export default function Contact() {
                 <input
                   type="text"
                   name="company"
-                  placeholder="Company / Website (Optional)" aria-label="Company or website optional"
+                  placeholder="Company / Website URL (Optional)" aria-label="Company or website optional"
                   value={formData.company}
                   onChange={handleChange}
                 />
@@ -301,7 +301,7 @@ export default function Contact() {
                 <textarea
                   rows={6}
                   name="message"
-                  placeholder="What service do you need, and what goal should we help you achieve?" aria-label="Project goals and requirements"
+                  placeholder="Tell us your target location, current challenge, and the outcome you want—calls, forms, bookings, store visits, or sales." aria-label="Project goals and requirements"
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -328,7 +328,7 @@ export default function Contact() {
                     "Sending..."
                   ) : (
                     <>
-                      Request Free Audit
+                      Request My Free Audit
                       <ArrowRight size={18} />
                     </>
                   )}

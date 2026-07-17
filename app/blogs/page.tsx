@@ -14,7 +14,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = createMetadata({
   title: "Digital Marketing Blog",
-  description: "Read SEO, website development, paid ads, content marketing, and business growth insights from PrimeDigitor.",
+  description: "Read practical SEO, website development, paid ads, content marketing, local SEO, and conversion insights from PrimeDigitor to plan your next growth move.",
   path: "/blogs",
 });
 
@@ -59,7 +59,7 @@ export default function BlogsPage() {
 
           <div className={styles.left}>
             <div className={styles.sectionTitle}>
-              <h2>Recent Posts</h2>
+              <h2>Recent Growth Guides</h2>
             </div>
 
             <div className={styles.grid}>

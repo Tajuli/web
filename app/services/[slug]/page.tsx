@@ -291,11 +291,11 @@ export default async function ServicePage({
                   <div className={styles.statsHeader}>
 
                     <h2 className={styles.statsTitle}>
-                      Proven Results
+                      Performance Metrics We Improve
                     </h2>
 
                     <p className={styles.statsText}>
-                      Performance indicators we focus on when planning campaigns, websites, and growth systems for long-term client success.
+                      Performance indicators commonly used to evaluate whether campaigns, websites, and growth systems are moving in the right direction.
                     </p>
 
                   </div>
@@ -425,8 +425,8 @@ export default async function ServicePage({
           </div>
 
           <div className={styles.stat}>
-            <strong>100%</strong>
-            <span>Custom Strategy</span>
+            <strong>Custom</strong>
+            <span>Strategy Review</span>
           </div>
 
           <div className={styles.stat}>

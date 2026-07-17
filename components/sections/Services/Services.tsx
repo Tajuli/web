@@ -77,11 +77,11 @@ export default function Services() {
           <p className="eyebrow">Our Services</p>
 
           <h2 className="section-title">
-            Digital Marketing & Business Growth Solutions
+            Choose the Right Growth Channel for Your Next Qualified Lead
           </h2>
 
           <p className={styles.subtitle}>
-            Choose the growth channel your business needs now, then connect it to a clear path from visitor to inquiry—from ads and SEO to websites, software, content, and branding.
+            Compare the channels your business can use now, then connect each one to a clear path from visitor to inquiry—from ads and SEO to websites, software, content, and branding.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function Services() {
                 href={`/services/${service.slug}`}
                 className={styles.link}
               >
-                <span>See Strategy & Pricing Fit</span>
+                <span>See If This Fits</span>
 
                 <svg
                   className={styles.arrow}
