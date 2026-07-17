@@ -152,67 +152,59 @@
 
 .heroButtons{
     display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-top:36px;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  margin-top:42px;
+  flex-wrap:wrap;
 }
 
 .primaryBtn,
 .secondaryBtn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-
-    width:260px;
-    height:56px;
-
-    padding:0 28px;
-
-    border-radius:14px;
-
-    font-size:16px;
-    font-weight:700;
-
-    text-decoration:none;
-
-    transition:all .3s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:56px;
+  padding:0 28px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all .3s ease;
 }
 
-/* Primary */
 
-.primaryBtn{
-    background:#7cc242;
-    color:#fff;
+/* Same as Home Secondary Button */
 
-    border:2px solid #7cc242;
-
-    box-shadow:none;
-}
-
-.primaryBtn:hover{
-    background:#6ab236;
-    border-color:#6ab236;
-
-    transform:translateY(-3px);
-}
-
-/* Secondary */
-
+.primaryBtn,
 .secondaryBtn{
-    background:#fff;
-
-    color:#111827;
-
-    border:2px solid #111827;
+  width:260px;
+  background:#fff;
+  color:var(--case-heading);
+  border:2px solid var(--case-heading);
 }
 
+.primaryBtn:hover,
 .secondaryBtn:hover{
-    background:#111827;
-    color:#fff;
+  background:var(--case-heading);
+  color:#fff;
+  border-color:var(--case-heading);
+  transform:translateY(-3px);
+}
 
-    border-color:#111827;
+@media (max-width:768px){
 
-    transform:translateY(-3px);
+  .heroActions{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn{
+    width:100%;
+    max-width:340px;
+  }
+
 }
 /* =====================================================
    HERO IMAGE
