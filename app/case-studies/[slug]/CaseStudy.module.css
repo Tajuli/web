@@ -194,7 +194,7 @@
 
 @media (max-width:768px){
 
-  .heroActions{
+  .heroButtons{
     flex-direction:column;
     width:100%;
   }
