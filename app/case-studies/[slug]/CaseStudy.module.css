@@ -24,15 +24,10 @@
 .hero {
   position: relative;
   padding: 8rem 0 5rem;
-  background:
-    radial-gradient(circle at top right,
-      rgba(37, 99, 235, .08),
-      transparent 35%),
-    linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #f8fbff 100%
-    );
+  background-image: url("/images/hero/case-study-hero.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .backButton {
