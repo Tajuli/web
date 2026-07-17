@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-import Navbar from "@/components/sections/Navbar/Navbar";
-import Footer from "@/components/sections/Footer/Footer";
 import RelatedServices from "@/components/services/RelatedServices";
 
 import { services } from "@/data/services";
@@ -104,7 +101,6 @@ export default async function ServicePage({
 
   return (
     <>
-      <Navbar />
 
       <main className={styles.page}>
 
@@ -647,8 +643,6 @@ export default async function ServicePage({
         )}
 
       </main>
-
-      <Footer />
 
     </>
   );
