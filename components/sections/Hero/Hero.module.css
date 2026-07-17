@@ -15,7 +15,6 @@
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  transform: scaleX(-1);
 }
 
 .heroImg {
@@ -33,7 +32,7 @@
   z-index: 1;
   pointer-events: none;
   background: #522801;
-  opacity: 0.3;
+  opacity: 0.0;
 }
 
 .gridOverlay {
