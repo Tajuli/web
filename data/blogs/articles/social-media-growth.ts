@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "Build a stronger online presence using proven social media strategies that increase engagement and brand awareness.",
 
-  coverImage: "/images/blogs/social.jpg",
+  coverImage: "/images/services/social-media-management.webp",
 
   category: "Social Media",
 

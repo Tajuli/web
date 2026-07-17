@@ -97,6 +97,7 @@ export default function Navbar() {
       >
         <div className={`site-container ${styles.inner}`}>
           <button
+            type="button"
             className={styles.brand}
             onClick={() => handleClick("#hero")}
           >
@@ -107,6 +108,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => handleClick(item.href)}
                 className={`${styles.navPill} ${
                   pathname === "/" && active === item.id
@@ -120,6 +122,7 @@ export default function Navbar() {
           </nav>
 
           <button
+            type="button"
             className={styles.mobileMenuBtn}
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
@@ -146,6 +149,7 @@ export default function Navbar() {
             </div>
 
             <button
+              type="button"
               className={styles.mobileClose}
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
@@ -158,6 +162,7 @@ export default function Navbar() {
             {navItems.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => handleClick(item.href)}
                 className={`${styles.mobileNavItem} ${
                   pathname === "/" && active === item.id

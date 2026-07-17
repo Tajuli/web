@@ -1,7 +1,7 @@
 import { caseStudies } from "@/data/caseStudies";
 import type { Blog } from "@/data/blogs";
 import type { ServiceData, ServiceFaq } from "@/data/services/types";
-import { absoluteUrl, siteConfig } from "./site";
+import { absoluteUrl, siteConfig, toIsoDate } from "./site";
 
 type JsonLdObject = Record<string, unknown>;
 const orgRef = { "@id": `${siteConfig.url}/#organization` };
@@ -13,7 +13,7 @@ export const webpageSchema = (name: string, description: string, path: string, t
 export const breadcrumbSchema = (items: { name: string; path: string }[]) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item.name, item: absoluteUrl(item.path) })) });
 export const faqSchema = (faqs: ServiceFaq[]) => ({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) });
 export const serviceSchema = (service: ServiceData) => ({ "@context": "https://schema.org", "@type": "Service", name: service.title, serviceType: service.category, description: service.description, image: absoluteUrl(service.heroImage), url: absoluteUrl(`/services/${service.slug}`), provider: orgRef, areaServed: siteConfig.areaServed });
-export const articleSchema = (blog: Blog, type: "Article" | "BlogPosting" = "BlogPosting") => ({ "@context": "https://schema.org", "@type": type, headline: blog.title, description: blog.excerpt, image: absoluteUrl(blog.coverImage), author: orgRef, publisher: orgRef, mainEntityOfPage: absoluteUrl(`/blogs/${blog.slug}`), url: absoluteUrl(`/blogs/${blog.slug}`), datePublished: blog.publishedAt, dateModified: blog.publishedAt, keywords: blog.tags.join(", ") });
-export const creativeWorkSchema = (study: (typeof caseStudies)[number]) => ({ "@context": "https://schema.org", "@type": "CreativeWork", name: study.title, description: study.shortDescription, image: absoluteUrl(study.coverImage), url: absoluteUrl(`/case-studies/${study.slug}`), creator: orgRef, datePublished: study.createdAt });
+export const articleSchema = (blog: Blog, type: "Article" | "BlogPosting" = "BlogPosting") => ({ "@context": "https://schema.org", "@type": type, headline: blog.title, description: blog.excerpt, image: absoluteUrl(blog.coverImage), author: orgRef, publisher: orgRef, mainEntityOfPage: absoluteUrl(`/blogs/${blog.slug}`), url: absoluteUrl(`/blogs/${blog.slug}`), datePublished: toIsoDate(blog.publishedAt), dateModified: toIsoDate(blog.publishedAt), keywords: blog.tags.join(", ") });
+export const creativeWorkSchema = (study: (typeof caseStudies)[number]) => ({ "@context": "https://schema.org", "@type": "CreativeWork", name: study.title, description: study.shortDescription, image: absoluteUrl(study.coverImage), url: absoluteUrl(`/case-studies/${study.slug}`), creator: orgRef, datePublished: toIsoDate(study.createdAt) });
 export const contactPageSchema = () => webpageSchema("Contact PrimeDigitor", "Contact PrimeDigitor for digital marketing, SEO, ads, and website development services.", "/#contact", "ContactPage");
 export function JsonLd({ data }: { data: JsonLdObject | JsonLdObject[] }) { const graph = Array.isArray(data) ? data : [data]; return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph.length === 1 ? graph[0] : { "@context": "https://schema.org", "@graph": graph.map(({ "@context": _context, ...item }) => item) }) }} />; }
