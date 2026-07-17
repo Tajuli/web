@@ -94,35 +94,6 @@ export default function Works() {
                 <CaseStudyCard study={study} />
               </SwiperSlide>
             ))}
-                        <SwiperSlide>
-              <Link
-                href="/case-studies"
-                className={styles.ctaCard}
-                aria-label="View all case studies"
-              >
-                <div className={styles.ctaContent}>
-                  <span className={styles.ctaBadge}>
-                    Portfolio
-                  </span>
-
-                  <h3>
-                    All Case
-                    <br />
-                    Studies
-                  </h3>
-
-                  <p>
-                    Explore our complete portfolio of websites,
-                    mobile apps, SEO, branding and digital
-                    marketing success stories.
-                  </p>
-
-                  <span className={styles.ctaButton}>
-                    View All Case Studies →
-                  </span>
-                </div>
-              </Link>
-            </SwiperSlide>
           </Swiper>
 
           <button
