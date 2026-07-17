@@ -7,6 +7,7 @@ import { caseStudies } from "@/data/caseStudies";
 import CaseStudyCard from "@/components/case-study/CaseStudyCard";
 
 const ITEMS_PER_PAGE = 6;
+const NAVBAR_OFFSET = 110;
 
 export default function CaseStudiesGrid() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,9 +29,16 @@ export default function CaseStudiesGrid() {
     setCurrentPage(page);
 
     requestAnimationFrame(() => {
-      sectionRef.current?.scrollIntoView({
+      if (!sectionRef.current) return;
+
+      const top =
+        sectionRef.current.getBoundingClientRect().top +
+        window.scrollY -
+        NAVBAR_OFFSET;
+
+      window.scrollTo({
+        top,
         behavior: "smooth",
-        block: "start",
       });
     });
   };
@@ -65,8 +73,8 @@ export default function CaseStudiesGrid() {
               (_, index) => index + 1
             ).map((page) => (
               <button
-                type="button"
                 key={page}
+                type="button"
                 onClick={() => changePage(page)}
                 className={`${styles.pageNumber} ${
                   currentPage === page
