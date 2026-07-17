@@ -181,20 +181,49 @@
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  margin-top:42px;
+  flex-wrap:wrap;
 }
 
 .primaryBtn {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:56px;
+  padding:0 28px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all .3s ease;
+  width:260px;
+  background:#fff;
+  color:var(--case-heading);
+  border:2px solid var(--case-heading);
 }
 
 .primaryBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(83, 213, 255, 0.22);
+  background:var(--case-heading);
+  color:#fff;
+  border-color:var(--case-heading);
+  transform:translateY(-3px);
+}
+@media (max-width:768px){
+
+  .actions{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .primaryBtn{
+    width:100%;
+    max-width:340px;
+  }
+
 }
 /* =========================
    RESULT SLIDER FRAME
