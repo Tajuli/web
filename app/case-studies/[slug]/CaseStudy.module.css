@@ -24,7 +24,7 @@
 .hero {
   position: relative;
 
-  min-height: 620px;      /* Fixed Hero Height */
+  min-height: 820px;      /* Fixed Hero Height */
   display: flex;
   align-items: center;
 
