@@ -86,7 +86,7 @@ export default async function ServicePage({
                 <div className={styles.overviewContent}>
 
                   <h2 className={styles.sectionTitle}>
-                    Why Choose {service.title}?
+                    Is {service.title} the Right Growth Channel?
                   </h2>
 
                   <p className={styles.sectionText}>
@@ -94,12 +94,7 @@ export default async function ServicePage({
                   </p>
 
                   <p className={styles.sectionText}>
-                    Every business has unique goals.
-                    That's why we create customized,
-                    data-driven strategies focused on
-                    measurable growth, stronger brand
-                    visibility, higher-quality leads,
-                    and long-term business success.
+                    Every business has different goals, competition, and buyer intent. We review your current website, offer, tracking, and sales process before recommending a practical plan focused on qualified inquiries and measurable growth.
                   </p>
 
                 </div>
@@ -113,11 +108,7 @@ export default async function ServicePage({
                   </h2>
 
                   <p className={styles.sectionText}>
-                    We combine creativity, marketing
-                    expertise, and performance-focused
-                    strategies to maximize every
-                    advertising investment and deliver
-                    sustainable business growth.
+                    We combine strategy, creative, technical execution, tracking, and transparent reporting so every campaign or website improvement has a clear business purpose.
                   </p>
 
                   <div className={styles.benefitList}>
@@ -173,9 +164,7 @@ export default async function ServicePage({
                     </h2>
 
                     <p className={styles.featuresText}>
-                      Everything you need to achieve
-                      better results and sustainable
-                      business growth.
+                      Core deliverables designed to improve visibility, trust, conversion paths, and lead quality.
                     </p>
 
                   </div>
@@ -239,9 +228,7 @@ export default async function ServicePage({
                     </h2>
 
                     <p className={styles.processText}>
-                      A transparent workflow designed
-                      to deliver measurable results
-                      from planning to execution.
+                      A transparent workflow that moves from research and strategy to launch, measurement, and continuous improvement.
                     </p>
 
                   </div>
@@ -308,10 +295,7 @@ export default async function ServicePage({
                     </h2>
 
                     <p className={styles.statsText}>
-                      Numbers that reflect our
-                      commitment to quality,
-                      performance, and long-term
-                      client success.
+                      Performance indicators we focus on when planning campaigns, websites, and growth systems for long-term client success.
                     </p>
 
                   </div>
@@ -370,9 +354,7 @@ export default async function ServicePage({
                     </h2>
 
                     <p className={styles.faqText}>
-                      Everything you need to know
-                      before getting started with our
-                      service.
+                      Answers to common questions about fit, process, timeline, and what happens before you start.
                     </p>
 
                   </div>
@@ -422,20 +404,17 @@ export default async function ServicePage({
       <div className={styles.ctaGlow2}></div>
 
       <div className={styles.ctaBadge}>
-        🚀 Limited Free Strategy Session
+        🚀 Free Strategy Fit Review
       </div>
 
       <div className={styles.ctaContent}>
 
         <h2>
-          Ready to Scale Your Business Faster?
+          Ready to See If This Service Fits Your Growth Goals?
         </h2>
 
         <p>
-          Stop wasting budget on marketing that doesn't convert.
-          Get a custom growth strategy from our experts and
-          discover how to generate more leads, more sales, and
-          sustainable long-term growth.
+          Tell us what you want to improve. We will review your current digital presence and recommend whether this service, another channel, or a website conversion improvement should come first.
         </p>
 
         <div className={styles.ctaStats}>
@@ -463,14 +442,14 @@ export default async function ServicePage({
             href="/#contact"
             className={styles.ctaButton}
           >
-            Contact With Us →
+            Request Free Audit →
           </Link>
 
           <Link
             href="/#services"
             className={styles.secondaryButton}
           >
-            View Our Services
+            Compare Services
           </Link>
 
         </div>

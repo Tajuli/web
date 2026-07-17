@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: "PrimeDigitor",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.primedigitor.com",
   description:
-    "PrimeDigitor is a digital marketing agency in Bangladesh helping businesses grow with SEO, paid ads, website development, content, branding, and software solutions.",
+    "PrimeDigitor is a Bangladesh-based digital marketing agency helping businesses generate qualified leads with SEO, local SEO, Google Ads, Meta Ads, website development, content, branding, and software solutions.",
   locale: "en_US",
   twitterHandle: "@PrimeDigitor",
   email: "hello@primedigitor.com",

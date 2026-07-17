@@ -229,28 +229,26 @@ export default function Hero() {
                 <div className={styles.kickerWrap}>
                   <span className={styles.kickerDot} />
                   <p className={styles.kicker}>
-                    PrimeDigitor • Digital Marketing Agency
+                    PrimeDigitor • Bangladesh Digital Growth Agency
                   </p>
                 </div>
 
                 <h1 className={styles.title}>
-                  Growth-focused marketing Agency that{" "}
-                  <span>delivers results.</span>
+                  Get More Qualified Leads From SEO, Ads & High-Converting Websites
                 </h1>
 
                 <p className={styles.text}>
-                  We help ambitious brands grow with SEO, Paid Ads and
-                  high-converting websites.
+                  We help service businesses and growing brands turn search traffic, paid media, and website visitors into measurable inquiries, booked calls, and sales opportunities.
                 </p>
               </div>
 
               <div className={styles.leftBottom}>
                 <div className={styles.actions}>
                   <a
-                    href="#services"
+                    href="#contact"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Our Services
+                    Get a Free Growth Audit
                   </a>
 
                   <a
@@ -259,7 +257,7 @@ export default function Hero() {
                     rel="noopener noreferrer"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Book a Free Call
+                    Chat on WhatsApp
                   </a>
                 </div>
               </div>

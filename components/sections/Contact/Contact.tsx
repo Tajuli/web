@@ -109,18 +109,11 @@ export default function Contact() {
           </span>
 
           <h2 className="section-title">
-            Ready to Grow Your Business
-            <br />
-            With Premium Digital Marketing?
+            Ready to Turn More Visitors Into Qualified Inquiries?
           </h2>
 
           <p className="section-text">
-            Whether you need a high-converting
-            website, SEO, Facebook Ads,
-            Google Ads, branding or complete
-            digital growth strategy —
-            PrimeDigitor is ready to help
-            you scale with confidence.
+            Share your goals and we will recommend the fastest path to more leads—whether that is SEO, Google Ads, Meta Ads, a conversion-focused website, or a complete digital growth plan.
           </p>
         </div>
 
@@ -144,9 +137,7 @@ export default function Contact() {
             <h3>Chat on WhatsApp</h3>
 
             <p>
-              Fastest way to discuss your
-              project. Average response
-              within minutes.
+              Fastest way to discuss your project, request an audit, or scope next steps with our team.
             </p>
 
             <span>
@@ -169,9 +160,7 @@ export default function Contact() {
             <h3>Email Us</h3>
 
             <p>
-              Send your requirements anytime
-              and we'll reply within
-              24 hours.
+              Send your requirements anytime. We review every inquiry and reply within 24 hours.
             </p>
 
             <span>
@@ -180,7 +169,8 @@ export default function Contact() {
             </span>
           </a>
 
-          <div
+          <a
+            href="#contact-form"
             className={styles.optionCard}
             onTouchStart={handleTouch}
             onTouchEnd={handleTouchEnd}
@@ -193,14 +183,13 @@ export default function Contact() {
             <h3>Free Consultation</h3>
 
             <p>
-              Book a free strategy discussion
-              before starting your project.
+              Request a no-pressure strategy review before you commit to any service.
             </p>
 
             <span>
               Free Strategy Call
             </span>
-          </div>
+          </a>
         </div>
 
         <div className={styles.wrapper}>
@@ -210,16 +199,13 @@ export default function Contact() {
             </h3>
 
             <p>
-              We don't just build websites or run ads.
-              We build complete digital growth systems
-              designed to generate more leads,
-              improve conversion rates and grow brands.
+              We connect strategy, creative, tracking, and conversion-focused execution so your marketing is easier to measure and easier to improve.
             </p>
 
             <div className={styles.featureList}>
                             <div className={styles.feature}>
                 <CheckCircle size={20} />
-                <span>100% Custom Strategy</span>
+                <span>Custom Growth Roadmap</span>
               </div>
 
               <div className={styles.feature}>
@@ -229,7 +215,7 @@ export default function Contact() {
 
               <div className={styles.feature}>
                 <CheckCircle size={20} />
-                <span>ROI Focused Campaigns</span>
+                <span>Conversion Tracking Focus</span>
               </div>
 
               <div className={styles.feature}>
@@ -257,7 +243,7 @@ export default function Contact() {
 
               <div className={styles.statCard}>
                 <Clock3 size={34} />
-                <strong>24 Hours</strong>
+                <strong>Within 24h</strong>
                 <span>Average Response</span>
               </div>
 
@@ -272,25 +258,24 @@ export default function Contact() {
           {/* Right */}
 
           <div className={styles.right}>
-            <div className={styles.formCard}>
+            <div id="contact-form" className={styles.formCard}>
               <span className={styles.formBadge}>
                 SEND AN INQUIRY
               </span>
 
               <h3>
-                Tell Us About Your Project
+                Get a Free Growth Audit
               </h3>
 
               <p>
-                We'll review your requirements
-                and recommend the best solution.
+                Tell us what you want to improve. We will review your website, offer, and current marketing before recommending next steps.
               </p>
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} aria-label="Project inquiry form">
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Your Name" aria-label="Your name"
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -299,7 +284,7 @@ export default function Contact() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email Address"
+                  placeholder="Email Address" aria-label="Email address"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -308,7 +293,7 @@ export default function Contact() {
                 <input
                   type="text"
                   name="company"
-                  placeholder="Company (Optional)"
+                  placeholder="Company / Website (Optional)" aria-label="Company or website optional"
                   value={formData.company}
                   onChange={handleChange}
                 />
@@ -316,7 +301,7 @@ export default function Contact() {
                 <textarea
                   rows={6}
                   name="message"
-                  placeholder="Describe your project..."
+                  placeholder="What service do you need, and what goal should we help you achieve?" aria-label="Project goals and requirements"
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -343,7 +328,7 @@ export default function Contact() {
                     "Sending..."
                   ) : (
                     <>
-                      Send Inquiry
+                      Request Free Audit
                       <ArrowRight size={18} />
                     </>
                   )}

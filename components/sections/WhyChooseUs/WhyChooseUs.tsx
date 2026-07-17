@@ -13,25 +13,25 @@ const features = [
     icon: <TrendingUp size={34} />,
     title: "Results-Driven Strategy",
     description:
-      "Every campaign is planned with measurable goals to maximize traffic, leads, and ROI.",
+      "Every campaign is planned around measurable inquiries, lead quality, conversion rate, and ROI.",
   },
   {
     icon: <BarChart3 size={34} />,
     title: "Transparent Reporting",
     description:
-      "Track your campaign performance with clear reports and actionable insights.",
+      "Track leads, rankings, ad spend, conversion actions, and next steps with clear reports.",
   },
   {
     icon: <Users size={34} />,
     title: "Experienced Team",
     description:
-      "Our specialists combine creativity, marketing expertise, and technical skills.",
+      "Our specialists combine creative, technical, advertising, SEO, and conversion knowledge.",
   },
   {
     icon: <ShieldCheck size={34} />,
     title: "Trusted Process",
     description:
-      "We follow proven digital marketing frameworks that consistently deliver results.",
+      "We follow documented research, launch, tracking, testing, and optimization workflows.",
   },
   {
     icon: <Rocket size={34} />,
@@ -59,8 +59,7 @@ export default function WhyChooseUs() {
           </h2>
 
           <p className="section-text">
-            We focus on measurable business growth through data-driven marketing,
-            modern technology, and long-term partnerships.
+            We focus on measurable business growth through data-driven marketing, conversion-focused websites, transparent reporting, and long-term partnerships.
           </p>
         </div>
 
@@ -89,8 +88,8 @@ export default function WhyChooseUs() {
             </div>
 
             <div>
-              <strong>ROI</strong>
-              <span>Focused Campaigns</span>
+              <strong>Leads</strong>
+              <span>Qualified Inquiries</span>
             </div>
 
             <div>
