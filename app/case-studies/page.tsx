@@ -15,20 +15,19 @@ export const metadata: Metadata = {
 const ITEMS_PER_PAGE = 6;
 
 type PageProps = {
-  searchParams?: {
+  searchParams: Promise<{
     page?: string;
-  };
+  }>;
 };
 
-export default function CaseStudiesPage({
+export default async function CaseStudiesPage({
   searchParams,
 }: PageProps) {
-  // Show only NON-featured studies in the grid
-  const allStudies = caseStudies;
+  const params = await searchParams;
 
   const currentPage = Math.max(
     1,
-    Number(searchParams?.page ?? "1")
+    Number(params.page ?? "1")
   );
 
   const totalPages = Math.max(
