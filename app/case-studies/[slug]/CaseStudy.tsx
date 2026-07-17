@@ -62,19 +62,24 @@ export default function CaseStudy({ caseStudy }: Props) {
 
               {/* SIMPLE META */}
               <div className={styles.heroMeta}>
-                <div className={styles.heroMetaItem}>
-                  <span>Industry</span>
-                  <strong>{caseStudy.industry}</strong>
-                </div>
+  <div className={styles.heroMetaCard}>
+    <div className={styles.heroMetaIcon}>🏢</div>
 
-                <div className={styles.heroDivider}></div>
+    <div>
+      <span>Industry</span>
+      <strong>{caseStudy.industry}</strong>
+    </div>
+  </div>
 
-                <div className={styles.heroMetaItem}>
-                  <span>Completed</span>
-                  <strong>{caseStudy.completedAt}</strong>
-                </div>
-              </div>
-            </div>
+  <div className={styles.heroMetaCard}>
+    <div className={styles.heroMetaIcon}>📅</div>
+
+    <div>
+      <span>Completed</span>
+      <strong>{caseStudy.completedAt}</strong>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </section>
