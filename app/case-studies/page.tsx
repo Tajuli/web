@@ -25,6 +25,8 @@ export default async function CaseStudiesPage({
 }: PageProps) {
   const params = await searchParams;
 
+  const allStudies = caseStudies;
+
   const currentPage = Math.max(
     1,
     Number(params.page ?? "1")
