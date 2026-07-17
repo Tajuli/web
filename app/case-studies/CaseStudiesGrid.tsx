@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import styles from "./CaseStudiesPage.module.css";
 import { caseStudies } from "@/data/caseStudies";
-import CaseStudyCard from "./CaseStudyCard";
+import CaseStudyCard from "@/components/case-study/CaseStudyCard";
 
 const ITEMS_PER_PAGE = 6;
 
