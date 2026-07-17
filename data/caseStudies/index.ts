@@ -6,3 +6,4 @@ export * from "./caseStudy/dr-telottoma-rahman";
 export * from "./caseStudy/primedigitor";
 export * from "./caseStudy/x-real-estate";
 export * from "./caseStudy/unseenbdeshi-facebook-marketing";
+export * from "./caseStudy/ruhitpur-general-hospital-facebook-marketing";
