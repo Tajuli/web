@@ -1,6 +1,20 @@
 .page {
   background: #fff;
+  color:#111827;
   overflow: hidden;
+}
+page h1,
+.page h2,
+.page h3,
+.page h4,
+.page strong{
+    color:#111827;
+}
+
+.page p,
+.page li,
+.page span{
+    color:#64748b;
 }
 
 /* =====================================================
