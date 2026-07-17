@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import styles from "./CaseStudiesPage.module.css";
 import { caseStudies } from "@/data/caseStudies";
@@ -10,6 +10,8 @@ const ITEMS_PER_PAGE = 6;
 
 export default function CaseStudiesGrid() {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const studies = caseStudies;
 
@@ -22,8 +24,19 @@ export default function CaseStudiesGrid() {
     currentPage * ITEMS_PER_PAGE
   );
 
+  const changePage = (page: number) => {
+    setCurrentPage(page);
+
+    requestAnimationFrame(() => {
+      sectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
+
   return (
-    <>
+    <div ref={sectionRef}>
       <div className={styles.grid}>
         {paginatedStudies.map((study) => (
           <CaseStudyCard
@@ -36,13 +49,12 @@ export default function CaseStudiesGrid() {
       {totalPages > 1 && (
         <div className={styles.pagination}>
           <button
+            type="button"
             className={`${styles.pageButton} ${
               currentPage === 1 ? styles.disabled : ""
             }`}
             disabled={currentPage === 1}
-            onClick={() =>
-              setCurrentPage((page) => page - 1)
-            }
+            onClick={() => changePage(currentPage - 1)}
           >
             ← Previous
           </button>
@@ -53,8 +65,9 @@ export default function CaseStudiesGrid() {
               (_, index) => index + 1
             ).map((page) => (
               <button
+                type="button"
                 key={page}
-                onClick={() => setCurrentPage(page)}
+                onClick={() => changePage(page)}
                 className={`${styles.pageNumber} ${
                   currentPage === page
                     ? styles.activePage
@@ -67,20 +80,19 @@ export default function CaseStudiesGrid() {
           </div>
 
           <button
+            type="button"
             className={`${styles.pageButton} ${
               currentPage === totalPages
                 ? styles.disabled
                 : ""
             }`}
             disabled={currentPage === totalPages}
-            onClick={() =>
-              setCurrentPage((page) => page + 1)
-            }
+            onClick={() => changePage(currentPage + 1)}
           >
             Next →
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 }
