@@ -7,51 +7,51 @@ import styles from "./FAQ.module.css";
 const faqs = [
   {
     q: "What digital marketing services does PrimeDigitor offer?",
-    a: "PrimeDigitor provides complete digital marketing solutions including Facebook Marketing, Google Ads, TikTok Marketing, SEO Services, Website Design & Development, Software & App Development, Video Advertisement Production, Social Media Management, and Content Creation & Branding.",
+    a: "PrimeDigitor provides SEO, local SEO, Google Ads, Facebook and Instagram marketing, TikTok marketing, website design and development, software development, video ads, social media management, content creation, and branding for businesses that want more qualified inquiries.",
   },
   {
-    q: "Why should I choose PrimeDigitor for digital marketing?",
-    a: "We focus on data-driven strategies, creative marketing, and measurable business growth. Our goal is to increase your brand visibility, generate qualified leads, improve conversions, and maximize your return on investment (ROI).",
+    q: "How do you decide which service is right for my business?",
+    a: "We start with a free growth audit to review your goals, website, current traffic sources, offer, location, and budget. Then we recommend the channel mix most likely to generate leads with the least wasted spend.",
   },
   {
-    q: "How long does it take to see results from SEO?",
-    a: "SEO is a long-term strategy. Most businesses begin to see noticeable improvements within 3–6 months, depending on competition, website quality, and the current state of SEO.",
+    q: "Do you help with Google Business Profile and local SEO?",
+    a: "Yes. We help optimize Google Business Profile information, service categories, website links, local landing pages, on-page SEO, and review-generation workflows so nearby customers can find and contact your business more easily.",
   },
   {
-    q: "How quickly can Google Ads and Facebook Ads generate results?",
-    a: "Paid advertising campaigns can start generating traffic and leads within a few days after launch. We continuously optimize campaigns to improve performance and maximize ROI.",
+    q: "How long does SEO take to generate leads?",
+    a: "SEO usually takes 3–6 months to show meaningful movement, depending on competition, website quality, content depth, and local authority. We focus on technical fixes, high-intent pages, internal linking, and conversion improvements early so traffic has a better chance to become inquiries.",
   },
   {
-    q: "Do you build SEO-friendly websites?",
-    a: "Yes. Every website we develop is fast, mobile-responsive, SEO-friendly, secure, and optimized for performance, user experience, and higher search engine rankings.",
+    q: "How quickly can Google Ads or Facebook Ads generate inquiries?",
+    a: "Paid campaigns can begin generating traffic and inquiries within days of launch. Performance depends on the offer, landing page, budget, targeting, and tracking setup, so we test creative and keywords while optimizing for lead quality—not just clicks.",
   },
   {
-    q: "Can you redesign my existing website?",
-    a: "Absolutely. We redesign existing websites with modern UI/UX, improved performance, better SEO structure, faster loading speed, and higher conversion optimization.",
+    q: "Will you improve my existing website before running ads?",
+    a: "If the website is slow, unclear, or missing trust signals, we will recommend conversion improvements before scaling paid traffic. This protects your budget and helps more visitors take action through calls, WhatsApp, email, or forms.",
+  },
+  {
+    q: "What should I include when contacting you?",
+    a: "Share your website or company name, target location, main service or product, current marketing channels, monthly budget range if available, and the outcome you want—more calls, form submissions, bookings, store visits, or online sales.",
+  },
+  {
+    q: "Do you provide reporting and transparent communication?",
+    a: "Yes. We provide clear performance updates focused on leads, traffic quality, campaign spend, rankings, conversions, and next actions so you understand what is working and what needs improvement.",
   },
   {
     q: "Do you work with businesses outside Bangladesh?",
-    a: "Yes. PrimeDigitor serves businesses worldwide through remote collaboration, online meetings, and digital project management.",
+    a: "Yes. PrimeDigitor is based in Bangladesh and serves clients locally and internationally through remote collaboration, online meetings, WhatsApp, email, and digital project management.",
   },
   {
-    q: "Which advertising platform is best for my business?",
-    a: "It depends on your industry, target audience, and business goals. We recommend the most effective combination of Google Ads, Facebook Ads, TikTok Marketing, SEO, or other digital channels after analyzing your business.",
+    q: "How much do your services cost?",
+    a: "Pricing depends on your goals, competition, current digital presence, and selected services. After reviewing your needs, we provide a transparent scope so you know what is included before starting.",
   },
   {
-    q: "Do you provide Social Media Management services?",
-    a: "Yes. We create content calendars, design engaging posts, manage publishing schedules, interact with audiences, and help grow your brand across social media platforms.",
-  },
-  {
-    q: "Do you provide custom software and mobile app development?",
-    a: "Yes. We develop custom business software, web applications, and mobile apps tailored to your business requirements, helping automate processes and improve productivity.",
-  },
-  {
-    q: "How much do your digital marketing services cost?",
-    a: "Our pricing depends on your project requirements, business goals, and the services you need. We offer customized solutions and transparent pricing based on your objectives.",
+    q: "Do you have case studies I can review?",
+    a: "Yes. You can review our case studies to see examples of websites, digital campaigns, branding, and growth work before requesting a consultation.",
   },
   {
     q: "Do you offer a free consultation?",
-    a: "Yes. We offer a free consultation to understand your business goals, analyze your current digital presence, and recommend the best marketing strategy for long-term growth.",
+    a: "Yes. You can request a free consultation or growth audit through the contact form, WhatsApp, or email. We will review your situation and recommend practical next steps.",
   },
 ];
 

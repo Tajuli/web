@@ -23,8 +23,7 @@ export default function Works() {
           <p className="eyebrow">OUR CASE STUDIES</p>
 
           <h2 className="section-title">
-            Explore how we've helped businesses grow through
-            strategy, development and digital marketing.
+            See real project examples before you contact us—websites, campaigns, branding, and digital systems built to support measurable business growth.
           </h2>
         </div>
 
@@ -41,7 +40,7 @@ export default function Works() {
             href="/case-studies"
             className={styles.viewAll}
           >
-            View All
+            View All Case Studies
           </Link>
         </div>
 

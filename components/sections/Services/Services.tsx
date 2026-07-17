@@ -9,63 +9,63 @@ const services = [
     title: "Facebook Marketing",
     icon: "🚀",
     description:
-      "Reach the right audience with high-converting Facebook & Instagram advertising campaigns.",
+      "Reach buyers with Meta campaigns built for lead quality, retargeting, and measurable cost per inquiry.",
   },
   {
     slug: "google-ads",
     title: "Google Ads",
     icon: "🔍",
     description:
-      "Generate quality leads through Search, Display, Shopping and YouTube advertising.",
+      "Capture high-intent demand with Google Ads structured around keywords, landing pages, and conversion tracking.",
   },
   {
     slug: "tiktok-marketing",
     title: "TikTok Marketing",
     icon: "🎵",
     description:
-      "Grow your brand with creative TikTok campaigns that capture attention and engagement.",
+      "Turn attention into action with TikTok creatives, testing plans, and campaigns aligned with your offer.",
   },
   {
     slug: "seo",
     title: "SEO Services",
     icon: "📈",
     description:
-      "Improve your Google rankings and drive consistent organic traffic to your website.",
+      "Improve rankings, local visibility, and organic traffic with technical SEO, content, and conversion-focused pages.",
   },
   {
     slug: "website-development",
     title: "Website Design & Development",
     icon: "🌐",
     description:
-      "Modern, responsive websites built for performance, user experience and conversions.",
+      "Fast, responsive websites planned around trust, speed, clear messaging, and more contact form submissions.",
   },
   {
     slug: "software-development",
     title: "Software & App Development",
     icon: "💻",
     description:
-      "Custom software and mobile applications designed around your business goals.",
+      "Custom software and mobile apps that streamline operations, improve customer experience, and support growth.",
   },
   {
   slug: "video-production",
   title: "Video Advertisement Production",
   icon: "🎬",
   description:
-    "Professional commercial videos that increase engagement and maximize ad performance.",
+    "Professional ad videos that make offers clearer, build trust faster, and improve paid campaign performance.",
 },
   {
     slug: "social-media-management",
     title: "Social Media Management",
     icon: "📱",
     description:
-      "Complete content planning, publishing and audience management across social platforms.",
+      "Consistent social content, publishing, and audience management that keeps your brand active and credible.",
   },
   {
   slug: "content-branding",
   title: "Content Creation & Branding",
   icon: "✍️",
   description:
-    "Creative content and branding solutions that build trust and strengthen your identity.",
+    "Messaging, visuals, and brand content that communicate your value clearly and make prospects more confident.",
 },
 ];
 
@@ -81,8 +81,7 @@ export default function Services() {
           </h2>
 
           <p className={styles.subtitle}>
-            Everything you need to grow your business online—from advertising
-            and branding to websites, software and content.
+            Choose the growth channel your business needs now, then connect it to a clear path from visitor to inquiry—from ads and SEO to websites, software, content, and branding.
           </p>
         </div>
 
@@ -117,7 +116,7 @@ export default function Services() {
                 href={`/services/${service.slug}`}
                 className={styles.link}
               >
-                <span>Learn More</span>
+                <span>See Strategy & Pricing Fit</span>
 
                 <svg
                   className={styles.arrow}

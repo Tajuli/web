@@ -25,8 +25,7 @@ export default function Footer() {
             </h2>
 
             <p>
-              Whether you need SEO, Paid Ads, Website Development or Branding,
-              our team is ready to help your business grow faster.
+              Get a free growth audit for SEO, paid ads, website development, local SEO, Google Business Profile optimization, or branding.
             </p>
           </div>
 
@@ -46,9 +45,7 @@ export default function Footer() {
             </h3>
 
             <p>
-              Premium Digital Marketing Agency helping businesses generate more
-              leads, sales and long-term growth through modern marketing
-              strategies.
+              Bangladesh-based digital marketing agency helping businesses generate more qualified leads, improve local visibility, and grow with SEO, paid ads, websites, content, and branding.
             </p>
 
             <div className={styles.socials}>
@@ -115,9 +112,11 @@ export default function Footer() {
           <div>
             <h4>Get In Touch</h4>
 
-            <p>hello@primedigitor.com</p>
+            <p>Email: hello@primedigitor.com</p>
 
-            <p>Available Worldwide</p>
+            <p>WhatsApp: +880 1832-729052</p>
+
+            <p>Serving Bangladesh and international clients remotely</p>
 
             <a href="#contact" className={styles.contactBtn}>
               Start Your Project

@@ -3,9 +3,9 @@ import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 
 const highlights = [
-  "Results-Driven Digital Marketing",
+  "Lead Generation Strategy",
   "Modern Website Development",
-  "Transparent Communication",
+  "Transparent Reporting",
   "Long-Term Business Partnership",
 ];
 
@@ -23,12 +23,7 @@ export default function About() {
             </h2>
 
             <p className="section-text">
-              PrimeDigitor is a modern digital marketing and web development
-              agency committed to helping businesses build a powerful online
-              presence and achieve sustainable growth. By combining strategic
-              thinking, creative execution, and modern technology, we develop
-              solutions that strengthen brands, generate qualified leads, and
-              deliver measurable business results.
+              PrimeDigitor is a Bangladesh-based digital marketing and web development agency helping businesses turn online visibility into qualified inquiries. By combining strategy, creative execution, tracking, and modern technology, we build growth systems that strengthen trust, improve conversions, and make marketing performance easier to measure.
             </p>
 
             <p className="section-text">
@@ -95,10 +90,7 @@ export default function About() {
             <p>
               PrimeDigitor was founded with a clear vision—to help businesses
               grow through data-driven digital marketing, modern website
-              development, and innovative digital solutions. Every project
-              receives direct founder involvement, ensuring strategic thinking,
-              transparency, quality execution, and long-term business success
-              for every client.
+              development, and innovative digital solutions. Every project receives direct founder involvement, practical strategy, transparent communication, quality execution, and a clear focus on generating inquiries—not just online activity.
             </p>
 
             <a href="#contact" className="btn btn-primary">
