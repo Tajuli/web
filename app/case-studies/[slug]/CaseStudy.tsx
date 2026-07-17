@@ -80,6 +80,7 @@ export default function CaseStudy({ caseStudy }: Props) {
     </div>
   </div>
 </div>
+              </div>
           </div>
         </div>
       </section>
