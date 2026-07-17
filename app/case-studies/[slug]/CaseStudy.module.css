@@ -240,56 +240,85 @@
 }
 
 .heroMeta{
-  display:inline-flex;
-  align-items:center;
-  gap:0;
+    display:flex;
+    gap:18px;
 
-  margin-top:2rem;
+    margin-top:34px;
 
-  background:rgba(255,255,255,.88);
-  backdrop-filter:blur(18px);
-
-  border:1px solid rgba(255,255,255,.45);
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-  box-shadow:
-      0 12px 35px rgba(15,23,42,.08);
+    flex-wrap:wrap;
 }
 
-.heroMetaItem{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+.heroMetaCard{
+    display:flex;
+    align-items:center;
+    gap:16px;
 
-  min-width:180px;
+    min-width:220px;
 
-  padding:18px 26px;
+    padding:18px 22px;
 
-  transition:.3s;
+    border-radius:18px;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    box-shadow:
+        0 10px 35px rgba(15,23,42,.08);
+
+    transition:.35s;
 }
 
-.heroMetaItem:hover{
-  background:rgba(37,99,235,.05);
+.heroMetaCard:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 18px 45px rgba(15,23,42,.12);
 }
 
-.heroMetaItem span{
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+.heroMetaIcon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-  color:#94a3b8;
+    width:52px;
+    height:52px;
 
-  margin-bottom:6px;
+    border-radius:14px;
+
+    background:rgba(132,204,22,.12);
+
+    color:#84cc16;
+
+    font-size:22px;
+
+    flex-shrink:0;
 }
 
-.heroMetaItem strong{
-  color:#0f172a;
-  font-size:1.08rem;
-  font-weight:700;
+.heroMetaCard span{
+    display:block;
+
+    margin-bottom:4px;
+
+    font-size:.74rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.12em;
+
+    color:#94a3b8;
+}
+
+.heroMetaCard strong{
+    color:#0f172a;
+
+    font-size:1.05rem;
+
+    font-weight:700;
 }
 
 .heroDivider{
@@ -1020,9 +1049,11 @@
 
   .heroMeta{
     flex-direction:column;
-    align-items:flex-start;
-    gap:16px;
-  }
+    width:100%;
+   }
+  .heroMetaCard{
+    width:100%;
+   }
 
   .heroDivider{
     display:none;
