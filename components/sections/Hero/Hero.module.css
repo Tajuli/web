@@ -182,7 +182,7 @@
 
 .actions {
   display:flex;
-  justify-content:center;
+  justify-content:flex-start;
   align-items:center;
   gap:18px;
   margin-top:42px;
