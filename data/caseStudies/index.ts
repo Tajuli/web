@@ -7,3 +7,4 @@ export * from "./caseStudy/primedigitor";
 export * from "./caseStudy/x-real-estate";
 export * from "./caseStudy/unseenbdeshi-facebook-marketing";
 export * from "./caseStudy/ruhitpur-general-hospital-facebook-marketing";
+export * from "./caseStudy/hakim-furniture-video-marketing";
