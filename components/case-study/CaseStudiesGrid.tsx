@@ -11,9 +11,6 @@ const ITEMS_PER_PAGE = 6;
 export default function CaseStudiesGrid() {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // চাইলে featured card নিচে না দেখাতে এটা ব্যবহার করো
-  // const studies = caseStudies.filter((study) => !study.featured);
-
   const studies = caseStudies;
 
   const totalPages = Math.ceil(
