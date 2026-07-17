@@ -14,7 +14,7 @@ export const hakimFurnitureVideoMarketing: CaseStudy = {
     "Hakim Furniture partnered with PrimeDigitor to strengthen its digital marketing through professional video production and strategic video marketing campaigns. Our team handled the complete process including creative planning, script writing, product videography, motion graphics, video editing, and platform optimization. The campaigns helped showcase furniture collections, increase audience engagement, and generate more customer inquiries across social media platforms.",
 
   // Classification
-  category: "Video Marketing",
+  category: "Content Marketing",
 
   // Client
   client: "Hakim Furniture",
