@@ -26,60 +26,6 @@
    OVERLAYS
 ========================= */
 
-.bgOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: #522801;
-  opacity: 0.0;
-}
-
-.gridOverlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-
-  background-size: 80px 80px;
-
-  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
-  -webkit-mask-image: radial-gradient(
-    circle at center,
-    black 45%,
-    transparent 100%
-  );
-
-  opacity: 0.16;
-}
-
-.glow {
-  position: absolute;
-  z-index: 2;
-  border-radius: 999px;
-  filter: blur(90px);
-  pointer-events: none;
-}
-
-.glowA {
-  width: 280px;
-  height: 280px;
-  left: -40px;
-  top: 180px;
-  background: rgba(59, 130, 246, 0.14);
-}
-
-.glowB {
-  width: 320px;
-  height: 320px;
-  right: -80px;
-  top: 120px;
-  background: rgba(99, 102, 241, 0.12);
-}
 
 /* =========================
    HERO CONTENT
