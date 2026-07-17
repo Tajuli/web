@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 import styles from "./CaseStudiesPage.module.css";
 import FeaturedSlider from "./FeaturedSlider";
-import { caseStudies } from "@/data/caseStudies";
 import CaseStudiesGrid from "./CaseStudiesGrid";
 
 export const metadata: Metadata = {
@@ -58,73 +56,22 @@ export default function CaseStudiesPage() {
 
       {/* All Case Studies */}
       <section className={styles.section}>
-        <div className="site-container">
-          <div className={styles.sectionHeading}>
-            <span>All Case Studies</span>
+  <div className="site-container">
+    <div className={styles.sectionHeading}>
+      <span>All Case Studies</span>
 
-            <h2>Browse Every Project</h2>
+      <h2>Browse Every Project</h2>
 
-            <p>
-              Explore our complete portfolio of websites,
-              SEO, branding, digital marketing and software
-              development projects.
-            </p>
-          </div>
-          <CaseStudiesGrid />
+      <p>
+        Explore our complete portfolio of websites,
+        SEO, branding, digital marketing and software
+        development projects.
+      </p>
+    </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className={styles.pagination}>
-              <Link
-                href={
-                  currentPage > 1
-                    ? `/case-studies?page=${currentPage - 1}`
-                    : "#"
-                }
-                className={`${styles.pageButton} ${
-                  currentPage === 1 ? styles.disabled : ""
-                }`}
-              >
-                ← Previous
-              </Link>
-
-              <div className={styles.pageNumbers}>
-                {Array.from(
-                  { length: totalPages },
-                  (_, index) => index + 1
-                ).map((page) => (
-                  <Link
-                    key={page}
-                    href={`/case-studies?page=${page}`}
-                    className={`${styles.pageNumber} ${
-                      currentPage === page
-                        ? styles.activePage
-                        : ""
-                    }`}
-                  >
-                    {page}
-                  </Link>
-                ))}
-              </div>
-
-              <Link
-                href={
-                  currentPage < totalPages
-                    ? `/case-studies?page=${currentPage + 1}`
-                    : "#"
-                }
-                className={`${styles.pageButton} ${
-                  currentPage === totalPages
-                    ? styles.disabled
-                    : ""
-                }`}
-              >
-                Next →
-              </Link>
-            </div>
-          )}
-        </div>
-      </section>
+    <CaseStudiesGrid />
+  </div>
+</section>
 
       {/* CTA */}
       <section className={styles.ctaSection}>
