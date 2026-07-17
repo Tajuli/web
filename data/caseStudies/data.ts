@@ -5,6 +5,7 @@ import { drTelottomaRahman } from "./caseStudy/dr-telottoma-rahman";
 import { primeDigitor } from "./caseStudy/primedigitor";
 import { xRealEstate } from "./caseStudy/x-real-estate";
 import { unseenBDeshi } from "./caseStudy/unseenbdeshi-facebook-marketing";
+import { ruhitpurGeneralHospital } from "./caseStudy/ruhitpur-general-hospital-facebook-marketing";
 
 export const caseStudies: CaseStudy[] = [
   proAid,
@@ -12,4 +13,5 @@ export const caseStudies: CaseStudy[] = [
   primeDigitor,
   xRealEstate,
   unseenBDeshi,
+  ruhitpurGeneralHospital,
 ];
