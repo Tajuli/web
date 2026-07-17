@@ -23,11 +23,15 @@
 
 .hero {
   position: relative;
-  padding: 5.5rem 0 3rem;
-  background-image: url("/images/hero/case-study-hero.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+
+  min-height: 620px;      /* Fixed Hero Height */
+  display: flex;
+  align-items: center;
+
+  padding: 110px 0 60px;  /* 110px = navbar height + spacing */
+
+  background: url("/images/hero/case-study-hero.webp")
+    center/cover no-repeat;
 }
 
 .backButton {
