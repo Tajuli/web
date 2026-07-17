@@ -204,7 +204,7 @@ export default function Hero() {
       {/* Hero Background Image */}
       <div className={styles.heroImage}>
         <Image
-          src="/images/hero/hero3d.webp"
+          src="/images/hero/hero4.webp"
           alt="PrimeDigitor Digital Marketing Agency"
           fill
           priority
