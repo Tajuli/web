@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import RelatedServices from "@/components/services/RelatedServices";
 
 import { services } from "@/data/services";
+import { createMetadata } from "@/lib/seo";
+import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema, webpageSchema } from "@/lib/jsonLd";
 
 import styles from "./ServiceDetail.module.css";
 
@@ -14,9 +16,6 @@ type Props = {
   }>;
 };
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://primedigitor.com";
 
 export async function generateStaticParams() {
   return Object.keys(services).map((slug) => ({
@@ -28,60 +27,19 @@ export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
   const { slug } = await params;
-
-  const service =
-    services[slug as keyof typeof services];
+  const service = services[slug as keyof typeof services];
 
   if (!service) {
-    return {
-      title: "Service Not Found | PrimeDigitor",
-    };
+    return createMetadata({ title: "Service Not Found", path: `/services/${slug}`, noIndex: true });
   }
 
-  const url = `${SITE_URL}/services/${slug}`;
-
-  return {
+  return createMetadata({
     title: service.seoTitle ?? service.title,
-
-    description:
-      service.seoDescription ??
-      service.description,
-
-    alternates: {
-      canonical: url,
-    },
-
-    openGraph: {
-      type: "website",
-
-      url,
-
-      title: service.title,
-
-      description: service.description,
-
-      images: [
-        {
-          url: `${SITE_URL}${service.heroImage}`,
-          width: 1200,
-          height: 630,
-          alt: service.title,
-        },
-      ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-
-      title: service.title,
-
-      description: service.description,
-
-      images: [
-        `${SITE_URL}${service.heroImage}`,
-      ],
-    },
-  };
+    description: service.seoDescription ?? service.description,
+    path: `/services/${slug}`,
+    image: service.heroImage,
+    keywords: service.metaKeywords,
+  });
 }
 
 export default async function ServicePage({
@@ -95,9 +53,6 @@ export default async function ServicePage({
   if (!service) {
     notFound();
   }
-
-  const pageUrl =
-    `${SITE_URL}/services/${slug}`;
 
   return (
     <>
@@ -557,90 +512,18 @@ export default async function ServicePage({
 
         </section>
 
-        {/* ================= SERVICE SCHEMA ================= */}
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-
-              "@type": "Service",
-
-              name: service.title,
-
-              description:
-                service.description,
-
-              image:
-                `${SITE_URL}${service.heroImage}`,
-
-              serviceType:
-                service.category,
-
-              url: pageUrl,
-
-              provider: {
-                "@type": "Organization",
-
-                name: "PrimeDigitor",
-
-                url: SITE_URL,
-              },
-
-              areaServed: {
-                "@type": "Country",
-
-                name: "Bangladesh",
-              },
-            }),
-          }}
+        <JsonLd
+          data={[
+            serviceSchema(service),
+            webpageSchema(service.title, service.seoDescription ?? service.description, `/services/${slug}`),
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/#services" },
+              { name: service.title, path: `/services/${slug}` },
+            ]),
+            ...(service.faqs.length > 0 ? [faqSchema(service.faqs)] : []),
+          ]}
         />
-
-        {/* ================= FAQ SCHEMA ================= */}
-
-        {service.faqs.length > 0 && (
-
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-
-                "@context":
-                  "https://schema.org",
-
-                "@type":
-                  "FAQPage",
-
-                mainEntity:
-
-                  service.faqs.map(
-                    (faq) => ({
-
-                      "@type":
-                        "Question",
-
-                      name:
-                        faq.question,
-
-                      acceptedAnswer: {
-
-                        "@type":
-                          "Answer",
-
-                        text:
-                          faq.answer,
-
-                      },
-
-                    })
-                  ),
-
-              }),
-            }}
-          />
-
-        )}
 
       </main>
 

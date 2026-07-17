@@ -1,0 +1,25 @@
+export const siteConfig = {
+  name: "PrimeDigitor",
+  legalName: "PrimeDigitor",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.primedigitor.com",
+  description:
+    "PrimeDigitor is a digital marketing agency in Bangladesh helping businesses grow with SEO, paid ads, website development, content, branding, and software solutions.",
+  locale: "en_US",
+  twitterHandle: "@PrimeDigitor",
+  email: "hello@primedigitor.com",
+  phone: "+8801832729052",
+  addressCountry: "BD",
+  areaServed: ["Bangladesh", "Worldwide"],
+  defaultImage: "/images/hero/hero.webp",
+};
+
+export function absoluteUrl(path = "/") {
+  if (/^https?:\/\//i.test(path)) return path;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${siteConfig.url.replace(/\/$/, "")}${normalizedPath}`;
+}
+
+export function pathFromUrl(path = "/") {
+  if (/^https?:\/\//i.test(path)) return new URL(path).pathname;
+  return path.startsWith("/") ? path : `/${path}`;
+}

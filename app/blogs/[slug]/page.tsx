@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import Navbar from "@/components/sections/Navbar/Navbar";
-import Footer from "@/components/sections/Footer/Footer";
-
 import {
   getAllBlogs,
   getBlogBySlug,
@@ -14,6 +11,9 @@ import ShareButtons from "@/components/blogs/ShareButtons";
 import RelatedBlogs from "@/components/blogs/RelatedBlogs";
 
 import styles from "./BlogDetail.module.css";
+import { createMetadata } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/site";
+import { JsonLd, articleSchema, breadcrumbSchema, webpageSchema } from "@/lib/jsonLd";
 
 type PageProps = {
   params: Promise<{
@@ -21,9 +21,6 @@ type PageProps = {
   }>;
 };
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://primedigitor.com";
 
 export async function generateStaticParams() {
   return getAllBlogs().map((blog) => ({
@@ -35,51 +32,22 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-
   const blog = getBlogBySlug(slug);
 
   if (!blog) {
-    return {
-      title: "Blog Not Found | PrimeDigitor",
-    };
+    return createMetadata({ title: "Blog Not Found", path: `/blogs/${slug}`, noIndex: true });
   }
 
-  const url = `${SITE_URL}/blogs/${blog.slug}`;
-  const image = `${SITE_URL}${blog.coverImage}`;
-
-  return {
+  return createMetadata({
     title: blog.seoTitle || blog.title,
-
-    description:
-      blog.seoDescription || blog.excerpt,
-
-    alternates: {
-      canonical: url,
-    },
-
-    openGraph: {
-      type: "article",
-      url,
-      title: blog.title,
-      description: blog.excerpt,
-
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
-    },
-
-    twitter: {
-      card: "summary_large_image",
-      title: blog.title,
-      description: blog.excerpt,
-      images: [image],
-    },
-  };
+    description: blog.seoDescription || blog.excerpt,
+    path: `/blogs/${blog.slug}`,
+    image: blog.coverImage,
+    type: "article",
+    publishedTime: blog.publishedAt,
+    authors: [blog.author],
+    keywords: blog.tags,
+  });
 }
 
 export default async function BlogDetailPage({
@@ -93,12 +61,10 @@ export default async function BlogDetailPage({
     notFound();
   }
 
-  const articleUrl = `${SITE_URL}/blogs/${blog.slug}`;
+  const articleUrl = absoluteUrl(`/blogs/${blog.slug}`);
 
   return (
     <>
-      <Navbar />
-
       <main className={styles.page}>
         {/* Hero */}
         <section className={styles.hero}>
@@ -149,46 +115,8 @@ export default async function BlogDetailPage({
 
         <RelatedBlogs currentBlog={blog} />
 
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-
-              headline: blog.title,
-
-              description: blog.excerpt,
-
-              image: `${SITE_URL}${blog.coverImage}`,
-
-              author: {
-                "@type": "Organization",
-                name: blog.author,
-              },
-
-              publisher: {
-                "@type": "Organization",
-                name: "PrimeDigitor",
-              },
-
-              mainEntityOfPage: {
-                "@type": "WebPage",
-                "@id": articleUrl,
-              },
-
-              url: articleUrl,
-
-              datePublished: blog.publishedAt,
-
-              keywords: blog.tags.join(", "),
-            }),
-          }}
-        />
+        <JsonLd data={[articleSchema(blog), articleSchema(blog, "Article"), webpageSchema(blog.title, blog.excerpt, `/blogs/${blog.slug}`), breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blogs", path: "/blogs" }, { name: blog.title, path: `/blogs/${blog.slug}` }])]} />
       </main>
-
-      <Footer />
     </>
   );
 }

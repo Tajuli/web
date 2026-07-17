@@ -69,25 +69,25 @@ export default function ShareButtons({
       </span>
 
       <div className={styles.buttons}>
-        <button onClick={shareFacebook}>
+        <button type="button" aria-label="Share on Facebook" onClick={shareFacebook}>
           Facebook
         </button>
 
-        <button onClick={shareLinkedIn}>
+        <button type="button" aria-label="Share on LinkedIn" onClick={shareLinkedIn}>
           LinkedIn
         </button>
 
-        <button onClick={shareTwitter}>
+        <button type="button" aria-label="Share on X" onClick={shareTwitter}>
           X
         </button>
 
         {"share" in navigator && (
-          <button onClick={nativeShare}>
+          <button type="button" aria-label="Share using your device" onClick={nativeShare}>
             Share
           </button>
         )}
 
-        <button onClick={copyLink}>
+        <button type="button" aria-label="Copy article link" onClick={copyLink}>
           {copied ? "Copied!" : "Copy Link"}
         </button>
       </div>

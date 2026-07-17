@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-
-import Navbar from "@/components/sections/Navbar/Navbar";
-import Footer from "@/components/sections/Footer/Footer";
+import { createMetadata } from "@/lib/seo";
+import { JsonLd, webpageSchema, breadcrumbSchema } from "@/lib/jsonLd";
 
 import BlogCard from "@/components/blogs/BlogCard";
 import MostRead from "@/components/blogs/MostRead";
@@ -13,11 +12,11 @@ import {
 
 import styles from "./page.module.css";
 
-export const metadata: Metadata = {
-  title: "Blog | PrimeDigitor",
-  description:
-    "Read the latest insights on SEO, Web Development, Digital Marketing, Google Ads and Business Growth from PrimeDigitor.",
-};
+export const metadata: Metadata = createMetadata({
+  title: "Digital Marketing Blog",
+  description: "Read SEO, website development, paid ads, content marketing, and business growth insights from PrimeDigitor.",
+  path: "/blogs",
+});
 
 export default function BlogsPage() {
   const blogs = getAllBlogs();
@@ -28,8 +27,6 @@ export default function BlogsPage() {
 
   return (
     <>
-      <Navbar />
-
       <main className={styles.page}>
         {/* ================= HERO ================= */}
 
@@ -92,9 +89,8 @@ export default function BlogsPage() {
             <MostRead blogs={blogs.slice(0, 5)} />
           </aside>
         </section>
+        <JsonLd data={[webpageSchema("Digital Marketing Blog", "SEO, website development, paid ads, content marketing, and growth insights from PrimeDigitor.", "/blogs"), breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Blogs", path: "/blogs" }])]} />
       </main>
-
-      <Footer />
     </>
   );
 }
