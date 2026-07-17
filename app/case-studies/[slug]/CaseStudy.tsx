@@ -53,10 +53,10 @@ export default function CaseStudy({ caseStudy }: Props) {
                 </Link>
 
                 <Link
-                  href="/website-audit"
+                  href="/#contact"
                   className={styles.secondaryBtn}
                 >
-                  Free Website Audit
+                  Free Growth Audit
                 </Link>
               </div>
 
@@ -371,28 +371,25 @@ export default function CaseStudy({ caseStudy }: Props) {
 
                 <div className={styles.ctaCard}>
                   <h3>
-                    Ready to Grow Your Business?
+                    Want a Strategy Like This for Your Business?
                   </h3>
 
                   <p>
-                    Let's discuss how PrimeDigitor
-                    can help you generate more
-                    leads, sales and brand
-                    visibility.
+                    Share your goal and we will recommend the service path most likely to improve leads, sales, or brand visibility.
                   </p>
 
                   <Link
-                    href="/contact"
+                    href="/#contact"
                     className={styles.primaryBtn}
                   >
                     Start Your Project
                   </Link>
 
                   <Link
-                    href="/website-audit"
+                    href="/#contact"
                     className={styles.secondaryBtn}
                   >
-                    Free Website Audit
+                    Free Growth Audit
                   </Link>
                 </div>
               </div>
@@ -410,8 +407,8 @@ export default function CaseStudy({ caseStudy }: Props) {
             <span>LET'S WORK TOGETHER</span>
 
             <h2>
-              Ready to Become Our Next
-              Success Story?
+              Ready to Plan Your Next
+              Growth Project?
             </h2>
 
             <p>
@@ -424,14 +421,14 @@ export default function CaseStudy({ caseStudy }: Props) {
 
             <div className={styles.bottomButtons}>
               <Link
-                href="/contact"
+                href="/#contact"
                 className={styles.primaryBtn}
               >
                 Get Free Consultation
               </Link>
 
               <Link
-                href="/services"
+                href="/#services"
                 className={styles.secondaryBtn}
               >
                 Explore Services

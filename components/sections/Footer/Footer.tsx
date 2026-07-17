@@ -20,8 +20,8 @@ export default function Footer() {
             </span>
 
             <h2>
-              Let's Build Your
-              <span> Next Growth Story</span>
+              Turn Your Next Visitor Into
+              <span> a Qualified Inquiry</span>
             </h2>
 
             <p>
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
 
           <a href="#contact" className={styles.ctaButton}>
-            Book Free Consultation
+            Request Free Audit
             <ArrowRight size={18} />
           </a>
         </div>
@@ -119,7 +119,7 @@ export default function Footer() {
             <p>Serving Bangladesh and international clients remotely</p>
 
             <a href="#contact" className={styles.contactBtn}>
-              Start Your Project
+              Request Free Audit
             </a>
           </div>
         </div>

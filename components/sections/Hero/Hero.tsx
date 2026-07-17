@@ -205,7 +205,7 @@ export default function Hero() {
       <div className={styles.heroImage}>
         <Image
           src="/images/hero/hero4.webp"
-          alt="PrimeDigitor Digital Marketing Agency"
+          alt="PrimeDigitor digital marketing team helping businesses generate qualified leads"
           fill
           priority
           quality={100}
@@ -234,11 +234,11 @@ export default function Hero() {
                 </div>
 
                 <h1 className={styles.title}>
-                  Get More Qualified Leads From SEO, Ads & High-Converting Websites
+                  Turn SEO, Ads & Your Website Into More Qualified Leads
                 </h1>
 
                 <p className={styles.text}>
-                  We help service businesses and growing brands turn search traffic, paid media, and website visitors into measurable inquiries, booked calls, and sales opportunities.
+                  PrimeDigitor helps service businesses and growing brands convert search traffic, paid media, and website visitors into measurable inquiries, booked calls, and sales opportunities.
                 </p>
               </div>
 
@@ -248,7 +248,7 @@ export default function Hero() {
                     href="#contact"
                     className={`btn btn-primary ${styles.primaryBtn}`}
                   >
-                    Get a Free Growth Audit
+                    Request a Free Growth Audit
                   </a>
 
                   <a

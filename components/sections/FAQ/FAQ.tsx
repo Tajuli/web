@@ -70,11 +70,11 @@ export default function FAQ() {
           <h2 className={styles.title}>FAQs</h2>
 
           <p className={styles.description}>
-            Everything you need to know about our services.
+            Answers that help you choose the right service before you spend on marketing.
             <br />
             Can't find the answer you're looking for?
             <br />
-            Please contact our team.
+            Request a free growth audit and our team will recommend the clearest next step.
           </p>
         </div>
 

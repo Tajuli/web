@@ -19,7 +19,7 @@ export default function HomePage() {
       <Blog />
       <FAQ />
       <Contact />
-      <JsonLd data={[webpageSchema("Digital Marketing Agency in Bangladesh", "PrimeDigitor helps businesses grow with SEO, paid ads, website development, content, branding, and software solutions.", "/"), contactPageSchema(), breadcrumbSchema([{ name: "Home", path: "/" }])]} />
+      <JsonLd data={[webpageSchema("Digital Marketing Agency in Bangladesh", "PrimeDigitor helps businesses turn SEO, paid ads, website development, content, branding, and software solutions into qualified leads, inquiries, and measurable growth.", "/"), contactPageSchema(), breadcrumbSchema([{ name: "Home", path: "/" }])]} />
     </main>
   );
 }
