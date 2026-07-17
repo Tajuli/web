@@ -6,6 +6,7 @@ import { primeDigitor } from "./caseStudy/primedigitor";
 import { xRealEstate } from "./caseStudy/x-real-estate";
 import { unseenBDeshi } from "./caseStudy/unseenbdeshi-facebook-marketing";
 import { ruhitpurGeneralHospital } from "./caseStudy/ruhitpur-general-hospital-facebook-marketing";
+import { hakimFurnitureVideoMarketing } from "./caseStudy/hakim-furniture-video-marketing";
 
 export const caseStudies: CaseStudy[] = [
   proAid,
@@ -14,4 +15,5 @@ export const caseStudies: CaseStudy[] = [
   xRealEstate,
   unseenBDeshi,
   ruhitpurGeneralHospital,
+  hakimFurnitureVideoMarketing,
 ];
