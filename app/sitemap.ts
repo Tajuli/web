@@ -1,47 +1,19 @@
 import type { MetadataRoute } from "next";
 import { getAllBlogs } from "@/data/blogs";
-
-const BASE_URL = "https://www.primedigitor.com";
+import { getAllServices } from "@/data/services";
+import { caseStudies } from "@/data/caseStudies";
+import { absoluteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-
-  // Static Pages
-  const pages = [
-    "",
-    "/about",
-    "/services",
-    "/works",
-    "/blogs",
-    "/contact",
-  ];
-
-  const staticPages: MetadataRoute.Sitemap = pages.map((page) => ({
-    url: `${BASE_URL}${page}`,
+  const staticPages: MetadataRoute.Sitemap = ["/", "/blogs", "/case-studies", "/#services", "/#about", "/#contact"].map((path) => ({
+    url: absoluteUrl(path),
     lastModified: now,
-    changeFrequency:
-      page === "/blogs"
-        ? "daily"
-        : page === ""
-        ? "weekly"
-        : "monthly",
-    priority:
-      page === ""
-        ? 1
-        : page === "/blogs"
-        ? 0.95
-        : 0.8,
+    changeFrequency: path === "/blogs" ? "daily" : "weekly",
+    priority: path === "/" ? 1 : 0.8,
   }));
-
-  // Dynamic Blog Pages
-  const blogPages: MetadataRoute.Sitemap = getAllBlogs().map((blog) => ({
-    url: `${BASE_URL}/blogs/${blog.slug}`,
-    lastModified: blog.publishedAt
-      ? new Date(blog.publishedAt)
-      : now,
-    changeFrequency: "monthly",
-    priority: blog.featured ? 0.9 : 0.8,
-  }));
-
-  return [...staticPages, ...blogPages];
+  const servicePages = getAllServices().map((service) => ({ url: absoluteUrl(`/services/${service.slug}`), lastModified: service.lastUpdated ? new Date(service.lastUpdated) : now, changeFrequency: "monthly" as const, priority: 0.9 }));
+  const blogPages = getAllBlogs().map((blog) => ({ url: absoluteUrl(`/blogs/${blog.slug}`), lastModified: new Date(blog.publishedAt), changeFrequency: "monthly" as const, priority: blog.featured ? 0.9 : 0.75 }));
+  const caseStudyPages = caseStudies.filter((study) => study.published).map((study) => ({ url: absoluteUrl(`/case-studies/${study.slug}`), lastModified: new Date(study.completedAt || study.createdAt), changeFrequency: "monthly" as const, priority: study.featured ? 0.85 : 0.7 }));
+  return [...staticPages, ...servicePages, ...blogPages, ...caseStudyPages];
 }

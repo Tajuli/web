@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
+import { JsonLd, webpageSchema, breadcrumbSchema } from "@/lib/jsonLd";
 import Link from "next/link";
 
 import styles from "./CaseStudiesPage.module.css";
 import FeaturedSlider from "./FeaturedSlider";
 import CaseStudiesGrid from "./CaseStudiesGrid";
 
-export const metadata: Metadata = {
-  title: "Case Studies | PrimeDigitor",
-  description:
-    "Explore real client success stories and discover how PrimeDigitor helps businesses grow.",
-};
+export const metadata: Metadata = createMetadata({
+  title: "Digital Marketing Case Studies",
+  description: "Explore PrimeDigitor client success stories across websites, SEO, branding, paid advertising, and digital growth campaigns.",
+  path: "/case-studies",
+});
 export default function CaseStudiesPage() {
 
   return (
@@ -110,6 +112,7 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+      <JsonLd data={[webpageSchema("Digital Marketing Case Studies", "PrimeDigitor client success stories across websites, SEO, branding, paid advertising, and digital growth campaigns.", "/case-studies"), breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }])]} />
     </main>
   );
 }

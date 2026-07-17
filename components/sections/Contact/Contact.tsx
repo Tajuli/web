@@ -72,9 +72,9 @@ export default function Contact() {
         company: "",
         message: "",
       });
-    } catch (err: any) {
+    } catch (err) {
       setError(
-        err.message ||
+        err instanceof Error ? err.message :
           "Something went wrong. Please try again."
       );
     } finally {

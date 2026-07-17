@@ -1,25 +1,37 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+function escapeHtml(value: unknown) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const {
-      name,
-      email,
-      company,
-      message,
-    } = body;
+    const name = escapeHtml(body.name).trim();
+    const email = escapeHtml(body.email).trim();
+    const company = escapeHtml(body.company).trim();
+    const message = escapeHtml(body.message).trim();
 
     // Validation
 
     if (
       !name ||
       !email ||
-      !message
+      !message ||
+      !isValidEmail(email)
     ) {
       return NextResponse.json(
         {
@@ -30,6 +42,10 @@ export async function POST(req: Request) {
           status: 400,
         }
       );
+    }
+
+    if (!resend) {
+      return NextResponse.json({ success: false, message: "Email service is not configured." }, { status: 503 });
     }
 
     await resend.emails.send({

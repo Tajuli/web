@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { caseStudies } from "@/data/caseStudies";
 import CaseStudyDetails from "./CaseStudy";
+import { createMetadata } from "@/lib/seo";
+import { JsonLd, breadcrumbSchema, creativeWorkSchema, webpageSchema } from "@/lib/jsonLd";
 
 interface PageProps {
   params: Promise<{
@@ -20,24 +22,18 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-
   const study = caseStudies.find((item) => item.slug === slug);
 
   if (!study) {
-    return {
-      title: "Case Study Not Found | PrimeDigitor",
-    };
+    return createMetadata({ title: "Case Study Not Found", path: `/case-studies/${slug}`, noIndex: true });
   }
 
-  return {
-    title: study.seoTitle ?? `${study.title} | PrimeDigitor`,
-    description: study.seoDescription,
-    openGraph: {
-      title: study.seoTitle ?? study.title,
-      description: study.seoDescription,
-      images: [study.coverImage],
-    },
-  };
+  return createMetadata({
+    title: study.seoTitle ?? `${study.title} Case Study`,
+    description: study.seoDescription || study.shortDescription,
+    path: `/case-studies/${study.slug}`,
+    image: study.coverImage,
+  });
 }
 
 export default async function CaseStudyPage({
@@ -51,5 +47,10 @@ export default async function CaseStudyPage({
     notFound();
   }
 
-  return <CaseStudyDetails caseStudy={study} />;
+  return (
+    <>
+      <CaseStudyDetails caseStudy={study} />
+      <JsonLd data={[creativeWorkSchema(study), webpageSchema(study.title, study.seoDescription || study.shortDescription, `/case-studies/${study.slug}`), breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case Studies", path: "/case-studies" }, { name: study.title, path: `/case-studies/${study.slug}` }])]} />
+    </>
+  );
 }

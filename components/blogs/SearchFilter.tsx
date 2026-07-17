@@ -39,6 +39,7 @@ export default function SearchFilter({ blogs }: Props) {
       <div className={styles.toolbar}>
         <input
           type="text"
+          aria-label="Search articles"
           placeholder="Search articles..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -46,6 +47,7 @@ export default function SearchFilter({ blogs }: Props) {
         />
 
         <select
+          aria-label="Filter articles by category"
           className={styles.select}
           value={category}
           onChange={(e) => setCategory(e.target.value)}

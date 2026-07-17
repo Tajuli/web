@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs/WhyChooseUs";
 import Blog from "@/components/sections/Blog/Blog";
 import FAQ from "@/components/sections/FAQ/FAQ";
 import Contact from "@/components/sections/Contact/Contact";
+import { JsonLd, contactPageSchema, webpageSchema, breadcrumbSchema } from "@/lib/jsonLd";
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Blog />
       <FAQ />
       <Contact />
+      <JsonLd data={[webpageSchema("Digital Marketing Agency in Bangladesh", "PrimeDigitor helps businesses grow with SEO, paid ads, website development, content, branding, and software solutions.", "/"), contactPageSchema(), breadcrumbSchema([{ name: "Home", path: "/" }])]} />
     </main>
   );
 }
