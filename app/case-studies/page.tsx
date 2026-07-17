@@ -5,42 +5,14 @@ import Image from "next/image";
 import styles from "./CaseStudiesPage.module.css";
 import FeaturedSlider from "./FeaturedSlider";
 import { caseStudies } from "@/data/caseStudies";
+import CaseStudiesGrid from "./CaseStudiesGrid";
 
 export const metadata: Metadata = {
   title: "Case Studies | PrimeDigitor",
   description:
     "Explore real client success stories and discover how PrimeDigitor helps businesses grow.",
 };
-
-const ITEMS_PER_PAGE = 6;
-
-type PageProps = {
-  searchParams: Promise<{
-    page?: string;
-  }>;
-};
-
-export default async function CaseStudiesPage({
-  searchParams,
-}: PageProps) {
-  const params = await searchParams;
-
-  const allStudies = caseStudies;
-
-  const currentPage = Math.max(
-    1,
-    Number(params.page ?? "1")
-  );
-
-  const totalPages = Math.max(
-    1,
-    Math.ceil(allStudies.length / ITEMS_PER_PAGE)
-  );
-
-  const paginatedStudies = allStudies.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+export default function CaseStudiesPage() {
 
   return (
     <main className={styles.page}>
@@ -98,47 +70,7 @@ export default async function CaseStudiesPage({
               development projects.
             </p>
           </div>
-
-          <div className={styles.grid}>
-            {paginatedStudies.map((study) => (
-              <Link
-                key={study.slug}
-                href={`/case-studies/${study.slug}`}
-                className={styles.card}
-              >
-                <div className={styles.imageWrapper}>
-                  <Image
-                    src={study.coverImage}
-                    alt={study.title}
-                    fill
-                    className={styles.image}
-                  />
-
-                  <span className={styles.category}>
-                    {study.category}
-                  </span>
-                                    {study.featured && (
-                    <span className={styles.featured}>
-                      Featured
-                    </span>
-                  )}
-                </div>
-
-                <div className={styles.content}>
-                  <h2>{study.title}</h2>
-
-                  <p>{study.shortDescription}</p>
-
-                  <div className={styles.footer}>
-
-                    <span className={styles.readMore}>
-                      Read Case Study →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <CaseStudiesGrid />
 
           {/* Pagination */}
           {totalPages > 1 && (
