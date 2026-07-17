@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
     </p>
 
     <div className={styles.heroActions}>
-      <Link href="/website-audit" className={styles.primaryBtn}>
+      <Link href="/#contact" className={styles.primaryBtn}>
         Get Free Website Audit
       </Link>
 
