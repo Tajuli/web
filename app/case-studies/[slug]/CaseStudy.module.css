@@ -153,7 +153,7 @@
 .heroButtons{
     display:flex;
   justify-content:center;
-  align-items:left;
+  align-items:center;
   gap:18px;
   margin-top:42px;
   flex-wrap:wrap;
