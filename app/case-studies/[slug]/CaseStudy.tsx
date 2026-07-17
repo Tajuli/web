@@ -84,19 +84,6 @@ export default function CaseStudy({ caseStudy }: Props) {
                 </Link>
               </div>
             </div>
-
-            {/* Right */}
-            <div className={styles.heroImageWrap}>
-              <div className={styles.heroImage}>
-                <Image
-                  src={caseStudy.coverImage}
-                  alt={caseStudy.title}
-                  fill
-                  priority
-                  className={styles.image}
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
