@@ -32,7 +32,6 @@ export default function CaseStudy({ caseStudy }: Props) {
           </Link>
 
           <div className={styles.heroGrid}>
-            {/* Left */}
             <div className={styles.heroContent}>
               <span className={styles.badge}>
                 {caseStudy.category}
@@ -44,30 +43,7 @@ export default function CaseStudy({ caseStudy }: Props) {
                 {caseStudy.shortDescription}
               </p>
 
-              <div className={styles.meta}>
-                <div className={styles.metaCard}>
-                  <span>Client</span>
-                  <strong>{caseStudy.client}</strong>
-                </div>
-
-                <div className={styles.metaCard}>
-                  <span>Industry</span>
-                  <strong>{caseStudy.industry}</strong>
-                </div>
-
-                <div className={styles.metaCard}>
-                  <span>Completed</span>
-                  <strong>{caseStudy.completedAt}</strong>
-                </div>
-
-                <div className={styles.metaCard}>
-                  <span>Services</span>
-                  <strong>
-                    {caseStudy.services.length}
-                  </strong>
-                </div>
-              </div>
-
+              {/* CTA FIRST */}
               <div className={styles.heroButtons}>
                 <Link
                   href="/#contact"
@@ -82,6 +58,21 @@ export default function CaseStudy({ caseStudy }: Props) {
                 >
                   Free Website Audit
                 </Link>
+              </div>
+
+              {/* SIMPLE META */}
+              <div className={styles.heroMeta}>
+                <div className={styles.heroMetaItem}>
+                  <span>Industry</span>
+                  <strong>{caseStudy.industry}</strong>
+                </div>
+
+                <div className={styles.heroDivider}></div>
+
+                <div className={styles.heroMetaItem}>
+                  <span>Completed</span>
+                  <strong>{caseStudy.completedAt}</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -118,11 +109,8 @@ export default function CaseStudy({ caseStudy }: Props) {
       <section className={styles.content}>
         <div className="site-container">
           <div className={styles.contentWrapper}>
-            {/* ===========================
-                MAIN CONTENT
-            =========================== */}
-
-            <article className={styles.article}>
+            {/* ===== Continue with your existing code from here ===== */}
+                        <article className={styles.article}>
               <section className={styles.section}>
                 <span className={styles.sectionTag}>
                   OVERVIEW
@@ -191,7 +179,8 @@ export default function CaseStudy({ caseStudy }: Props) {
                   </div>
                 </div>
               </section>
-                            <section className={styles.section}>
+
+              <section className={styles.section}>
                 <span className={styles.sectionTag}>
                   SERVICES
                 </span>
@@ -353,71 +342,49 @@ export default function CaseStudy({ caseStudy }: Props) {
                 <div className={styles.infoCard}>
                   <h3>Project Summary</h3>
 
-                  <div
-                    className={styles.infoRow}
-                  >
+                  <div className={styles.infoRow}>
                     <span>Client</span>
-                    <strong>
-                      {caseStudy.client}
-                    </strong>
+                    <strong>{caseStudy.client}</strong>
                   </div>
 
-                  <div
-                    className={styles.infoRow}
-                  >
+                  <div className={styles.infoRow}>
                     <span>Industry</span>
-                    <strong>
-                      {caseStudy.industry}
-                    </strong>
+                    <strong>{caseStudy.industry}</strong>
                   </div>
 
-                  <div
-                    className={styles.infoRow}
-                  >
+                  <div className={styles.infoRow}>
                     <span>Completed</span>
-                    <strong>
-                      {caseStudy.completedAt}
-                    </strong>
+                    <strong>{caseStudy.completedAt}</strong>
                   </div>
 
-                  <div
-                    className={styles.infoRow}
-                  >
+                  <div className={styles.infoRow}>
                     <span>Category</span>
-                    <strong>
-                      {caseStudy.category}
-                    </strong>
+                    <strong>{caseStudy.category}</strong>
                   </div>
                 </div>
 
                 <div className={styles.ctaCard}>
                   <h3>
-                    Ready to Grow Your
-                    Business?
+                    Ready to Grow Your Business?
                   </h3>
 
                   <p>
-                    Let's discuss how
-                    PrimeDigitor can help
-                    you generate more
+                    Let's discuss how PrimeDigitor
+                    can help you generate more
                     leads, sales and brand
                     visibility.
                   </p>
 
                   <Link
                     href="/contact"
-                    className={
-                      styles.primaryBtn
-                    }
+                    className={styles.primaryBtn}
                   >
                     Start Your Project
                   </Link>
 
                   <Link
                     href="/website-audit"
-                    className={
-                      styles.secondaryBtn
-                    }
+                    className={styles.secondaryBtn}
                   >
                     Free Website Audit
                   </Link>
@@ -427,8 +394,7 @@ export default function CaseStudy({ caseStudy }: Props) {
           </div>
         </div>
       </section>
-
-      {/* ======================
+            {/* ======================
           BOTTOM CTA
       ====================== */}
 
@@ -444,31 +410,23 @@ export default function CaseStudy({ caseStudy }: Props) {
 
             <p>
               Whether you need digital
-              marketing, SEO, web
+              marketing, SEO, website
               development or branding,
               we're ready to help your
               business grow.
             </p>
 
-            <div
-              className={
-                styles.bottomButtons
-              }
-            >
+            <div className={styles.bottomButtons}>
               <Link
                 href="/contact"
-                className={
-                  styles.primaryBtn
-                }
+                className={styles.primaryBtn}
               >
                 Get Free Consultation
               </Link>
 
               <Link
                 href="/services"
-                className={
-                  styles.secondaryBtn
-                }
+                className={styles.secondaryBtn}
               >
                 Explore Services
               </Link>
