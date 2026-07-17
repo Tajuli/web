@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "Learn how content marketing helps attract high-quality customers and grow your business organically.",
 
-  coverImage: "/images/blogs/content.jpg",
+  coverImage: "/images/services/content-branding.webp",
 
   category: "Content Marketing",
 

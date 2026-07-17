@@ -8,7 +8,7 @@ const post: Blog = {
   excerpt:
     "A faster website improves SEO, conversions and user experience.",
 
-  coverImage: "/images/blogs/speed.jpg",
+  coverImage: "/images/services/website-development.webp",
 
   category: "Web Development",
 

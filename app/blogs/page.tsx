@@ -74,12 +74,12 @@ export default function BlogsPage() {
             {/* Pagination */}
 
             <div className={styles.pagination}>
-              <button className={styles.active}>1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>...</button>
-              <button>8</button>
-              <button>›</button>
+              <button type="button" className={styles.active} aria-current="page" aria-label="Current page, page 1">1</button>
+              <button type="button" aria-label="Go to page 2">2</button>
+              <button type="button" aria-label="Go to page 3">3</button>
+              <button type="button" aria-label="More pages" disabled>...</button>
+              <button type="button" aria-label="Go to page 8">8</button>
+              <button type="button" aria-label="Go to next page">›</button>
             </div>
           </div>
 

@@ -23,3 +23,9 @@ export function pathFromUrl(path = "/") {
   if (/^https?:\/\//i.test(path)) return new URL(path).pathname;
   return path.startsWith("/") ? path : `/${path}`;
 }
+
+export function toIsoDate(date?: string) {
+  if (!date) return undefined;
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+}
