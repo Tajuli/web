@@ -246,7 +246,7 @@ export default function Hero() {
                 <div className={styles.actions}>
                   <a
                     href="#contact"
-                    className={`btn btn-primary ${styles.primaryBtn}`}
+                    className="btn btn-primary"
                   >
                     Request a Free Growth Audit
                   </a>
@@ -255,7 +255,7 @@ export default function Hero() {
                     href="https://wa.me/8801641572608?text=Hello%20PrimeDigitor!%20I'm%20interested%20in%20your%20services.%20I'd%20like%20to%20discuss%20my%20project."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`btn btn-primary ${styles.primaryBtn}`}
+                    className="btn btn-primary"
                   >
                     Chat on WhatsApp
                   </a>

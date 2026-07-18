@@ -159,7 +159,6 @@
   flex-wrap:wrap;
 }
 
-.primaryBtn,
 .secondaryBtn{
   display:inline-flex;
   align-items:center;
@@ -176,7 +175,6 @@
 
 /* Same as Home Secondary Button */
 
-.primaryBtn,
 .secondaryBtn{
   width:260px;
   background:#fff;
@@ -184,7 +182,6 @@
   border:2px solid var(--case-heading);
 }
 
-.primaryBtn:hover,
 .secondaryBtn:hover{
   background:var(--case-heading);
   color:#fff;
@@ -199,7 +196,6 @@
     width:100%;
   }
 
-  .primaryBtn,
   .secondaryBtn{
     width:100%;
     max-width:340px;
@@ -923,9 +919,6 @@
   margin-top: 14px;
 }
 
-.ctaCard .primaryBtn {
-  width: 100%;
-}
 
 /* =====================================================
    BOTTOM CTA
@@ -999,13 +992,6 @@
   margin-top: 2.7rem;
 }
 
-.bottomButtons .primaryBtn {
-  background: #fff;
-
-  color: var(--primary-color);
-
-  box-shadow: none;
-}
 
 .bottomButtons .secondaryBtn {
   background: transparent;
@@ -1071,7 +1057,6 @@
     flex-direction: column;
   }
 
-  .primaryBtn,
   .secondaryBtn {
     width: 100%;
   }

@@ -954,38 +954,6 @@
     flex-wrap:wrap;
 }
 
-.ctaButton{
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:18px 38px;
-
-    border-radius:999px;
-
-    background:linear-gradient(135deg,#22c55e,#16a34a);
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-weight:700;
-
-    transition:.35s;
-
-    box-shadow:
-        0 12px 30px rgba(34,197,94,.25);
-}
-
-.ctaButton:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 20px 45px rgba(34,197,94,.35);
-}
-
 .secondaryButton{
 
     display:inline-flex;
@@ -1045,7 +1013,6 @@
         flex-direction:column;
     }
 
-    .ctaButton,
     .secondaryButton{
 
         width:100%;
@@ -1217,8 +1184,4 @@
     font-size:2rem;
   }
 
-  .ctaButton{
-    width:100%;
-    justify-content:center;
-  }
 }

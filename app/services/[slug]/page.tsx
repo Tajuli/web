@@ -440,7 +440,7 @@ export default async function ServicePage({
 
           <Link
             href="/#contact"
-            className={styles.ctaButton}
+            className="btn btn-primary"
           >
             Request Free Audit →
           </Link>

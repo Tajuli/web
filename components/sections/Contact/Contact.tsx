@@ -321,7 +321,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className={styles.submitBtn}
+                  className={`btn btn-primary ${styles.submitBtn}`}
                   disabled={loading}
                 >
                   {loading ? (
