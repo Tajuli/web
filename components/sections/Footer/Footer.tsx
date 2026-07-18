@@ -50,9 +50,14 @@ export default function Footer() {
             </p>
 
             <div className={styles.socials}>
-              <a href="https://www.facebook.com/primedigitor" target="_blank" rel="noopener noreferrer" aria-label="PrimeDigitor on Facebook">
-                <Facebook size={18} />
-              </a>
+              <a
+  href="https://www.facebook.com/profile.php?id=61591813600557"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="PrimeDigitor on Facebook"
+>
+  <Facebook size={18} />
+</a>
 
               <a href="https://www.instagram.com/primedigitor" target="_blank" rel="noopener noreferrer" aria-label="PrimeDigitor on Instagram">
                 <Instagram size={18} />
