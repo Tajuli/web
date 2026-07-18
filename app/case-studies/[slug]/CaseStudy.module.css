@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
 
-  padding: 110px 0 60px;  /* 110px = navbar height + spacing */
+  padding: 90px 0 60px;  /* 110px = navbar height + spacing */
 
   background: url("/images/hero/case-study-hero.webp")
     center/cover no-repeat;
@@ -1043,7 +1043,7 @@
 @media (max-width:768px) {
 
   .hero {
-    padding: 5rem 0 2.5rem;
+    padding: 90px 0 60px;
   }
 
   .meta,
