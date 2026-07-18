@@ -27,9 +27,9 @@ export default function About() {
             </p>
 
             <p className="section-text">
-              Every business has unique goals and challenges. That's why we
+              Every business has unique goals and challenges. That&apos;s why we
               create customized digital strategies instead of relying on generic
-              marketing approaches. Whether you're launching a startup,
+              marketing approaches. Whether you&apos;re launching a startup,
               expanding your company, or scaling an established brand, our team
               focuses on delivering solutions that create long-term value and
               measurable success.
@@ -94,7 +94,7 @@ export default function About() {
             </p>
 
             <a href="#contact" className="btn btn-primary">
-              Let's Work Together
+              Let&apos;s Work Together
             </a>
           </div>
         </div>

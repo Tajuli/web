@@ -72,7 +72,7 @@ export default function FAQ() {
           <p className={styles.description}>
             Answers that help you choose the right service before you spend on marketing.
             <br />
-            Can't find the answer you're looking for?
+            Can&apos;t find the answer you&apos;re looking for?
             <br />
             Request a free growth audit and our team will recommend the clearest next step.
           </p>

@@ -105,7 +105,7 @@ export default function Contact() {
 
         <div className={styles.header}>
           <span className={styles.badge}>
-            LET'S WORK TOGETHER
+            LET&apos;S WORK TOGETHER
           </span>
 
           <h2 className="section-title">
