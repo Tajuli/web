@@ -40,7 +40,7 @@ export default function Works() {
             href="/case-studies"
             className={styles.viewAll}
           >
-            View All Case Studies
+            View All
           </Link>
         </div>
 
