@@ -37,30 +37,6 @@
 }
 
 /* =========================================================
-   BACKGROUND DECORATION
-========================================================= */
-
-.bgGlow{
-  width:320px;
-  height:320px;
-
-  top:-120px;
-  right:-120px;
-
-  background:rgba(124,194,66,.12);
-}
-
-.bgGlow2{
-  width:260px;
-  height:260px;
-
-  bottom:-120px;
-  left:-120px;
-
-  background:rgba(17,24,39,.05);
-}
-
-/* =========================================================
    CONTACT OPTIONS
 ========================================================= */
 
@@ -788,72 +764,6 @@
 .submitBtn:hover svg{
 
   transform:translateX(5px);
-
-}
-
-/* =========================================================
-   CONTACT INFO
-========================================================= */
-
-.contactInfo{
-
-  margin-top:2rem;
-
-  padding-top:2rem;
-
-  border-top:1px solid #edf2f7;
-
-  display:grid;
-
-  gap:1rem;
-
-}
-
-.infoItem{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:1rem;
-
-}
-
-.infoIcon{
-
-  width:48px;
-
-  height:48px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  border-radius:14px;
-
-  background:#f4f9ee;
-
-  color:#7cc242;
-
-}
-
-.infoContent strong{
-
-  display:block;
-
-  color:#111827;
-
-  font-size:.95rem;
-
-}
-
-.infoContent span{
-
-  color:#64748b;
-
-  font-size:.92rem;
 
 }
 
