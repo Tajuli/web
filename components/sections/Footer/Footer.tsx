@@ -29,7 +29,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <a href="#contact" className={styles.ctaButton}>
+          <a href="#contact" className="btn btn-primary">
             Request Free Audit
             <ArrowRight size={18} />
           </a>

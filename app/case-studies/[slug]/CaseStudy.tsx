@@ -47,7 +47,7 @@ export default function CaseStudy({ caseStudy }: Props) {
               <div className={styles.heroButtons}>
                 <Link
                   href="/#contact"
-                  className={styles.primaryBtn}
+                  className="btn btn-primary"
                 >
                   Get Free Consultation
                 </Link>
@@ -380,7 +380,7 @@ export default function CaseStudy({ caseStudy }: Props) {
 
                   <Link
                     href="/#contact"
-                    className={styles.primaryBtn}
+                    className="btn btn-primary"
                   >
                     Start Your Project
                   </Link>
@@ -422,7 +422,7 @@ export default function CaseStudy({ caseStudy }: Props) {
             <div className={styles.bottomButtons}>
               <Link
                 href="/#contact"
-                className={styles.primaryBtn}
+                className="btn btn-primary"
               >
                 Get Free Consultation
               </Link>

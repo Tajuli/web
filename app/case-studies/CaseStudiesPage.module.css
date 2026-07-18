@@ -126,7 +126,6 @@
   flex-wrap:wrap;
 }
 
-.primaryBtn,
 .secondaryBtn{
   display:inline-flex;
   align-items:center;
@@ -143,7 +142,6 @@
 
 /* Same as Home Secondary Button */
 
-.primaryBtn,
 .secondaryBtn{
   width:260px;
   background:#fff;
@@ -151,7 +149,6 @@
   border:2px solid var(--case-heading);
 }
 
-.primaryBtn:hover,
 .secondaryBtn:hover{
   background:var(--case-heading);
   color:#fff;
@@ -166,7 +163,6 @@
     width:100%;
   }
 
-  .primaryBtn,
   .secondaryBtn{
     width:100%;
     max-width:340px;
@@ -1171,21 +1167,6 @@ right:16px;
 
 /* Home page button override */
 
-.ctaButtons .btn-primary{
-
-    background:var(--case-primary);
-
-    border-color:var(--case-primary);
-
-    color:#fff;
-}
-
-.ctaButtons .btn-primary:hover{
-
-    background:#6ab236;
-
-    border-color:#6ab236;
-}
 
 .ctaButtons .btn-secondary{
 
@@ -1233,11 +1214,6 @@ border-radius:22px;
 .ctaButtons{
 
 flex-direction:column;
-}
-
-.ctaButtons a{
-
-width:100%;
 }
 
 }
