@@ -75,7 +75,7 @@ export default function CaseStudiesPage() {
         <div className="site-container">
           <div className={styles.ctaBox}>
             <span className={styles.ctaBadge}>
-              🚀 Let's Grow Together
+              🚀 Let&apos;s Grow Together
             </span>
 
             <h2>

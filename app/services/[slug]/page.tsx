@@ -160,7 +160,7 @@ export default async function ServicePage({
                   <div className={styles.featuresHeader}>
 
                     <h2 className={styles.featuresTitle}>
-                      What's Included
+                      What&apos;s Included
                     </h2>
 
                     <p className={styles.featuresText}>

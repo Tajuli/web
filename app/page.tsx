@@ -1,12 +1,14 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero/Hero";
 import Services from "@/components/sections/Services/Services";
-import Works from "@/components/sections/Works/Works";
 import About from "@/components/sections/About/About";
 import WhyChooseUs from "@/components/sections/WhyChooseUs/WhyChooseUs";
-import Blog from "@/components/sections/Blog/Blog";
-import FAQ from "@/components/sections/FAQ/FAQ";
-import Contact from "@/components/sections/Contact/Contact";
 import { JsonLd, contactPageSchema, webpageSchema, breadcrumbSchema } from "@/lib/jsonLd";
+
+const Works = dynamic(() => import("@/components/sections/Works/Works"));
+const Blog = dynamic(() => import("@/components/sections/Blog/Blog"));
+const FAQ = dynamic(() => import("@/components/sections/FAQ/FAQ"));
+const Contact = dynamic(() => import("@/components/sections/Contact/Contact"));
 
 export default function HomePage() {
   return (

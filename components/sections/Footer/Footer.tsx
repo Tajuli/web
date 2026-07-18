@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Footer.module.css";
 import {
   Facebook,
@@ -71,41 +72,41 @@ export default function Footer() {
           <div>
             <h4>Services</h4>
 
-            <a href="/services/facebook-marketing">
+            <Link href="/services/facebook-marketing">
               Facebook Marketing
-            </a>
+            </Link>
 
-            <a href="/services/google-ads">
+            <Link href="/services/google-ads">
               Google Ads
-            </a>
+            </Link>
 
-            <a href="/services/tiktok-marketing">
+            <Link href="/services/tiktok-marketing">
               TikTok Marketing
-            </a>
+            </Link>
 
-            <a href="/services/seo">
+            <Link href="/services/seo">
               SEO Services
-            </a>
+            </Link>
 
-            <a href="/services/website-development">
+            <Link href="/services/website-development">
               Website Development
-            </a>
+            </Link>
 
-            <a href="/services/software-development">
+            <Link href="/services/software-development">
               Software & App Development
-            </a>
+            </Link>
 
-            <a href="/services/video-production">
+            <Link href="/services/video-production">
               Video Advertisement Production
-            </a>
+            </Link>
 
-            <a href="/services/social-media-management">
+            <Link href="/services/social-media-management">
               Social Media Management
-            </a>
+            </Link>
 
-            <a href="/services/content-branding">
+            <Link href="/services/content-branding">
               Content Creation & Branding
-            </a>
+            </Link>
           </div>
 
           {/* Contact */}

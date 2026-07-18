@@ -311,7 +311,7 @@ export default function CaseStudy({ caseStudy }: Props) {
                         styles.quoteIcon
                       }
                     >
-                      "
+                      &ldquo;
                     </div>
 
                     <blockquote>
@@ -404,7 +404,7 @@ export default function CaseStudy({ caseStudy }: Props) {
       <section className={styles.bottomCta}>
         <div className="site-container">
           <div className={styles.bottomCtaCard}>
-            <span>LET'S WORK TOGETHER</span>
+            <span>LET&apos;S WORK TOGETHER</span>
 
             <h2>
               Ready to Plan Your Next
@@ -415,7 +415,7 @@ export default function CaseStudy({ caseStudy }: Props) {
               Whether you need digital
               marketing, SEO, website
               development or branding,
-              we're ready to help your
+              we&apos;re ready to help your
               business grow.
             </p>
 
